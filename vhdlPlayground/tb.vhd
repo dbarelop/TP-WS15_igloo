@@ -29,8 +29,8 @@ architecture bhv of d_ff_tb is
 	signal q_n_tb : std_logic;
 
 	begin
-		d_tb <= not d_tb after 20 ns;
-		c_tb <= not c_tb after 10 ns;
+		d_tb <= not d_tb after 10 ns;
+		c_tb <= not c_tb after 7 ns;
 
 		DUT: d_ff
 			port map(
