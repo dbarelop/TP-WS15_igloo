@@ -9,6 +9,5 @@ architecture sim of tb is
 
 begin
 CLOCK:
-clk <=  '1' after 25 ns when clk = '0' else
-        '0' after 25 ns when clk = '1';
+clk <=  not clk after 25 ns;
 end;
