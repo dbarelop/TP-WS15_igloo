@@ -1,47 +1,44 @@
--- Testbench fuer Mini DDS
+-- Testbench fuer D-FF
  
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
  
 -- leere entity
-entity mini_dds_tb is
-end entity mini_dds_tb;
+entity d_ff_tb is
+end entity d_ff_tb;
  
-architecture bhv of mini_dds_tb is
+architecture bhv of d_ff_tb is
  
-  -- Moduldeklaration
-  component mini_dds is
-    port (
-      clk   : in std_logic;
-      reset : in std_logic;
- 
-      sinus     : out std_logic_vector(3 downto 0);
-      saegezahn : out std_logic_vector(3 downto 0);
-      rechteck  : out std_logic_vector(3 downto 0)
-    );
-  end component;
- 
-  -- input
-  signal clk   : std_logic := '0';
-  signal reset : std_logic;
- 
-  -- output
-  signal sinus, saegezahn, rechteck : std_logic_vector(3 downto 0);
- 
-begin
-  clk   <= not clk  after 20 ns;  -- 25 MHz Taktfrequenz
-  reset <= '1', '0' after 100 ns; -- erzeugt Resetsignal: --__
- 
-  -- Modulinstatziierung
-  dut : mini_dds
-    port map (
-      clk       => clk,
-      reset     => reset,
- 
-      sinus     => sinus,
-      saegezahn => saegezahn,
-      rechteck  => rechteck
-      );
+	component d_ff is
+		port(
+			d : in std_logic;
+			c : in std_logic;
+
+			q : out std_logic;
+			q_n: out std_logic
+		);
+	end component;
+
+	-- input
+	signal d_tb : std_logic := '0';
+	signal c_tb : std_logic := '0';
+
+	-- output
+	signal q_tb : std_logic;
+	signal q_n_tb : std_logic;
+
+	begin
+		d_tb <= not d_tb after 20 ns;
+		c_tb <= not c_tb after 10 ns;
+
+		DUT: d_ff
+			port map(
+				d => d_tb,
+				c => c_tb,
+
+				q => q_tb,
+				q_n => q_n_tb
+				);
  
 end architecture;
