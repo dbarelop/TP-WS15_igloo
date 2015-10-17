@@ -1,51 +1,57 @@
-----------------------------------------------------
--- VHDL code for n-bit counter (ESD figure 2.6)
--- by Weijun Zhang, 04/2001
 --
--- this is the behavior description of n-bit counter
--- another way can be used is FSM model. 
-----------------------------------------------------
-	
-library ieee ;
+-- Mini-DDS zum Demonstrieren der Testbench
+--
+ 
+library ieee;
 use ieee.std_logic_1164.all;
-use ieee.std_logic_unsigned.all;
-
-----------------------------------------------------
-
-entity counter is
-
-generic(n: natural :=2);
-port(	clock:	in std_logic;
-	clear:	in std_logic;
-	count:	in std_logic;
-	Q:	out std_logic_vector(n-1 downto 0)
-);
-end counter;
-
-----------------------------------------------------
-
-architecture behv of counter is		 	  
-	
-    signal Pre_Q: std_logic_vector(n-1 downto 0);
-
+use ieee.numeric_std.all;
+ 
+entity mini_dds is
+  port
+    (
+      clk   : in std_logic;
+      reset : in std_logic;
+ 
+      sinus     : out std_logic_vector(3 downto 0);
+      saegezahn : out std_logic_vector(3 downto 0);
+      rechteck  : out std_logic_vector(3 downto 0)
+      );
+end mini_dds;
+ 
+architecture bhv of mini_dds is
+ 
+  type sinus_array_t is array (0 to 15) of integer range 0 to 15;
+ 
+  constant sinus_array_c : sinus_array_t :=
+    (8, 10, 13, 14, 15, 14, 13, 10, 8, 5, 2, 1, 0, 1, 2, 5);
+ 
+  signal index : integer range 0 to 15;
+ 
+  signal phase : unsigned(3 downto 0);
+ 
+  signal sinus_u     : unsigned(3 downto 0);
+  signal saegezahn_u : unsigned(3 downto 0);
+  signal rechteck_u  : unsigned(3 downto 0);
+ 
 begin
-
-    -- behavior describe the counter
-
-    process(clock, count, clear)
-    begin
-	if clear = '1' then
- 	    Pre_Q <= Pre_Q - Pre_Q;
-	elsif (clock='1' and clock'event) then
-	    if count = '1' then
-		Pre_Q <= Pre_Q + 1;
-	    end if;
-	end if;
-    end process;	
-	
-    -- concurrent assignment statement
-    Q <= Pre_Q;
-
-end behv;
-
------------------------------------------------------
+  phase_accumulator : process (clk, reset)
+  begin
+    if reset = '1' then                 -- asynchroner Reset
+      phase <= (others => '0');
+    elsif rising_edge(clk) then
+      phase <= phase + 1;
+    end if;
+  end process;
+ 
+  index <= to_integer(phase);
+ 
+  sinus_u     <= to_unsigned( sinus_array_c (index), sinus_u'length);
+  saegezahn_u <= phase;
+  rechteck_u  <= (others => phase(3));
+ 
+  -- convert output values
+  sinus     <= std_logic_vector( sinus_u );
+  saegezahn <= std_logic_vector( saegezahn_u );
+  rechteck  <= std_logic_vector( rechteck_u);
+ 
+end bhv;
