@@ -14,6 +14,7 @@ entity simple_spi is
 			mosi : in std_logic;
 
 			tmp: buffer std_logic_vector(7 downto 0);
+			
 
 			miso : out std_logic
 		);
@@ -21,15 +22,17 @@ end simple_spi;
  
 architecture bhv of simple_spi is
 
-
+	
 	begin
 	step: process(clk)
+		variable cnt : integer := 0;
 	begin
-		if rising_edge(clk) then
+		if rising_edge(clk) and cnt < 8 then
 			for i in 0 to 6 loop
 				tmp(i+1) <= tmp(i);
 			end loop;
 			tmp(0) <= mosi;
+			cnt:=cnt+1;
 		end if;
 	end process;
  
