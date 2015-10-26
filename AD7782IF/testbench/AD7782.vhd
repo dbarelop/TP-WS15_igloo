@@ -30,11 +30,11 @@ ARCHITECTURE verhalten OF AD7782 IS
    TYPE tstate IS (S0, S1, S2);
 
    SIGNAL dat: std_logic_vector(N-1 DOWNTO 0) := (OTHERS => '0');
-   SIGNAL tsr: std_logic_vector(N   DOWNTO 0) := (OTHERS => '1');
+   SIGNAL tsr: std_logic_vector(N   DOWNTO 0) := (OTHERS => '1'); 		--was ist tsr?
 
    SIGNAL clk:   std_logic := '0';
    SIGNAL lock:  std_logic := '0';
-   SIGNAL wre:   std_logic := '0';
+   SIGNAL wre:   std_logic := '0'; --evt. write enable
    SIGNAL state: tstate;
 
 BEGIN
@@ -45,10 +45,10 @@ BEGIN
 
    p1: PROCESS (cs, clk) IS
       VARIABLE tmp:  integer;
-      VARIABLE ain:  real;
+      VARIABLE ain:  real;		-- analog input
       VARIABLE gain: real;
       VARIABLE old:  std_logic; -- alter Wert von sel
-      VARIABLE cnt:  integer;
+      VARIABLE cnt:  integer;	-- counter
    BEGIN
       IF cs='1' THEN
          state <= S0;
@@ -78,15 +78,15 @@ BEGIN
                END IF;
                old := sel;
                state <= S1;
-            WHEN S1 =>
+            WHEN S1 =>				--S1 counts the cnt dont to "0" and switch to S2
                IF cnt=0 THEN
                   state <= S2;
                ELSE
                   cnt := cnt - 1;
                END IF;
             WHEN S2 =>
-               tmp   := integer(2.0**(N-1) * ((ain*gain / (1.024*ref)) + 1.0));
-               dat   <= conv_std_logic_vector(tmp, N);
+               tmp   := integer(2.0**(N-1) * ((ain*gain / (1.024*ref)) + 1.0));		-- gain can bee 1 on +-2.56V Range or 16 on 160mV Range
+               dat   <= conv_std_logic_vector(tmp, N);								-- convert the integer tmp to an log_vector 
                wre   <= '1' AFTER 10 ns, '0' AFTER 20 ns;
                state <= S0;
          END CASE;
@@ -95,16 +95,16 @@ BEGIN
 
    -- This clock shifts out the conversion results on the falling edge of SCLK.
    p2: PROCESS (sclk, wre) IS
-      VARIABLE arg: real;
-      VARIABLE tmp: integer;
+      VARIABLE arg: real;		--wo wird das verwendet???
+      VARIABLE tmp: integer;	--wo wird...
    BEGIN
-      IF wre='1' THEN
+      IF wre='1' THEN			--warum so nicht in zwei verschiedene Prozesse?
          tsr <= '0' & dat;
       ELSIF falling_edge(sclk) THEN
-         tsr <= tsr(tsr'LEFT-1 DOWNTO tsr'RIGHT) & '1';
+         tsr <= tsr(tsr'LEFT-1 DOWNTO tsr'RIGHT) & '1';									-- Shift register? nach Links mit 1 füllen
       END IF;
    END PROCESS;
 
-   dout <= tsr(tsr'LEFT) AFTER 80 ns WHEN lock='1' AND cs='0'  ELSE 'Z' AFTER 80 ns;
+   dout <= tsr(tsr'LEFT) AFTER 80 ns WHEN lock='1' AND cs='0'  ELSE 'Z' AFTER 80 ns;	-- gibt register tsr aus -- Buisy flag for the time device is busisy
 
 END verhalten;
