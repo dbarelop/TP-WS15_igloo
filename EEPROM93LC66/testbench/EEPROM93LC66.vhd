@@ -38,35 +38,45 @@ BEGIN
 			END IF;
 		ELSIF falling_edge(cs) AND state = WAITFORCS THEN
 			IF cmd = ERASE THEN
-				IF org = '1' THEN
-					memory_array(address * 2) <= (others '1');
-					memory_array((address * 2) + 1) <= (others '1');
-				ELSE
-					memory_array(address) <= (others '1');
+				IF NOT writeProtect THEN
+					IF org = '1' THEN
+						MEM_DATA(address * 2) <= (others '1');
+						MEM_DATA((address * 2) + 1) <= (others '1');
+					ELSE
+						MEM_DATA(address) <= (others '1');
+					END IF;
 				END IF;
+				address <= (others '0');
 				cmd <= NONE;
 				state <= MEMBUSY;
 			ELSIF cmd = ERAL THEN
-				memory_array <= (others '1');
-				cmd <= NONE;
-				state <= MEMBUSY;
-			ELSIF cmd = WR1TE THEN
-				IF org = '1' THEN
-					memory_array(address*2) <= serialInR(15 DOWNTO 8);
-					memory_array((address*2)+1) <= serialInR(7 DOWNTO 0);
-				ELSE
-					memory_array(address) <= serialInR(7 DOWNTO 0);
+				IF NOT writeProtect THEN
+					MEM_DATA <= (others '1');
 				END IF;
 				cmd <= NONE;
 				state <= MEMBUSY;
+			ELSIF cmd = WR1TE THEN
+				IF NOT writeProtect THEN
+					IF org = '1' THEN
+						MEM_DATA(address*2) <= serialInR(15 DOWNTO 8);
+						MEM_DATA((address*2)+1) <= serialInR(7 DOWNTO 0);
+					ELSE
+						MEM_DATA(address) <= serialInR(7 DOWNTO 0);
+					END IF;
+				END IF;
+				address <= (others '0');
+				cmd <= NONE;
+				state <= MEMBUSY;
 			ELSIF cmd = WRAL THEN
-				IF org = '1' THEN
-					for i in 0 to 2047 LOOP
-						memory_array(i*2) <= serialInR(15 DOWNTO 8);
-						memory_array((i*2)+1) <= serialInR(7 DOWNTO 0);
-					END LOOP;
-				ELSE
-					memory_array <= serialInR(7 DOWNTO 0);
+				IF NOT writeProtect THEN
+					IF org = '1' THEN
+						for i in 0 to 2047 LOOP
+							MEM_DATA(i*2) <= serialInR(15 DOWNTO 8);
+							MEM_DATA((i*2)+1) <= serialInR(7 DOWNTO 0);
+						END LOOP;
+					ELSE
+						MEM_DATA <= serialInR(7 DOWNTO 0);
+					END IF;
 				END IF;
 				cmd <= NONE;
 				state <= MEMBUSY;
@@ -153,11 +163,12 @@ BEGIN
 						ELSIF cmd = RE4D THEN
 							-- DO = 0 at A0 missing!!
 							IF cnt = 8 THEN
-								serialOutR <= memory_array(address*2) & 
-															memory_array((address*2) + 1);
+								serialOutR <= MEM_DATA(address*2) & 
+															MEM_DATA((address*2) + 1);
 							ELSE
-								serialOutR(15 DOWNTO 8) <= memory_array(address);
+								serialOutR(15 DOWNTO 8) <= MEM_DATA(address);
 							END IF;
+							address <= (others '0');
 							state <= TXDOUT;
 						ELSIF cmd = WR1TE THEN
 							state <= RXDIN
