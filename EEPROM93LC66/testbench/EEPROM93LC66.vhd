@@ -47,14 +47,10 @@ BEGIN
 					END IF;
 				END IF;
 				address <= (others '0');
-				cmd <= NONE;
-				state <= MEMBUSY;
 			ELSIF cmd = ERAL THEN
 				IF NOT writeProtect THEN
 					MEM_DATA <= (others '1');
 				END IF;
-				cmd <= NONE;
-				state <= MEMBUSY;
 			ELSIF cmd = WR1TE THEN
 				IF NOT writeProtect THEN
 					IF org = '1' THEN
@@ -65,8 +61,6 @@ BEGIN
 					END IF;
 				END IF;
 				address <= (others '0');
-				cmd <= NONE;
-				state <= MEMBUSY;
 			ELSIF cmd = WRAL THEN
 				IF NOT writeProtect THEN
 					IF org = '1' THEN
@@ -77,19 +71,24 @@ BEGIN
 					ELSE
 						MEM_DATA <= serialInR(7 DOWNTO 0);
 					END IF;
-				END IF;
-				cmd <= NONE;
-				state <= MEMBUSY;
+				END IF;				
 			END IF;
+			state <= MEMBUSY;
 		END IF;
 
 	END PROCESS;
 
 	busyState: PROCESS(state) IS
-
 	BEGIN
 		IF state = MEMBUSY THEN
-			state <= IDLE AFTER 
+			IF cmd = ERASE THEN
+				state <= IDLE AFTER 6 ms;
+			ELSIF cmd = ERAL THEN
+				state <= IDLE AFTER 6 ms;
+			ELSIF cmd = WRAL THEN
+				state <= IDLE AFTER 15 ms;
+			END IF;
+			cmd <= NONE;
 		END IF;
 	END PROCESS;
 
