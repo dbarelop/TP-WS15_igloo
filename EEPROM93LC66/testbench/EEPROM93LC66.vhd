@@ -160,4 +160,20 @@ BEGIN
 		END IF;
 	END PROCESS;
 
+	serialOutPro: PROCESS (sclk) IS
+		VARIABLE cnt: integer := 0;
+
+	BEGIN
+
+		IF falling_edge(sclk) AND cs = '1' AND state = TXDOUT THEN
+			do <= serialOutR(15);
+			serialOutR <= serialOutR(14 DOWNTO 0) & '0';
+			cnt := cnt + 1;
+			IF (org = '1' AND cnt = 16) OR (org = '0' and cnt = 8) THEN
+				cnt := 0;
+				state <= IDLE;
+			END IF;
+		END IF;
+	END PROCESS;
+
 END simulation;
