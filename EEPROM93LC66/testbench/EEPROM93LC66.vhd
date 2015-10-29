@@ -6,8 +6,8 @@ USE ieee.std_logic_arith.ALL;
 ENTITY EEPROM93LC66 IS
 	PORT(sclk:		IN std_logic;
 			 cs:			IN std_logic;
-			 di:			IN std_logic;
-			 do:			OUT std_logic;
+			 din:			IN std_logic;
+			 dout:			OUT std_logic;
 			 org:			IN std_logic);
 END EEPROM93LC66;
 
@@ -45,11 +45,11 @@ BEGIN
 		IF rising_edge(sclk) AND cs = '1' THEN
 			CASE state IS
 				WHEN RXSB =>
-					IF di = '1' THEN
+					IF din = '1' THEN
 						state <= RXOP;
 					END IF;
 				WHEN RXOP =>
-					serialInR <= serialInR(14 DOWNTO 0) & di;
+					serialInR <= serialInR(14 DOWNTO 0) & din;
 					cnt := cnt + 1;
 					IF cnt >= 2 THEN
 						IF serialInR(1 DOWNTO 0) = "00" THEN
