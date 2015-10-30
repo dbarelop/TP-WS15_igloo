@@ -12,15 +12,15 @@ ENTITY EEPROM93LC66 IS
 END EEPROM93LC66;
 
 ARCHITECTURE simulation OF EEPROM93LC66 IS
-  type      memory_array  is array(0 to 4095) of std_logic_vector(7 downto 0);
+  type      memory_array  is array(0 to 4095) of std_logic_vector(7 downto 0) ;
   type			tstate IS (IDLE, RXSB, RXOP, RXOP2, RXADDR, WAITFORCS, RXDIN, TXDOUT, MEMBUSY);
   type			tcmd IS (NONE, ERASE, ERAL, RE4D, WR1TE, WRAL);
 	
-	signal MEM_DATA			: memory_array <=(others '1');
+	signal MEM_DATA			: memory_array := ((others=> (others=>'1')));
 
-	signal writeProtect : std_logic <= '1'; -- write protection, activ high
-	signal state				: tstate <= IDLE;
-	signal cmd					: tcmd <= NONE;
+	signal writeProtect : std_logic := '1'; -- write protection, activ high
+	signal state				: tstate := IDLE;
+	signal cmd					: tcmd := NONE;
 	signal serialInR		: std_logic_vector(15 DOWNTO 0);
 	signal serialOutR		: std_logic_vector(15 DOWNTO 0);
 	signal address			: std_logic_vector(8 DOWNTO 0);
@@ -32,50 +32,51 @@ BEGIN
 	BEGIN
 		IF rising_edge(cs) THEN
 			IF state = IDLE THEN
-				state = RXSB;
+				state <= RXSB;
 			ELSIF state = MEMBUSY THEN
-				do <= '0';
+				dout <= '0';
 			END IF;
 		ELSIF falling_edge(cs) AND state = WAITFORCS THEN
 			IF cmd = ERASE THEN
-				IF NOT writeProtect THEN
+				IF writeProtect = '0' THEN
 					IF org = '1' THEN
-						MEM_DATA(address * 2) <= (others '1');
-						MEM_DATA((address * 2) + 1) <= (others '1');
+						-- multiply by 2
+						MEM_DATA(CONV_INTEGER(address(7 DOWNTO 0) & '0')) <= (others => '1');
+						MEM_DATA(CONV_INTEGER(address(7 DOWNTO 0) & '1')) <= (others => '1');
 					ELSE
-						MEM_DATA(address) <= (others '1');
+						MEM_DATA(CONV_INTEGER(address)) <= (others => '1');
 					END IF;
 				END IF;
-				address <= (others '0');
+				address <= (others => '0');
 			ELSIF cmd = ERAL THEN
-				IF NOT writeProtect THEN
-					MEM_DATA <= (others '1');
+				IF writeProtect = '0' THEN
+					MEM_DATA <= ((others=> (others=>'1')));
 				END IF;
 			ELSIF cmd = WR1TE THEN
-				IF NOT writeProtect THEN
+				IF writeProtect = '0' THEN
 					IF org = '1' THEN
-						MEM_DATA(address*2) <= serialInR(15 DOWNTO 8);
-						MEM_DATA((address*2)+1) <= serialInR(7 DOWNTO 0);
+						MEM_DATA(CONV_INTEGER(address(7 DOWNTO 0) & '0')) <= serialInR(15 DOWNTO 8);
+						MEM_DATA(CONV_INTEGER(address(7 DOWNTO 0) & '1')) <= serialInR(7 DOWNTO 0);
 					ELSE
-						MEM_DATA(address) <= serialInR(7 DOWNTO 0);
+						MEM_DATA(CONV_INTEGER(address)) <= serialInR(7 DOWNTO 0);
 					END IF;
 				END IF;
-				address <= (others '0');
+				address <= (others => '0');
 			ELSIF cmd = WRAL THEN
-				IF NOT writeProtect THEN
+				IF writeProtect = '0' THEN
 					IF org = '1' THEN
 						for i in 0 to 2047 LOOP
 							MEM_DATA(i*2) <= serialInR(15 DOWNTO 8);
 							MEM_DATA((i*2)+1) <= serialInR(7 DOWNTO 0);
 						END LOOP;
 					ELSE
-						MEM_DATA <= serialInR(7 DOWNTO 0);
+						MEM_DATA <= (others => (serialInR(7 DOWNTO 0)));
 					END IF;
 				END IF;				
 			END IF;
 			state <= MEMBUSY;
 		ELSIF falling_edge(cs) THEN
-			state = IDLE;
+			state <= IDLE;
 		END IF;
 
 	END PROCESS;
@@ -121,7 +122,7 @@ BEGIN
 							cmd <= WR1TE;
 							state <= RXADDR;
 						END IF;
-						serialInR <= (others '0');
+						serialInR <= (others => '0');
 						cnt := 0;
 					END IF;
 				WHEN RXOP2 =>
@@ -151,7 +152,7 @@ BEGIN
 								state <= RXDIN;
 						END CASE;
 						cnt := 0;
-						serialInR <= (others '0')
+						serialInR <= (others => '0');
 					END IF;
 				WHEN RXADDR =>
 					serialInR <= serialInR(14 DOWNTO 0) & din;
@@ -162,20 +163,20 @@ BEGIN
 							-- wait for falling edge in CS
 							state <= WAITFORCS;							
 						ELSIF cmd = RE4D THEN
-							-- DO = 0 at A0 missing!!
+							-- DOUT = 0 at A0 missing!!
 							IF cnt = 8 THEN
-								serialOutR <= MEM_DATA(address*2) & 
-															MEM_DATA((address*2) + 1);
+								serialOutR <= MEM_DATA(CONV_INTEGER(address(7 DOWNTO 0) & '0')) & 
+															MEM_DATA(CONV_INTEGER(address(7 DOWNTO 0) & '1'));
 							ELSE
-								serialOutR(15 DOWNTO 8) <= MEM_DATA(address);
+								serialOutR(15 DOWNTO 8) <= MEM_DATA(CONV_INTEGER(address));
 							END IF;
-							address <= (others '0');
+							address <= (others => '0');
 							state <= TXDOUT;
 						ELSIF cmd = WR1TE THEN
-							state <= RXDIN
+							state <= RXDIN;
 						END IF;
 						cnt := 0;
-						serialInR <= (others '0');
+						serialInR <= (others => '0');
 					END IF;
 				WHEN RXDIN =>
 					serialInR <= serialInR(14 DOWNTO 0) & din;
@@ -198,7 +199,7 @@ BEGIN
 	BEGIN
 
 		IF falling_edge(sclk) AND cs = '1' AND state = TXDOUT THEN
-			do <= serialOutR(15);
+			dout <= serialOutR(15);
 			serialOutR <= serialOutR(14 DOWNTO 0) & '0';
 			cnt := cnt + 1;
 			IF (org = '1' AND cnt = 16) OR (org = '0' AND cnt = 8) THEN
