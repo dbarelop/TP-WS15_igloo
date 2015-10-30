@@ -125,7 +125,7 @@ BEGIN
 						cnt := 0;
 					END IF;
 				WHEN RXOP2 =>
-					serialInR <= serialInR(14 DOWNTO 0) & di;
+					serialInR <= serialInR(14 DOWNTO 0) & din;
 					cnt := cnt + 1;
 					IF (org = '1' AND cnt = 8) OR (org = '0' AND cnt = 9) THEN
 						IF cnt = 8 THEN
@@ -154,7 +154,7 @@ BEGIN
 						serialInR <= (others '0')
 					END IF;
 				WHEN RXADDR =>
-					serialInR <= serialInR(14 DOWNTO 0) & di;
+					serialInR <= serialInR(14 DOWNTO 0) & din;
 					cnt := cnt + 1;
 					IF (org = '1' AND cnt = 8) OR (org = '0' AND cnt = 9) THEN
 						address <= serialInR(8 DOWNTO 0);
@@ -178,7 +178,7 @@ BEGIN
 						serialInR <= (others '0');
 					END IF;
 				WHEN RXDIN =>
-					serialInR <= serialInR(14 DOWNTO 0) & di;
+					serialInR <= serialInR(14 DOWNTO 0) & din;
 					cnt := cnt + 1;
 					IF (org = '1' AND cnt = 16) OR (org = '0' AND cnt = 8) THEN
 						IF cmd = WR1TE THEN
