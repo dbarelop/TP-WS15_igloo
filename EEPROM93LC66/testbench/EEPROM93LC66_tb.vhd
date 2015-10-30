@@ -42,17 +42,17 @@ BEGIN
             dout => miso,
 			org => org);
 	p1: PROCESS
-		PROCEDURE write (data: std_logic_vector; address: std_logic_vector)
-			CONSTANT oppcode: std_logic_vector(1 DOWNTO 0) = "01";
+		PROCEDURE write (data: std_logic_vector; address: std_logic_vector) IS
+			CONSTANT oppcode: std_logic_vector(1 DOWNTO 0) := "01";
 		BEGIN
-			WAIT UNTIL clk'EVENT AND clk='1'
+			WAIT UNTIL clk'EVENT AND clk='1';
 			spi_write(oppcode & address & data);
 		END PROCEDURE;
 		
 		PROCEDURE delete (address: std_logic_vector) IS
 			CONSTANT oppcode: std_logic_vector(1 DOWNTO 0) = "11";
 		BEGIN
-			WAIT UNTIL clk'EVENT AND clk='1'
+			WAIT UNTIL clk'EVENT AND clk='1';
 			spi_write(oppcode & address);
 		END PROCEDURE;
 		
@@ -60,7 +60,7 @@ BEGIN
 			CONSTANT oppcode: std_logic_vector(1 DOWNTO 0) = "00";
 			CONSTANT address: std_logic_vector(1 DOWNTO 0) = "10";
 		BEGIN
-			WAIT UNTIL clk'EVENT AND clk='1'
+			WAIT UNTIL clk'EVENT AND clk='1';
 			spi_write(oppcode & address);
 		END PROCEDURE;
 		
