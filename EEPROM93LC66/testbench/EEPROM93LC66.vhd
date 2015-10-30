@@ -13,30 +13,30 @@ END EEPROM93LC66;
 
 ARCHITECTURE simulation OF EEPROM93LC66 IS
   type      memory_array  is array(0 to 4095) of std_logic_vector(7 downto 0) ;
-  type			tstate IS (IDLE, RXSB, RXOP, RXOP2, RXADDR, WAITFORCS, RXDIN, TXDOUT, MEMBUSY);
+  type			tstate IS (IDLE, RXSB, RXOP, RXOP2, RXADDR, WAITFORCS, RXDIN, TXDOUT);
   type			tcmd IS (NONE, ERASE, ERAL, RE4D, WR1TE, WRAL);
+  type			t2state IS (IDLE, BUSY);
+
 	
 	signal MEM_DATA			: memory_array := ((others=> (others=>'1')));
 
 	signal writeProtect : std_logic := '1'; -- write protection, activ high
 	signal state				: tstate := IDLE;
 	signal cmd					: tcmd := NONE;
+	signal mstate				: t2state := IDLE;
+	signal txstate			: t2state := IDLE;
 	signal serialInR		: std_logic_vector(15 DOWNTO 0);
 	signal serialOutR		: std_logic_vector(15 DOWNTO 0);
 	signal address			: std_logic_vector(8 DOWNTO 0);
 
 BEGIN
 
-	chipSelect: PROCESS(cs) IS
+	memory_writePro: PROCESS(cs) IS
 
 	BEGIN
-		IF rising_edge(cs) THEN
-			IF state = IDLE THEN
-				state <= RXSB;
-			ELSIF state = MEMBUSY THEN
-				dout <= '0';
-			END IF;
-		ELSIF falling_edge(cs) AND state = WAITFORCS THEN
+
+		IF falling_edge(cs) AND state = WAITFORCS THEN
+			mstate <= BUSY;
 			IF cmd = ERASE THEN
 				IF writeProtect = '0' THEN
 					IF org = '1' THEN
@@ -46,12 +46,14 @@ BEGIN
 					ELSE
 						MEM_DATA(CONV_INTEGER(address)) <= (others => '1');
 					END IF;
+					--WAIT FOR 2 ms;
 				END IF;
 				address <= (others => '0');
 			ELSIF cmd = ERAL THEN
 				IF writeProtect = '0' THEN
 					MEM_DATA <= ((others=> (others=>'1')));
 				END IF;
+				--WAIT FOR 6 ms;
 			ELSIF cmd = WR1TE THEN
 				IF writeProtect = '0' THEN
 					IF org = '1' THEN
@@ -60,6 +62,7 @@ BEGIN
 					ELSE
 						MEM_DATA(CONV_INTEGER(address)) <= serialInR(7 DOWNTO 0);
 					END IF;
+					--WAIT FOR 2 ms;
 				END IF;
 				address <= (others => '0');
 			ELSIF cmd = WRAL THEN
@@ -72,140 +75,138 @@ BEGIN
 					ELSE
 						MEM_DATA <= (others => (serialInR(7 DOWNTO 0)));
 					END IF;
-				END IF;				
+					--WAIT FOR 15 ms;
+				END IF;
 			END IF;
-			state <= MEMBUSY;
-		ELSIF falling_edge(cs) THEN
-			state <= IDLE;
+			mstate <= IDLE;
 		END IF;
 
 	END PROCESS;
 
-	busyState: PROCESS(state) IS
-	BEGIN
-		IF state = MEMBUSY THEN
-			IF cmd = ERASE THEN
-				state <= IDLE AFTER 6 ms;
-			ELSIF cmd = ERAL THEN
-				state <= IDLE AFTER 6 ms;
-			ELSIF cmd = WRAL THEN
-				state <= IDLE AFTER 15 ms;
-			END IF;
-			cmd <= NONE;
-		END IF;
-	END PROCESS;
-
-	serialInPro: PROCESS(sclk) IS
+	serialInPro: PROCESS(sclk, cs) IS
 
 		VARIABLE cnt: integer;
 
 	BEGIN
 		IF rising_edge(sclk) AND cs = '1' THEN
-			CASE state IS
-				WHEN RXSB =>
-					IF din = '1' THEN
-						state <= RXOP;
+			IF state = RXSB THEN
+				IF din = '1' THEN
+					state <= RXOP;
+				END IF;
+			ELSIF state = RXOP THEN
+				serialInR <= serialInR(14 DOWNTO 0) & din;
+				cnt := cnt + 1;
+				IF cnt >= 2 THEN
+					IF serialInR(1 DOWNTO 0) = "00" THEN
+						state <= RXOP2;
+					ELSIF serialInR(1 DOWNTO 0) = "11" THEN
+						cmd <= ERASE;
+						state <= RXADDR;
+					ELSIF serialInR(1 DOWNTO 0) = "10" THEN
+						cmd <= RE4D;
+						state <= RXADDR;
+					ELSIF serialInR(1 DOWNTO 0) = "01" THEN
+						cmd <= WR1TE;
+						state <= RXADDR;
 					END IF;
-				WHEN RXOP =>
-					serialInR <= serialInR(14 DOWNTO 0) & din;
-					cnt := cnt + 1;
-					IF cnt >= 2 THEN
-						IF serialInR(1 DOWNTO 0) = "00" THEN
-							state <= RXOP2;
-						ELSIF serialInR(1 DOWNTO 0) = "11" THEN
-							cmd <= ERASE;
-							state <= RXADDR;
-						ELSIF serialInR(1 DOWNTO 0) = "10" THEN
-							cmd <= RE4D;
-							state <= RXADDR;
-						ELSIF serialInR(1 DOWNTO 0) = "01" THEN
-							cmd <= WR1TE;
-							state <= RXADDR;
-						END IF;
-						serialInR <= (others => '0');
-						cnt := 0;
+					serialInR <= (others => '0');
+					cnt := 0;
+				END IF;
+			ELSIF state = RXOP2 THEN
+				serialInR <= serialInR(14 DOWNTO 0) & din;
+				cnt := cnt + 1;
+				IF (org = '1' AND cnt = 8) OR (org = '0' AND cnt = 9) THEN
+					IF cnt = 8 THEN
+						-- shift in a extra bit
+						serialInR <= serialInR(14 DOWNTO 0) & '0';
 					END IF;
-				WHEN RXOP2 =>
-					serialInR <= serialInR(14 DOWNTO 0) & din;
-					cnt := cnt + 1;
-					IF (org = '1' AND cnt = 8) OR (org = '0' AND cnt = 9) THEN
+					IF serialInR(8 DOWNTO 7) = "10" THEN
+						-- ERAL
+						cmd <= ERAL;
+						state <= WAITFORCS;
+					ELSIF serialInR(8 DOWNTO 7) = "00" THEN
+						-- EWDS
+						writeProtect <= '1';
+						state <= IDLE;
+					ELSIF serialInR(8 DOWNTO 7) = "11" THEN
+						-- EWEN
+						writeProtect <= '0';
+						state <= IDLE;
+					ELSIF serialInR(8 DOWNTO 7) = "01" THEN
+						-- WRAL
+						cmd <= WRAL;
+						state <= RXDIN;
+					END IF;
+					cnt := 0;
+					serialInR <= (others => '0');
+				END IF;
+			ELSIF state = RXADDR THEN
+				serialInR <= serialInR(14 DOWNTO 0) & din;
+				cnt := cnt + 1;
+				IF (org = '1' AND cnt = 8) OR (org = '0' AND cnt = 9) THEN
+					address <= serialInR(8 DOWNTO 0);
+					IF cmd = ERASE THEN
+						-- wait for falling edge in CS
+						state <= WAITFORCS;							
+					ELSIF cmd = RE4D THEN
+						-- DOUT = 0 at A0 missing!!
 						IF cnt = 8 THEN
-							-- shift in a extra bit
-							serialInR <= serialInR(14 DOWNTO 0) & '0';
+							serialOutR <= MEM_DATA(CONV_INTEGER(address(7 DOWNTO 0) & '0')) & 
+														MEM_DATA(CONV_INTEGER(address(7 DOWNTO 0) & '1'));
+						ELSE
+							serialOutR(15 DOWNTO 8) <= MEM_DATA(CONV_INTEGER(address));
 						END IF;
-						CASE serialInR(8 DOWNTO 7) IS
-							WHEN "10" =>
-								-- ERAL
-								cmd <= ERAL;
-								state <= WAITFORCS;
-							WHEN "00" =>
-								-- EWDS
-								writeProtect <= '1';
-								state <= IDLE;
-							WHEN "11" =>
-								-- EWEN
-								writeProtect <= '0';
-								state <= IDLE;
-							WHEN "01" =>
-								-- WRAL
-								cmd <= WRAL;
-								state <= RXDIN;
-						END CASE;
-						cnt := 0;
-						serialInR <= (others => '0');
+						address <= (others => '0');
+						state <= TXDOUT;
+					ELSIF cmd = WR1TE THEN
+						state <= RXDIN;
 					END IF;
-				WHEN RXADDR =>
-					serialInR <= serialInR(14 DOWNTO 0) & din;
-					cnt := cnt + 1;
-					IF (org = '1' AND cnt = 8) OR (org = '0' AND cnt = 9) THEN
-						address <= serialInR(8 DOWNTO 0);
-						IF cmd = ERASE THEN
-							-- wait for falling edge in CS
-							state <= WAITFORCS;							
-						ELSIF cmd = RE4D THEN
-							-- DOUT = 0 at A0 missing!!
-							IF cnt = 8 THEN
-								serialOutR <= MEM_DATA(CONV_INTEGER(address(7 DOWNTO 0) & '0')) & 
-															MEM_DATA(CONV_INTEGER(address(7 DOWNTO 0) & '1'));
-							ELSE
-								serialOutR(15 DOWNTO 8) <= MEM_DATA(CONV_INTEGER(address));
-							END IF;
-							address <= (others => '0');
-							state <= TXDOUT;
-						ELSIF cmd = WR1TE THEN
-							state <= RXDIN;
-						END IF;
-						cnt := 0;
-						serialInR <= (others => '0');
+					cnt := 0;
+					serialInR <= (others => '0');
+				END IF;
+			ELSIF state = RXDIN THEN
+				serialInR <= serialInR(14 DOWNTO 0) & din;
+				cnt := cnt + 1;
+				IF (org = '1' AND cnt = 16) OR (org = '0' AND cnt = 8) THEN
+					IF cmd = WR1TE THEN
+						state <= WAITFORCS;
+					ELSIF cmd = WRAL THEN
+						state <= WAITFORCS;
 					END IF;
-				WHEN RXDIN =>
-					serialInR <= serialInR(14 DOWNTO 0) & din;
-					cnt := cnt + 1;
-					IF (org = '1' AND cnt = 16) OR (org = '0' AND cnt = 8) THEN
-						IF cmd = WR1TE THEN
-							state <= WAITFORCS;
-						ELSIF cmd = WRAL THEN
-							state <= WAITFORCS;
-						END IF;
-						cnt := 0;
-					END IF;
-			END CASE;
+					cnt := 0;
+				END IF;
+			END IF;
+		ELSIF rising_edge(cs) THEN
+			IF mstate = IDLE THEN
+				state <= IDLE;
+				cmd <= NONE;
+			END IF;
+			IF state = IDLE THEN
+				state <= RXSB;
+			END IF;
 		END IF;
 	END PROCESS;
 
-	serialOutPro: PROCESS (sclk) IS
+	serialOutPro: PROCESS (sclk, cs, mstate) IS
 		VARIABLE cnt: integer := 0;
 
 	BEGIN
 
 		IF falling_edge(sclk) AND cs = '1' AND state = TXDOUT THEN
+			txstate <= BUSY;
 			dout <= serialOutR(15);
 			serialOutR <= serialOutR(14 DOWNTO 0) & '0';
 			cnt := cnt + 1;
 			IF (org = '1' AND cnt = 16) OR (org = '0' AND cnt = 8) THEN
 				cnt := 0;
-				state <= IDLE;
+				txstate <= IDLE;
 			END IF;
+		ELSIF rising_edge(cs) AND mstate = BUSY THEN
+			dout <= '0';
+		ELSIF mstate = IDLE AND cs = '1' THEN
+			dout <= '1';
+		ELSE
+			dout <= 'Z';
 		END IF;
 	END PROCESS;
 
