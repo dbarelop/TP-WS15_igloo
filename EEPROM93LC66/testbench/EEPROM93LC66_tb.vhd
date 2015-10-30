@@ -2,11 +2,11 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.std_logic_unsigned.ALL;
 
-ENTITY ADT7301_tb IS
+ENTITY EEPROM93LC66_tb IS
    -- empty
-END ADT7301_tb;
+END EEPROM93LC66_tb;
 
-ARCHITECTURE verhalten OF EEPROM93LC67_tb IS
+ARCHITECTURE verhalten OF EEPROM93LC66_tb IS
 
    CONSTANT RSTDEF: std_logic := '0';
    CONSTANT FRQDEF: natural   := 1e6;
