@@ -74,6 +74,8 @@ BEGIN
 				END IF;				
 			END IF;
 			state <= MEMBUSY;
+		ELSIF falling_edge(cs) THEN
+			state = IDLE;
 		END IF;
 
 	END PROCESS;
@@ -173,6 +175,7 @@ BEGIN
 							state <= RXDIN
 						END IF;
 						cnt := 0;
+						serialInR <= (others '0');
 					END IF;
 				WHEN RXDIN =>
 					serialInR <= serialInR(14 DOWNTO 0) & di;
