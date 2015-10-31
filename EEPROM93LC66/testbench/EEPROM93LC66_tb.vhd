@@ -23,7 +23,7 @@ ARCHITECTURE verhalten OF EEPROM93LC66_tb IS
    --SIGNAL rst:  std_logic := RSTDEF;
    --SIGNAL clk:  std_logic := '0';
    SIGNAL cs:   std_logic := '0';
-   SIGNAL sclk: std_logic := '1';
+   SIGNAL sclk: std_logic := '0';
    SIGNAL miso: std_logic := '0';
    SIGNAL mosi: std_logic := '0';
    SIGNAL org: std_logic := '0';
@@ -53,8 +53,13 @@ BEGIN
 				WAIT FOR tcyc;
 				sclk <= '0';
 				WAIT FOR tcyc;
+				mosi <= '1';
+				sclk <= '1';
+				WAIT FOR tcyc;
+				sclk <= '0';
+				WAIT FOR tcyc;
 				
-				FOR cnt IN 0 to 19 LOOP
+				FOR cnt IN 0 to 18 LOOP
 					mosi <= data(cnt);
 					sclk <= '1';
 					WAIT FOR tcyc;
@@ -63,6 +68,7 @@ BEGIN
 				END LOOP;
 
 				cs <= '0';
+				WAIT FOR 2*tcyc;
 			END PROCEDURE;
 		BEGIN
 			--WAIT UNTIL clk'EVENT AND clk='1';
@@ -96,7 +102,7 @@ BEGIN
 		--	END LOOP;
 		--END PROCEDURE;
 	BEGIN
-	
+		write("10101010", "000000000");
 	END PROCESS;
 
 END verhalten;
