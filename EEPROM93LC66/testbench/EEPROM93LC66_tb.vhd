@@ -41,6 +41,16 @@ BEGIN
             din  => mosi,
             dout => miso,
 			org => org);
+
+    serialIn: PROCESS (sclk) IS
+
+	BEGIN
+		IF falling_edge(sclk) THEN
+			serIN <= serIN(14 DOWNTO 0) & miso;
+		END IF;
+
+	END PROCESS;
+
 	p1: PROCESS
 		PROCEDURE spi_write (opcode: std_logic_vector; address: std_logic_vector;
 							 data: std_logic_vector; clkcycl: integer) IS
@@ -62,7 +72,8 @@ BEGIN
 			WAIT FOR tcyc;
 			
 			FOR cnt IN clkcycl - 2 DOWNTO 0 LOOP
-				mosi <= serialOut(cnt);
+				mosi <= serialOut(serialOut'left);
+				serialOut := serialOut(serialOut'left - 1 DOWNTO 0)  & '0';
 				sclk <= '1';
 				WAIT FOR tcyc;
 				sclk <= '0';
@@ -78,15 +89,8 @@ BEGIN
 		spi_write("00", "110000000", "", 12);
 		-- write 8 bit
 		spi_write("01", "000000000", "10101010", 20);
-	END PROCESS;
-
-	serialIn: PROCESS (sclk) IS
-
-	BEGIN
-		IF falling_edge(sclk) THEN
-			serIN <= serIN(14 DOWNTO 0) & miso;
-		END IF;
-
+		-- read 8 bit
+		spi_write("10", "000000000", "00000000", 20);
 	END PROCESS;
 
 END verhalten;
