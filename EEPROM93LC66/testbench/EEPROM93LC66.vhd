@@ -25,7 +25,7 @@ ARCHITECTURE simulation OF EEPROM93LC66 IS
 	signal cmd					: tcmd := NONE;
 	signal mstate				: t2state := IDLE;
 	signal txstate			: t2state := IDLE;
-	signal serialInR		: std_logic_vector(15 DOWNTO 0);
+	signal serialInR		: std_logic_vector(15 DOWNTO 0) := (others => '0');
 	signal serialOutR		: std_logic_vector(15 DOWNTO 0);
 	signal address			: std_logic_vector(8 DOWNTO 0);
 
@@ -85,7 +85,7 @@ BEGIN
 
 	serialInPro: PROCESS(sclk, cs) IS
 
-		VARIABLE cnt: integer;
+		VARIABLE cnt: integer := 0;
 
 	BEGIN
 		IF rising_edge(sclk) AND cs = '1' THEN
@@ -120,19 +120,19 @@ BEGIN
 						-- shift in a extra bit
 						serialInR <= serialInR(14 DOWNTO 0) & '0';
 					END IF;
-					IF serialInR(8 DOWNTO 7) = "10" THEN
+					IF serialInR(7 DOWNTO 6) = "10" THEN
 						-- ERAL
 						cmd <= ERAL;
 						state <= WAITFORCS;
-					ELSIF serialInR(8 DOWNTO 7) = "00" THEN
+					ELSIF serialInR(7 DOWNTO 6) = "00" THEN
 						-- EWDS
 						writeProtect <= '1';
 						state <= IDLE;
-					ELSIF serialInR(8 DOWNTO 7) = "11" THEN
+					ELSIF serialInR(7 DOWNTO 6) = "11" THEN
 						-- EWEN
 						writeProtect <= '0';
 						state <= IDLE;
-					ELSIF serialInR(8 DOWNTO 7) = "01" THEN
+					ELSIF serialInR(7 DOWNTO 6) = "01" THEN
 						-- WRAL
 						cmd <= WRAL;
 						state <= RXDIN;
