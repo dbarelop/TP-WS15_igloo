@@ -98,6 +98,8 @@ BEGIN
 		--	END LOOP;
 		--END PROCEDURE;
 	BEGIN
+		-- EWEN
+		spi_write("00", "110000000", "", 12);
 		-- write 8 bit
 		spi_write("01", "000000000", "10101010", 20);
 	END PROCESS;
