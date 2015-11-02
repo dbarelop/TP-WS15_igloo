@@ -80,6 +80,7 @@ BEGIN
 				WAIT FOR tcyc;
 			END LOOP;
 
+			mosi <= '0';
 			cs <= '0';
 			WAIT FOR 2*tcyc;
 		END PROCEDURE;
@@ -91,6 +92,56 @@ BEGIN
 		spi_write("01", "000000000", "10101010", 20);
 		-- read 8 bit
 		spi_write("10", "000000000", "00000000", 20);
+		assert serIN(7 DOWNTO 0) = "10101010" report "8bit write / read failed";
+		-- EWDS
+		spi_write("00", "000000000", "", 12);
+		-- write 8 bit
+		spi_write("01", "000000000", "01010101", 20);
+		-- read 8 bit
+		spi_write("10", "000000000", "00000000", 20);
+		assert serIN(7 DOWNTO 0) = "10101010" report "write protection failed";
+		-- erase 8 bit with EWDS
+		spi_write("11", "000000000", "", 12);
+		-- read 8 bit
+		spi_write("10", "000000000", "00000000", 20);
+		assert serIN(7 DOWNTO 0) = "10101010" report "erase protection failed";
+		-- ERAL 8 bit with EWDS
+		spi_write("00", "100000000", "", 12);
+		-- read 8 bit
+		spi_write("10", "000000000", "00000000", 20);
+		assert serIN(7 DOWNTO 0) = "10101010" report "ERAL protection failed";
+		-- EWEN
+		spi_write("00", "110000000", "", 12);
+		-- ERAL 8 bit with EWEN
+		spi_write("00", "100000000", "", 12);
+		-- read 8 bit
+		spi_write("10", "000000000", "00000000", 20);
+		assert serIN(7 DOWNTO 0) = "11111111" report "ERAL failed";
+
+		-- EWEN
+		spi_write("00", "110000000", "", 12);
+		-- write 8 bit
+		spi_write("01", "111110000", "11111010", 20);
+		-- read 8 bit
+		spi_write("10", "111110000", "00000000", 20);
+		assert serIN(7 DOWNTO 0) = "11111010" report "8bit write / read failed";
+		-- write 8 bit
+		spi_write("01", "000011111", "10101111", 20);
+		-- read 8 bit
+		spi_write("10", "000011111", "00000000", 20);
+		assert serIN(7 DOWNTO 0) = "10101111" report "8bit write / read failed";
+		-- ERASE 8 bit
+		spi_write("11", "111110000", "", 12);
+		-- read 8 bit
+		spi_write("10", "111110000", "00000000", 20);
+		assert serIN(7 DOWNTO 0) = "11111111" report "ERASE failed";
+		-- read 8 bit
+		spi_write("10", "000011111", "00000000", 20);
+		assert serIN(7 DOWNTO 0) = "10101111" report "ERASED all!?";
+
+		WAIT;
+
+
 	END PROCESS;
 
 END verhalten;

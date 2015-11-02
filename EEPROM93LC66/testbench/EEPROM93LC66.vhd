@@ -48,7 +48,6 @@ BEGIN
 					END IF;
 					--WAIT FOR 2 ms;
 				END IF;
-				address <= (others => '0');
 			ELSIF cmd = ERAL THEN
 				IF writeProtect = '0' THEN
 					MEM_DATA <= ((others=> (others=>'1')));
@@ -64,7 +63,6 @@ BEGIN
 					END IF;
 					--WAIT FOR 2 ms;
 				END IF;
-				address <= (others => '0');
 			ELSIF cmd = WRAL THEN
 				IF writeProtect = '0' THEN
 					IF org = '1' THEN
