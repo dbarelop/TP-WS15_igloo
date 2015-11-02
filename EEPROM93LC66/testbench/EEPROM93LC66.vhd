@@ -1,7 +1,6 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
-USE ieee.std_logic_signed.ALL;
-USE ieee.std_logic_arith.ALL;
+use ieee.numeric_std.all;
 
 ENTITY EEPROM93LC66 IS
 	PORT(sclk:		IN std_logic;
@@ -41,10 +40,10 @@ BEGIN
 				IF writeProtect = '0' THEN
 					IF org = '1' THEN
 						-- multiply by 2
-						MEM_DATA(CONV_INTEGER(address(7 DOWNTO 0) & '0')) <= (others => '1');
-						MEM_DATA(CONV_INTEGER(address(7 DOWNTO 0) & '1')) <= (others => '1');
+						MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '0'))) <= (others => '1');
+						MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '1'))) <= (others => '1');
 					ELSE
-						MEM_DATA(CONV_INTEGER(address)) <= (others => '1');
+						MEM_DATA(TO_INTEGER(unsigned(address))) <= (others => '1');
 					END IF;
 					--WAIT FOR 2 ms;
 				END IF;
@@ -56,10 +55,10 @@ BEGIN
 			ELSIF cmd = WR1TE THEN
 				IF writeProtect = '0' THEN
 					IF org = '1' THEN
-						MEM_DATA(CONV_INTEGER(address(7 DOWNTO 0) & '0')) <= serialInR(15 DOWNTO 8);
-						MEM_DATA(CONV_INTEGER(address(7 DOWNTO 0) & '1')) <= serialInR(7 DOWNTO 0);
+						MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '0'))) <= serialInR(15 DOWNTO 8);
+						MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '1'))) <= serialInR(7 DOWNTO 0);
 					ELSE
-						MEM_DATA(CONV_INTEGER(address)) <= serialInR(7 DOWNTO 0);
+						MEM_DATA(TO_INTEGER(unsigned(address))) <= serialInR(7 DOWNTO 0);
 					END IF;
 					--WAIT FOR 2 ms;
 				END IF;
@@ -150,10 +149,10 @@ BEGIN
 					ELSIF cmd = RE4D THEN
 						-- DOUT = 0 at A0 missing!!
 						IF cnt = 8 THEN
-							serialOutR <= MEM_DATA(CONV_INTEGER(address(7 DOWNTO 0) & '0')) & 
-														MEM_DATA(CONV_INTEGER(address(7 DOWNTO 0) & '1'));
+							serialOutR <= MEM_DATA(TO_INTEGER(unsigned(tmpSerialIn(7 DOWNTO 0) & '0'))) & 
+														MEM_DATA(TO_INTEGER(unsigned(tmpSerialIn(7 DOWNTO 0) & '1')));
 						ELSE
-							serialOutR(15 DOWNTO 8) <= MEM_DATA(CONV_INTEGER(address));
+							serialOutR(15 DOWNTO 8) <= MEM_DATA(TO_INTEGER(unsigned(tmpSerialIn)));
 						END IF;
 						address <= (others => '0');
 						state <= TXDOUT;
