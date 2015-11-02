@@ -86,6 +86,7 @@ BEGIN
 	serialInPro: PROCESS(sclk, cs) IS
 
 		VARIABLE cnt: integer := 0;
+		VARIABLE tmpSerialIn: std_logic_vector(15 DOWNTO 0) := (others => '0');
 
 	BEGIN
 		IF rising_edge(sclk) AND cs = '1' THEN
@@ -94,57 +95,57 @@ BEGIN
 					state <= RXOP;
 				END IF;
 			ELSIF state = RXOP THEN
-				serialInR <= serialInR(14 DOWNTO 0) & din;
+				tmpSerialIn := tmpSerialIn(14 DOWNTO 0) & din;
 				cnt := cnt + 1;
 				IF cnt >= 2 THEN
-					IF serialInR(1 DOWNTO 0) = "00" THEN
+					IF tmpSerialIn(1 DOWNTO 0) = "00" THEN
 						state <= RXOP2;
-					ELSIF serialInR(1 DOWNTO 0) = "11" THEN
+					ELSIF tmpSerialIn(1 DOWNTO 0) = "11" THEN
 						cmd <= ERASE;
 						state <= RXADDR;
-					ELSIF serialInR(1 DOWNTO 0) = "10" THEN
+					ELSIF tmpSerialIn(1 DOWNTO 0) = "10" THEN
 						cmd <= RE4D;
 						state <= RXADDR;
-					ELSIF serialInR(1 DOWNTO 0) = "01" THEN
+					ELSIF tmpSerialIn(1 DOWNTO 0) = "01" THEN
 						cmd <= WR1TE;
 						state <= RXADDR;
 					END IF;
-					serialInR <= (others => '0');
+					tmpSerialIn := (others => '0');
 					cnt := 0;
 				END IF;
 			ELSIF state = RXOP2 THEN
-				serialInR <= serialInR(14 DOWNTO 0) & din;
+				tmpSerialIn := tmpSerialIn(14 DOWNTO 0) & din;
 				cnt := cnt + 1;
 				IF (org = '1' AND cnt = 8) OR (org = '0' AND cnt = 9) THEN
 					IF cnt = 8 THEN
 						-- shift in a extra bit
-						serialInR <= serialInR(14 DOWNTO 0) & '0';
+						tmpSerialIn := tmpSerialIn(14 DOWNTO 0) & '0';
 					END IF;
-					IF serialInR(7 DOWNTO 6) = "10" THEN
+					IF tmpSerialIn(8 DOWNTO 7) = "10" THEN
 						-- ERAL
 						cmd <= ERAL;
 						state <= WAITFORCS;
-					ELSIF serialInR(7 DOWNTO 6) = "00" THEN
+					ELSIF tmpSerialIn(8 DOWNTO 7) = "00" THEN
 						-- EWDS
 						writeProtect <= '1';
 						state <= IDLE;
-					ELSIF serialInR(7 DOWNTO 6) = "11" THEN
+					ELSIF tmpSerialIn(8 DOWNTO 7) = "11" THEN
 						-- EWEN
 						writeProtect <= '0';
 						state <= IDLE;
-					ELSIF serialInR(7 DOWNTO 6) = "01" THEN
+					ELSIF tmpSerialIn(8 DOWNTO 7) = "01" THEN
 						-- WRAL
 						cmd <= WRAL;
 						state <= RXDIN;
 					END IF;
 					cnt := 0;
-					serialInR <= (others => '0');
+					tmpSerialIn := (others => '0');
 				END IF;
 			ELSIF state = RXADDR THEN
-				serialInR <= serialInR(14 DOWNTO 0) & din;
+				tmpSerialIn := tmpSerialIn(14 DOWNTO 0) & din;
 				cnt := cnt + 1;
 				IF (org = '1' AND cnt = 8) OR (org = '0' AND cnt = 9) THEN
-					address <= serialInR(8 DOWNTO 0);
+					address <= tmpSerialIn(8 DOWNTO 0);
 					IF cmd = ERASE THEN
 						-- wait for falling edge in CS
 						state <= WAITFORCS;							
@@ -162,12 +163,13 @@ BEGIN
 						state <= RXDIN;
 					END IF;
 					cnt := 0;
-					serialInR <= (others => '0');
+					tmpSerialIn := (others => '0');
 				END IF;
 			ELSIF state = RXDIN THEN
-				serialInR <= serialInR(14 DOWNTO 0) & din;
+				tmpSerialIn := tmpSerialIn(14 DOWNTO 0) & din;
 				cnt := cnt + 1;
 				IF (org = '1' AND cnt = 16) OR (org = '0' AND cnt = 8) THEN
+					serialInR <= tmpSerialIn;
 					IF cmd = WR1TE THEN
 						state <= WAITFORCS;
 					ELSIF cmd = WRAL THEN
@@ -175,10 +177,12 @@ BEGIN
 					END IF;
 					cnt := 0;
 				END IF;
+			ELSIF state = TXDOUT AND txstate = IDLE THEN
+				state <= IDLE;
 			END IF;
 		ELSIF rising_edge(cs) THEN
 			IF mstate = IDLE THEN
-				state <= IDLE;
+				state <= RXSB;
 				cmd <= NONE;
 			END IF;
 			IF state = IDLE THEN
@@ -189,23 +193,26 @@ BEGIN
 
 	serialOutPro: PROCESS (sclk, cs, mstate) IS
 		VARIABLE cnt: integer := 0;
-
+		VARIABLE TXtmpSerOut: std_logic_vector(15 DOWNTO 0);
 	BEGIN
 
 		IF falling_edge(sclk) AND cs = '1' AND state = TXDOUT THEN
-			txstate <= BUSY;
-			dout <= serialOutR(15);
-			serialOutR <= serialOutR(14 DOWNTO 0) & '0';
+			IF txstate = IDLE THEN
+				TXtmpSerOut := serialOutR;
+				txstate <= BUSY;
+			END IF;
+			dout <= TXtmpSerOut(15);
+			TXtmpSerOut := TXtmpSerOut(14 DOWNTO 0) & '0';
 			cnt := cnt + 1;
 			IF (org = '1' AND cnt = 16) OR (org = '0' AND cnt = 8) THEN
 				cnt := 0;
 				txstate <= IDLE;
-			END IF;
+			END IF;			
 		ELSIF rising_edge(cs) AND mstate = BUSY THEN
 			dout <= '0';
-		ELSIF mstate = IDLE AND cs = '1' THEN
+		ELSIF mstate = IDLE AND cs = '1' AND state /= TXDOUT THEN
 			dout <= '1';
-		ELSE
+		ELSIF state /= TXDOUT THEN
 			dout <= 'Z';
 		END IF;
 	END PROCESS;
