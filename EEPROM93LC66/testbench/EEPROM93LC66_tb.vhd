@@ -139,6 +139,20 @@ BEGIN
 		spi_write("10", "000011111", "00000000", 20);
 		assert serIN(7 DOWNTO 0) = "10101111" report "ERASED all!?";
 
+
+		-- =====================
+		-- 16 BIT
+		-- =====================
+
+		org <= '1';
+		-- ERAL 16 bit
+		spi_write("00", "10000000", "", 11);
+		-- write 16 bit
+		spi_write("01", "00000000", "1010101000000000", 27);
+		-- read 16 bit
+		spi_write("10", "00000000", "0000000000000000", 27);
+		assert serIN = "1010101000000000" report "8bit write / read failed";
+
 		WAIT;
 
 
