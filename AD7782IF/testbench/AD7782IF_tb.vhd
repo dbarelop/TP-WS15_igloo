@@ -12,7 +12,7 @@ ARCHITECTURE verhalten OF AD7782IF_tb IS
    CONSTANT FRQDEF: natural   := 1e6;
    CONSTANT tcyc:   time      := 1 sec / FRQDEF;
    CONSTANT ref:    real      := 2.5;
-
+    
    COMPONENT AD7782
       GENERIC(ref: real);
       PORT(ain1: IN  real;        -- analog input: +/- Ref
