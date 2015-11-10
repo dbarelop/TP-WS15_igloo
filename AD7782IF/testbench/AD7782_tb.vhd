@@ -26,9 +26,9 @@ ARCHITECTURE verhalten OF AD7782_tb IS
 	--input Stimuli-signale definieren
    signal ain1    : real := 0.0;
    signal ain2    : real := 0.0;
-   signal rng     : std_logic := '0';
-   signal sel     : std_logic := '0';
-   signal mode    : std_logic := '0';
+   signal rng     : std_logic := '0';        -- Range (0=160mV) | (1=2,56mV) 
+   signal sel     : std_logic := '0';        -- Channel Select: AIN1 (=0) AIN2 (=1)
+   signal mode    : std_logic := '0';        -- (0)master / (1)Slave Mode
    signal sclk    : std_logic := '0';
    signal cs      : std_logic := '1';
 
@@ -38,6 +38,8 @@ ARCHITECTURE verhalten OF AD7782_tb IS
 	BEGIN
 	--Anfang des Tests
 	sclk 	<= not sclk after 100 ns; -- 5KHz Taktfrequenz
+   ain1 <= 2.49;
+   ain2 <= 3.01;
 
 	--Modulinstanzierung mittels "port map"
 	adc : AD7782 PORT MAP(
