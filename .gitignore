@@ -22,5 +22,12 @@ transcript*
 sc_dpiheader.h
 vsim.dbg
 
+
 # ignore pdf files
 Literatur/
+
+# ignore that stupid pdf
+EEPROM93LC66/*.pdf
+
+# I ignore me
+.gitignore

@@ -9,7 +9,7 @@ END ENTITY AD7782_tb;
 ARCHITECTURE verhalten OF AD7782_tb IS
 
 	--Moduldeklaration
-	COMPONENT AD7782 IS
+	COMPONENT AD7782
 		--Komponentenbeschreibung
 		GENERIC(ref: real := 2.5);
       PORT(
@@ -28,6 +28,7 @@ ARCHITECTURE verhalten OF AD7782_tb IS
    signal ain2    : real := 0.0;
    signal rng     : std_logic := '0';
    signal sel     : std_logic := '0';
+   signal mode    : std_logic := '0';
    signal sclk    : std_logic := '0';
    signal cs      : std_logic := '1';
 
@@ -44,6 +45,7 @@ ARCHITECTURE verhalten OF AD7782_tb IS
       ain2  => ain2,
       rng   => rng,
       sel   => sel,
+      mode  => mode,
       sclk  => sclk,
       cs    => cs,
       dout  => dout
@@ -61,4 +63,4 @@ ARCHITECTURE verhalten OF AD7782_tb IS
       
    END PROCESS;
 
-END ARCHITECTURE;
+END verhalten;
