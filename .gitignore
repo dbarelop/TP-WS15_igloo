@@ -21,3 +21,6 @@ cov*/
 transcript*
 sc_dpiheader.h
 vsim.dbg
+
+# ignore that stupid pdf
+EEPROM93LC66/*.pdf

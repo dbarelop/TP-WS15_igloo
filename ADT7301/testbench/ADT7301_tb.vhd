@@ -40,24 +40,40 @@ BEGIN
             dout => miso);
 
    p1: PROCESS
-   BEGIN
-      reg <= (OTHERS => '0');
-      LOOP
-         cs   <= '1';
-         mosi <= '1';
-         WAIT FOR 100 ms;
-         cs <= '0';
-         WAIT FOR tcyc;
-         mosi <= '0';
-         
+      CONSTANT NUM_CHECKS: integer := 6079;
+
+      PROCEDURE read_temp IS
+      BEGIN
          FOR i IN 15 DOWNTO 0 LOOP
             sclk <= '0';
             WAIT FOR tcyc;
             reg(i) <= miso;
             sclk <= '1';
             WAIT FOR tcyc;
-         END LOOP;      
+         END LOOP;
+      END PROCEDURE;
+
+      -- Returns TRUE only when the given value belongs to the range [0x0000,0x12C0]U[0x3B00,0x3FFF]
+      FUNCTION valid_temp_value(val: std_logic_vector)
+         RETURN boolean IS
+      BEGIN
+         RETURN val >= X"0000" AND (val <= X"12C0" OR val >= X"3B00") AND val <= X"3FFF";
+      END FUNCTION;
+
+   BEGIN
+      ASSERT FALSE REPORT "starting test for ADT7301..." SEVERITY note;
+      reg <= (OTHERS => '0');
+      FOR i IN NUM_CHECKS DOWNTO 0 LOOP
+         cs <= '1';
+         mosi <= '1';
+         WAIT FOR 100 ms;
+         cs <= '0';
+         WAIT FOR tcyc;
+         mosi <= '0';
+         read_temp;
+         ASSERT valid_temp_value(reg) REPORT "read incorrect value" SEVERITY error;
       END LOOP;
+      ASSERT FALSE REPORT "test completed" SEVERITY note;
       WAIT;
    END PROCESS;
 
