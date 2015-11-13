@@ -8,6 +8,10 @@ END ENTITY AD7782_tb;
 
 ARCHITECTURE verhalten OF AD7782_tb IS
 
+	CONSTANT RSTDEF	: std_logic := '0';
+	CONSTANT FRQDEF	: natural	:= 1e6;
+	CONSTANT tcyc		: time		:= 1 sec / FRQDEF;
+
 	--Moduldeklaration
 	COMPONENT AD7782
 		--Komponentenbeschreibung
@@ -32,14 +36,20 @@ ARCHITECTURE verhalten OF AD7782_tb IS
    signal sclk    : std_logic := '0';
    signal cs      : std_logic := '1';
 
+   TYPE tstate IS (S0, S1);
+   signal state	: tstate := S0;
+
+   signal clk 		: std_logic;
 	--output Stimuli-signale
 	signal dout 	: std_logic := '0';
 
 	BEGIN
 	--Anfang des Tests
-	sclk 	<= not sclk after 100 ns; -- 5KHz Taktfrequenz
-   ain1 <= 2.49;
-   ain2 <= 3.01;
+
+	--Dauerhaft zugeordnete Signale
+	clk 		<= not clk after 100 ns; -- 5KHz Taktfrequenz
+   ain1 		<= 2.49;
+   ain2 		<= 3.01;
 
 	--Modulinstanzierung mittels "port map"
 	adc : AD7782 PORT MAP(
@@ -55,14 +65,27 @@ ARCHITECTURE verhalten OF AD7782_tb IS
 		--<Komponenten-port> => <Stimulie-Signal>,
 		--...);
 	
-	stimuli : PROCESS (sclk)
+	stimuli : PROCESS
 	BEGIN
 		--<Stimulie-Signal> <= '<Wert>';
 		--wait for x ns;
 		--assert anweisung
-      
-      
-      
-   END PROCESS;
+		IF (state = S0) THEN
+			-- Initial state S0
+			rng 	<= '1';
+			sel 	<= '0';
+			mode 	<= '0';
+			sclk	<= '1';
+			cs 	<= '1';
 
+			state <= S1;
+		ELSIF (state = S1) THEN
+			-- Working state S1
+
+			cs 	<= '0';
+			wait until falling_edge(dout);
+
+
+		END IF;
+   END PROCESS;
 END verhalten;

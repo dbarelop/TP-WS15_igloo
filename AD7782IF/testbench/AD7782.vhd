@@ -45,7 +45,7 @@ BEGIN
 
    p1: PROCESS (cs, clk) IS
       VARIABLE tmp:  integer;
-      VARIABLE ain:  real        -- selected analog input
+      VARIABLE ain:  real;       -- selected analog input
       VARIABLE gain: real;
       VARIABLE old:  std_logic;  -- previously selected channel
       VARIABLE cnt:  integer;    -- counter
