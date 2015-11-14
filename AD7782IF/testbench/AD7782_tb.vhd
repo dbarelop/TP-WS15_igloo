@@ -40,6 +40,8 @@ ARCHITECTURE verhalten OF AD7782_tb IS
    signal state	: tstate := S0;
 
    signal clk 		: std_logic;
+   signal rst 		: std_logic;
+
 	--output Stimuli-signale
 	signal dout 	: std_logic := '0';
 
@@ -48,6 +50,8 @@ ARCHITECTURE verhalten OF AD7782_tb IS
 
 	--Dauerhaft zugeordnete Signale
 	clk 		<= not clk after 100 ns; -- 5KHz Taktfrequenz
+	rst 		<= '1', '0' after 100 ns; -- generate Reset signal
+	
    ain1 		<= 2.49;
    ain2 		<= 3.01;
 
