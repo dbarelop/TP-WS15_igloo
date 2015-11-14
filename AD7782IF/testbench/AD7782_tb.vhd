@@ -30,16 +30,13 @@ ARCHITECTURE verhalten OF AD7782_tb IS
 	--input Stimuli-signale definieren
    signal ain1    : real := 0.0;
    signal ain2    : real := 0.0;
-   signal rng     : std_logic := '0';        -- Range (0=160mV) | (1=2,56mV) 
+   signal rng     : std_logic := '1';        -- Range (0=160mV) | (1=2,56mV) 
    signal sel     : std_logic := '0';        -- Channel Select: AIN1 (=0) AIN2 (=1)
    signal mode    : std_logic := '0';        -- (0)master / (1)Slave Mode
-   signal sclk    : std_logic := '0';
+   signal sclk    : std_logic;
    signal cs      : std_logic := '1';
 
-   TYPE tstate IS (S0, S1);
-   signal state	: tstate := S0;
-
-   signal clk 		: std_logic;
+   signal clk 		: std_logic := '0';
    signal rst 		: std_logic;
 
 	--output Stimuli-signale
@@ -51,11 +48,14 @@ ARCHITECTURE verhalten OF AD7782_tb IS
 	--Dauerhaft zugeordnete Signale
 	clk 		<= not clk after 100 ns; -- 5KHz Taktfrequenz
 	rst 		<= '1', '0' after 100 ns; -- generate Reset signal
+	sclk 		<= clk when cs = '0' ELSE '1';
 	
    ain1 		<= 2.49;
    ain2 		<= 3.01;
 
-	--Modulinstanzierung mittels "port map"
+	-- Modulinstanzierung mittels "port map"
+	-- <Komponenten-port> => <Stimulie-Signal>,
+		-- ...);
 	adc : AD7782 PORT MAP(
       ain1  => ain1,
       ain2  => ain2,
@@ -66,30 +66,6 @@ ARCHITECTURE verhalten OF AD7782_tb IS
       cs    => cs,
       dout  => dout
       );
-		--<Komponenten-port> => <Stimulie-Signal>,
-		--...);
-	
-	stimuli : PROCESS (clk) IS
-	BEGIN
-		--<Stimulie-Signal> <= '<Wert>';
-		--wait for x ns;
-		--assert anweisung
-		IF (state = S0) THEN
-			-- Initial state S0
-			rng 	<= '1';
-			sel 	<= '0';
-			mode 	<= '0';
-			sclk	<= '1';
-			cs 	<= '1';
+		
 
-			state <= S1;
-		ELSIF (state = S1) THEN
-			-- Working state S1
-
-			cs 	<= '0';
-			--wait until falling_edge(dout);
-
-
-		END IF;
-   END PROCESS;
 END verhalten;
