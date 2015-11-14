@@ -69,7 +69,7 @@ ARCHITECTURE verhalten OF AD7782_tb IS
 		--<Komponenten-port> => <Stimulie-Signal>,
 		--...);
 	
-	stimuli : PROCESS
+	stimuli : PROCESS (clk) IS
 	BEGIN
 		--<Stimulie-Signal> <= '<Wert>';
 		--wait for x ns;
@@ -87,7 +87,7 @@ ARCHITECTURE verhalten OF AD7782_tb IS
 			-- Working state S1
 
 			cs 	<= '0';
-			wait until falling_edge(dout);
+			--wait until falling_edge(dout);
 
 
 		END IF;
