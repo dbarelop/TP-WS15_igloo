@@ -148,13 +148,6 @@ BEGIN
 						state <= WAITFORCS;							
 					ELSIF cmd = RE4D THEN
 						-- DOUT = 0 at A0 missing!!
-						IF cnt = 8 THEN
-							serialOutR <= MEM_DATA(TO_INTEGER(unsigned(tmpSerialIn(7 DOWNTO 0) & '0'))) & 
-														MEM_DATA(TO_INTEGER(unsigned(tmpSerialIn(7 DOWNTO 0) & '1')));
-						ELSE
-							serialOutR(15 DOWNTO 8) <= MEM_DATA(TO_INTEGER(unsigned(tmpSerialIn)));
-						END IF;
-						address <= (others => '0');
 						state <= TXDOUT;
 					ELSIF cmd = WR1TE THEN
 						state <= RXDIN;
@@ -185,6 +178,9 @@ BEGIN
 			IF state = IDLE THEN
 				state <= RXSB;
 			END IF;
+		ELSIF falling_edge(cs) AND state = TXDOUT THEN
+			state <= IDLE;
+			cmd <= NONE;
 		END IF;
 	END PROCESS;
 
@@ -195,15 +191,23 @@ BEGIN
 
 		IF falling_edge(sclk) AND cs = '1' AND state = TXDOUT THEN
 			IF txstate = IDLE THEN
-				TXtmpSerOut := serialOutR;
+				--TXtmpSerOut := serialOutR;
+				cnt := 0;
 				txstate <= BUSY;
+			END IF;
+			IF cnt = 0 THEN
+				IF org = '1' THEN
+					TXtmpSerOut := MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '0'))) & 
+							MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '1')));
+				ELSE
+					TXtmpSerOut(15 DOWNTO 8) := MEM_DATA(TO_INTEGER(unsigned(address)));			
+				END IF;
 			END IF;
 			dout <= TXtmpSerOut(15);
 			TXtmpSerOut := TXtmpSerOut(14 DOWNTO 0) & '0';
 			cnt := cnt + 1;
 			IF (org = '1' AND cnt = 16) OR (org = '0' AND cnt = 8) THEN
 				cnt := 0;
-				txstate <= IDLE;
 			END IF;			
 		ELSIF rising_edge(cs) AND mstate = BUSY THEN
 			dout <= '0';
@@ -211,6 +215,8 @@ BEGIN
 			dout <= '1';
 		ELSIF state /= TXDOUT THEN
 			dout <= 'Z';
+		ELSIF falling_edge(cs) THEN
+			txstate <= IDLE;
 		END IF;
 	END PROCESS;
 
