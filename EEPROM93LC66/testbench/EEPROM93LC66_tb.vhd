@@ -183,6 +183,26 @@ BEGIN
 		spi_write("10", "011111111", "00000000", 20);
 		assert serIN(7 DOWNTO 0) = "11110000" report "8bit read failed";
 
+		-- =====================
+		-- continous reading
+		-- =====================
+		-- ERAL 8 bit
+		spi_write("00", "100000000", "", 12);
+		-- =====================
+		-- 16 BIT
+		-- =====================
+		org <= '1';
+		-- WRAL 16 bit
+		spi_write("00", "01000000", "1100110011110000", 27);
+		-- =====================
+		-- 8 BIT
+		-- =====================
+		org <= '0';
+		-- read 8 bit - continious
+		spi_write("10", "011111110", "0000000000000000", 28);
+		assert serIN = "1100110011110000" report "8bit continious read failed";
+
+
 		WAIT;
 
 

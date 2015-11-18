@@ -187,26 +187,33 @@ BEGIN
 	serialOutPro: PROCESS (sclk, cs, mstate) IS
 		VARIABLE cnt: integer := 0;
 		VARIABLE TXtmpSerOut: std_logic_vector(15 DOWNTO 0);
+		VARIABLE addressOffset: integer := 0;
 	BEGIN
 
 		IF falling_edge(sclk) AND cs = '1' AND state = TXDOUT THEN
 			IF txstate = IDLE THEN
-				--TXtmpSerOut := serialOutR;
 				cnt := 0;
+				addressOffset := 0;
 				txstate <= BUSY;
 			END IF;
 			IF cnt = 0 THEN
 				IF org = '1' THEN
-					TXtmpSerOut := MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '0'))) & 
-							MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '1')));
+					TXtmpSerOut := MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '0'))+addressOffset) & 
+							MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '1'))+addressOffset);
 				ELSE
-					TXtmpSerOut(15 DOWNTO 8) := MEM_DATA(TO_INTEGER(unsigned(address)));			
+					TXtmpSerOut(15 DOWNTO 8) := MEM_DATA(TO_INTEGER(unsigned(address))+addressOffset);			
 				END IF;
 			END IF;
 			dout <= TXtmpSerOut(15);
 			TXtmpSerOut := TXtmpSerOut(14 DOWNTO 0) & '0';
 			cnt := cnt + 1;
 			IF (org = '1' AND cnt = 16) OR (org = '0' AND cnt = 8) THEN
+				--continious reading
+				IF org = '1' THEN
+					addressOffset := addressOffset + 2;
+				ELSE
+					addressOffset := addressOffset + 1;
+				END IF;
 				cnt := 0;
 			END IF;			
 		ELSIF rising_edge(cs) AND mstate = BUSY THEN
