@@ -20,7 +20,7 @@ ARCHITECTURE verhalten OF AD7782 IS
    CONSTANT PLLFRQ:      real    := 4.194304e6;
    CONSTANT tcyc:        time    := 1 sec / PLLFRQ;
 
-   CONSTANT StartUpTime: time    := 3 ms; -- 00 ms;
+   CONSTANT StartUpTime: time    := 200 ns; -- 00 ms;
    CONSTANT FRQDEF:      real    := 32.768e3;
    CONSTANT OutputRate:  real    := FRQDEF / (69.0 * 8.0 * 3.0);
    CONSTANT tADC:        time    := 1 sec / OutputRate;
