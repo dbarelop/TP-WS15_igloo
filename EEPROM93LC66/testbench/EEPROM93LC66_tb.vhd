@@ -202,6 +202,14 @@ BEGIN
 		spi_write("10", "011111110", "0000000000000000", 28);
 		assert serIN = "1100110011110000" report "8bit continious read failed";
 
+		-- =====================
+		-- 16 BIT
+		-- =====================
+		org <= '1';
+		-- read 16 bit - continious
+		spi_write("10", "11111110", "00000000000000000000000000000000", 43);
+		-- first 16 bits cant be checked :(
+		assert serIN = "1100110011110000" report "16bit continious read failed";
 
 		WAIT;
 
