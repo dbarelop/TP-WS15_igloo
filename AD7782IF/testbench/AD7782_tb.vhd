@@ -30,35 +30,69 @@ ARCHITECTURE verhalten OF AD7782_tb IS
 	END COMPONENT;
 
 	--input Stimuli-signale definieren
-   signal ain1    : real := 0.0;
-   signal ain2    : real := 0.0;
-   signal rng     : std_logic := '1';        -- Range (0=160mV) | (1=2,56mV) 
-   signal sel     : std_logic := '0';        -- Channel Select: AIN1 (=0) AIN2 (=1)
-   signal mode    : std_logic := '0';        -- (0)master / (1)Slave Mode
-   signal sclk    : std_logic := '1';
-   signal cs      : std_logic := '1';
+   SIGNAL ain1    : real := 0.0;
+   SIGNAL ain2    : real := 0.0;
+   SIGNAL rng     : std_logic := '1';        -- Range (0=160mV) | (1=2,56mV) 
+   SIGNAL sel     : std_logic := '0';        -- Channel Select: AIN1 (=0) AIN2 (=1)
+   SIGNAL mode    : std_logic := '0';        -- (0)master / (1)Slave Mode
+   SIGNAL sclk    : std_logic := '1';
+   SIGNAL cs      : std_logic := '1';
 
-   signal clk		: std_logic := '0';
-   signal rst 		: std_logic;
+   SIGNAL clk		: std_logic := '0';
+   SIGNAL rst 		: std_logic;
 
-	--output Stimuli-signale
-	signal dout 	: std_logic := '0';
+	--output Stimuli-SIGNALe
+	SIGNAL dout 	: std_logic := '0';
 
 	--Types
 	TYPE tstate IS (S0, S1, S2, S3);
-	signal statesysclk	: tstate;
-	signal state	: tstate;
+	SIGNAL statesysclk	: tstate;
+	SIGNAL state	: tstate;
 
 	--Tests
-	signal setsclk	: std_logic := '1';
-	signal din 		: std_logic_vector(N-1 downto 0) := (OTHERS => '0');
-	signal cnt 		: integer range 0 to N;
+	SIGNAL setsclk	: std_logic := '1';
+	SIGNAL din 		: std_logic_vector(N-1 DOWNTO 0) := (OTHERS => '0');
+	SIGNAL cnt 		: integer range 0 to N;
+
+
+	PROCEDURE getAD_velue (
+		SIGNAL pout 	: OUT std_logic_vector(23 DOWNTO 0);
+		SIGNAL setsclk : OUT std_logic;
+		SIGNAL cso 		: OUT std_logic;
+		SIGNAL csi 		: IN std_logic;
+		SIGNAL dout		: IN std_logic) is
+
+	BEGIN
+
+		cso 	<= '0';
+		WAIT UNTIL csi = '0';
+
+		WAIT UNTIL dout = '1';
+		WAIT UNTIL falling_edge(dout);
+		WAIT FOR 15260 ns;						-- minimale convertierungs zeit
+
+		setsclk <= '0';
+		WAIT UNTIL falling_edge(sclk);
+
+		FOR I in 23 DOWNTO 0 LOOP
+			--Hier Daten einlesen.
+			WAIT UNTIL rising_edge(sclk);
+			WAIT FOR 50 ns;
+			--Jetzt liegen Daten stabiel an!
+			pout(I)	<= dout;
+		END LOOP;
+
+		-- Daten wurden eingelesen, Jetzt alles zurück setzten.
+		cso 		<= '1';
+		setsclk 	<= '1';
+
+	END getAD_velue;
 
 
 	BEGIN
 	--Anfang des Tests
 
-	--Dauerhaft zugeordnete Signale
+	--Dauerhaft zugeordnete SIGNALE
 	clk 		<= not clk after 100 ns; -- 5KHz Taktfrequenz
 	rst 		<= '1', '0' after 100 ns; -- generate Reset signal
 	sclk 		<= not sclk after 100 ns when setsclk='0'; -- setst den System clock sobald er gesetzt werden soll (leider ist die erste Tacktflanke dann noch 100ns entfernt)
@@ -80,41 +114,27 @@ ARCHITECTURE verhalten OF AD7782_tb IS
       dout  => dout
       );
 
-	sysclkgenerate : PROCESS
+	test : PROCESS
 	BEGIN
-	wait for 50 ns;
-		if cs='1' then
-			statesysclk <= S0;
-			cnt 			<= 0;
-			cs 			<= '0';
-		elsif cs='0' then
-			--evt sclk genernieren
-			case statesysclk is
-				when S0 =>
-					wait until dout = '1';
-					wait until falling_edge(dout);
-					wait for 15260 ns;
-					setsclk <= '0';
-					statesysclk <= S1;
-					wait until falling_edge(sclk);
+		WAIT FOR 200 ns;
+		rng 	<= '1';	--2.56V
+		sel 	<= '0';	--ch1(ain1)
 
-				when S1 =>
-					if cnt/=N then
-						wait until falling_edge(sclk);
-						cnt <= cnt + 1;
-					else
-						wait for 400 ns;							-- nach kurzem warten, alles wieder auf anfang stellen.
-						statesysclk <= S0;
-						cnt <= 0;
-						setsclk <= '1';
-						cs <= '1';						
-						wait for 1 ms;
-					end if ;
-				when others =>
-					statesysclk <= S0;
-			end case ;
-		else
-		end if ;
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		ASSERT (din = X"FC8000") report "fail on read AIN1" severity error;
+
+		WAIT FOR 200 ns;
+		rng 	<= '1';	--2.56V
+		sel 	<= '1';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		ASSERT (din = X"116800") report "fail on read AIN2" severity error;
+
+		WAIT FOR 1 sec;
+
 	END PROCESS;
 
 		
