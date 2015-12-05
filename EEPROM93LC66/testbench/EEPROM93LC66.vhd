@@ -181,12 +181,9 @@ BEGIN
 				state <= IDLE;
 			END IF;
 		ELSIF rising_edge(cs) THEN
-			IF mstate = IDLE THEN
+			IF mstate = IDLE AND state = IDLE THEN
 				state <= RXSB;
 				cmd <= NONE;
-			END IF;
-			IF state = IDLE THEN
-				state <= RXSB;
 			END IF;
 		ELSIF falling_edge(cs) AND state = TXDOUT THEN
 			state <= IDLE;
