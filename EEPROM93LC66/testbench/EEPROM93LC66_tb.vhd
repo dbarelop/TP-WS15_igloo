@@ -82,6 +82,12 @@ BEGIN
 
 			mosi <= '0';
 			cs <= '0';
+			WAIT FOR tcyc;
+			cs <= '1';
+			IF miso /= '1' THEN
+				WAIT UNTIL miso = '1';
+			END IF;
+			cs <= '0';
 			WAIT FOR 2*tcyc;
 		END PROCEDURE;
 		
@@ -210,7 +216,8 @@ BEGIN
 		spi_write("10", "11111110", "00000000000000000000000000000000", 43);
 		-- first 16 bits cant be checked :(
 		assert serIN = "1100110011110000" report "16bit continious read failed";
-
+      
+      	REPORT "all tests done..." SEVERITY note;
 		WAIT;
 
 
