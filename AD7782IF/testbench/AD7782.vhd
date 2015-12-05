@@ -26,6 +26,7 @@ ARCHITECTURE verhalten OF AD7782 IS
    CONSTANT tADC:        time    := 1 sec / OutputRate;
    CONSTANT tSETTLE:     time    := 2 * tADC;
    CONSTANT N:           natural := 24;
+   CONSTANT tmpMAX:      natural := 2**N - 1;   -- 0xFF_FF_FF
 
    TYPE tstate IS (S0, S1, S2);
 
@@ -91,6 +92,9 @@ BEGIN
             WHEN S2 =>
             -- Performs the conversion
                tmp   := integer(2.0**(N-1) * ((ain*gain / (1.024*ref)) + 1.0));     -- gain can bee 1 on +-2.56V Range or 16 on 160mV Range
+               IF tmp > tmpMAX THEN
+                  tmp := tmpMAX;
+               END IF;
                dat   <= conv_std_logic_vector(tmp, N);                              -- convert the integer tmp to an log_vector 
                wre   <= '1' AFTER 10 ns, '0' AFTER 20 ns;
                state <= S0;

@@ -69,15 +69,14 @@ ARCHITECTURE verhalten OF AD7782_tb IS
 
 		WAIT UNTIL dout = '1';
 		WAIT UNTIL falling_edge(dout);
-		WAIT FOR 15260 ns;						-- minimale convertierungs zeit
+		--WAIT FOR 15260 ns;						-- minimale convertierungs zeit
 
 		setsclk <= '0';
-		WAIT UNTIL falling_edge(sclk);
+		WAIT UNTIL falling_edge(sclk);		-- erstes Datenbit kommt jetzt auf dout, ist bei der nechsten rising edge verfügbar!
 
 		FOR I in 23 DOWNTO 0 LOOP
 			--Hier Daten einlesen.
-			WAIT UNTIL rising_edge(sclk);
-			WAIT FOR 50 ns;
+			WAIT UNTIL rising_edge(sclk);		-- Daten werden immer an der falling Edge geschrieben und liegen an rising Edge stabiel an!
 			--Jetzt liegen Daten stabiel an!
 			pout(I)	<= dout;
 		END LOOP;
@@ -97,8 +96,6 @@ ARCHITECTURE verhalten OF AD7782_tb IS
 	rst 		<= '1', '0' after 100 ns; -- generate Reset signal
 	sclk 		<= not sclk after 100 ns when setsclk='0'; -- setst den System clock sobald er gesetzt werden soll (leider ist die erste Tacktflanke dann noch 100ns entfernt)
 	
-   ain1 		<= 2.49;
-   ain2 		<= 3.01;
 
 	-- Modulinstanzierung mittels "port map"
 	-- <Komponenten-port> => <Stimulie-Signal>,
@@ -116,7 +113,12 @@ ARCHITECTURE verhalten OF AD7782_tb IS
 
 	test : PROCESS
 	BEGIN
+   	ain1 		<= 2.49;
+   	ain2 		<= 3.01;
+
+		-- T01
 		WAIT FOR 200 ns;
+   	ain1 		<= 2.49;
 		rng 	<= '1';	--2.56V
 		sel 	<= '0';	--ch1(ain1)
 
@@ -124,14 +126,17 @@ ARCHITECTURE verhalten OF AD7782_tb IS
 		getAD_velue(din, setsclk, cs, cs, dout);
 		ASSERT (din = X"FC8000") report "fail on read AIN1" severity error;
 
+		-- T02
 		WAIT FOR 200 ns;
+   	ain2 		<= 3.01;
 		rng 	<= '1';	--2.56V
 		sel 	<= '1';	--ch2(ain2)
 		din 	<= (OTHERS => '0');
 
 		WAIT FOR 50 ns;
 		getAD_velue(din, setsclk, cs, cs, dout);
-		ASSERT (din = X"116800") report "fail on read AIN2" severity error;
+		WAIT FOR 10 ns;
+		ASSERT (din = X"FFFFFF") report "fail on read AIN2" severity error;
 
 		WAIT FOR 1 sec;
 
