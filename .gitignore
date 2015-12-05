@@ -31,3 +31,6 @@ EEPROM93LC66/*.pdf
 
 # I ignore me
 .gitignore
+
+# ignore matlab bullshi..
+*.asv
