@@ -4,4 +4,3 @@ function code = adcCodeGeneration( N, AIN, GAIN, VReff)
 
     code = (2^(N-1) * ((AIN * GAIN/(1.024 * VReff)) + 1));
 end
-
