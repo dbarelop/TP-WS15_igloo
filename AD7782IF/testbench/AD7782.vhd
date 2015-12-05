@@ -91,9 +91,11 @@ BEGIN
                END IF;
             WHEN S2 =>
             -- Performs the conversion
-               tmp   := integer(2.0**(N-1) * ((ain*gain / (1.024*ref)) + 1.0));     -- gain can bee 1 on +-2.56V Range or 16 on 160mV Range
+               tmp   := integer(2.0**(N-1) * ((ain*gain / (1.024*ref)) + 1.0));     -- gain can bee 1 on +-2.56V Range or 16 on 160mV Range [Roundingerror at -2.49 ain its 0x038000 instat of 0x037FFF]
                IF tmp > tmpMAX THEN
                   tmp := tmpMAX;
+               ELSIF tmp < 0 THEN
+                  tmp := 0;
                END IF;
                dat   <= conv_std_logic_vector(tmp, N);                              -- convert the integer tmp to an log_vector 
                wre   <= '1' AFTER 10 ns, '0' AFTER 20 ns;

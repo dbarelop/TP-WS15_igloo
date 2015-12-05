@@ -124,7 +124,7 @@ ARCHITECTURE verhalten OF AD7782_tb IS
 
 		WAIT FOR 50 ns;
 		getAD_velue(din, setsclk, cs, cs, dout);
-		ASSERT (din = X"FC8000") report "fail on read AIN1" severity error;
+		ASSERT (din = X"FC8000") report "fail on read 2.49V" severity error;
 
 		-- T02
 		WAIT FOR 200 ns;
@@ -136,11 +136,11 @@ ARCHITECTURE verhalten OF AD7782_tb IS
 		WAIT FOR 50 ns;
 		getAD_velue(din, setsclk, cs, cs, dout);
 		WAIT FOR 10 ns;
-		ASSERT (din = X"FFFFFF") report "fail on read AIN2" severity error;
+		ASSERT (din = X"FFFFFF") report "fail on read 3.01" severity error;
 
 		-- T03
 		WAIT FOR 200 ns;
-		ain1 		<= -2.49;
+		ain1 		<= -0.1;
 		rng 	<= '1';	--2.56V
 		sel 	<= '0';	--ch2(ain2)
 		din 	<= (OTHERS => '0');
@@ -148,11 +148,243 @@ ARCHITECTURE verhalten OF AD7782_tb IS
 		WAIT FOR 50 ns;
 		getAD_velue(din, setsclk, cs, cs, dout);
 		WAIT FOR 10 ns;
-		--ASSERT (din = X"???") report "fail on read -2.49V" severity error;
+		ASSERT (din = X"7B0000") report "fail on read -0.1V" severity error;
+
+		-- T04
+		WAIT FOR 200 ns;
+		ain1 		<= -1.49;
+		rng 	<= '1';	--2.56V
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"358000") report "fail on read -1.4V" severity error;
+
+		-- T05
+		WAIT FOR 200 ns;
+		ain1 		<= -2.0;
+		rng 	<= '1';	--2.56V
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"1C0000") report "fail on read -2.0V" severity error;
+
+		-- T06
+		WAIT FOR 200 ns;
+		ain1 		<= -2.4;
+		rng 	<= '1';	--2.56V
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"080000") report "fail on read -2.4V" severity error;
+
+		-- T07
+		WAIT FOR 200 ns;
+		ain1 		<= -2.485;
+		rng 	<= '1';	--2.56V
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"03C000") report "fail on read -2.48V" severity error;
+
+		-- T09
+		WAIT FOR 200 ns;
+		ain1 		<= -2.495;
+		rng 	<= '1';	--2.56V
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"034000") report "fail on read -2.495V" severity error;
+
+		-- T10
+		WAIT FOR 200 ns;
+		ain1 		<= -2.5;
+		rng 	<= '1';	--2.56V
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"030000") report "fail on read -2.5V" severity error;
+
+		-- T11
+		WAIT FOR 200 ns;
+		ain1 		<= -2.56;
+		rng 	<= '1';	--2.56V
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"000000") report "fail on read -2.56V" severity error;
+
+		-- T12
+		WAIT FOR 200 ns;
+		ain1 		<= -3.01;
+		rng 	<= '1';	--2.56V
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"000000") report "fail on read -3.01V" severity error;
+
+
+		--RangeTests
+		--TR01
+		WAIT FOR 200 ns;
+		ain1 		<= 0.17;
+		rng 	<= '0';	--160mV
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"FFFFFF") report "fail on read 0.17V on 160mV Range" severity error;
+
+		--TR02
+		WAIT FOR 200 ns;
+		ain1 		<= 0.16;
+		rng 	<= '0';	--160mV
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"FFFFFF") report "fail on read 0.16V on 160mV Range" severity error;
+
+		--TR02
+		WAIT FOR 200 ns;
+		ain1 		<= 0.15;
+		rng 	<= '0';	--160mV
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"F80000") report "fail on read 0.15V on 160mV Range" severity error;
+
+		--TR02
+		WAIT FOR 200 ns;
+		ain1 		<= 0.1;
+		rng 	<= '0';	--160mV
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"D00000") report "fail on read 0.1V on 160mV Range" severity error;
+
+		--TR03
+		WAIT FOR 200 ns;
+		ain1 		<= 0.05;
+		rng 	<= '0';	--160mV
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"A80000") report "fail on read 0.05V on 160mV Range" severity error;
+
+		--TR04
+		WAIT FOR 200 ns;
+		ain1 		<= 0.0;
+		rng 	<= '0';	--160mV
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"800000") report "fail on read 0.0V on 160mV Range" severity error;
+
+		--TR02
+		WAIT FOR 200 ns;
+		ain1 		<= -0.05;
+		rng 	<= '0';	--160mV
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"580000") report "fail on read -0.05V on 160mV Range" severity error;
+
+		--TR02
+		WAIT FOR 200 ns;
+		ain1 		<= -0.1;
+		rng 	<= '0';	--160mV
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"300000") report "fail on read -0.1V on 160mV Range" severity error;
+
+		--TR02
+		WAIT FOR 200 ns;
+		ain1 		<= -0.15;
+		rng 	<= '0';	--160mV
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"080000") report "fail on read -0.15V on 160mV Range" severity error;
+
+		--TR02
+		WAIT FOR 200 ns;
+		ain1 		<= -0.16;
+		rng 	<= '0';	--160mV
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"000000") report "fail on read -0.16V on 160mV Range" severity error;
+
+		--TR02
+		WAIT FOR 200 ns;
+		ain1 		<= -0.17;
+		rng 	<= '0';	--160mV
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		ASSERT (din = X"000000") report "fail on read -0.17V on 160mV Range" severity error;
+
+		
+
 
 
 		WAIT FOR 1 sec;
-
 	END PROCESS;
 
 		

@@ -1,4 +1,4 @@
-function [ ain ] = adcAINGeneration(dec_code, N, gain, VReff)
+function [ ain ] = adcAINGeneration(N, dec_code, gain, VReff)
 %adcAINGeneration Summary of this function goes here
 %   Detailed explanation goes here
     v = 1.024 * VReff;
