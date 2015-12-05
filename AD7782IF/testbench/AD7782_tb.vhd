@@ -138,6 +138,19 @@ ARCHITECTURE verhalten OF AD7782_tb IS
 		WAIT FOR 10 ns;
 		ASSERT (din = X"FFFFFF") report "fail on read AIN2" severity error;
 
+		-- T03
+		WAIT FOR 200 ns;
+		ain1 		<= -2.49;
+		rng 	<= '1';	--2.56V
+		sel 	<= '0';	--ch2(ain2)
+		din 	<= (OTHERS => '0');
+
+		WAIT FOR 50 ns;
+		getAD_velue(din, setsclk, cs, cs, dout);
+		WAIT FOR 10 ns;
+		--ASSERT (din = X"???") report "fail on read -2.49V" severity error;
+
+
 		WAIT FOR 1 sec;
 
 	END PROCESS;
