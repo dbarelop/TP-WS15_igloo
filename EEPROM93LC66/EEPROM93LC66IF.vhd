@@ -33,14 +33,17 @@ END EEPROM93LC66IF;
 
 ARCHITECTURE behaviour OF EEPROM93LC66IF IS
 
-   	TYPE tstate IS (INIT, IDLE);
+   	TYPE tstate IS (IDLE, INIT, BUSY);
 
    	SIGNAL state:		tstate;
+	SIGNAL serialOut: 	std_logic_vector(26 DOWNTO 0);
+	SIGNAL serClk:		std_logic;
+
 
 BEGIN
 
 	main: PROCESS(rst, clk) IS
-		SIGNAL serialOut: 	std_logic_vector(26 DOWNTO 0);
+		SIGNAL outCnt:		integer RANGE 0 TO 27;
 
 	BEGIN
 		IF rst = RSTDEF THEN
@@ -52,17 +55,79 @@ BEGIN
 			org <= '0';
 			serialOut <= (others => '0');
 
-			state <= INIT;
+			state <= IDLE;
+			serClk <= '0';
 		ELSIF rising_edge(clk) THEN
 			CASE state IS
-				WHEN INIT =>
-
+				WHEN IDLE =>
+					IF strb = '1' THEN
+						CASE cmd IS
+							--16bit
+							WHEN "1001" => --16bit write
+								serialOut <= "101" & adrin(7 DOWNTO 0) & din;
+								outCnt <= 27;
+							WHEN "1010" => --16bit read
+								serialOut <= "110" & adrin(7 DOWNTO 0) & "0000000000000000";
+								outCnt <= 27;
+							WHEN "1011" => --16bit erase
+								serialOut <= "111" & adrin(7 DOWNTO 0) & "0000000000000000";
+								outCnt <= 11;
+							WHEN "1100" => --16bit eral
+								serialOut <= "10010000000" & "0000000000000000";
+								outCnt <= 11;
+							WHEN "1101" => --16bit wral
+								serialOut <= "10001000000" & din;
+								outCnt <= 27;
+							WHEN "1110" => --16bit EWEN
+								serialOut <= "10011000000" & "0000000000000000";
+								outCnt <= 11;
+							WHEN "1111" => --16bit EWDS
+								serialOut <= "10000000000" & "0000000000000000";
+								outCnt <= 11;
+							--8bit
+							WHEN "0001" => --8bit write
+								serialOut <= "101" & adrin(8 DOWNTO 0) & din(7 DOWNTO 0) & "0000000";
+								outCnt <= 20;
+							WHEN "0010" => --8bit read
+								serialOut <= "110" & adrin(8 DOWNTO 0) & "000000000000000";
+								outCnt <= 20;
+							WHEN "0011" => --8bit erase
+								serialOut <= "111" & adrin(8 DOWNTO 0) & "000000000000000";
+								outCnt <= 12;
+							WHEN "0100" => --8bit eral
+								serialOut <= "10010000000" & "0000000000000000";
+								outCnt <= 12;
+							WHEN "0101" => --8bit wral
+								serialOut <= "10001000000" & din(7 DOWNTO 0) & "0000000";
+								outCnt <= 20;
+							WHEN "0110" => --8bit EWEN
+								serialOut <= "10011000000" & "0000000000000000";
+								outCnt <= 12;
+							WHEN "0111" => --8bit EWDS
+								serialOut <= "10000000000" & "0000000000000000";
+								outCnt <= 12;
+						END CASE;
+						busy <= '1';
+						org <= cmd(3);
+					END IF;
+				WHEN BUSY =>
+					IF serClk = '0' THEN
+						outCnt = outCnt - 1;
+						serClk <= '1';
+						IF(outCnt = 0) THEN
+							state <= IDLE;
+						END IF;
+					ELSE
+						serialOut <= serialOut(serialOut'LEFT-1 DOWNTO serialOut'RIGHT) & '0';
+						serClk <= '0';
+					END IF;
 			END CASE;
 		END IF;
 
 	END PROCESS;
 
    mosi <= serialOut(serialOut'LEFT);
+   sclk <= serClk;
 
 
 END behaviour;
