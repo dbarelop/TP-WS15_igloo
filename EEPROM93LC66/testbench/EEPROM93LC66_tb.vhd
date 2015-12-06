@@ -61,10 +61,6 @@ BEGIN
 
 			cs <= '1';
 			WAIT FOR tcyc;
-			sclk <= '1';
-			WAIT FOR tcyc;
-			sclk <= '0';
-			WAIT FOR tcyc;
 			mosi <= '1';
 			sclk <= '1';
 			WAIT FOR tcyc;
