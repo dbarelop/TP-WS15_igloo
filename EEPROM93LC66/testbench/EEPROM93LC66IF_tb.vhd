@@ -12,6 +12,16 @@ ARCHITECTURE verhalten OF EEPROM93LC66IF_tb IS
    CONSTANT FRQDEF: natural   := 4e6;
    CONSTANT tcyc:   time      := 1 sec / FRQDEF;
 
+   CONSTANT cmd_wr: std_logic_vector := "001";
+   CONSTANT cmd_rd: std_logic_vector := "010";
+   CONSTANT cmd_er: std_logic_vector := "011";
+   CONSTANT cmd_eral: std_logic_vector := "100";
+   CONSTANT cmd_wral: std_logic_vector := "101";
+   CONSTANT cmd_ewen: std_logic_vector := "110";
+   CONSTANT cmd_ewds: std_logic_vector := "111";
+   CONSTANT cmd16:	std_logic := '1';
+   CONSTANT cmd8:	std_logic := '0';
+
    COMPONENT EEPROM93LC66IF
     GENERIC(RSTDEF: std_logic);
 	PORT(	rst:	IN	std_logic;
@@ -87,11 +97,11 @@ BEGIN
    		);
 
 	p1: PROCESS
-		PROCEDURE eeprom_com (cmdTest: std_logic_vector; address: std_logic_vector;
+		PROCEDURE eeprom_com (cmdOrg: std_logic; cmdTest: std_logic_vector; address: std_logic_vector;
 							dataIn: std_logic_vector) IS
 			
 		BEGIN
-			cmd <= cmdTest;
+			cmd <= cmdOrg & cmdTest;
 			adrin <= address;
 			din <= dataIn;
 
@@ -108,8 +118,33 @@ BEGIN
    		WAIT FOR 1 us;
    		rst <= NOT RSTDEF;
 
-   		eeprom_com("1110", "000000000", "0000000000000000");
-      
+   		eeprom_com(cmd16, cmd_ewen, "000000000", "0000000000000000");
+		eeprom_com(cmd16, cmd_wral, "000000000", "1010101010101010");
+		eeprom_com(cmd16, cmd_rd, "011001100", "0000000000000000");
+		assert dout = "1010101010101010" report "read 16bit failed";
+
+		eeprom_com(cmd16, cmd_wr, "011001100", "0110010100100110");
+		eeprom_com(cmd16, cmd_rd, "011001100", "0000000000000000");
+		assert dout = "0110010100100110" report "read 16bit failed";
+
+		eeprom_com(cmd16, cmd_er, "011001100", "0000000000000000");
+		eeprom_com(cmd16, cmd_rd, "011001100", "0000000000000000");
+		assert dout = "1111111111111111" report "erase 16bit failed";
+		eeprom_com(cmd16, cmd_rd, "011001101", "0000000000000000");
+		assert dout = "1010101010101010" report "erase 16bit failed";
+
+   		eeprom_com(cmd16, cmd_ewds, "000000000", "0000000000000000");
+		eeprom_com(cmd16, cmd_eral, "000000000", "0000000000000000");
+		eeprom_com(cmd16, cmd_rd, "011001101", "0000000000000000");
+		assert dout = "1010101010101010" report "ewds 16bit failed";
+   		
+   		eeprom_com(cmd16, cmd_ewen, "000000000", "0000000000000000");
+		eeprom_com(cmd16, cmd_eral, "000000000", "0000000000000000");
+		eeprom_com(cmd16, cmd_rd, "011001100", "0000000000000000");
+		assert dout = "1111111111111111" report "erase 16bit failed";
+
+
+
       	REPORT "all tests done..." SEVERITY note;
 		WAIT;
 

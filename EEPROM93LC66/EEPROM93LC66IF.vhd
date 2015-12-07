@@ -113,7 +113,7 @@ BEGIN
 								outCnt <= 12;
 								MemAccess <= '1';
 							WHEN "0101" => --8bit wral
-								serialOut <= "10001000000" & din(7 DOWNTO 0) & "0000000";
+								serialOut <= "100010000000" & din(7 DOWNTO 0) & "0000000";
 								outCnt <= 20;
 								MemAccess <= '1';
 							WHEN "0110" => --8bit EWEN
@@ -140,6 +140,7 @@ BEGIN
 							IF MemAccess = '1' THEN
 								state <= WAITEEPROM;
 								outCnt <= 2;
+								MemAccess <= '0';
 							ELSE
 								busyS<= '0';
 								state <= IDLE;
