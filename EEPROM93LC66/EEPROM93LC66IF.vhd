@@ -6,7 +6,7 @@ USE ieee.std_logic_arith.ALL;
 ENTITY EEPROM93LC66IF IS
 	GENERIC(RSTDEF: std_logic := '1');
 	PORT(	rst:	IN	std_logic;
-			clk:	IN	std_logic;
+			clk:	IN	std_logic;			-- 4 MHz MAX!! leads to 2 MHz sclk
 			cmd:	IN 	std_logic_vector(3 DOWNTO 0);
 			strb:	IN	std_logic;			-- executes the given command with the given address 
 			dout:	OUT std_logic_vector(15 DOWNTO 0);
