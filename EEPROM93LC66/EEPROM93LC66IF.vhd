@@ -54,7 +54,6 @@ BEGIN
 			dout <= (others => '0');
 			busyS <= '0';
 
-			sclk <= '0';
 			cs <= '0';
 			org <= '0';
 			serialOut <= (others => '0');

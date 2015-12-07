@@ -50,7 +50,7 @@ ARCHITECTURE verhalten OF EEPROM93LC66IF_tb IS
    SIGNAL adrin:std_logic_vector(8 DOWNTO 0) := (others =>'0');
    SIGNAL busyout: std_logic := '0';
 
-   SIGNAL sclk:	std_logic := '0';
+   SIGNAL sclkTB:	std_logic := '0';
    SIGNAL cs:	std_logic := '0';
    SIGNAL mosi:	std_logic := '0';
    SIGNAL miso:	std_logic := '0';
@@ -61,7 +61,7 @@ BEGIN
 	clk <= NOT clk AFTER tcyc/2;
 
    u1: EEPROM93LC66
-   PORT MAP(sclk => sclk,
+   PORT MAP(sclk => sclkTB,
             cs   => cs,
             din  => mosi,
             dout => miso,
@@ -78,7 +78,7 @@ BEGIN
    			adrin => adrin,
    			busyout => busyout,
 
-   			sclk => sclk,
+   			sclk => sclkTB,
    			cs => cs,
    			mosi => mosi,
    			miso => miso,
