@@ -23,12 +23,12 @@ ENTITY AD7782IF IS
         clk:  IN  std_logic;  -- rising edge active, 1 MHz
         strb: IN  std_logic;  -- strobe, high active
         csel: IN  std_logic;  -- select wich chanel is used
+        din:  IN  std_logic;  -- serial data input
         rng:  OUT std_logic;  -- logic output which configures the input range on the internal PGA
         sel:  OUT std_logic;  -- logic output which selects the active channel AIN1 (=0) or ANI2 (=1)
         mode: OUT std_logic;  -- logic output which selects master (=0) or slave (=1) mode of operation
         cs:   OUT std_logic;  -- chip select, low active
         sclk: OUT std_logic;  -- serial clock output
-        din:  IN  std_logic;  -- serial data input
         ch1:  OUT std_logic_vector(LENDEF-1 DOWNTO 0);
         ch2:  OUT std_logic_vector(LENDEF-1 DOWNTO 0));
 END AD7782IF;

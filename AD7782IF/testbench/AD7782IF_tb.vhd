@@ -40,26 +40,32 @@ ARCHITECTURE verhalten OF AD7782IF_tb IS
            ch2:  OUT std_logic_vector(15 DOWNTO 0));
    END COMPONENT;
 
+
    SIGNAL rst:  std_logic := RSTDEF;
    SIGNAL clk:  std_logic := '0';
-   SIGNAL ena:  std_logic := '1';
-   SIGNAL cs:   std_logic := '1';
-   SIGNAL sclk: std_logic := '1';
-   SIGNAL strb: std_logic := '0';
+   -- IO For AD7782
+   SIGNAL ain1: real      := 0.0;
+   SIGNAL ain2: real      := 0.0;
    SIGNAL rng:  std_logic := '0';
    SIGNAL sel:  std_logic := '0';
    SIGNAL mode: std_logic := '1';
-   SIGNAL miso: std_logic := '1';
-   SIGNAL ain1: real      := 0.0;
-   SIGNAL ain2: real      := 0.0;
+   SIGNAL sclk: std_logic := '1';
+   SIGNAL cs:   std_logic := '1';
+
+   SIGNAL adot: std_logic := '1';
+   -- IO For AD7782IF
+   SIGNAL strb: std_logic := '0';
+   SIGNAL csel: std_logic := '0';
+   SIGNAL ena:  std_logic := '1';
    SIGNAL ch1:  std_logic_vector(15 DOWNTO 0) := (OTHERS => '0');
    SIGNAL ch2:  std_logic_vector(15 DOWNTO 0) := (OTHERS => '0');
 
+
 BEGIN
 
-   miso <= 'H';
+   adot <= 'H';
    
-   rst  <= RSTDEF, NOT RSTDEF AFTER 5 us;
+   rst  <= RSTDEF, NOT RSTDEF AFTER 50 ns;
    clk  <= NOT clk AFTER tcyc/2;
 
    u1: AD7782
@@ -71,19 +77,20 @@ BEGIN
             mode => mode,
             sclk => sclk,
             cs   => cs,
-            dout => miso);
+            dout => adot);
 
    u2: AD7782IF
    GENERIC MAP(RSTDEF => RSTDEF)
     PORT MAP(rst   => rst,
              clk   => clk,
              strb  => strb,
+             csel  => csel,
+             din   => adot,
              rng   => rng,
              sel   => sel,
              mode  => mode,
              cs    => cs,
              sclk  => sclk,
-             din   => miso,
              ch1   => ch1,
              ch2   => ch2);
 
