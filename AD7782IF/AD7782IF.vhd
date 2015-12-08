@@ -19,18 +19,19 @@ USE ieee.std_logic_arith.ALL;
 
 ENTITY AD7782IF IS
    GENERIC(RSTDEF: std_logic := '1');
-   PORT(rst:  IN  std_logic;  -- reset RSTDEF active
-        clk:  IN  std_logic;  -- rising edge active, 1 MHz
-        strb: IN  std_logic;  -- strobe, high active
-        csel: IN  std_logic;  -- select wich chanel is used
-        din:  IN  std_logic;  -- serial data input
-        rng:  OUT std_logic;  -- logic output which configures the input range on the internal PGA
-        sel:  OUT std_logic;  -- logic output which selects the active channel AIN1 (=0) or ANI2 (=1)
-        mode: OUT std_logic;  -- logic output which selects master (=0) or slave (=1) mode of operation
-        cs:   OUT std_logic;  -- chip select, low active
-        sclk: OUT std_logic;  -- serial clock output
-        ch1:  OUT std_logic_vector(LENDEF-1 DOWNTO 0);
-        ch2:  OUT std_logic_vector(LENDEF-1 DOWNTO 0));
+   PORT( rst:  IN  std_logic;  -- reset RSTDEF active
+         clk:  IN  std_logic;  -- rising edge active, 1 MHz
+         strb: IN  std_logic;  -- strobe, high active
+         csel: IN  std_logic;  -- select wich chanel is used AIN1(0), AIN2(1)
+         rsel: IN  std_logic;  -- select wich range is used 2.56V(1), 160mV(0)
+         din:  IN  std_logic;  -- serial data input
+         rng:  OUT std_logic;  -- logic output which configures the input range on the internal PGA
+         sel:  OUT std_logic;  -- logic output which selects the active channel AIN1 (=0) or ANI2 (=1)
+         mode: OUT std_logic;  -- logic output which selects master (=0) or slave (=1) mode of operation
+         cs:   OUT std_logic;  -- chip select, low active
+         sclk: OUT std_logic;  -- serial clock output
+         ch1:  OUT std_logic_vector(LENDEF-1 DOWNTO 0);
+         ch2:  OUT std_logic_vector(LENDEF-1 DOWNTO 0));
 END AD7782IF;
 
 ARCHITECTURE behaviour OF AD7782IF IS
@@ -50,7 +51,7 @@ ARCHITECTURE behaviour OF AD7782IF IS
 BEGIN
 
    mode <= SLAVE;
-   rng  <= '1';
+   rng  <= rsel;
    sel  <= csel;
 
    p1: PROCESS (rst, clk) IS
