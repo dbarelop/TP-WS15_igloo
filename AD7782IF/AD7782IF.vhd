@@ -28,8 +28,8 @@ ENTITY AD7782IF IS
         cs:   OUT std_logic;  -- chip select, low active
         sclk: OUT std_logic;  -- serial clock output
         din:  IN  std_logic;  -- serial data input
-        ch1:  OUT std_logic_vector(15 DOWNTO 0);
-        ch2:  OUT std_logic_vector(15 DOWNTO 0));
+        ch1:  OUT std_logic_vector(LENDEF-1 DOWNTO 0);
+        ch2:  OUT std_logic_vector(LENDEF-1 DOWNTO 0));
 END AD7782IF;
 
 ARCHITECTURE behaviour OF AD7782IF IS
@@ -103,9 +103,9 @@ BEGIN
             WHEN S4 =>
                cs <= '1';
                IF csel='0' THEN
-                  ch1 <= reg(LENDEF-1 DOWNTO 8);
+                  ch1 <= reg(LENDEF-1 DOWNTO 0);
                ELSE
-                  ch2 <= reg(LENDEF-1 DOWNTO 8);
+                  ch2 <= reg(LENDEF-1 DOWNTO 0);
                END IF;
                state <= S5;
             WHEN S5 =>
