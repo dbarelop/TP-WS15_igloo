@@ -38,6 +38,7 @@ BEGIN
    
    dout <= sor(15) AFTER 35 ns WHEN cs='0' ELSE 'Z' AFTER 40 ns;
 
+   -- Writes the value of the 'tvr' in the 'sor' register and shifts it to the left every cycle
    p1: PROCESS (cs, sclk) IS
       VARIABLE cnt: integer RANGE 0 TO 15 := 0;
    BEGIN
@@ -52,7 +53,8 @@ BEGIN
          END IF;
       END IF;
    END PROCESS;
-    
+
+   -- Shifts the 'rsr' register to the left and writes the data from 'din' pin
    p2: PROCESS (cs, sclk) IS
    BEGIN
       IF cs='0' THEN
