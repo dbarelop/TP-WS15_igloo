@@ -61,10 +61,6 @@ BEGIN
 
 			cs <= '1';
 			WAIT FOR tcyc;
-			sclk <= '1';
-			WAIT FOR tcyc;
-			sclk <= '0';
-			WAIT FOR tcyc;
 			mosi <= '1';
 			sclk <= '1';
 			WAIT FOR tcyc;
@@ -81,6 +77,12 @@ BEGIN
 			END LOOP;
 
 			mosi <= '0';
+			cs <= '0';
+			WAIT FOR tcyc;
+			cs <= '1';
+			IF miso /= '1' THEN
+				WAIT UNTIL miso = '1';
+			END IF;
 			cs <= '0';
 			WAIT FOR 2*tcyc;
 		END PROCEDURE;
@@ -183,6 +185,35 @@ BEGIN
 		spi_write("10", "011111111", "00000000", 20);
 		assert serIN(7 DOWNTO 0) = "11110000" report "8bit read failed";
 
+		-- =====================
+		-- continous reading
+		-- =====================
+		-- ERAL 8 bit
+		spi_write("00", "100000000", "", 12);
+		-- =====================
+		-- 16 BIT
+		-- =====================
+		org <= '1';
+		-- WRAL 16 bit
+		spi_write("00", "01000000", "1100110011110000", 27);
+		-- =====================
+		-- 8 BIT
+		-- =====================
+		org <= '0';
+		-- read 8 bit - continious
+		spi_write("10", "011111110", "0000000000000000", 28);
+		assert serIN = "1100110011110000" report "8bit continious read failed";
+
+		-- =====================
+		-- 16 BIT
+		-- =====================
+		org <= '1';
+		-- read 16 bit - continious
+		spi_write("10", "11111110", "00000000000000000000000000000000", 43);
+		-- first 16 bits cant be checked :(
+		assert serIN = "1100110011110000" report "16bit continious read failed";
+      
+      	REPORT "all tests done..." SEVERITY note;
 		WAIT;
 
 

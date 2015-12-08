@@ -16,6 +16,9 @@ ARCHITECTURE simulation OF EEPROM93LC66 IS
   type			tcmd IS (NONE, ERASE, ERAL, RE4D, WR1TE, WRAL);
   type			t2state IS (IDLE, BUSY);
 
+  	constant TeraseWrite: 	time := 6 ms;
+  	constant TeraseAll:		time := 6 ms;
+  	constant TwriteAll:		time := 15 ms;
 	
 	signal MEM_DATA			: memory_array := ((others=> (others=>'1')));
 
@@ -23,6 +26,7 @@ ARCHITECTURE simulation OF EEPROM93LC66 IS
 	signal state				: tstate := IDLE;
 	signal cmd					: tcmd := NONE;
 	signal mstate				: t2state := IDLE;
+	signal mem_delay			: t2state := IDLE;
 	signal txstate			: t2state := IDLE;
 	signal serialInR		: std_logic_vector(15 DOWNTO 0) := (others => '0');
 	signal serialOutR		: std_logic_vector(15 DOWNTO 0);
@@ -30,14 +34,14 @@ ARCHITECTURE simulation OF EEPROM93LC66 IS
 
 BEGIN
 
-	memory_writePro: PROCESS(cs) IS
+	memory_writePro: PROCESS(cs, mem_delay) IS
 
 	BEGIN
 
 		IF falling_edge(cs) AND state = WAITFORCS THEN
-			mstate <= BUSY;
-			IF cmd = ERASE THEN
-				IF writeProtect = '0' THEN
+			IF writeProtect = '0' THEN
+				mstate <= BUSY;
+				IF cmd = ERASE THEN
 					IF org = '1' THEN
 						-- multiply by 2
 						MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '0'))) <= (others => '1');
@@ -45,25 +49,16 @@ BEGIN
 					ELSE
 						MEM_DATA(TO_INTEGER(unsigned(address))) <= (others => '1');
 					END IF;
-					--WAIT FOR 2 ms;
-				END IF;
-			ELSIF cmd = ERAL THEN
-				IF writeProtect = '0' THEN
+				ELSIF cmd = ERAL THEN
 					MEM_DATA <= ((others=> (others=>'1')));
-				END IF;
-				--WAIT FOR 6 ms;
-			ELSIF cmd = WR1TE THEN
-				IF writeProtect = '0' THEN
+				ELSIF cmd = WR1TE THEN
 					IF org = '1' THEN
 						MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '0'))) <= serialInR(15 DOWNTO 8);
 						MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '1'))) <= serialInR(7 DOWNTO 0);
 					ELSE
 						MEM_DATA(TO_INTEGER(unsigned(address))) <= serialInR(7 DOWNTO 0);
 					END IF;
-					--WAIT FOR 2 ms;
-				END IF;
-			ELSIF cmd = WRAL THEN
-				IF writeProtect = '0' THEN
+				ELSIF cmd = WRAL THEN
 					IF org = '1' THEN
 						for i in 0 to 2047 LOOP
 							MEM_DATA(i*2) <= serialInR(15 DOWNTO 8);
@@ -72,12 +67,27 @@ BEGIN
 					ELSE
 						MEM_DATA <= (others => (serialInR(7 DOWNTO 0)));
 					END IF;
-					--WAIT FOR 15 ms;
 				END IF;
 			END IF;
+		ELSIF mem_delay = IDLE THEN
 			mstate <= IDLE;
 		END IF;
 
+	END PROCESS;
+
+	mem_delayPro: PROCESS IS
+
+	BEGIN
+		wait until mstate = BUSY;
+		mem_delay <= BUSY;
+		IF cmd = ERASE OR cmd = WR1TE THEN
+			WAIT FOR TeraseWrite;
+		ELSIF cmd = ERAL THEN
+			WAIT FOR TeraseAll;
+		ELSIF cmd = WRAL THEN
+			WAIT FOR TwriteAll;
+		END IF;
+		mem_delay <= IDLE;
 	END PROCESS;
 
 	serialInPro: PROCESS(sclk, cs) IS
@@ -148,13 +158,6 @@ BEGIN
 						state <= WAITFORCS;							
 					ELSIF cmd = RE4D THEN
 						-- DOUT = 0 at A0 missing!!
-						IF cnt = 8 THEN
-							serialOutR <= MEM_DATA(TO_INTEGER(unsigned(tmpSerialIn(7 DOWNTO 0) & '0'))) & 
-														MEM_DATA(TO_INTEGER(unsigned(tmpSerialIn(7 DOWNTO 0) & '1')));
-						ELSE
-							serialOutR(15 DOWNTO 8) <= MEM_DATA(TO_INTEGER(unsigned(tmpSerialIn)));
-						END IF;
-						address <= (others => '0');
 						state <= TXDOUT;
 					ELSIF cmd = WR1TE THEN
 						state <= RXDIN;
@@ -178,39 +181,58 @@ BEGIN
 				state <= IDLE;
 			END IF;
 		ELSIF rising_edge(cs) THEN
-			IF mstate = IDLE THEN
+			IF mstate = IDLE AND state = IDLE THEN
 				state <= RXSB;
 				cmd <= NONE;
 			END IF;
-			IF state = IDLE THEN
-				state <= RXSB;
-			END IF;
+		ELSIF falling_edge(cs) AND state = TXDOUT THEN
+			state <= IDLE;
+			cmd <= NONE;
+		ELSIF falling_edge(cs) AND state = WAITFORCS THEN
+			state <= IDLE;
 		END IF;
 	END PROCESS;
 
 	serialOutPro: PROCESS (sclk, cs, mstate) IS
 		VARIABLE cnt: integer := 0;
 		VARIABLE TXtmpSerOut: std_logic_vector(15 DOWNTO 0);
+		VARIABLE addressOffset: integer := 0;
 	BEGIN
 
 		IF falling_edge(sclk) AND cs = '1' AND state = TXDOUT THEN
 			IF txstate = IDLE THEN
-				TXtmpSerOut := serialOutR;
+				cnt := 0;
+				addressOffset := 0;
 				txstate <= BUSY;
+			END IF;
+			IF cnt = 0 THEN
+				IF org = '1' THEN
+					TXtmpSerOut := MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '0'))+addressOffset) & 
+							MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '1'))+addressOffset);
+				ELSE
+					TXtmpSerOut(15 DOWNTO 8) := MEM_DATA(TO_INTEGER(unsigned(address))+addressOffset);			
+				END IF;
 			END IF;
 			dout <= TXtmpSerOut(15);
 			TXtmpSerOut := TXtmpSerOut(14 DOWNTO 0) & '0';
 			cnt := cnt + 1;
 			IF (org = '1' AND cnt = 16) OR (org = '0' AND cnt = 8) THEN
+				--continious reading
+				IF org = '1' THEN
+					addressOffset := addressOffset + 2;
+				ELSE
+					addressOffset := addressOffset + 1;
+				END IF;
 				cnt := 0;
-				txstate <= IDLE;
 			END IF;			
 		ELSIF rising_edge(cs) AND mstate = BUSY THEN
 			dout <= '0';
 		ELSIF mstate = IDLE AND cs = '1' AND state /= TXDOUT THEN
 			dout <= '1';
-		ELSIF state /= TXDOUT THEN
+		ELSIF state /= TXDOUT AND cs = '0' THEN
 			dout <= 'Z';
+		ELSIF falling_edge(cs) THEN
+			txstate <= IDLE;
 		END IF;
 	END PROCESS;
 
