@@ -22,6 +22,7 @@ ENTITY AD7782IF IS
    PORT(rst:  IN  std_logic;  -- reset RSTDEF active
         clk:  IN  std_logic;  -- rising edge active, 1 MHz
         strb: IN  std_logic;  -- strobe, high active
+        csel: IN  std_logic;  -- select wich chanel is used
         rng:  OUT std_logic;  -- logic output which configures the input range on the internal PGA
         sel:  OUT std_logic;  -- logic output which selects the active channel AIN1 (=0) or ANI2 (=1)
         mode: OUT std_logic;  -- logic output which selects master (=0) or slave (=1) mode of operation
@@ -39,15 +40,18 @@ ARCHITECTURE behaviour OF AD7782IF IS
    CONSTANT SLAVE:  std_logic := '1';
    CONSTANT CPOL:   std_logic := '1';
 
-   TYPE tstate IS (S0, S1, S2, S3, S4, S5);
+   TYPE tstate IS (S0, S1, S2, S3, S4);
 
    SIGNAL state: tstate;
    SIGNAL dff1:  std_logic;
    SIGNAL dff2:  std_logic;
-   SIGNAL csel:  std_logic; -- channel select
    SIGNAL reg:   std_logic_vector(LENDEF-1 DOWNTO 0); -- shift register
 
 BEGIN
+
+   mode <= SLAVE;
+   rng  <= '1';
+   sel  <= csel;
 
    p1: PROCESS (rst, clk) IS
    BEGIN
@@ -60,10 +64,6 @@ BEGIN
       END IF;
    END PROCESS;
 
-   mode <= SLAVE;
-   rng  <= '1';
-   sel  <= csel;
-   
    p2: PROCESS (rst, clk) IS
       CONSTANT MAXCNT: natural := reg'LENGTH;
       VARIABLE cnt: integer RANGE 0 TO MAXCNT-1;
@@ -71,7 +71,6 @@ BEGIN
       IF rst=RSTDEF THEN
          state <= S0;
          cs    <= '1';
-         csel  <= '0';
          sclk  <= CPOL;
          reg   <= (OTHERS => '0');
          ch1   <= (OTHERS => '0');
@@ -107,9 +106,6 @@ BEGIN
                ELSE
                   ch2 <= reg(LENDEF-1 DOWNTO 0);
                END IF;
-               state <= S5;
-            WHEN S5 =>
-               csel  <= NOT csel;
                state <= S0;
          END CASE;
       END IF;
