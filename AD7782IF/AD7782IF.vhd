@@ -42,18 +42,17 @@ ARCHITECTURE behaviour OF AD7782IF IS
    CONSTANT SLAVE:  std_logic := '1';
    CONSTANT CPOL:   std_logic := '1';
 
-   TYPE tstate IS (S0, S1, S2, S3, S4);
+   TYPE tstate IS (S0, S1, S2, S3, S4, S5);
 
    SIGNAL state: tstate;
    SIGNAL dff1:  std_logic;
    SIGNAL dff2:  std_logic;
-   SIGNAL done:  std_logic;
    SIGNAL reg:   std_logic_vector(LENDEF-1 DOWNTO 0); -- shift register
 
 BEGIN
 
-   mode <= SLAVE;
    rng  <= rsel;
+   mode <= SLAVE;
    sel  <= csel;
 
    p1: PROCESS (rst, clk) IS
@@ -82,6 +81,7 @@ BEGIN
       ELSIF rising_edge(clk) THEN
          CASE state IS
             WHEN S0 =>
+               done <= '0';
                IF strb='1' THEN
                   state <= S1;
                   cs    <= '0';
@@ -106,10 +106,12 @@ BEGIN
             WHEN S4 =>
                cs <= '1';
                IF csel='0' THEN
-                  ch1 <= reg(LENDEF-1 DOWNTO 0);
+                  ch1 <= reg;
                ELSE
-                  ch2 <= reg(LENDEF-1 DOWNTO 0);
+                  ch2 <= reg;
                END IF;
+               state <= S5;
+            WHEN S5 =>
                done  <= '1';
                state <= S0;
          END CASE;

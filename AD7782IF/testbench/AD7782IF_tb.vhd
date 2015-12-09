@@ -44,10 +44,14 @@ ARCHITECTURE verhalten OF AD7782IF_tb IS
          ch2:  OUT std_logic_vector(LENDEF-1 DOWNTO 0));
    END COMPONENT;
 
+   SIGNAL a:   real;
+   SIGNAL r:   std_logic;
+   SIGNAL c:   std_logic;
 
    SIGNAL rst:  std_logic := RSTDEF;
    SIGNAL clk:  std_logic := '0';
    SIGNAL ena:  std_logic := '1';
+   SIGNAL result: std_logic_vector (LENDEF-1 DOWNTO 0) := (OTHERS => '0');
    -- IO For AD7782
    SIGNAL ain1: real      := 0.0;
    SIGNAL ain2: real      := 0.0;
@@ -62,7 +66,7 @@ ARCHITECTURE verhalten OF AD7782IF_tb IS
    SIGNAL strb: std_logic := '0';
    SIGNAL csel: std_logic := '0';
    SIGNAL rsel: std_logic := '1';
-   SIGNAL done: std_logic;
+   SIGNAL done: std_logic := '0';
    SIGNAL ch1:  std_logic_vector(LENDEF-1 DOWNTO 0) := (OTHERS => '0');
    SIGNAL ch2:  std_logic_vector(LENDEF-1 DOWNTO 0) := (OTHERS => '0');
 
@@ -79,7 +83,7 @@ ARCHITECTURE verhalten OF AD7782IF_tb IS
       SIGNAL scho       : OUT std_logic;                             -- Chanel select to ADC
       SIGNAL ain1       : OUT real;                                  -- Analog input for ADC
       SIGNAL ain2       : OUT real;                                  -- Analog input for ADC
-      SIGNAL strb       : OUT std_logic;                             -- Strobe output to ADC
+      SIGNAL mystrb     : OUT std_logic;                             -- Strobe output to ADC
 
       SIGNAL myOut      : OUT std_logic_vector(LENDEF-1 DOWNTO 0)    -- Procedure output Result
       ) IS
@@ -94,23 +98,22 @@ ARCHITECTURE verhalten OF AD7782IF_tb IS
          ain2  <= ain;
       END IF;
 
-      strb     <= '1';
+      mystrb     <= '1';
 
       WAIT UNTIL done = '1';
+      WAIT UNTIL rising_edge(clk);
       IF schi='0' THEN
          myOut <= cho1;
       ELSE
          myOut <= cho2;
       END IF;
       
-      strb     <= '0';
+      mystrb     <= '0';
 
    END getAD_velue;
 
 
 BEGIN
-
-   adot <= 'H';
 
    rst  <= RSTDEF, NOT RSTDEF AFTER 50 ns;
    clk  <= NOT clk AFTER tcyc/2;
@@ -143,9 +146,45 @@ BEGIN
             ch1   => ch1,
             ch2   => ch2);
 
-   p1: PROCESS (rst, clk) IS
+   t1: PROCESS
    BEGIN
-      
+      WAIT UNTIL rising_edge(clk);
+
+
+
+      ain1  <= 1.5;
+      csel  <= '0';
+      rsel  <= '1';
+
+      strb  <= '1';
+      WAIT UNTIL rising_edge(clk);
+      strb  <= '0';
+
+      WAIT UNTIL done='1';
+      result <= ch1;
+
+      WAIT;
+
+
+
+
+      a <= -3.01;
+      r <= '1';
+      c <= '0';
+      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
+      WAIT FOR 500 ns;
+      ASSERT (result = X"FFFFFF") REPORT "-3.01 on ch1 faild" SEVERITY ERROR;
+
+
+      a <= -2.485;
+      r <= '1';
+      c <= '0';
+      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
+      WAIT FOR 200 ns;
+      ASSERT (result = X"03C000") REPORT "-2.485 on ch1 faild" SEVERITY ERROR;
+
+
+      WAIT;
    END PROCESS;
 
 END verhalten;
