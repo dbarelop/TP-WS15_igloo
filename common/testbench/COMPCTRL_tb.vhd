@@ -53,6 +53,19 @@ BEGIN
 				busy => busy
 			);
 			
+	c2: COMPXCTRL
+	GENERIC MAP(RSTDEF => RSTDEF,
+				DEVICEID => "0010")
+	PORT MAP(	rst => rst,
+				clk => clk,
+				uartin => uartin,
+				uartRx => uartRx,
+				uartRd => uartRd,
+				uartout => uartout,
+				uartTx => uartTx,
+				busy => busy
+			);
+			
 	test: PROCESS IS
 	
 		PROCEDURE newByte(data: std_logic_vector) IS
@@ -66,11 +79,13 @@ BEGIN
 			WAIT UNTIL uartRd = '1';
 			WAIT UNTIL clk = '1';
 			uartRx <= '0';
+			WAIT UNTIL busy /= '1';
 		END PROCEDURE;
 	
 	BEGIN
 		WAIT UNTIL rst = NOT RSTDEF;
 		newByte("10100101");
+		newByte("00100101");
 		WAIT;
 		
 	END PROCESS;
