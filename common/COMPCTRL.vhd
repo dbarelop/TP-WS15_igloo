@@ -53,11 +53,12 @@ BEGIN
 				state <= EXECMD;
 			ELSIF state = EXECMD THEN
 				uartTx <= 'Z';
-				-- handle command
+				-- BEGIN handle command
 				CASE dataIN(3 DOWNTO 0) IS
 					WHEN others =>
 						state <= ENDCOM;
 				END CASE;
+				-- END handle command
 			ELSIF state = ENDCOM THEN
 				uartout <= (others => 'Z');
 				uartTx <= 'Z';
