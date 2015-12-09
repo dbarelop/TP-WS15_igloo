@@ -39,6 +39,7 @@ ARCHITECTURE verhalten OF AD7782IF_tb IS
          mode: OUT std_logic;  -- logic output which selects master (=0) or slave (=1) mode of operation
          cs:   OUT std_logic;  -- chip select, low active
          sclk: OUT std_logic;  -- serial clock output
+         done: OUT std_logic;  -- set done if datas are valid on ch1/2 output (High Active)
          ch1:  OUT std_logic_vector(LENDEF-1 DOWNTO 0);
          ch2:  OUT std_logic_vector(LENDEF-1 DOWNTO 0));
    END COMPONENT;
@@ -61,6 +62,7 @@ ARCHITECTURE verhalten OF AD7782IF_tb IS
    SIGNAL strb: std_logic := '0';
    SIGNAL csel: std_logic := '0';
    SIGNAL rsel: std_logic := '1';
+   SIGNAL done: std_logic;
    SIGNAL ch1:  std_logic_vector(LENDEF-1 DOWNTO 0) := (OTHERS => '0');
    SIGNAL ch2:  std_logic_vector(LENDEF-1 DOWNTO 0) := (OTHERS => '0');
 
@@ -68,21 +70,40 @@ ARCHITECTURE verhalten OF AD7782IF_tb IS
    -- Procedure
    PROCEDURE getAD_velue (
       SIGNAL ain        : IN real;                                   -- Analog input for selected Chanel
-      SIGNAL rngi       : IN std_logic;                              -- Range input for ADC and from TB
+      SIGNAL rngi       : IN std_logic;                              -- Range input for ADC-IF and from TB (srng)
+      SIGNAL schi       : IN std_logic;
       SIGNAL cho1       : IN std_logic_vector(LENDEF-1 DOWNTO 0);    -- AD7782-IF Data-Input CH1
       SIGNAL cho2       : IN std_logic_vector(LENDEF-1 DOWNTO 0);    -- AD7782-IF Data-Input CH2
 
       SIGNAL rngo       : OUT std_logic;                             -- Range output to ADC
-      SIGNAL strb       : OUT std_logic;                             -- Strobe output to ADC
-      SIGNAL csel       : OUT std_logic;                             -- Chanel select to ADC
+      SIGNAL scho       : OUT std_logic;                             -- Chanel select to ADC
       SIGNAL ain1       : OUT real;                                  -- Analog input for ADC
       SIGNAL ain2       : OUT real;                                  -- Analog input for ADC
+      SIGNAL strb       : OUT std_logic;                             -- Strobe output to ADC
 
       SIGNAL myOut      : OUT std_logic_vector(LENDEF-1 DOWNTO 0)    -- Procedure output Result
-      );
+      ) IS
    BEGIN
-
+      WAIT UNTIL rising_edge(clk);
       
+      rngo     <= rngi;
+      scho     <= schi;
+      IF schi='0' THEN
+         ain1  <= ain;
+      ELSE
+         ain2  <= ain;
+      END IF;
+
+      strb     <= '1';
+
+      WAIT UNTIL done = '1';
+      IF schi='0' THEN
+         myOut <= cho1;
+      ELSE
+         myOut <= cho2;
+      END IF;
+      
+      strb     <= '0';
 
    END getAD_velue;
 
@@ -93,9 +114,6 @@ BEGIN
 
    rst  <= RSTDEF, NOT RSTDEF AFTER 50 ns;
    clk  <= NOT clk AFTER tcyc/2;
-
-   ain1 <= 2.49;
-   ain2 <= 3.01;
 
    u1: AD7782
    GENERIC MAP(ref => ref)
@@ -121,6 +139,7 @@ BEGIN
             mode  => mode,
             cs    => cs,
             sclk  => sclk,
+            done  => done,
             ch1   => ch1,
             ch2   => ch2);
 
