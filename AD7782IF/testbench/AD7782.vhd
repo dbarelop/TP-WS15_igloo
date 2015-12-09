@@ -20,12 +20,13 @@ ARCHITECTURE verhalten OF AD7782 IS
    CONSTANT PLLFRQ:      real    := 4.194304e6;
    CONSTANT tcyc:        time    := 1 sec / PLLFRQ;
 
-   CONSTANT StartUpTime: time    := 3 ms; -- 00 ms;
+   CONSTANT StartUpTime: time    := 200 ns; -- 00 ms;
    CONSTANT FRQDEF:      real    := 32.768e3;
    CONSTANT OutputRate:  real    := FRQDEF / (69.0 * 8.0 * 3.0);
    CONSTANT tADC:        time    := 1 sec / OutputRate;
    CONSTANT tSETTLE:     time    := 2 * tADC;
    CONSTANT N:           natural := 24;
+   CONSTANT tmpMAX:      natural := 2**N - 1;   -- 0xFF_FF_FF
 
    TYPE tstate IS (S0, S1, S2);
 
@@ -36,6 +37,7 @@ ARCHITECTURE verhalten OF AD7782 IS
    SIGNAL lock:  std_logic := '0';
    SIGNAL wre:   std_logic := '0';     -- write enable -> when high dumps dat register into tsr ('0' appended as MSB)
    SIGNAL state: tstate;
+   SIGNAL pstate: tstate := S0;
 
 BEGIN
 
@@ -45,7 +47,7 @@ BEGIN
 
    p1: PROCESS (cs, clk) IS
       VARIABLE tmp:  integer;
-      VARIABLE ain:  real        -- selected analog input
+      VARIABLE ain:  real;       -- selected analog input
       VARIABLE gain: real;
       VARIABLE old:  std_logic;  -- previously selected channel
       VARIABLE cnt:  integer;    -- counter
@@ -90,7 +92,12 @@ BEGIN
                END IF;
             WHEN S2 =>
             -- Performs the conversion
-               tmp   := integer(2.0**(N-1) * ((ain*gain / (1.024*ref)) + 1.0));     -- gain can bee 1 on +-2.56V Range or 16 on 160mV Range
+               tmp   := integer(2.0**(N-1) * ((ain*gain / (1.024*ref)) + 1.0));     -- gain can bee 1 on +-2.56V Range or 16 on 160mV Range [Roundingerror at -2.49 ain its 0x038000 instat of 0x037FFF]
+               IF tmp > tmpMAX THEN
+                  tmp := tmpMAX;
+               ELSIF tmp < 0 THEN
+                  tmp := 0;
+               END IF;
                dat   <= conv_std_logic_vector(tmp, N);                              -- convert the integer tmp to an log_vector 
                wre   <= '1' AFTER 10 ns, '0' AFTER 20 ns;
                state <= S0;
@@ -99,16 +106,41 @@ BEGIN
    END PROCESS;
 
    -- This clock shifts out the conversion results on the falling edge of SCLK.
-   p2: PROCESS (sclk, wre) IS
+   p2: PROCESS (sclk, wre, clk) IS
       -- Not used?
       VARIABLE arg: real;
       VARIABLE tmp: integer;
+      VARIABLE cnt: integer := 0;
+      VARIABLE cnt2: integer := 0;
    BEGIN
       IF wre='1' THEN
          tsr <= '0' & dat;
       ELSIF falling_edge(sclk) THEN
       -- Shifts tsr 1 bit to the left and feeds '1' on the right
          tsr <= tsr(tsr'LEFT-1 DOWNTO tsr'RIGHT) & '1';
+         cnt := cnt + 1;
+      END IF;
+      
+      IF rising_edge(clk) THEN
+         case( pstate ) is
+            when S0 =>
+               IF cnt = 24 THEN
+                  pstate <= S1;
+               END IF;
+            WHEN S1 =>
+               IF cnt2 = 6 THEN
+                  pstate <= S2;
+                  cnt2 := 0;
+               ELSE
+                  cnt2 := cnt2 + 1;
+               END IF;
+            when S2 =>
+               tsr    <= (OTHERS => '1');
+               pstate <= S0;
+               cnt    := 0;
+            when OTHERS =>
+               pstate <= S0;         
+         end case ;
       END IF;
    END PROCESS;
 
