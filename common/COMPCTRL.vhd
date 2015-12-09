@@ -21,7 +21,7 @@ END COMPXCTRL;
 
 ARCHITECTURE behaviour OF COMPXCTRL IS
 
-	TYPE tstate IS (IDLE, READSENDOK, ENDCOM);
+	TYPE tstate IS (IDLE, READSENDOK, EXECMD, ENDCOM);
 	
 	SIGNAL state: tstate;
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
@@ -49,12 +49,19 @@ BEGIN
 			ELSIF state = READSENDOK THEN
 				uartout <= "10101010"; -- OK message
 				uartTx <= '1';
-				uartRd <= 'Z';				
-				-- check command here
-				state <= ENDCOM;
+				uartRd <= 'Z';
+				state <= EXECMD;
+			ELSIF state = EXECMD THEN
+				uartTx <= 'Z';
+				-- handle command
+				CASE dataIN(3 DOWNTO 0) IS
+					WHEN others =>
+						state <= ENDCOM;
+				END CASE;
 			ELSIF state = ENDCOM THEN
 				uartout <= (others => 'Z');
 				uartTx <= 'Z';
+				uartRd <= 'Z';
 				busy <= 'Z';
 				state <= IDLE;
 			END IF;
