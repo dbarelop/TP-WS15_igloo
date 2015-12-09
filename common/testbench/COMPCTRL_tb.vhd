@@ -36,6 +36,7 @@ ARCHITECTURE behaviour OF COMPXCTRL_tb IS
 	
 	SIGNAL busy:		std_logic := 'L';
 	
+	SIGNAL serOut:		std_logic_vector(7 DOWNTO 0) := (others => '0');
 
 BEGIN
 
@@ -52,14 +53,37 @@ BEGIN
 				busy => busy
 			);
 			
-	--test: PROCESS IS
-	--
-	--BEGIN
-	--	
-	--	
-	--END PROCESS;
+	test: PROCESS IS
 	
-	rst <= RSTDEF, NOT RSTDEF AFTER 1 us;
+		PROCEDURE newByte(data: std_logic_vector) IS
+		
+		BEGIN
+			IF clk /= '0' THEN
+				WAIT UNTIL clk = '0';
+			END IF;
+			uartin <= data;
+			uartRx <= '1';
+			WAIT UNTIL uartRd = '1';
+			WAIT UNTIL clk = '1';
+			uartRx <= '0';
+		END PROCEDURE;
+	
+	BEGIN
+		WAIT UNTIL rst = NOT RSTDEF;
+		newByte("10100101");
+		WAIT;
+		
+	END PROCESS;
+	
+	serialOut: PROCESS(clk) IS
+	
+	BEGIN
+		IF rising_edge(clk) AND uartTx = '1' THEN
+			serOut <= uartout;
+		END IF;
+	END PROCESS;
+	
+	rst <= RSTDEF, NOT RSTDEF AFTER 10 ns;
 	clk <= NOT clk AFTER 10 ns;
 
 END behaviour;
