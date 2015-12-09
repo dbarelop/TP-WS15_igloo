@@ -37,6 +37,7 @@ ARCHITECTURE verhalten OF AD7782 IS
    SIGNAL lock:  std_logic := '0';
    SIGNAL wre:   std_logic := '0';     -- write enable -> when high dumps dat register into tsr ('0' appended as MSB)
    SIGNAL state: tstate;
+   SIGNAL pstate: tstate := S0;
 
 BEGIN
 
@@ -105,16 +106,41 @@ BEGIN
    END PROCESS;
 
    -- This clock shifts out the conversion results on the falling edge of SCLK.
-   p2: PROCESS (sclk, wre) IS
+   p2: PROCESS (sclk, wre, clk) IS
       -- Not used?
       VARIABLE arg: real;
       VARIABLE tmp: integer;
+      VARIABLE cnt: integer := 0;
+      VARIABLE cnt2: integer := 0;
    BEGIN
       IF wre='1' THEN
          tsr <= '0' & dat;
       ELSIF falling_edge(sclk) THEN
       -- Shifts tsr 1 bit to the left and feeds '1' on the right
          tsr <= tsr(tsr'LEFT-1 DOWNTO tsr'RIGHT) & '1';
+         cnt := cnt + 1;
+      END IF;
+      
+      IF rising_edge(clk) THEN
+         case( pstate ) is
+            when S0 =>
+               IF cnt = 24 THEN
+                  pstate <= S1;
+               END IF;
+            WHEN S1 =>
+               IF cnt2 = 6 THEN
+                  pstate <= S2;
+                  cnt2 := 0;
+               ELSE
+                  cnt2 := cnt2 + 1;
+               END IF;
+            when S2 =>
+               tsr    <= (OTHERS => '1');
+               pstate <= S0;
+               cnt    := 0;
+            when OTHERS =>
+               pstate <= S0;         
+         end case ;
       END IF;
    END PROCESS;
 

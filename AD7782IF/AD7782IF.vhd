@@ -42,7 +42,7 @@ ARCHITECTURE behaviour OF AD7782IF IS
    CONSTANT SLAVE:  std_logic := '1';
    CONSTANT CPOL:   std_logic := '1';
 
-   TYPE tstate IS (S0, S1, S2, S3, S4, S5);
+   TYPE tstate IS (S0, S1, S2, S3, S4);
 
    SIGNAL state: tstate;
    SIGNAL dff1:  std_logic;
@@ -110,10 +110,8 @@ BEGIN
                ELSE
                   ch2 <= reg;
                END IF;
-               state <= S5;
-            WHEN S5 =>
-               done  <= '1';
                state <= S0;
+               done  <= '1';
          END CASE;
       END IF;
    END PROCESS;

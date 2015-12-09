@@ -8,7 +8,7 @@ END AD7782IF_tb;
 
 ARCHITECTURE verhalten OF AD7782IF_tb IS
 
-   CONSTANT RSTDEF: std_logic := '0';
+   CONSTANT RSTDEF: std_logic := '1';
    CONSTANT FRQDEF: natural   := 1e6;
    CONSTANT LENDEF: natural   := 24;
    CONSTANT tcyc:   time      := 1 sec / FRQDEF;
@@ -99,23 +99,23 @@ ARCHITECTURE verhalten OF AD7782IF_tb IS
       END IF;
 
       mystrb     <= '1';
+      WAIT UNTIL rising_edge(clk);
+      mystrb     <= '0';
 
       WAIT UNTIL done = '1';
-      WAIT UNTIL rising_edge(clk);
       IF schi='0' THEN
          myOut <= cho1;
       ELSE
          myOut <= cho2;
       END IF;
       
-      mystrb     <= '0';
+      WAIT UNTIL rising_edge(clk);
 
    END getAD_velue;
 
 
 BEGIN
-
-   rst  <= RSTDEF, NOT RSTDEF AFTER 50 ns;
+   rst  <= RSTDEF, not RSTDEF after 50 us;
    clk  <= NOT clk AFTER tcyc/2;
 
    u1: AD7782
@@ -148,40 +148,30 @@ BEGIN
 
    t1: PROCESS
    BEGIN
+      wait for 1 ms;
       WAIT UNTIL rising_edge(clk);
 
-
-
-      ain1  <= 1.5;
-      csel  <= '0';
-      rsel  <= '1';
-
-      strb  <= '1';
-      WAIT UNTIL rising_edge(clk);
-      strb  <= '0';
-
-      WAIT UNTIL done='1';
-      result <= ch1;
-
-      WAIT;
-
-
-
-
-      a <= -3.01;
+      a <= 1.5;
       r <= '1';
       c <= '0';
       getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      WAIT FOR 500 ns;
-      ASSERT (result = X"FFFFFF") REPORT "-3.01 on ch1 faild" SEVERITY ERROR;
+      ASSERT (result = X"CB0000") REPORT "1.5 on ch1 faild" SEVERITY ERROR;
 
+      WAIT FOR 2 us;
 
-      a <= -2.485;
+      a <= 2.49;
       r <= '1';
       c <= '0';
       getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      WAIT FOR 200 ns;
-      ASSERT (result = X"03C000") REPORT "-2.485 on ch1 faild" SEVERITY ERROR;
+      ASSERT (result = X"FC8000") REPORT "2.49 on ch1 faild" SEVERITY ERROR;
+
+      WAIT FOR 2 us;
+
+      a <= 3.01;
+      r <= '1';
+      c <= '0';
+      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
+      ASSERT (result = X"FFFFFF") REPORT "3.01 on ch1 faild" SEVERITY ERROR;
 
 
       WAIT;
