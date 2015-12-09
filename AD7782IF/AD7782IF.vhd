@@ -30,8 +30,9 @@ ENTITY AD7782IF IS
          mode: OUT std_logic;  -- logic output which selects master (=0) or slave (=1) mode of operation
          cs:   OUT std_logic;  -- chip select, low active
          sclk: OUT std_logic;  -- serial clock output
-         ch1:  OUT std_logic_vector(LENDEF-1 DOWNTO 0);
-         ch2:  OUT std_logic_vector(LENDEF-1 DOWNTO 0));
+         done: OUT std_logic;  -- set done if datas are valid on ch1/2 output (High Active)
+         ch1:  OUT std_logic_vector(24-1 DOWNTO 0);
+         ch2:  OUT std_logic_vector(24-1 DOWNTO 0));
 END AD7782IF;
 
 ARCHITECTURE behaviour OF AD7782IF IS
@@ -46,6 +47,7 @@ ARCHITECTURE behaviour OF AD7782IF IS
    SIGNAL state: tstate;
    SIGNAL dff1:  std_logic;
    SIGNAL dff2:  std_logic;
+   SIGNAL done:  std_logic;
    SIGNAL reg:   std_logic_vector(LENDEF-1 DOWNTO 0); -- shift register
 
 BEGIN
@@ -73,6 +75,7 @@ BEGIN
          state <= S0;
          cs    <= '1';
          sclk  <= CPOL;
+         done  <= '0';
          reg   <= (OTHERS => '0');
          ch1   <= (OTHERS => '0');
          ch2   <= (OTHERS => '0');
@@ -107,6 +110,7 @@ BEGIN
                ELSE
                   ch2 <= reg(LENDEF-1 DOWNTO 0);
                END IF;
+               done  <= '1';
                state <= S0;
          END CASE;
       END IF;
