@@ -151,28 +151,141 @@ BEGIN
       wait for 1 ms;
       WAIT UNTIL rising_edge(clk);
 
+      a <= -2.5;
+      r <= '1';
+      c <= '0';
+      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
+      ASSERT (result = X"030000") REPORT "fail 1" SEVERITY ERROR;
+
+      WAIT FOR 2 us;
+
+      a <= -1.5;
+      r <= '1';
+      c <= '0';
+      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
+      ASSERT (result = X"350000") REPORT "fail 2" SEVERITY ERROR;
+
+      WAIT FOR 2 us;
+
+      a <= -0.5;
+      r <= '1';
+      c <= '0';
+      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
+      ASSERT (result = X"670000") REPORT "fail 3" SEVERITY ERROR;
+
+      WAIT FOR 2 us;
+
+      a <= 0.0;
+      r <= '1';
+      c <= '0';
+      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
+      ASSERT (result = X"800000") REPORT "fail 4" SEVERITY ERROR;
+
+      WAIT FOR 2 us;
+
+      a <= 0.5;
+      r <= '1';
+      c <= '0';
+      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
+      ASSERT (result = X"990000") REPORT "fail 5" SEVERITY ERROR;
+
+      WAIT FOR 2 us;
+
       a <= 1.5;
       r <= '1';
       c <= '0';
       getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"CB0000") REPORT "1.5 on ch1 faild" SEVERITY ERROR;
+      ASSERT (result = X"CB0000") REPORT "fail 6" SEVERITY ERROR;
 
       WAIT FOR 2 us;
 
-      a <= 2.49;
+      a <= 2.5;
       r <= '1';
       c <= '0';
       getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"FC8000") REPORT "2.49 on ch1 faild" SEVERITY ERROR;
+      ASSERT (result = X"FD0000") REPORT "fail 7" SEVERITY ERROR;
+
+--
+---------------------start---rage---test-----------------------------------------------
+--
 
       WAIT FOR 2 us;
 
-      a <= 3.01;
-      r <= '1';
+      a <= 5.0;
+      r <= '0';
       c <= '0';
       getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"FFFFFF") REPORT "3.01 on ch1 faild" SEVERITY ERROR;
+      ASSERT (result = X"FFFFFF") REPORT "fail r1" SEVERITY ERROR;
 
+      WAIT FOR 2 us;
+
+      a <= 0.16;
+      r <= '0';
+      c <= '0';
+      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
+      ASSERT (result = X"FFFFFF") REPORT "fail r2" SEVERITY ERROR;
+
+      WAIT FOR 2 us;
+
+      a <= 0.03;
+      r <= '0';
+      c <= '0';
+      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
+      ASSERT (result = X"980000") REPORT "fail r3" SEVERITY ERROR;
+
+      WAIT FOR 2 us;
+
+      a <= 0.0;
+      r <= '0';
+      c <= '0';
+      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
+      ASSERT (result = X"800000") REPORT "fail r4" SEVERITY ERROR;
+
+      WAIT FOR 2 us;
+
+      a <= -0.03;
+      r <= '0';
+      c <= '0';
+      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
+      ASSERT (result = X"680000") REPORT "fail r5" SEVERITY ERROR;
+
+      WAIT FOR 2 us;
+
+      a <= -0.16;
+      r <= '0';
+      c <= '0';
+      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
+      ASSERT (result = X"000000") REPORT "fail r6" SEVERITY ERROR;      -- sould it be FFFFFF???
+
+      WAIT FOR 2 us;
+
+      a <= -5.0;
+      r <= '0';
+      c <= '0';
+      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
+      ASSERT (result = X"000000") REPORT "fail r7" SEVERITY ERROR;      -- sould it be FFFFFF???
+
+--
+---------------------start---chanel---test-----------------------------------------------
+--
+   
+      WAIT FOR 2 us;
+
+      a <= 2.5;
+      r <= '1';
+      c <= '1';
+      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
+      ASSERT (result = X"FD0000") REPORT "fail c11" SEVERITY ERROR;
+      ASSERT (sel = '1') REPORT "fail c12" SEVERITY ERROR;
+
+      WAIT FOR 2 us;
+
+      a <= -2.5;
+      r <= '1';
+      c <= '1';
+      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
+      ASSERT (result = X"030000") REPORT "fail c21" SEVERITY ERROR;
+      ASSERT (sel = '1') REPORT "fail c22" SEVERITY ERROR;
 
       WAIT;
    END PROCESS;
