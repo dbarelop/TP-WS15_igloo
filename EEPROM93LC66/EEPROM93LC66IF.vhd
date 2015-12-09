@@ -65,103 +65,100 @@ BEGIN
 			outCnt <= 0;
 			MemAccess <= '0';
 		ELSIF rising_edge(clk) THEN
-			CASE state IS
-				WHEN IDLE =>
-					IF strb = '1' THEN
-						cs <= '1';
-						CASE cmd IS
-							--16bit
-							WHEN "1001" => --16bit write
-								serialOut <= "101" & adrin(7 DOWNTO 0) & din;
-								outCnt <= 27;
-								MemAccess <= '1';
-							WHEN "1010" => --16bit read
-								serialOut <= "110" & adrin(7 DOWNTO 0) & "0000000000000000";
-								outCnt <= 27;
-							WHEN "1011" => --16bit erase
-								serialOut <= "111" & adrin(7 DOWNTO 0) & "0000000000000000";
-								outCnt <= 11;
-								MemAccess <= '1';
-							WHEN "1100" => --16bit eral
-								serialOut <= "10010000000" & "0000000000000000";
-								outCnt <= 11;
-								MemAccess <= '1';
-							WHEN "1101" => --16bit wral
-								serialOut <= "10001000000" & din;
-								outCnt <= 27;
-								MemAccess <= '1';
-							WHEN "1110" => --16bit EWEN
-								serialOut <= "10011000000" & "0000000000000000";
-								outCnt <= 11;
-							WHEN "1111" => --16bit EWDS
-								serialOut <= "10000000000" & "0000000000000000";
-								outCnt <= 11;
-							--8bit
-							WHEN "0001" => --8bit write
-								serialOut <= "101" & adrin(8 DOWNTO 0) & din(7 DOWNTO 0) & "0000000";
-								outCnt <= 20;
-								MemAccess <= '1';
-							WHEN "0010" => --8bit read
-								serialOut <= "110" & adrin(8 DOWNTO 0) & "000000000000000";
-								outCnt <= 20;
-							WHEN "0011" => --8bit erase
-								serialOut <= "111" & adrin(8 DOWNTO 0) & "000000000000000";
-								outCnt <= 12;
-								MemAccess <= '1';
-							WHEN "0100" => --8bit eral
-								serialOut <= "10010000000" & "0000000000000000";
-								outCnt <= 12;
-								MemAccess <= '1';
-							WHEN "0101" => --8bit wral
-								serialOut <= "100010000000" & din(7 DOWNTO 0) & "0000000";
-								outCnt <= 20;
-								MemAccess <= '1';
-							WHEN "0110" => --8bit EWEN
-								serialOut <= "10011000000" & "0000000000000000";
-								outCnt <= 12;
-							WHEN "0111" => --8bit EWDS
-								serialOut <= "10000000000" & "0000000000000000";
-								outCnt <= 12;
-							WHEN others =>
+			IF state = IDLE AND strb = '1' THEN				
+				cs <= '1';
+				CASE cmd IS
+					--16bit
+					WHEN "1001" => --16bit write
+						serialOut <= "101" & adrin(7 DOWNTO 0) & din;
+						outCnt <= 27;
+						MemAccess <= '1';
+					WHEN "1010" => --16bit read
+						serialOut <= "110" & adrin(7 DOWNTO 0) & "0000000000000000";
+						outCnt <= 27;
+					WHEN "1011" => --16bit erase
+						serialOut <= "111" & adrin(7 DOWNTO 0) & "0000000000000000";
+						outCnt <= 11;
+						MemAccess <= '1';
+					WHEN "1100" => --16bit eral
+						serialOut <= "10010000000" & "0000000000000000";
+						outCnt <= 11;
+						MemAccess <= '1';
+					WHEN "1101" => --16bit wral
+						serialOut <= "10001000000" & din;
+						outCnt <= 27;
+						MemAccess <= '1';
+					WHEN "1110" => --16bit EWEN
+						serialOut <= "10011000000" & "0000000000000000";
+						outCnt <= 11;
+					WHEN "1111" => --16bit EWDS
+						serialOut <= "10000000000" & "0000000000000000";
+						outCnt <= 11;
+					--8bit
+					WHEN "0001" => --8bit write
+						serialOut <= "101" & adrin(8 DOWNTO 0) & din(7 DOWNTO 0) & "0000000";
+						outCnt <= 20;
+						MemAccess <= '1';
+					WHEN "0010" => --8bit read
+						serialOut <= "110" & adrin(8 DOWNTO 0) & "000000000000000";
+						outCnt <= 20;
+					WHEN "0011" => --8bit erase
+						serialOut <= "111" & adrin(8 DOWNTO 0) & "000000000000000";
+						outCnt <= 12;
+						MemAccess <= '1';
+					WHEN "0100" => --8bit eral
+						serialOut <= "10010000000" & "0000000000000000";
+						outCnt <= 12;
+						MemAccess <= '1';
+					WHEN "0101" => --8bit wral
+						serialOut <= "100010000000" & din(7 DOWNTO 0) & "0000000";
+						outCnt <= 20;
+						MemAccess <= '1';
+					WHEN "0110" => --8bit EWEN
+						serialOut <= "10011000000" & "0000000000000000";
+						outCnt <= 12;
+					WHEN "0111" => --8bit EWDS
+						serialOut <= "10000000000" & "0000000000000000";
+						outCnt <= 12;
+					WHEN others =>
 
-						END CASE;
-						busyS<= '1';
-						org <= cmd(3);
-						state <= BUSY;
-					END IF;
-				WHEN BUSY =>
-					IF serClk = '0' THEN
-						outCnt <= outCnt - 1;
-						serialIn <= serialIn(serialIn'LEFT-1 DOWNTO serialIn'RIGHT) & miso;
-						serClk <= '1';
-					ELSE
-						serialOut <= serialOut(serialOut'LEFT-1 DOWNTO serialOut'RIGHT) & '0';
-						IF(outCnt = 0) THEN
-							IF MemAccess = '1' THEN
-								state <= WAITEEPROM;
-								outCnt <= 2;
-								MemAccess <= '0';
-							ELSE
-								busyS<= '0';
-								state <= IDLE;
-							END IF;
-							dout <= serialIn;
-							cs <= '0';
-						END IF;
-						serClk <= '0';
-					END IF;
-				WHEN WAITEEPROM =>
-					IF outCnt /= 0 THEN
-						outCnt <= outCnt -1;
-					ELSE
-						cs <= '1';
-						IF miso = '1' THEN
-							cs <= '0';
-							state <= IDLE;
+				END CASE;
+				busyS<= '1';
+				org <= cmd(3);
+				state <= BUSY;
+			ELSIF state = BUSY THEN
+				IF serClk = '0' THEN
+					outCnt <= outCnt - 1;
+					serialIn <= serialIn(serialIn'LEFT-1 DOWNTO serialIn'RIGHT) & miso;
+					serClk <= '1';
+				ELSE
+					serialOut <= serialOut(serialOut'LEFT-1 DOWNTO serialOut'RIGHT) & '0';
+					IF(outCnt = 0) THEN
+						IF MemAccess = '1' THEN
+							state <= WAITEEPROM;
+							outCnt <= 2;
+							MemAccess <= '0';
+						ELSE
 							busyS<= '0';
+							state <= IDLE;
 						END IF;
+						dout <= serialIn;
+						cs <= '0';
 					END IF;
-			END CASE;
+					serClk <= '0';
+				END IF;
+			ELSIF state = WAITEEPROM THEN
+				IF outCnt /= 0 THEN
+					outCnt <= outCnt -1;
+				ELSE
+					cs <= '1';
+					IF miso = '1' THEN
+						cs <= '0';
+						state <= IDLE;
+						busyS<= '0';
+					END IF;
+				END IF;
+			END IF;
 		END IF;
 
 	END PROCESS;
