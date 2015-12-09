@@ -144,23 +144,8 @@ BEGIN
             ch2   => ch2);
 
    p1: PROCESS (rst, clk) IS
-   CONSTANT CNTMAX: natural := 2**21;
-   VARIABLE cnt: integer RANGE 0 TO CNTMAX-1;
    BEGIN
-      IF rst=RSTDEF THEN
-         strb <= '0';
-         cnt  := 0;
-      ELSIF rising_edge(clk) THEN
-         strb <= '0';   
-         IF ena='1' THEN
-            IF cnt=2e4-1 THEN
-               cnt  := 0;
-               strb <= '1';
-            ELSE
-               cnt := cnt + 1;
-            END IF;
-         END IF;
-      END IF;
+      
    END PROCESS;
 
 END verhalten;
