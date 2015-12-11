@@ -71,47 +71,7 @@ ARCHITECTURE verhalten OF AD7782IF_tb IS
    SIGNAL ch2:  std_logic_vector(LENDEF-1 DOWNTO 0) := (OTHERS => '0');
 
 
-   -- Procedure
-   PROCEDURE getAD_velue (
-      SIGNAL ain        : IN real;                                   -- Analog input for selected Chanel
-      SIGNAL rngi       : IN std_logic;                              -- Range input for ADC-IF and from TB (srng)
-      SIGNAL schi       : IN std_logic;
-      SIGNAL cho1       : IN std_logic_vector(LENDEF-1 DOWNTO 0);    -- AD7782-IF Data-Input CH1
-      SIGNAL cho2       : IN std_logic_vector(LENDEF-1 DOWNTO 0);    -- AD7782-IF Data-Input CH2
-
-      SIGNAL rngo       : OUT std_logic;                             -- Range output to ADC
-      SIGNAL scho       : OUT std_logic;                             -- Chanel select to ADC
-      SIGNAL ain1       : OUT real;                                  -- Analog input for ADC
-      SIGNAL ain2       : OUT real;                                  -- Analog input for ADC
-      SIGNAL mystrb     : OUT std_logic;                             -- Strobe output to ADC
-
-      SIGNAL myOut      : OUT std_logic_vector(LENDEF-1 DOWNTO 0)    -- Procedure output Result
-      ) IS
-   BEGIN
-      WAIT UNTIL rising_edge(clk);
-      
-      rngo     <= rngi;
-      scho     <= schi;
-      IF schi='0' THEN
-         ain1  <= ain;
-      ELSE
-         ain2  <= ain;
-      END IF;
-
-      mystrb     <= '1';
-      WAIT UNTIL rising_edge(clk);
-      mystrb     <= '0';
-
-      WAIT UNTIL done = '1';
-      IF schi='0' THEN
-         myOut <= cho1;
-      ELSE
-         myOut <= cho2;
-      END IF;
-      
-      WAIT UNTIL rising_edge(clk);
-
-   END getAD_velue;
+ 
 
 
 BEGIN
@@ -147,145 +107,62 @@ BEGIN
             ch2   => ch2);
 
    t1: PROCESS
+        -- Procedure
+      PROCEDURE getAD_velue (
+            ain   : real;
+            rang  : std_logic;
+            chsel : std_logic;
+            reqRS : std_logic_vector
+         ) IS
+      BEGIN
+         WAIT UNTIL rising_edge(clk);
+
+         rng   <= rang;
+         csel  <= chsel;
+         IF chsel='0' THEN
+            ain1  <= ain;
+         ELSE
+            ain2  <= ain;
+         END IF;
+
+         strb     <= '1';
+         WAIT UNTIL rising_edge(clk);
+         strb     <= '0';
+
+         WAIT UNTIL done = '1';
+         IF chsel='0' THEN
+            result <= ch1;
+         ELSE
+            result <= ch2;
+         END IF;
+         
+         WAIT UNTIL rising_edge(clk);
+         ASSERT (result = reqRS) REPORT "FAIL with ain := " & real'image(ain) SEVERITY ERROR;
+
+      END getAD_velue;
    BEGIN
-      wait for 1 ms;
+      WAIT FOR 1 ms;
       WAIT UNTIL rising_edge(clk);
 
-      a <= -2.5;
-      r <= '1';
-      c <= '0';
-      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"030000") REPORT "fail 1" SEVERITY ERROR;
+      getAD_velue(-1.5, '1', '0',   X"350000");
+      getAD_velue(-0.5, '1', '0',   X"670000");
+      getAD_velue(0.0, '1', '0',    X"800000");
+      getAD_velue(0.5, '1', '0',    X"990000");
+      getAD_velue(1.5, '1', '0',    X"CB0000");
+      getAD_velue(2.5, '1', '0',    X"FD0000");
 
-      WAIT FOR 2 us;
-
-      a <= -1.5;
-      r <= '1';
-      c <= '0';
-      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"350000") REPORT "fail 2" SEVERITY ERROR;
-
-      WAIT FOR 2 us;
-
-      a <= -0.5;
-      r <= '1';
-      c <= '0';
-      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"670000") REPORT "fail 3" SEVERITY ERROR;
-
-      WAIT FOR 2 us;
-
-      a <= 0.0;
-      r <= '1';
-      c <= '0';
-      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"800000") REPORT "fail 4" SEVERITY ERROR;
-
-      WAIT FOR 2 us;
-
-      a <= 0.5;
-      r <= '1';
-      c <= '0';
-      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"990000") REPORT "fail 5" SEVERITY ERROR;
-
-      WAIT FOR 2 us;
-
-      a <= 1.5;
-      r <= '1';
-      c <= '0';
-      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"CB0000") REPORT "fail 6" SEVERITY ERROR;
-
-      WAIT FOR 2 us;
-
-      a <= 2.5;
-      r <= '1';
-      c <= '0';
-      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"FD0000") REPORT "fail 7" SEVERITY ERROR;
-
---
----------------------start---rage---test-----------------------------------------------
---
-
-      WAIT FOR 2 us;
-
-      a <= 5.0;
-      r <= '0';
-      c <= '0';
-      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"FFFFFF") REPORT "fail r1" SEVERITY ERROR;
-
-      WAIT FOR 2 us;
-
-      a <= 0.16;
-      r <= '0';
-      c <= '0';
-      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"FFFFFF") REPORT "fail r2" SEVERITY ERROR;
-
-      WAIT FOR 2 us;
-
-      a <= 0.03;
-      r <= '0';
-      c <= '0';
-      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"980000") REPORT "fail r3" SEVERITY ERROR;
-
-      WAIT FOR 2 us;
-
-      a <= 0.0;
-      r <= '0';
-      c <= '0';
-      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"800000") REPORT "fail r4" SEVERITY ERROR;
-
-      WAIT FOR 2 us;
-
-      a <= -0.03;
-      r <= '0';
-      c <= '0';
-      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"680000") REPORT "fail r5" SEVERITY ERROR;
-
-      WAIT FOR 2 us;
-
-      a <= -0.16;
-      r <= '0';
-      c <= '0';
-      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"000000") REPORT "fail r6" SEVERITY ERROR;      -- sould it be FFFFFF???
-
-      WAIT FOR 2 us;
-
-      a <= -5.0;
-      r <= '0';
-      c <= '0';
-      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"000000") REPORT "fail r7" SEVERITY ERROR;      -- sould it be FFFFFF???
-
---
----------------------start---chanel---test-----------------------------------------------
---
-   
-      WAIT FOR 2 us;
-
-      a <= 2.5;
-      r <= '1';
-      c <= '1';
-      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"FD0000") REPORT "fail c11" SEVERITY ERROR;
-      ASSERT (sel = '1') REPORT "fail c12" SEVERITY ERROR;
-
-      WAIT FOR 2 us;
-
-      a <= -2.5;
-      r <= '1';
-      c <= '1';
-      getAD_velue(a, r, c, ch1, ch2, rsel, csel, ain1, ain2, strb, result);
-      ASSERT (result = X"030000") REPORT "fail c21" SEVERITY ERROR;
-      ASSERT (sel = '1') REPORT "fail c22" SEVERITY ERROR;
+      getAD_velue(5.0, '0', '0',    X"FFFFFF");
+      getAD_velue(0.16, '0', '0',   X"FFFFFF");
+      getAD_velue(0.03, '0', '0',   X"980000");
+      getAD_velue(0.0, '0', '0',    X"800000");
+      getAD_velue(-0.03, '0', '0',  X"680000");
+      getAD_velue(-0.16, '0', '0',  X"000000");
+      getAD_velue(-5.0, '0', '0',   X"000000");
+      
+      getAD_velue(2.5, '1', '1',    X"FD0000");
+      getAD_velue(-2.5, '1', '1',   X"030000");
+      
+      
 
       REPORT "END SIMULATION";
       WAIT;
