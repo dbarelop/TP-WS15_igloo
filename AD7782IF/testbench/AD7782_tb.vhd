@@ -380,11 +380,9 @@ ARCHITECTURE verhalten OF AD7782_tb IS
 		WAIT FOR 10 ns;
 		ASSERT (din = X"000000") report "fail on read -0.17V on 160mV Range" severity error;
 
-		
 
-
-
-		WAIT FOR 1 sec;
+      REPORT "END SIMULATION";
+		WAIT;
 	END PROCESS;
 
 		
