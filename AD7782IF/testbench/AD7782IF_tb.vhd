@@ -287,6 +287,7 @@ BEGIN
       ASSERT (result = X"030000") REPORT "fail c21" SEVERITY ERROR;
       ASSERT (sel = '1') REPORT "fail c22" SEVERITY ERROR;
 
+      REPORT "END SIMULATION";
       WAIT;
    END PROCESS;
 
