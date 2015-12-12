@@ -1,0 +1,334 @@
+KEY LIBERO "11.4"
+KEY CAPTURE "11.4.1.17"
+KEY DEFAULT_IMPORT_LOC ""
+KEY ProjectID "0"
+KEY HDLTechnology "VHDL"
+KEY VendorTechnology_Family "IGLOO"
+KEY VendorTechnology_Die "IS4X4M1LPLV"
+KEY VendorTechnology_Package "vq100"
+KEY VendorTechnology_Speed "STD"
+KEY VendorTechnology_DieVoltage "1.2"
+KEY VendorTechnology_IO_DEFT_STD "LVCMOS12"
+KEY VendorTechnology_RESTRICTPROBEPINS "1"
+KEY VendorTechnology_TEMPR "COM"
+KEY VendorTechnology_VCCI_1.2_VOLTR "COM"
+KEY VendorTechnology_VCCI_1.5_VOLTR "COM"
+KEY VendorTechnology_VCCI_1.8_VOLTR "COM"
+KEY VendorTechnology_VCCI_2.5_VOLTR "COM"
+KEY VendorTechnology_VCCI_3.3_VOLTR "COM"
+KEY VendorTechnology_VOLTR "COM"
+KEY ProjectLocation "C:\Users\edc12\Documents\igloo\system\teamprojekt"
+KEY ProjectDescription ""
+KEY Pa4PeripheralNewSeq "GOOD"
+KEY SimulationType "VHDL"
+KEY Vendor "Actel"
+KEY ActiveRoot "echoUart::work"
+LIST REVISIONS
+VALUE="Impl1",NUM=1
+CURREV=1
+ENDLIST
+LIST FileManager
+VALUE "<project>\component\work\top\top.cxf,actgen_cxf"
+STATE="utd"
+TIME="1449934222"
+SIZE="1797"
+ENDFILE
+VALUE "<project>\designer\impl1\echoUart.adb,adb"
+STATE="utd"
+TIME="1449933794"
+SIZE="16384"
+ENDFILE
+VALUE "<project>\designer\impl1\echoUart.ide_des,ide_des"
+STATE="utd"
+TIME="1449933487"
+SIZE="209"
+ENDFILE
+VALUE "<project>\designer\impl1\echoUart.pdb,pdb"
+STATE="utd"
+TIME="1449934651"
+SIZE="43361"
+ENDFILE
+VALUE "<project>\designer\impl1\echoUart_compile_log.rpt,log"
+STATE="utd"
+TIME="1449934277"
+SIZE="7835"
+ENDFILE
+VALUE "<project>\designer\impl1\echoUart_fp\echoUart.pro,pro"
+STATE="utd"
+TIME="1449934682"
+SIZE="2660"
+ENDFILE
+VALUE "<project>\designer\impl1\echoUart_fp\projectData\echoUart.pdb,pdb"
+STATE="utd"
+TIME="1449934682"
+SIZE="43361"
+ENDFILE
+VALUE "<project>\smartgen\sysclk\sysclk.cxf,actgen_cxf"
+STATE="utd"
+TIME="1449933654"
+SIZE="1471"
+ENDFILE
+VALUE "<project>\smartgen\sysclk\sysclk.gen,gen"
+STATE="utd"
+TIME="1449933653"
+SIZE="558"
+PARENT="<project>\smartgen\sysclk\sysclk.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\sysclk\sysclk.log,log"
+STATE="utd"
+TIME="1449933654"
+SIZE="2744"
+PARENT="<project>\smartgen\sysclk\sysclk.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\sysclk\sysclk.vhd,hdl"
+STATE="utd"
+TIME="1449933654"
+SIZE="7351"
+PARENT="<project>\smartgen\sysclk\sysclk.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\synthesis\echoUart.edn,syn_edn"
+STATE="utd"
+TIME="1449934251"
+SIZE="124588"
+ENDFILE
+VALUE "<project>\synthesis\echoUart.so,so"
+STATE="utd"
+TIME="1449933779"
+SIZE="235"
+ENDFILE
+VALUE "<project>\synthesis\echoUart_sdc.sdc,syn_sdc"
+STATE="utd"
+TIME="1449933779"
+SIZE="397"
+ENDFILE
+VALUE "<project>\synthesis\echoUart_syn.prj,prj"
+STATE="utd"
+TIME="1449933781"
+SIZE="1477"
+ENDFILE
+VALUE "C:\Users\edc12\Documents\igloo\common\echoUart.vhd,hdl"
+STATE="utd"
+TIME="1449933866"
+SIZE="2777"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "C:\Users\edc12\Documents\igloo\uart\baudgen.vhd,hdl"
+STATE="utd"
+TIME="1449665862"
+SIZE="1792"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "C:\Users\edc12\Documents\igloo\uart\glitchfilter.vhd,hdl"
+STATE="utd"
+TIME="1449665862"
+SIZE="1450"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "C:\Users\edc12\Documents\igloo\uart\receiver.vhd,hdl"
+STATE="utd"
+TIME="1449665862"
+SIZE="3713"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "C:\Users\edc12\Documents\igloo\uart\sync_flipflop.vhd,hdl"
+STATE="utd"
+TIME="1449665862"
+SIZE="700"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "C:\Users\edc12\Documents\igloo\uart\transmitter.vhd,hdl"
+STATE="utd"
+TIME="1449665862"
+SIZE="3587"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "C:\Users\edc12\Documents\igloo\uart\uart.vhd,hdl"
+STATE="utd"
+TIME="1449665862"
+SIZE="5665"
+IS_READONLY="TRUE"
+ENDFILE
+ENDLIST
+LIST UsedFile
+ENDLIST
+LIST NewModulesInfo
+LIST "echoUart::work"
+FILE "C:\Users\edc12\Documents\igloo\common\echoUart.vhd,hdl"
+LIST ProjectState5.1
+LIST Impl1
+LiberoState=Post_Layout
+ideSYNTHESIS(<project>\synthesis\echoUart.edn,syn_edn)=StateSuccess
+ideDESIGNER(<project>\designer\impl1\echoUart.adb,adb)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+LIST PinReports
+VALUE "<project>\designer\impl1\echoUart_report_pin_byname.txt,log"
+VALUE "<project>\designer\impl1\echoUart_report_pin_bynumber.txt,log"
+ENDLIST
+ENDLIST
+ENDLIST
+LIST AssociatedStimulus
+ENDLIST
+LIST Other_Association
+ENDLIST
+LIST SimulationOptions
+UseAutomaticDoFile=true
+IncludeWaveDo=false
+Type=max
+RunTime=1000ns
+Resolution=1ps
+VsimOpt=
+EntityName=testbench
+TopInstanceName=<top>_0
+DoFileName=
+DoFileName2=wave.do
+DoFileParams=
+DisplayDUTWave=false
+LogAllSignals=false
+DisablePulseFiltering=false
+DumpVCD=false
+VCDFileName=power.vcd
+VHDL2008=false
+Verilog2001=false
+SystemVerilog=false
+ENDLIST
+LIST ModelSimLibPath
+UseCustomPath=FALSE
+LibraryPath=
+ENDLIST
+LIST GlobalFlowOptions
+GenerateHDLAfterSynthesis=FALSE
+GenerateHDLAfterPhySynthesis=FALSE
+RunDRCAfterSynthesis=FALSE
+AutoCheckConstraints=TRUE
+UpdateModelSimIni=TRUE
+NoIOMode=FALSE
+PeriInitStandalone=FALSE
+EnableViewDraw=FALSE
+UpdateViewDrawIni=TRUE
+GenerateHDLFromSchematic=TRUE
+VmNetlistFlowOn=FALSE
+FlashProInputFile=pdb
+SmartGenCompileReport=T
+ENDLIST
+LIST PhySynthesisOptions
+ENDLIST
+LIST Profiles
+NAME="SoftConsole"
+FUNCTION="SoftwareIDE"
+TOOL="SoftConsole"
+LOCATION="eclipse.exe"
+PARAM=""
+BATCH=0
+LICENSE=""
+IS32BIT="1"
+EndProfile
+NAME="Synplify Pro ME"
+FUNCTION="Synthesis"
+TOOL="Synplify Pro ME"
+LOCATION="C:\Microsemi\Libero_v11.4\Synopsys\synplify_I201309MSP1-1\bin\synplify_pro.exe"
+PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
+BATCH=1
+LICENSE=""
+IS32BIT="1"
+EndProfile
+NAME="ModelSim ME"
+FUNCTION="Simulation"
+TOOL="ModelSim"
+LOCATION="C:\Microsemi\Libero_v11.4\Model\win32acoem\modelsim.exe"
+PARAM=""
+BATCH=0
+LICENSE=""
+IS32BIT="1"
+EndProfile
+NAME="FlashPro"
+FUNCTION="Program"
+TOOL="FlashPro"
+LOCATION="C:\Microsemi\Libero_v11.4\Designer\bin\FlashPro.exe"
+PARAM=""
+BATCH=0
+LICENSE=""
+IS32BIT="1"
+EndProfile
+NAME="Identify Debugger"
+FUNCTION="IdentifyDebugger"
+TOOL="Identify Debugger"
+LOCATION="identify_debugger.exe"
+PARAM=""
+BATCH=0
+LICENSE=""
+IS32BIT="1"
+EndProfile
+ENDLIST
+LIST ProjectState5.1
+LIST "echoUart::work"
+LIST Impl1
+LiberoState=Post_Layout
+ideSYNTHESIS(<project>\synthesis\echoUart.edn,syn_edn)=StateSuccess
+ideDESIGNER(<project>\designer\impl1\echoUart.adb,adb)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+LIST ExcludePackageForSimulation
+ENDLIST
+LIST ExcludePackageForSynthesis
+ENDLIST
+LIST IncludeModuleForSimulation
+ENDLIST
+LIST CDBOrder
+ENDLIST
+LIST UserCustomizedFileList
+ENDLIST
+LIST OpenedFileList
+ORIENTATION;HORIZONTAL
+Reports;Reports;0
+ReportsCurrentItem;Program Device:echoUart_program.log
+StartPage;StartPage;0
+SmartDesign;top;0
+ACTIVEVIEW;Reports
+ENDLIST
+LIST ModuleSubBlockList
+LIST "baudgen::work","C:\Users\edc12\Documents\igloo\uart\baudgen.vhd","FALSE","FALSE"
+ENDLIST
+LIST "echoUart::work","C:\Users\edc12\Documents\igloo\common\echoUart.vhd","FALSE","FALSE"
+SUBBLOCK "uart::work","C:\Users\edc12\Documents\igloo\uart\uart.vhd","FALSE","FALSE"
+ENDLIST
+LIST "glitchfilter::work","C:\Users\edc12\Documents\igloo\uart\glitchfilter.vhd","FALSE","FALSE"
+ENDLIST
+LIST "receiver::work","C:\Users\edc12\Documents\igloo\uart\receiver.vhd","FALSE","FALSE"
+ENDLIST
+LIST "sync_flipflop::work","C:\Users\edc12\Documents\igloo\uart\sync_flipflop.vhd","FALSE","FALSE"
+ENDLIST
+LIST "sysclk::work","smartgen\sysclk\sysclk.vhd","TRUE","FALSE"
+ENDLIST
+LIST "top::work","component\work\top\top.cxf","TRUE","FALSE"
+SUBBLOCK "echoUart::work","","FALSE","FALSE"
+SUBBLOCK "sysclk::work","smartgen\sysclk\sysclk.vhd","TRUE","FALSE"
+ENDLIST
+LIST "transmitter::work","C:\Users\edc12\Documents\igloo\uart\transmitter.vhd","FALSE","FALSE"
+ENDLIST
+LIST "uart::work","C:\Users\edc12\Documents\igloo\uart\uart.vhd","FALSE","FALSE"
+SUBBLOCK "sync_flipflop::work","C:\Users\edc12\Documents\igloo\uart\sync_flipflop.vhd","FALSE","FALSE"
+SUBBLOCK "glitchfilter::work","C:\Users\edc12\Documents\igloo\uart\glitchfilter.vhd","FALSE","FALSE"
+SUBBLOCK "baudgen::work","C:\Users\edc12\Documents\igloo\uart\baudgen.vhd","FALSE","FALSE"
+SUBBLOCK "receiver::work","C:\Users\edc12\Documents\igloo\uart\receiver.vhd","FALSE","FALSE"
+SUBBLOCK "transmitter::work","C:\Users\edc12\Documents\igloo\uart\transmitter.vhd","FALSE","FALSE"
+ENDLIST
+ENDLIST
+LIST ActiveTestBenchList
+ENDLIST
