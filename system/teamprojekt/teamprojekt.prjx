@@ -1,15 +1,20 @@
 KEY LIBERO "11.4"
 KEY CAPTURE "11.4.1.17"
 KEY DEFAULT_IMPORT_LOC ""
+KEY DEFAULT_OPEN_LOC ""
 KEY ProjectID "0"
 KEY HDLTechnology "VHDL"
 KEY VendorTechnology_Family "IGLOO"
-KEY VendorTechnology_Die "IS4X4M1LPLV"
+KEY VendorTechnology_Die "UM4X4M1NLPLV"
 KEY VendorTechnology_Package "vq100"
 KEY VendorTechnology_Speed "STD"
-KEY VendorTechnology_DieVoltage "1.2"
-KEY VendorTechnology_IO_DEFT_STD "LVCMOS12"
+KEY VendorTechnology_DieVoltage "1.2~1.5"
+KEY VendorTechnology_DSW_VCCA_VOLTAGE_RAMP_RATE ""
+KEY VendorTechnology_IO_DEFT_STD "LVCMOS33"
+KEY VendorTechnology_OPCONR ""
+KEY VendorTechnology_PLL_SUPPLY ""
 KEY VendorTechnology_RESTRICTPROBEPINS "1"
+KEY VendorTechnology_SYSTEM_CONTROLLER_SUSPEND_MODE ""
 KEY VendorTechnology_TEMPR "COM"
 KEY VendorTechnology_VCCI_1.2_VOLTR "COM"
 KEY VendorTechnology_VCCI_1.5_VOLTR "COM"
@@ -30,37 +35,32 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\work\top\top.cxf,actgen_cxf"
 STATE="utd"
-TIME="1449934222"
+TIME="1450173691"
 SIZE="1797"
 ENDFILE
 VALUE "<project>\designer\impl1\echoUart.adb,adb"
 STATE="utd"
-TIME="1449933794"
-SIZE="16384"
+TIME="1450173929"
+SIZE="87552"
 ENDFILE
 VALUE "<project>\designer\impl1\echoUart.ide_des,ide_des"
 STATE="utd"
-TIME="1449933487"
-SIZE="209"
+TIME="1449935838"
+SIZE="994"
 ENDFILE
 VALUE "<project>\designer\impl1\echoUart.pdb,pdb"
 STATE="utd"
-TIME="1449934651"
+TIME="1450172970"
 SIZE="43361"
-ENDFILE
-VALUE "<project>\designer\impl1\echoUart_compile_log.rpt,log"
-STATE="utd"
-TIME="1449934277"
-SIZE="7835"
 ENDFILE
 VALUE "<project>\designer\impl1\echoUart_fp\echoUart.pro,pro"
 STATE="utd"
-TIME="1449934682"
-SIZE="2660"
+TIME="1450172970"
+SIZE="2450"
 ENDFILE
 VALUE "<project>\designer\impl1\echoUart_fp\projectData\echoUart.pdb,pdb"
 STATE="utd"
-TIME="1449934682"
+TIME="1450172970"
 SIZE="43361"
 ENDFILE
 VALUE "<project>\smartgen\sysclk\sysclk.cxf,actgen_cxf"
@@ -91,23 +91,23 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\synthesis\echoUart.edn,syn_edn"
 STATE="utd"
-TIME="1449934251"
-SIZE="124588"
+TIME="1450173840"
+SIZE="112220"
 ENDFILE
 VALUE "<project>\synthesis\echoUart.so,so"
 STATE="utd"
-TIME="1449933779"
+TIME="1449934251"
 SIZE="235"
 ENDFILE
 VALUE "<project>\synthesis\echoUart_sdc.sdc,syn_sdc"
 STATE="utd"
-TIME="1449933779"
+TIME="1449934251"
 SIZE="397"
 ENDFILE
 VALUE "<project>\synthesis\echoUart_syn.prj,prj"
 STATE="utd"
-TIME="1449933781"
-SIZE="1477"
+TIME="1449934252"
+SIZE="1946"
 ENDFILE
 VALUE "C:\Users\edc12\Documents\igloo\common\echoUart.vhd,hdl"
 STATE="utd"
@@ -236,8 +236,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="C:\Microsemi\Libero_v11.4\Synopsys\synplify_I201309MSP1-1\bin\synplify_pro.exe"
-PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
-BATCH=1
+PARAM=""
+BATCH=0
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -299,7 +299,6 @@ ORIENTATION;HORIZONTAL
 Reports;Reports;0
 ReportsCurrentItem;Program Device:echoUart_program.log
 StartPage;StartPage;0
-SmartDesign;top;0
 ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
@@ -317,7 +316,7 @@ ENDLIST
 LIST "sysclk::work","smartgen\sysclk\sysclk.vhd","TRUE","FALSE"
 ENDLIST
 LIST "top::work","component\work\top\top.cxf","TRUE","FALSE"
-SUBBLOCK "echoUart::work","","FALSE","FALSE"
+SUBBLOCK "echoUart::work","C:\Users\edc12\Documents\igloo\common\echoUart.vhd","FALSE","FALSE"
 SUBBLOCK "sysclk::work","smartgen\sysclk\sysclk.vhd","TRUE","FALSE"
 ENDLIST
 LIST "transmitter::work","C:\Users\edc12\Documents\igloo\uart\transmitter.vhd","FALSE","FALSE"
