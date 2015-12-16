@@ -1,0 +1,49 @@
+FlashPro
+Version: 11.4.1.17
+Release: v11.4 SP1
+
+This program can detect if an updated version is available by
+ checking the Microsemi SoC website.
+
+Would you like to check for updates automatically when you start the software?
+
+To change this setting later, go to File > Preferences and modify your settings
+in the Updates tab. [NO]
+Software Version: 11.4.1.17
+creating folder: C:\Users\edc12\Documents\igloo\system\flashproj\maierFlash
+Driver : 3.0.0 build 1
+programmer '63279' : FlashPro3
+Created new project 'C:\Users\edc12\Documents\igloo\system\flashproj\maierFlash\maierFlash.pro'
+PDB file 'C:\Users\edc12\Documents\igloo\system\teamprojekt\designer\impl1\echoUart.pdb' has
+been loaded successfully.
+DESIGN : echoUart;  CHECKSUM : 621F;  PDB_VERSION : 1.8
+programmer '63279' : Scan Chain...
+Warning: programmer '63279' : Vpump has been selected on programmer AND an externally provided
+         Vpump has also been detected. Using externally provided Vpump voltage source.
+programmer '63279' : Scan Chain PASSED.
+programmer '63279' : Executing action PROGRAM
+programmer '63279' : Failed to verify IDCODE
+programmer '63279' : EXPORT ERROR_CODE[16] = 801d
+programmer '63279' : Finished: Sat Dec 12 16:41:51 2015 (Elapsed time 00:00:00)
+Error: programmer '63279' : Executing action PROGRAM FAILED, EXIT 6, refer to FlashPro online
+       help for details.
+
+                        o - o - o - o - o - o
+
+programmer '63279' :  Pinging Programmer...
+programmer '63279' :  Programmer Found.
+programmer '63279' : Scan Chain...
+programmer '63279' : Vpump will not be driven from the programmer, an external voltage source
+has been detected that will provide Vpump.
+programmer '63279' : Scan Chain PASSED.
+programmer '63279' : Executing action PROGRAM
+programmer '63279' : Failed to verify IDCODE
+programmer '63279' : EXPORT ERROR_CODE[16] = 801d
+programmer '63279' : Finished: Sat Dec 12 16:42:58 2015 (Elapsed time 00:00:00)
+Error: programmer '63279' : Executing action PROGRAM FAILED, EXIT 6, refer to FlashPro online
+       help for details.
+
+                        o - o - o - o - o - o
+
+Warning: Project 'maierFlash' has been modified. Do you want to save it? [NO]
+Project closed.

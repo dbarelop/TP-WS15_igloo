@@ -13,6 +13,7 @@ KEY VendorTechnology_DSW_VCCA_VOLTAGE_RAMP_RATE ""
 KEY VendorTechnology_IO_DEFT_STD "LVCMOS33"
 KEY VendorTechnology_OPCONR ""
 KEY VendorTechnology_PLL_SUPPLY ""
+KEY VendorTechnology_RAD_EXPOSURE ""
 KEY VendorTechnology_RESTRICTPROBEPINS "1"
 KEY VendorTechnology_SYSTEM_CONTROLLER_SUSPEND_MODE ""
 KEY VendorTechnology_TEMPR "COM"
@@ -27,92 +28,184 @@ KEY ProjectDescription ""
 KEY Pa4PeripheralNewSeq "GOOD"
 KEY SimulationType "VHDL"
 KEY Vendor "Actel"
-KEY ActiveRoot "echoUart::work"
+KEY ActiveRoot "top::work"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
 CURREV=1
 ENDLIST
 LIST FileManager
+VALUE "<project>\component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf,actgen_cxf"
+STATE="utd"
+TIME="1450281597"
+SIZE="437"
+ENDFILE
+VALUE "<project>\component\work\DESIGN_IO\DESIGN_IO.cxf,actgen_cxf"
+STATE="utd"
+TIME="1450281597"
+SIZE="413"
+ENDFILE
 VALUE "<project>\component\work\top\top.cxf,actgen_cxf"
 STATE="utd"
-TIME="1450173691"
-SIZE="1797"
+TIME="1450283445"
+SIZE="2224"
+ENDFILE
+VALUE "<project>\component\work\top\top.vhd,hdl"
+STATE="utd"
+TIME="1450283445"
+SIZE="3481"
+PARENT="<project>\component\work\top\top.cxf"
+IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\designer\impl1\echoUart.adb,adb"
-STATE="utd"
-TIME="1450173929"
-SIZE="87552"
+STATE="ood"
+TIME="1450281134"
+SIZE="170496"
 ENDFILE
 VALUE "<project>\designer\impl1\echoUart.ide_des,ide_des"
 STATE="utd"
-TIME="1449935838"
-SIZE="994"
+TIME="1450281134"
+SIZE="1002"
 ENDFILE
 VALUE "<project>\designer\impl1\echoUart.pdb,pdb"
+STATE="ood"
+TIME="1450281184"
+SIZE="40096"
+ENDFILE
+VALUE "<project>\designer\impl1\echoUart_compile_log.rpt,log"
 STATE="utd"
-TIME="1450172970"
-SIZE="43361"
+TIME="1450281093"
+SIZE="8316"
 ENDFILE
 VALUE "<project>\designer\impl1\echoUart_fp\echoUart.pro,pro"
 STATE="utd"
-TIME="1450172970"
-SIZE="2450"
+TIME="1450281184"
+SIZE="2660"
 ENDFILE
 VALUE "<project>\designer\impl1\echoUart_fp\projectData\echoUart.pdb,pdb"
 STATE="utd"
-TIME="1450172970"
-SIZE="43361"
+TIME="1450281184"
+SIZE="40096"
+ENDFILE
+VALUE "<project>\designer\impl1\echoUart_placeroute_log.rpt,log"
+STATE="utd"
+TIME="1450281120"
+SIZE="2471"
+ENDFILE
+VALUE "<project>\designer\impl1\echoUart_prgdata_log.rpt,log"
+STATE="utd"
+TIME="1450281134"
+SIZE="865"
+ENDFILE
+VALUE "<project>\designer\impl1\echoUart_verifytiming_log.rpt,log"
+STATE="utd"
+TIME="1450281122"
+SIZE="1179"
+ENDFILE
+VALUE "<project>\designer\impl1\top.adb,adb"
+STATE="utd"
+TIME="1450283599"
+SIZE="123392"
+ENDFILE
+VALUE "<project>\designer\impl1\top.ide_des,ide_des"
+STATE="utd"
+TIME="1450283599"
+SIZE="985"
+ENDFILE
+VALUE "<project>\designer\impl1\top.pdb,pdb"
+STATE="utd"
+TIME="1450283639"
+SIZE="40334"
+ENDFILE
+VALUE "<project>\designer\impl1\top_compile_log.rpt,log"
+STATE="utd"
+TIME="1450283496"
+SIZE="8938"
+ENDFILE
+VALUE "<project>\designer\impl1\top_fp\projectData\top.pdb,pdb"
+STATE="utd"
+TIME="1450283639"
+SIZE="40334"
+ENDFILE
+VALUE "<project>\designer\impl1\top_fp\top.pro,pro"
+STATE="utd"
+TIME="1450283639"
+SIZE="2630"
+ENDFILE
+VALUE "<project>\designer\impl1\top_prgdata_log.rpt,log"
+STATE="utd"
+TIME="1450283599"
+SIZE="714"
 ENDFILE
 VALUE "<project>\smartgen\sysclk\sysclk.cxf,actgen_cxf"
 STATE="utd"
-TIME="1449933654"
+TIME="1450283185"
 SIZE="1471"
 ENDFILE
 VALUE "<project>\smartgen\sysclk\sysclk.gen,gen"
 STATE="utd"
-TIME="1449933653"
-SIZE="558"
+TIME="1450283183"
+SIZE="559"
 PARENT="<project>\smartgen\sysclk\sysclk.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\sysclk\sysclk.log,log"
 STATE="utd"
-TIME="1449933654"
-SIZE="2744"
+TIME="1450283184"
+SIZE="2674"
 PARENT="<project>\smartgen\sysclk\sysclk.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\sysclk\sysclk.vhd,hdl"
 STATE="utd"
-TIME="1449933654"
-SIZE="7351"
+TIME="1450283184"
+SIZE="7352"
 PARENT="<project>\smartgen\sysclk\sysclk.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\synthesis\echoUart.edn,syn_edn"
-STATE="utd"
-TIME="1450173840"
-SIZE="112220"
+STATE="ood"
+TIME="1450281412"
+SIZE="57567"
 ENDFILE
 VALUE "<project>\synthesis\echoUart.so,so"
 STATE="utd"
-TIME="1449934251"
+TIME="1450281412"
 SIZE="235"
 ENDFILE
 VALUE "<project>\synthesis\echoUart_sdc.sdc,syn_sdc"
-STATE="utd"
-TIME="1449934251"
-SIZE="397"
+STATE="ood"
+TIME="1450281412"
+SIZE="398"
 ENDFILE
 VALUE "<project>\synthesis\echoUart_syn.prj,prj"
 STATE="utd"
-TIME="1449934252"
-SIZE="1946"
+TIME="1450281413"
+SIZE="1949"
+ENDFILE
+VALUE "<project>\synthesis\top.edn,syn_edn"
+STATE="utd"
+TIME="1450283464"
+SIZE="68092"
+ENDFILE
+VALUE "<project>\synthesis\top.so,so"
+STATE="utd"
+TIME="1450283464"
+SIZE="225"
+ENDFILE
+VALUE "<project>\synthesis\top_sdc.sdc,syn_sdc"
+STATE="utd"
+TIME="1450283464"
+SIZE="310"
+ENDFILE
+VALUE "<project>\synthesis\top_syn.prj,prj"
+STATE="utd"
+TIME="1450283465"
+SIZE="2142"
 ENDFILE
 VALUE "C:\Users\edc12\Documents\igloo\common\echoUart.vhd,hdl"
 STATE="utd"
-TIME="1449933866"
-SIZE="2777"
+TIME="1450282603"
+SIZE="2799"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "C:\Users\edc12\Documents\igloo\uart\baudgen.vhd,hdl"
@@ -155,13 +248,13 @@ ENDLIST
 LIST UsedFile
 ENDLIST
 LIST NewModulesInfo
-LIST "echoUart::work"
-FILE "C:\Users\edc12\Documents\igloo\common\echoUart.vhd,hdl"
+LIST "top::work"
+FILE "<project>\component\work\top\top.vhd,hdl"
 LIST ProjectState5.1
 LIST Impl1
 LiberoState=Post_Layout
-ideSYNTHESIS(<project>\synthesis\echoUart.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl1\echoUart.adb,adb)=StateSuccess
+ideDESIGNER(<project>\designer\impl1\top.adb,adb)=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -171,8 +264,8 @@ ENDUsed_File_List
 ENDLIST
 ENDLIST
 LIST PinReports
-VALUE "<project>\designer\impl1\echoUart_report_pin_byname.txt,log"
-VALUE "<project>\designer\impl1\echoUart_report_pin_bynumber.txt,log"
+VALUE "<project>\designer\impl1\top_report_pin_byname.txt,log"
+VALUE "<project>\designer\impl1\top_report_pin_bynumber.txt,log"
 ENDLIST
 ENDLIST
 ENDLIST
@@ -270,11 +363,11 @@ IS32BIT="1"
 EndProfile
 ENDLIST
 LIST ProjectState5.1
-LIST "echoUart::work"
+LIST "top::work"
 LIST Impl1
 LiberoState=Post_Layout
-ideSYNTHESIS(<project>\synthesis\echoUart.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl1\echoUart.adb,adb)=StateSuccess
+ideDESIGNER(<project>\designer\impl1\top.adb,adb)=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -296,13 +389,15 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
-Reports;Reports;0
-ReportsCurrentItem;Program Device:echoUart_program.log
 StartPage;StartPage;0
-ACTIVEVIEW;Reports
+ACTIVEVIEW;StartPage
 ENDLIST
 LIST ModuleSubBlockList
 LIST "baudgen::work","C:\Users\edc12\Documents\igloo\uart\baudgen.vhd","FALSE","FALSE"
+ENDLIST
+LIST "DESIGN_FIRMWARE::work","component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf","TRUE","FALSE"
+ENDLIST
+LIST "DESIGN_IO::work","component\work\DESIGN_IO\DESIGN_IO.cxf","TRUE","FALSE"
 ENDLIST
 LIST "echoUart::work","C:\Users\edc12\Documents\igloo\common\echoUart.vhd","FALSE","FALSE"
 SUBBLOCK "uart::work","C:\Users\edc12\Documents\igloo\uart\uart.vhd","FALSE","FALSE"
@@ -315,7 +410,7 @@ LIST "sync_flipflop::work","C:\Users\edc12\Documents\igloo\uart\sync_flipflop.vh
 ENDLIST
 LIST "sysclk::work","smartgen\sysclk\sysclk.vhd","TRUE","FALSE"
 ENDLIST
-LIST "top::work","component\work\top\top.cxf","TRUE","FALSE"
+LIST "top::work","component\work\top\top.vhd","TRUE","FALSE"
 SUBBLOCK "echoUart::work","C:\Users\edc12\Documents\igloo\common\echoUart.vhd","FALSE","FALSE"
 SUBBLOCK "sysclk::work","smartgen\sysclk\sysclk.vhd","TRUE","FALSE"
 ENDLIST

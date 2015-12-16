@@ -4,7 +4,6 @@ USE ieee.std_logic_signed.ALL;
 USE ieee.std_logic_arith.ALL;
 
 ENTITY echoUart IS
-	GENERIC(RSTDEF: std_logic := '1');
 	PORT(    rst:		IN	std_logic;
 			 clk:		IN	std_logic;
 			 rxd:		IN 	std_logic;
@@ -16,6 +15,8 @@ ENTITY echoUart IS
 END echoUart;
 
 ARCHITECTURE behaviour OF echoUart IS
+
+	CONSTANT RSTDEF: std_logic :='0';
 
 	COMPONENT uart IS
 	   GENERIC(RSTDEF: std_logic;
@@ -46,13 +47,15 @@ ARCHITECTURE behaviour OF echoUart IS
 	SIGNAL rxNewByte: std_logic;
 	SIGNAL rxNewByteRead: std_logic;
 	SIGNAL txWriteByte: std_logic;
+	SIGNAL tsre: std_logic;
+	SIGNAL thre: std_logic;
 	SIGNAL sbusy: std_logic;
 
 BEGIN
 
 	u1: uart
 	GENERIC MAP(RSTDEF => RSTDEF,
-				BAUDEF => 19.2e3,
+				BAUDEF => 9.6e3,
 				FRQDEF => 1.0e6)
 	PORT MAP(rst => rst,
 			clk => clk,
@@ -68,9 +71,9 @@ BEGIN
 
 			txd => txd,
 			wren=> txWriteByte,
-			din => din
-			--tsre:  OUT std_logic;  -- transmit shift   register empty, high active
-			--thre:  OUT std_logic); -- transmit holding register empty, high active
+			din => din,
+			tsre => tsre,  -- transmit shift   register empty, high active
+			thre => thre -- transmit holding register empty, high active
 			);
 			
 	main: PROCESS(rst, clk) IS
@@ -84,14 +87,14 @@ BEGIN
 			
 			sbusy <= '0';
 		ELSIF rising_edge(clk) THEN
-			IF rxNewByte = '1' AND rxNewByteRead = '0' THEN
-				rxNewByteRead <= '1';
-				din <= dout;
+			IF tsre = '1' AND thre = '1' THEN
+				--rxNewByteRead <= '1';
+				din <= x"41";
 				txWriteByte <= '1';
 				sbusy <= NOT sbusy;
 			ELSE
 				txWriteByte <= '0';
-				rxNewByteRead <= '0';
+				--rxNewByteRead <= '0';
 			END IF;
 		END IF;
 		
