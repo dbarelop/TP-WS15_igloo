@@ -87,14 +87,14 @@ BEGIN
 			
 			sbusy <= '0';
 		ELSIF rising_edge(clk) THEN
-			IF tsre = '1' AND thre = '1' THEN
-				--rxNewByteRead <= '1';
-				din <= x"41";
+			IF rxNewByte = '1' AND rxNewByteRead = '0' THEN
+				rxNewByteRead <= '1';
+				din <= dout;
 				txWriteByte <= '1';
 				sbusy <= NOT sbusy;
 			ELSE
 				txWriteByte <= '0';
-				--rxNewByteRead <= '0';
+				rxNewByteRead <= '0';
 			END IF;
 		END IF;
 		
