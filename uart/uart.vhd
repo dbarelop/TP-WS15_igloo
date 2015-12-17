@@ -3,7 +3,7 @@ USE ieee.std_logic_1164.ALL;
 
 ENTITY uart IS
    GENERIC(RSTDEF: std_logic := '1';
-           BAUDEF: real      := 19.2e3;  -- baud rate
+           BAUDEF: real      := 9.6e3;  -- baud rate
            FRQDEF: real      := 1.0e6);  -- clock frequency
    PORT(rst:   IN  std_logic;  -- reset RSTDEF active
         clk:   IN  std_logic;  -- clock, rising edge active

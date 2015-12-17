@@ -4,7 +4,7 @@ USE ieee.std_logic_unsigned.ALL;
 
 ENTITY COMPXCTRL IS
 	GENERIC(RSTDEF: std_logic := '1';
-			DEVICEID: std_logic_vector(3 DOWNTO 0) := "0000");
+			DEVICEID: std_logic_vector(3 DOWNTO 0) := "0100");
 	PORT(    rst:		IN	std_logic;
 			 clk:		IN	std_logic;
 			 
@@ -12,7 +12,8 @@ ENTITY COMPXCTRL IS
 			 uartRx:	IN	std_logic;						-- indicates new byte is available
 			 uartRd:	OUT std_logic; 						-- indicates value was read from controller
 			 uartout:   OUT std_logic_vector(7 DOWNTO 0);
-			 uartTx:	OUT std_logic;
+			 uartTxReady: IN std_logic;						-- indicates new byte can be send
+			 uartTx:	OUT std_logic;						-- starts transmission of new byte
 			 
 			 busy:		INOUT	std_logic					-- busy bit indicates working component
 	);
@@ -47,7 +48,7 @@ BEGIN
 					state <= READSENDOK;
 				END IF;
 			ELSIF state = READSENDOK THEN
-				uartout <= "10101010"; -- OK message
+				uartout <= x"5A"; -- OK message
 				uartTx <= '1';
 				uartRd <= 'Z';
 				state <= EXECMD;

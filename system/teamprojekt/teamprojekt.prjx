@@ -46,13 +46,13 @@ SIZE="413"
 ENDFILE
 VALUE "<project>\component\work\top\top.cxf,actgen_cxf"
 STATE="utd"
-TIME="1450342286"
-SIZE="2304"
+TIME="1450346250"
+SIZE="2421"
 ENDFILE
 VALUE "<project>\component\work\top\top.vhd,hdl"
 STATE="utd"
-TIME="1450342286"
-SIZE="3277"
+TIME="1450346250"
+SIZE="5714"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
 ENDFILE
@@ -113,13 +113,13 @@ SIZE="985"
 ENDFILE
 VALUE "<project>\designer\impl1\top.pdb,pdb"
 STATE="utd"
-TIME="1450342434"
-SIZE="43229"
+TIME="1450344734"
+SIZE="44261"
 ENDFILE
 VALUE "<project>\designer\impl1\top_compile_log.rpt,log"
 STATE="utd"
-TIME="1450342323"
-SIZE="8704"
+TIME="1450344707"
+SIZE="8356"
 ENDFILE
 VALUE "<project>\designer\impl1\top_fp\projectData\top.pdb,pdb"
 STATE="utd"
@@ -131,10 +131,20 @@ STATE="utd"
 TIME="1450283856"
 SIZE="2630"
 ENDFILE
+VALUE "<project>\designer\impl1\top_placeroute_log.rpt,log"
+STATE="utd"
+TIME="1450344721"
+SIZE="2420"
+ENDFILE
 VALUE "<project>\designer\impl1\top_prgdata_log.rpt,log"
 STATE="utd"
-TIME="1450342434"
+TIME="1450344734"
 SIZE="714"
+ENDFILE
+VALUE "<project>\designer\impl1\top_verifytiming_log.rpt,log"
+STATE="utd"
+TIME="1450344723"
+SIZE="1138"
 ENDFILE
 VALUE "<project>\smartgen\sysclk\sysclk.cxf,actgen_cxf"
 STATE="utd"
@@ -184,8 +194,8 @@ SIZE="1949"
 ENDFILE
 VALUE "<project>\synthesis\top.edn,syn_edn"
 STATE="utd"
-TIME="1450342310"
-SIZE="123723"
+TIME="1450344697"
+SIZE="139445"
 ENDFILE
 VALUE "<project>\synthesis\top.so,so"
 STATE="utd"
@@ -201,6 +211,11 @@ VALUE "<project>\synthesis\top_syn.prj,prj"
 STATE="utd"
 TIME="1450283783"
 SIZE="2142"
+ENDFILE
+VALUE "C:\Users\edc12\Documents\igloo\common\COMPCTRL.vhd,hdl"
+STATE="utd"
+TIME="1450346148"
+SIZE="1861"
 ENDFILE
 VALUE "C:\Users\edc12\Documents\igloo\common\echoUart.vhd,hdl"
 STATE="utd"
@@ -239,9 +254,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "C:\Users\edc12\Documents\igloo\uart\uart.vhd,hdl"
 STATE="utd"
-TIME="1449665862"
-SIZE="5665"
-IS_READONLY="TRUE"
+TIME="1450344267"
+SIZE="5664"
 ENDFILE
 ENDLIST
 LIST UsedFile
@@ -261,10 +275,6 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
-ENDLIST
-LIST PinReports
-VALUE "<project>\designer\impl1\top_report_pin_byname.txt,log"
-VALUE "<project>\designer\impl1\top_report_pin_bynumber.txt,log"
 ENDLIST
 ENDLIST
 ENDLIST
@@ -389,14 +399,18 @@ ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 Reports;Reports;0
-ReportsCurrentItem;Generate Programming Data:top_prgdata_log.rpt
+ReportsCurrentItem;top:top_DRC.xml
 StartPage;StartPage;0
 SmartDesign;top;0
 HDL;C:\Users\edc12\Documents\igloo\common\echoUart.vhd;0
-ACTIVEVIEW;C:\Users\edc12\Documents\igloo\common\echoUart.vhd
+HDL;C:\Users\edc12\Documents\igloo\uart\uart.vhd;0
+HDL;C:\Users\edc12\Documents\igloo\common\COMPCTRL.vhd;0
+ACTIVEVIEW;top
 ENDLIST
 LIST ModuleSubBlockList
 LIST "baudgen::work","C:\Users\edc12\Documents\igloo\uart\baudgen.vhd","FALSE","FALSE"
+ENDLIST
+LIST "COMPXCTRL::work","C:\Users\edc12\Documents\igloo\common\COMPCTRL.vhd","FALSE","FALSE"
 ENDLIST
 LIST "DESIGN_FIRMWARE::work","component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf","TRUE","FALSE"
 ENDLIST
@@ -414,8 +428,9 @@ ENDLIST
 LIST "sysclk::work","smartgen\sysclk\sysclk.vhd","TRUE","FALSE"
 ENDLIST
 LIST "top::work","component\work\top\top.vhd","TRUE","FALSE"
-SUBBLOCK "echoUart::work","C:\Users\edc12\Documents\igloo\common\echoUart.vhd","FALSE","FALSE"
+SUBBLOCK "COMPXCTRL::work","C:\Users\edc12\Documents\igloo\common\COMPCTRL.vhd","FALSE","FALSE"
 SUBBLOCK "sysclk::work","smartgen\sysclk\sysclk.vhd","TRUE","FALSE"
+SUBBLOCK "uart::work","C:\Users\edc12\Documents\igloo\uart\uart.vhd","FALSE","FALSE"
 ENDLIST
 LIST "transmitter::work","C:\Users\edc12\Documents\igloo\uart\transmitter.vhd","FALSE","FALSE"
 ENDLIST
