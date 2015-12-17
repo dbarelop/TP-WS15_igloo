@@ -46,13 +46,13 @@ SIZE="413"
 ENDFILE
 VALUE "<project>\component\work\top\top.cxf,actgen_cxf"
 STATE="utd"
-TIME="1450283761"
-SIZE="2224"
+TIME="1450342286"
+SIZE="2304"
 ENDFILE
 VALUE "<project>\component\work\top\top.vhd,hdl"
 STATE="utd"
-TIME="1450283761"
-SIZE="3481"
+TIME="1450342286"
+SIZE="3277"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
 ENDFILE
@@ -113,13 +113,13 @@ SIZE="985"
 ENDFILE
 VALUE "<project>\designer\impl1\top.pdb,pdb"
 STATE="utd"
-TIME="1450283856"
-SIZE="40317"
+TIME="1450342434"
+SIZE="43229"
 ENDFILE
 VALUE "<project>\designer\impl1\top_compile_log.rpt,log"
 STATE="utd"
-TIME="1450283790"
-SIZE="8938"
+TIME="1450342323"
+SIZE="8704"
 ENDFILE
 VALUE "<project>\designer\impl1\top_fp\projectData\top.pdb,pdb"
 STATE="utd"
@@ -131,20 +131,10 @@ STATE="utd"
 TIME="1450283856"
 SIZE="2630"
 ENDFILE
-VALUE "<project>\designer\impl1\top_placeroute_log.rpt,log"
-STATE="utd"
-TIME="1450283803"
-SIZE="2420"
-ENDFILE
 VALUE "<project>\designer\impl1\top_prgdata_log.rpt,log"
 STATE="utd"
-TIME="1450283816"
+TIME="1450342434"
 SIZE="714"
-ENDFILE
-VALUE "<project>\designer\impl1\top_verifytiming_log.rpt,log"
-STATE="utd"
-TIME="1450283805"
-SIZE="1138"
 ENDFILE
 VALUE "<project>\smartgen\sysclk\sysclk.cxf,actgen_cxf"
 STATE="utd"
@@ -194,8 +184,8 @@ SIZE="1949"
 ENDFILE
 VALUE "<project>\synthesis\top.edn,syn_edn"
 STATE="utd"
-TIME="1450283782"
-SIZE="68093"
+TIME="1450342310"
+SIZE="123723"
 ENDFILE
 VALUE "<project>\synthesis\top.so,so"
 STATE="utd"
@@ -214,8 +204,8 @@ SIZE="2142"
 ENDFILE
 VALUE "C:\Users\edc12\Documents\igloo\common\echoUart.vhd,hdl"
 STATE="utd"
-TIME="1450283754"
-SIZE="2799"
+TIME="1450341955"
+SIZE="2808"
 ENDFILE
 VALUE "C:\Users\edc12\Documents\igloo\uart\baudgen.vhd,hdl"
 STATE="utd"
@@ -338,8 +328,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="C:\Microsemi\Libero_v11.4\Synopsys\synplify_I201309MSP1-1\bin\synplify_pro.exe"
-PARAM=""
-BATCH=0
+PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
+BATCH=1
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -398,8 +388,12 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
+Reports;Reports;0
+ReportsCurrentItem;Generate Programming Data:top_prgdata_log.rpt
 StartPage;StartPage;0
-ACTIVEVIEW;StartPage
+SmartDesign;top;0
+HDL;C:\Users\edc12\Documents\igloo\common\echoUart.vhd;0
+ACTIVEVIEW;C:\Users\edc12\Documents\igloo\common\echoUart.vhd
 ENDLIST
 LIST ModuleSubBlockList
 LIST "baudgen::work","C:\Users\edc12\Documents\igloo\uart\baudgen.vhd","FALSE","FALSE"
