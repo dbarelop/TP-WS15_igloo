@@ -56,9 +56,11 @@ ARCHITECTURE behaviour OF EEPROMCTRL IS
    SIGNAL busyout: std_logic;
 
 
-	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, EXECMD, ENDCOM);
+	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, DEFCMD, EXECMD, ENDCOM);
+	TYPE tmaincmd IS (READ, WRITE, ERASE, EWEN);
 	
 	SIGNAL state: tstate;
+	SIGNAL maincmd: tmaincmd;
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
     SIGNAL sbusy: std_logic;
 
@@ -109,6 +111,38 @@ BEGIN
 
 		END PROCEDURE;
 
+		PROCEDURE ewenPro IS
+
+		BEGIN
+			IF readcmd = SENDCMD THEN
+				cmd <= "1110";
+				strb <= '1';
+				readcmd <= WAITANSWER;
+			ELSIF readcmd = WAITANSWER THEN
+				strb <= '0';
+				IF busyout = '0' THEN
+					readcmd <= SENDCMD;
+					state <= ENDCOM;
+				END IF;
+			END IF;
+		END PROCEDURE;
+
+		PROCEDURE erasePro IS
+
+		BEGIN
+			IF readcmd = SENDCMD THEN
+				cmd <= "1100"
+				strb <= '1';
+				readcmd <= WAITANSWER;
+			ELSIF readcmd = WAITANSWER THEN
+				strb <= '0';
+				IF busyout = '0' THEN
+					readcmd <= SENDCMD;
+					state <= ENDCOM;
+				END IF;
+			END IF;
+		END PROCEDURE;
+
 	BEGIN
 		IF rst = RSTDEF THEN
 			sbusy <= 'Z';
@@ -116,7 +150,8 @@ BEGIN
 			uartTx <= 'Z';
 			uartRd <= 'Z';
 			
-			state <= IDLE;
+			state <= EXECMD;
+			maincmd <= EWEN;
 
 			cmd <= (others => '0');
 			strb <= '0';
@@ -144,15 +179,26 @@ BEGIN
                 IF uartTxReady = '1' THEN
                     state <= EXECMD;
                 END IF;
+            ELSIF state = DEFCMD THEN
+            	CASE dataIN(3 DOWNTO 0) IS
+            		WHEN x"0" => -- read
+            			maincmd <= READ;
+            			re4d;
+            		WHEN x"2" => -- erase
+            			maincmd <= ERASE;
+            			erasePro;
+            		WHEN others =>
+
+            	END CASE;
 			ELSIF state = EXECMD THEN				
 				-- BEGIN handle command
-				re4d;
-				--CASE dataIN(3 DOWNTO 0) IS
-				--	WHEN others =>
-				--		uartout <= x"01";
-                --        uartTx <= '1';
-                --        state <= ENDCOM;
-				--END CASE;
+				IF maincmd = ERASE THEN
+					erasePro;
+				ELSIF maincmd = READ THEN
+					re4d;
+				ELSIF maincmd = EWEN THEN
+					ewenPro;
+				END IF;
 				-- END handle command
 			ELSIF state = ENDCOM THEN
 				uartout <= (others => 'Z');
