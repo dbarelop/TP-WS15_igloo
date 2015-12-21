@@ -76,8 +76,8 @@ TIME="1450530038"
 SIZE="1368"
 ENDFILE
 VALUE "<project>\designer\impl2\top.adb,adb"
-STATE="ood"
-TIME="1450712712"
+STATE="utd"
+TIME="1450717911"
 SIZE="135680"
 ENDFILE
 VALUE "<project>\designer\impl2\top.ide_des,ide_des"
@@ -86,14 +86,14 @@ TIME="1450711512"
 SIZE="204"
 ENDFILE
 VALUE "<project>\designer\impl2\top.pdb,pdb"
-STATE="ood"
+STATE="utd"
 TIME="1450713119"
 SIZE="45506"
 ENDFILE
 VALUE "<project>\designer\impl2\top_compile_log.rpt,log"
 STATE="utd"
-TIME="1450716391"
-SIZE="8953"
+TIME="1450717911"
+SIZE="9292"
 ENDFILE
 VALUE "<project>\designer\impl2\top_fp\projectData\top.pdb,pdb"
 STATE="utd"
@@ -107,12 +107,12 @@ SIZE="2386"
 ENDFILE
 VALUE "<project>\designer\impl2\top_placeroute_log.rpt,log"
 STATE="utd"
-TIME="1450716433"
+TIME="1450717957"
 SIZE="2601"
 ENDFILE
 VALUE "<project>\designer\impl2\top_verifytiming_log.rpt,log"
 STATE="utd"
-TIME="1450716440"
+TIME="1450717963"
 SIZE="1319"
 ENDFILE
 VALUE "<project>\smartgen\sysClk\sysClk.cxf,actgen_cxf"
@@ -162,8 +162,8 @@ TIME="1450529872"
 SIZE="1484"
 ENDFILE
 VALUE "<project>\synthesis\top.edn,syn_edn"
-STATE="ood"
-TIME="1450712681"
+STATE="utd"
+TIME="1450717883"
 SIZE="145661"
 ENDFILE
 VALUE "<project>\synthesis\top.so,so"
@@ -172,7 +172,7 @@ TIME="1450712681"
 SIZE="225"
 ENDFILE
 VALUE "<project>\synthesis\top_sdc.sdc,syn_sdc"
-STATE="ood"
+STATE="utd"
 TIME="1450712681"
 SIZE="310"
 ENDFILE
@@ -225,6 +225,36 @@ ENDLIST
 LIST UsedFile
 ENDLIST
 LIST NewModulesInfo
+LIST "top::work"
+FILE "<project>\component\work\top\top.vhd,hdl"
+LIST ProjectState5.1
+LIST Impl1
+LiberoState=Post_Synthesis
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+LiberoState=Post_Layout
+ideDESIGNER(<project>\designer\impl2\top.adb,adb)=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+LIST PinReports
+VALUE "<project>\designer\impl2\top_report_pin_byname.txt,log"
+VALUE "<project>\designer\impl2\top_report_pin_bynumber.txt,log"
+ENDLIST
+ENDLIST
 ENDLIST
 LIST AssociatedStimulus
 ENDLIST
@@ -324,6 +354,29 @@ IS32BIT="1"
 EndProfile
 ENDLIST
 LIST ProjectState5.1
+LIST "top::work"
+LIST Impl1
+LiberoState=Post_Synthesis
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+LiberoState=Post_Layout
+ideDESIGNER(<project>\designer\impl2\top.adb,adb)=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
 ENDLIST
@@ -342,7 +395,7 @@ ReportsCurrentItem;Program Device:top_program.log
 StartPage;StartPage;0
 SmartDesign;top;0
 HDL;C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd;0
-ACTIVEVIEW;C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "baudgen::work","C:\Users\matze\Documents\igloo\uart\baudgen.vhd","FALSE","FALSE"

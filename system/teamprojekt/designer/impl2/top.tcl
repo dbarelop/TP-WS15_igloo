@@ -1,5 +1,5 @@
 # Created by Microsemi Libero Software 11.6.0.34
-# Mon Dec 21 17:58:12 2015
+# Mon Dec 21 18:12:38 2015
 
 # (OPEN DESIGN)
 
@@ -16,13 +16,9 @@ set_defvar "IDE_DESIGNERVIEW_REVNUM1" "2"
 set_defvar "IDE_DESIGNERVIEW_ROOTDIR" {C:\Users\matze\Documents\igloo\system\teamprojekt\designer}
 set_defvar "IDE_DESIGNERVIEW_LASTREV" "2"
 
-
-# import of input files
-import_source  \
--format "edif" -edif_flavor "GENERIC" -netlist_naming "VHDL" {../../synthesis/top.edn} -merge_physical "yes" -merge_timing "yes"
-compile
-report -type "status" {top_compile_report.txt}
-report -type "pin" -listby "name" {top_report_pin_byname.txt}
-report -type "pin" -listby "number" {top_report_pin_bynumber.txt}
+report -type "timing" -format "TEXT" -analysis "max" -print_summary "yes" -use_slack_threshold "no"                             -print_paths "yes" -max_paths 5 -max_expanded_paths 1                             -max_parallel_paths 1 -include_user_sets "no"                             -include_pin_to_pin "yes" -include_clock_domains "yes"                             -select_clock_domains "no" {top_maxdelay_timing_report.txt}
+report -type "timing" -format "TEXT" -analysis "min" -print_summary "yes" -use_slack_threshold "no"                             -print_paths "yes" -max_paths 5 -max_expanded_paths 1                             -max_parallel_paths 1 -include_user_sets "no"                             -include_pin_to_pin "yes" -include_clock_domains "yes"                             -select_clock_domains "no" {top_mindelay_timing_report.txt}
+report -type "timing_violations" -format "TEXT" -analysis "max" -use_slack_threshold "yes" -slack_threshold 0.00                               -limit_max_paths "yes" -max_paths 100 -max_expanded_paths 0                               -max_parallel_paths 1 {top_maxdelay_timingviolations_report.txt}
+report -type "timing_violations" -format "TEXT" -analysis "min" -use_slack_threshold "yes" -slack_threshold 0.00                               -limit_max_paths "yes" -max_paths 100 -max_expanded_paths 0                               -max_parallel_paths 1 {top_mindelay_timingviolations_report.txt}
 
 save_design
