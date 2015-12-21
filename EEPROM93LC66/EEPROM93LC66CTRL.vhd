@@ -1,162 +1,166 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
-USE ieee.std_logic_signed.ALL;
-USE ieee.std_logic_arith.ALL;
+USE ieee.std_logic_unsigned.ALL;
 
-ENTITY EEPROM93LC66CTRL IS
-	GENERIC(RSTDEF: std_logic := '1',
-			DEVICE_ID: std_logic_vector(3 DOWNTO 0) := "0000";
+ENTITY EEPROMCTRL IS
+	GENERIC(RSTDEF: std_logic := '1';
+			DEVICEID: std_logic_vector(3 DOWNTO 0) := "0001");
 	PORT(    rst:		IN	std_logic;
 			 clk:		IN	std_logic;
+			 
 			 uartin:	IN 	std_logic_vector(7 DOWNTO 0);
-			 uartout:   IN  std_logic_vector(7 DOWNTO 0);
-			 dout:		OUT std_logic_vector(15 DOWNTO 0);
-			 busy:		OUT	std_logic;			-- busy bit indicates working eeprom, dout not valid
+			 uartRx:	IN	std_logic;						-- indicates new byte is available
+			 uartRd:	OUT std_logic; 						-- indicates value was read from controller
+			 uartout:   OUT std_logic_vector(7 DOWNTO 0);
+			 uartTxReady: IN std_logic;						-- indicates new byte can be send
+			 uartTx:	OUT std_logic;						-- starts transmission of new byte
+			 
+			 busy:		INOUT	std_logic;					-- busy bit indicates working component
+			-- component pins
+			sclk:		OUT std_logic;
+			cs:			OUT std_logic;
+			mosi:		OUT std_logic;
+			miso:		IN std_logic;
+			org:		OUT std_logic
 	);
 
-END EEPROM93LC66CTRL;
-ARCHITECTURE verhalten OF EEPROM93LC66CTRL IS
+END EEPROMCTRL;
 
-signal param		: std_logic_vector(7 DOWNTO 0); -- arrayyyy
+ARCHITECTURE behaviour OF EEPROMCTRL IS
 
-TState (READING, WRITING, ERASING, IDLE, PARAM)
+	COMPONENT EEPROM93LC66IF
+    GENERIC(RSTDEF: std_logic);
+	PORT(	rst:	IN	std_logic;
+			clk:	IN	std_logic;			-- 4 MHz MAX!! leads to 2 MHz sclk
+			cmd:	IN 	std_logic_vector(3 DOWNTO 0);
+			strb:	IN	std_logic;			-- executes the given command with the given address 
+			dout:	OUT std_logic_vector(15 DOWNTO 0);
+			din:	IN 	std_logic_vector(15 DOWNTO 0);
+			adrin:	IN 	std_logic_vector(8 DOWNTO 0);
+			busyout:OUT	std_logic;			-- busy bit indicates working eeprom, dout not valid
 
-UState (IDLE, PARAM, DONE);
-EState (READING, WRITING, ERASING);
-signal nofparams: integer range 0 to 2:= 0;
+			sclk:	OUT std_logic;			-- serial clock to EEPROM
+			cs:		OUT std_logic;			-- chip select, HIGH active
+			mosi:	OUT std_logic;
+			miso:	IN 	std_logic;
+			org:	OUT std_logic);			-- memory-config =1 16 bit / =0 8 bit wordlength
 
+   END COMPONENT;
+
+   -- component signals
+   SIGNAL cmd: std_logic_vector(3 DOWNTO 0);
+   SIGNAL strb: std_logic;
+   SIGNAL dout: std_logic_vector(15 DOWNTO 0);
+   SIGNAL din: std_logic_vector(15 DOWNTO 0);
+   SIGNAL adrin: std_logic_vector(8 DOWNTO 0);
+   SIGNAL busyout: std_logic;
+
+
+	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, EXECMD, ENDCOM);
+	
+	SIGNAL state: tstate;
+	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
+    SIGNAL sbusy: std_logic;
 
 BEGIN
-uart: process(uart, rst)
-	IF rst = RSTDEF THEN
-		state <= IDLE;
-	ELSE
-		CASE state IS
-		WHEN IDLE =>
-			IF busy = '0' AND uartin(7 DOWNTO 4) = DEVICE_ID THEN
-				busy <= '1';
-				CASE uartin(3 DOWNTO 0) IS
-					WHEN READ =>
-						ustate <= PARAM;
-						estate <= READING;
-						nofparams <= 1;
-					WHEN WRITE =>
-						ustate <= PARAM;
-						ustate <= WRITING;
-						nofparams <= 3;
-					WHEN ERASE => 
-						ustate <= DONE;
-						estate <= ERASING;
-					WHEN OTHERS => busy <= '0';
-				END CASE;
+
+	u2: EEPROM93LC66IF
+   GENERIC MAP(RSTDEF => RSTDEF)
+   PORT MAP(rst => rst,
+   			clk => clk,
+   			cmd => cmd,
+   			strb=> strb,
+   			dout=> dout,
+   			din => din,
+   			adrin => adrin,
+   			busyout => busyout,
+
+   			sclk => sclk,
+   			cs => cs,
+   			mosi => mosi,
+   			miso => miso,
+   			org => org
+
+   		);
+
+	main: PROCESS (clk, rst) IS
+
+		PROCEDURE re4d IS
+			TYPE tcmd IS (SENDCMD, WAITANSWER, TXANSWER);
+			SIGNAL readcmd: tcmd;
+		BEGIN
+			IF readcmd = SENDCMD THEN
+				cmd <= "0010";
+				strb <= '1';
+			ELSIF readcmd = WAITANSWER THEN
+				strb <= '0';
+				IF busyout = '0' THEN
+					readcmd <= TXANSWER;
+				END IF;
+			ELSIF readcmd = TXANSWER THEN
+				uartout <= dout(7 DOWNTO 0);
+				uartTx <= '1';
+				state <= ENDCOM;
+				readcmd <= SENDCMD;
 			END IF;
-		WHEN PARAM =>
-			IF nofparams /= 0 THEN
-				param(nofparams -1) <= uartin;
-				nofparams <= nofparams - 1;
-			ELSE
-				ustate <= DONE;
+
+		END PROCEDURE;
+
+	BEGIN
+		IF rst = RSTDEF THEN
+			sbusy <= 'Z';
+			uartout <= (others => 'Z');
+			uartTx <= 'Z';
+			uartRd <= 'Z';
+			
+			state <= IDLE;
+
+			cmd <= (others => '0');
+			strb <= '0';
+			din <= (others => '0');
+			adrin <= (others => '0');
+
+		ELSIF rising_edge(clk) THEN
+			IF state = IDLE AND uartRx = '1' THEN
+				IF uartin(7 DOWNTO 4) = DEVICEID AND sbusy /= '1' THEN
+					sbusy <= '1';
+					uartRd <= '1';
+					dataIN <= uartin;
+					state <= READSENDOK;
+				END IF;
+			ELSIF state = READSENDOK THEN
+				uartout <= x"AA"; -- OK message
+				uartTx <= '1';
+				uartRd <= '0';
+				state <= DELAY;
+            ELSIF state = DELAY THEN
+                state <= WAITSENDOK;
+            ELSIF state = WAITSENDOK THEN                
+                uartTx <= '0';
+                IF uartTxReady = '1' THEN
+                    state <= EXECMD;
+                END IF;
+			ELSIF state = EXECMD THEN				
+				-- BEGIN handle command
+				re4d;
+				--CASE dataIN(3 DOWNTO 0) IS
+				--	WHEN others =>
+				--		uartout <= x"01";
+                --        uartTx <= '1';
+                --        state <= ENDCOM;
+				--END CASE;
+				-- END handle command
+				state <= 
+			ELSIF state = ENDCOM THEN
+				uartout <= (others => 'Z');
+				uartTx <= 'Z';
+				uartRd <= 'Z';
+				sbusy <= 'Z';
+				state <= IDLE;
 			END IF;
-		WHEN DONE => 
-			
-			;
-			
-	 <= rdy or done;
-	
-	PROCESS(start) IS
-	BEGIN
-	IF rising_edge(start) THEN
-	CASE estate IS
-	WHEN WRITING =>
-		ustate <= PARAM;
-		nofparams <= 1; 
-		params(2)--;
-		next <= '1';
-		--start filling buffer
-		-- write next byte to eeprom
-	WHEN READING =>
-		-- read next from 
-	
-	
-	PROCESS(next) IS
-	BEGIN
-	IF rising_edge(next) THEN
-	CASE estate IS
-	WHEN WRITING =>
-		IF last byte THEN
-			busy <= '0'
-			ustate <= IDLE;
-			uartout <= DONE;
-			uartwr <= '1';
-		ELSE		
-			--write next byte
 		END IF;
-	WHEN READING =>
-		uartout <= ifin;
-		uartwe <= '1';
-		IF last byte THEN
-			busy <= '0'
-			ustate <= IDLE;-- read next byte
-		ELSE
-			--read next byte
-		END IF;
-	WHEN ERASING =>
-		busy <= '0'
-		ustate <= IDLE;
-		uartout <= DONE;
-		suartwr <= '1';
-	END CASE;	
 	END PROCESS;
-		
-	
-	
-	
-	IF  AND  THEN
-		IF uart = myCOMMAND ELSIF ETC...
-	END IF;
 
+    busy <= sbusy;
 
-CASE state IS
-WHEN IDLE =>
-
-	IF
-
-	END IF;
-
-		--
-IF  T
-
-IF CMD = READ THEN
-
-ELSIF CMD = WRITE THEN
-
-ELSIF CMD = ERASE THEN
-
-END IF;
-
--- so far, only 8bit commands possible, ORG = 0
--- comands:
--- 011		ERASE address
--- 010		READ	address
--- 001		WRITE address
--- 110		ERASE all
--- 101		WRITE all
-
--- lesen mit startadresse mit bytes
--- schreiben
--- adress leitung
--- daten leitung
--- busy
--- ready
-
-
--- addresse 7 oder 8 bit (8 oder 9?)
--- kommando (lesen, schreiben, löschen)
--- daten
-
-
--- eeprom schreiben, 8 byte
--- 8 mal schreiben,
--- we need a buffer limit
--- wenn controller buffer geleert hat, ready message an pc client
--- controller sagt nur lesen, schreiben, löschen
+END behaviour;
