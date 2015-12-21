@@ -10,10 +10,10 @@ ENTITY EEPROMCTRL IS
 			 
 			 uartin:	IN 	std_logic_vector(7 DOWNTO 0);
 			 uartRx:	IN	std_logic;						-- indicates new byte is available
-			 uartRd:	OUT std_logic; 						-- indicates value was read from controller
-			 uartout:   OUT std_logic_vector(7 DOWNTO 0);
+			 uartRd:	INOUT std_logic; 						-- indicates value was read from controller
+			 uartout:   INOUT std_logic_vector(7 DOWNTO 0);
 			 uartTxReady: IN std_logic;						-- indicates new byte can be send
-			 uartTx:	OUT std_logic;						-- starts transmission of new byte
+			 uartTx:	INOUT std_logic;						-- starts transmission of new byte
 			 
 			 busy:		INOUT	std_logic;					-- busy bit indicates working component
 			-- component pins
@@ -62,6 +62,9 @@ ARCHITECTURE behaviour OF EEPROMCTRL IS
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
     SIGNAL sbusy: std_logic;
 
+    TYPE tcmd IS (SENDCMD, WAITANSWER, TXANSWER);
+	SIGNAL readcmd: tcmd;
+
 BEGIN
 
 	u2: EEPROM93LC66IF
@@ -86,12 +89,12 @@ BEGIN
 	main: PROCESS (clk, rst) IS
 
 		PROCEDURE re4d IS
-			TYPE tcmd IS (SENDCMD, WAITANSWER, TXANSWER);
-			SIGNAL readcmd: tcmd;
+			
 		BEGIN
 			IF readcmd = SENDCMD THEN
 				cmd <= "0010";
 				strb <= '1';
+                readcmd <= WAITANSWER;
 			ELSIF readcmd = WAITANSWER THEN
 				strb <= '0';
 				IF busyout = '0' THEN
@@ -119,6 +122,7 @@ BEGIN
 			strb <= '0';
 			din <= (others => '0');
 			adrin <= (others => '0');
+            readcmd <= SENDCMD;
 
 		ELSIF rising_edge(clk) THEN
 			IF state = IDLE AND uartRx = '1' THEN
@@ -150,7 +154,6 @@ BEGIN
                 --        state <= ENDCOM;
 				--END CASE;
 				-- END handle command
-				state <= 
 			ELSIF state = ENDCOM THEN
 				uartout <= (others => 'Z');
 				uartTx <= 'Z';
