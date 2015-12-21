@@ -131,7 +131,7 @@ BEGIN
 
 		BEGIN
 			IF readcmd = SENDCMD THEN
-				cmd <= "1100"
+				cmd <= "1100";
 				strb <= '1';
 				readcmd <= WAITANSWER;
 			ELSIF readcmd = WAITANSWER THEN
@@ -177,7 +177,7 @@ BEGIN
             ELSIF state = WAITSENDOK THEN                
                 uartTx <= '0';
                 IF uartTxReady = '1' THEN
-                    state <= EXECMD;
+                    state <= DEFCMD;
                 END IF;
             ELSIF state = DEFCMD THEN
             	CASE dataIN(3 DOWNTO 0) IS
@@ -190,6 +190,7 @@ BEGIN
             		WHEN others =>
 
             	END CASE;
+                state <= EXECMD;
 			ELSIF state = EXECMD THEN				
 				-- BEGIN handle command
 				IF maincmd = ERASE THEN
