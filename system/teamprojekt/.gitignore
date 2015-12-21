@@ -23,4 +23,6 @@ smartgen/smartgen.aws
 !smartgen/*/*.gen
 
 #designer files
-designer/*/*
+designer/*/*.txt
+designer/*/*.rpt
+*.log

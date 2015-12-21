@@ -1,6 +1,6 @@
-<project name="maierFlash" version="1.1">
+<project name="top" version="1.1">
     <ProjectDirectory>
-        C:\Users\edc12\Documents\igloo\system\flashproj\maierFlash
+        C:/Users/matze/Documents/igloo/system/teamprojekt/designer/impl2/top_fp
     </ProjectDirectory>
     <View>
         SingleSTAPLView
@@ -9,17 +9,17 @@
         
     </LiberoTargetDevice>
     <LogFile>
-        C:\Users\edc12\Documents\igloo\system\flashproj\maierFlash\maierFlash.log
+        C:/Users/matze/Documents/igloo/system/teamprojekt/designer/impl2/top_fp\top.log
     </LogFile>
     <SerializationOption>
         Skip
     </SerializationOption>
     <programmer status="enable" type="FlashPro3" revision="UndefRev" connection="usb2.0">
         <name>
-            63279
+            77707
         </name>
         <id>
-            63279
+            77707
         </id>
     </programmer>
     <configuration>
@@ -61,16 +61,7 @@
             </FlashPro4>
             <FlashPro5>
                 <TCK>
-                    1000000
-                </TCK>
-                <Vpump/>
-                <ClkMode>
-                    FreeRunningClk
-                </ClkMode>
-            </FlashPro5>
-            <FlashPro5>
-                <TCK>
-                    1000000
+                    4000000
                 </TCK>
                 <Vpump/>
                 <ClkMode>
@@ -81,13 +72,16 @@
                 </ProgrammingMode>
             </FlashPro5>
         </Hardware>
-        <Algo type="unknown">
-            <irlength>
-                0
-            </irlength>
-            <MaxTCK>
-                4000000
-            </MaxTCK>
+        <Algo type="PDB">
+            <filename>
+                C:\Users\matze\Documents\igloo\system\teamprojekt\designer\impl2\top.pdb
+            </filename>
+            <local>
+                projectData\top.pdb
+            </local>
+            <SelectedAction>
+                PROGRAM
+            </SelectedAction>
         </Algo>
     </configuration>
 </project>
