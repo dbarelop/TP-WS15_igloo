@@ -9,7 +9,7 @@
         
     </LiberoTargetDevice>
     <LogFile>
-        C:/Users/matze/Documents/igloo/system/teamprojekt/designer/impl2/top_fp\top.log
+        C:/Users/matze/Documents/igloo/system/teamprojekt/designer/impl2/top_fp/top.log
     </LogFile>
     <SerializationOption>
         Skip

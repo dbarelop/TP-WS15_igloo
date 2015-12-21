@@ -54,13 +54,13 @@ BEGIN
 				uartTx <= '1';
 				uartRd <= '0';
 				state <= DELAY;
+            ELSIF state = DELAY THEN
+                state <= WAITSENDOK;
             ELSIF state = WAITSENDOK THEN                
                 uartTx <= '0';
                 IF uartTxReady = '1' THEN
                     state <= EXECMD;
                 END IF;
-            ELSIF state = DELAY THEN
-                state <= WAITSENDOK;
 			ELSIF state = EXECMD THEN				
 				-- BEGIN handle command
 				CASE dataIN(3 DOWNTO 0) IS

@@ -40,8 +40,15 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\component\work\top\top.cxf,actgen_cxf"
 STATE="utd"
-TIME="1450713436"
-SIZE="2156"
+TIME="1450716898"
+SIZE="2432"
+ENDFILE
+VALUE "<project>\component\work\top\top.vhd,hdl"
+STATE="utd"
+TIME="1450716897"
+SIZE="6424"
+PARENT="<project>\component\work\top\top.cxf"
+IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\designer\impl2\COMPXCTRL.adb,adb"
 STATE="ood"
@@ -69,7 +76,7 @@ TIME="1450530038"
 SIZE="1368"
 ENDFILE
 VALUE "<project>\designer\impl2\top.adb,adb"
-STATE="utd"
+STATE="ood"
 TIME="1450712712"
 SIZE="135680"
 ENDFILE
@@ -79,14 +86,14 @@ TIME="1450711512"
 SIZE="204"
 ENDFILE
 VALUE "<project>\designer\impl2\top.pdb,pdb"
-STATE="utd"
+STATE="ood"
 TIME="1450713119"
 SIZE="45506"
 ENDFILE
 VALUE "<project>\designer\impl2\top_compile_log.rpt,log"
 STATE="utd"
-TIME="1450712712"
-SIZE="9292"
+TIME="1450716391"
+SIZE="8953"
 ENDFILE
 VALUE "<project>\designer\impl2\top_fp\projectData\top.pdb,pdb"
 STATE="utd"
@@ -97,6 +104,16 @@ VALUE "<project>\designer\impl2\top_fp\top.pro,pro"
 STATE="utd"
 TIME="1450713201"
 SIZE="2386"
+ENDFILE
+VALUE "<project>\designer\impl2\top_placeroute_log.rpt,log"
+STATE="utd"
+TIME="1450716433"
+SIZE="2601"
+ENDFILE
+VALUE "<project>\designer\impl2\top_verifytiming_log.rpt,log"
+STATE="utd"
+TIME="1450716440"
+SIZE="1319"
 ENDFILE
 VALUE "<project>\smartgen\sysClk\sysClk.cxf,actgen_cxf"
 STATE="utd"
@@ -145,7 +162,7 @@ TIME="1450529872"
 SIZE="1484"
 ENDFILE
 VALUE "<project>\synthesis\top.edn,syn_edn"
-STATE="utd"
+STATE="ood"
 TIME="1450712681"
 SIZE="145661"
 ENDFILE
@@ -155,7 +172,7 @@ TIME="1450712681"
 SIZE="225"
 ENDFILE
 VALUE "<project>\synthesis\top_sdc.sdc,syn_sdc"
-STATE="utd"
+STATE="ood"
 TIME="1450712681"
 SIZE="310"
 ENDFILE
@@ -166,7 +183,7 @@ SIZE="2145"
 ENDFILE
 VALUE "C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd,hdl"
 STATE="utd"
-TIME="1450529696"
+TIME="1450716893"
 SIZE="2304"
 ENDFILE
 VALUE "C:\Users\matze\Documents\igloo\uart\baudgen.vhd,hdl"
@@ -208,62 +225,6 @@ ENDLIST
 LIST UsedFile
 ENDLIST
 LIST NewModulesInfo
-LIST "COMPXCTRL::work"
-FILE "C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd,hdl"
-LIST ProjectState5.1
-LIST Impl1
-LiberoState=Post_Synthesis
-ideSYNTHESIS(<project>\synthesis\COMPXCTRL.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-LiberoState=Post_Layout
-ideDESIGNER(<project>\designer\impl2\COMPXCTRL.adb,adb)=StateSuccess
-ideSYNTHESIS(<project>\synthesis\COMPXCTRL.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
-LIST PinReports
-VALUE "<project>\designer\impl2\COMPXCTRL_report_pin_byname.txt,log"
-VALUE "<project>\designer\impl2\COMPXCTRL_report_pin_bynumber.txt,log"
-ENDLIST
-ENDLIST
-LIST "top::work"
-FILE "<project>\component\work\top\top.cxf,actgen_cxf"
-LIST ProjectState5.1
-LIST Impl1
-LiberoState=Post_Synthesis
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-LiberoState=Post_Layout
-ideDESIGNER(<project>\designer\impl2\top.adb,adb)=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
-ENDLIST
 ENDLIST
 LIST AssociatedStimulus
 ENDLIST
@@ -363,52 +324,6 @@ IS32BIT="1"
 EndProfile
 ENDLIST
 LIST ProjectState5.1
-LIST "COMPXCTRL::work"
-LIST Impl1
-LiberoState=Post_Synthesis
-ideSYNTHESIS(<project>\synthesis\COMPXCTRL.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-LiberoState=Post_Layout
-ideDESIGNER(<project>\designer\impl2\COMPXCTRL.adb,adb)=StateSuccess
-ideSYNTHESIS(<project>\synthesis\COMPXCTRL.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
-LIST "top::work"
-LIST Impl1
-LiberoState=Post_Synthesis
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-LiberoState=Post_Layout
-ideDESIGNER(<project>\designer\impl2\top.adb,adb)=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
 ENDLIST
@@ -426,7 +341,8 @@ Reports;Reports;0
 ReportsCurrentItem;Program Device:top_program.log
 StartPage;StartPage;0
 SmartDesign;top;0
-ACTIVEVIEW;top
+HDL;C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd;0
+ACTIVEVIEW;C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd
 ENDLIST
 LIST ModuleSubBlockList
 LIST "baudgen::work","C:\Users\matze\Documents\igloo\uart\baudgen.vhd","FALSE","FALSE"
@@ -441,10 +357,10 @@ LIST "sync_flipflop::work","C:\Users\matze\Documents\igloo\uart\sync_flipflop.vh
 ENDLIST
 LIST "sysClk::work","smartgen\sysClk\sysClk.vhd","TRUE","FALSE"
 ENDLIST
-LIST "top::work","component\work\top\top.cxf","TRUE","FALSE"
-SUBBLOCK "COMPXCTRL::work","","FALSE","FALSE"
+LIST "top::work","component\work\top\top.vhd","TRUE","FALSE"
 SUBBLOCK "sysClk::work","smartgen\sysClk\sysClk.vhd","TRUE","FALSE"
-SUBBLOCK "uart::work","","FALSE","FALSE"
+SUBBLOCK "uart::work","C:\Users\matze\Documents\igloo\uart\uart.vhd","FALSE","FALSE"
+SUBBLOCK "COMPXCTRL::work","C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd","FALSE","FALSE"
 ENDLIST
 LIST "transmitter::work","C:\Users\matze\Documents\igloo\uart\transmitter.vhd","FALSE","FALSE"
 ENDLIST
