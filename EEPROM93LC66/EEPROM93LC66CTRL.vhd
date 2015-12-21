@@ -201,6 +201,9 @@ BEGIN
             		WHEN x"0" => -- read
             			maincmd <= READ;
             			re4d;
+                    WHEN x"1" => --write
+                        maincmd <= WRITE;
+                        writePro;
             		WHEN x"2" => -- erase
             			maincmd <= ERASE;
             			erasePro;
@@ -214,6 +217,8 @@ BEGIN
 					erasePro;
 				ELSIF maincmd = READ THEN
 					re4d;
+                ELSIF maincmd = WRITE THEN
+                    writePro;
 				ELSIF maincmd = EWEN THEN
 					ewenPro;
 				END IF;
