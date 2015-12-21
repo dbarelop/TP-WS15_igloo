@@ -143,6 +143,23 @@ BEGIN
 			END IF;
 		END PROCEDURE;
 
+		PROCEDURE writePro IS
+
+		BEGIN
+			IF readcmd = SENDCMD THEN
+				cmd <= "0001"; --write
+				din(7 DOWNTO 0) <= x"BB";
+				strb <= '1';
+				readcmd <= WAITANSWER;
+			ELSIF readcmd = WAITANSWER THEN
+				strb <= '0';
+				IF busyout = '0' THEN
+					readcmd <= SENDCMD;
+					state <= ENDCOM;
+				END IF;
+			END IF;	
+		END PROCEDURE;
+
 	BEGIN
 		IF rst = RSTDEF THEN
 			sbusy <= 'Z';
