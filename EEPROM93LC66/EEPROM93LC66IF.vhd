@@ -33,7 +33,7 @@ END EEPROM93LC66IF;
 
 ARCHITECTURE behaviour OF EEPROM93LC66IF IS
 
-   	TYPE tstate IS (IDLE, BUSY, WAITEEPROM);
+   	TYPE tstate IS (IDLE, BUSY, WAITEEPROM, DELAY);
 
    	SIGNAL state:		tstate;
 	SIGNAL serialOut: 	std_logic_vector(26 DOWNTO 0);
@@ -142,14 +142,16 @@ BEGIN
 								outCnt <= 2;
 								MemAccess <= '0';
 							ELSE
-								busyS<= '0';
-								state <= IDLE;
+								state <= DELAY;
 							END IF;
 							dout <= serialIn;
 							cs <= '0';
 						END IF;
 						serClk <= '0';
 					END IF;
+				WHEN DELAY =>
+					busyS<= '0';
+					state <= IDLE;
 				WHEN WAITEEPROM =>
 					IF outCnt /= 0 THEN
 						outCnt <= outCnt -1;
