@@ -200,15 +200,12 @@ BEGIN
             	CASE dataIN(3 DOWNTO 0) IS
             		WHEN x"0" => -- read
             			maincmd <= READ;
-            			re4d;
                     WHEN x"1" => --write
                         maincmd <= WRITE;
-                        writePro;
             		WHEN x"2" => -- erase
             			maincmd <= ERASE;
-            			erasePro;
             		WHEN others =>
-
+                        state <= ENDCOM;
             	END CASE;
                 state <= EXECMD;
 			ELSIF state = EXECMD THEN				

@@ -50,12 +50,12 @@ SIZE="413"
 ENDFILE
 VALUE "<project>\component\work\top\top.cxf,actgen_cxf"
 STATE="utd"
-TIME="1450733697"
+TIME="1450817256"
 SIZE="3364"
 ENDFILE
 VALUE "<project>\component\work\top\top.vhd,hdl"
 STATE="utd"
-TIME="1450733696"
+TIME="1450817255"
 SIZE="8583"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
@@ -86,7 +86,7 @@ TIME="1450530038"
 SIZE="1368"
 ENDFILE
 VALUE "<project>\designer\impl2\top.adb,adb"
-STATE="utd"
+STATE="ood"
 TIME="1450729866"
 SIZE="295936"
 ENDFILE
@@ -96,14 +96,14 @@ TIME="1450729866"
 SIZE="984"
 ENDFILE
 VALUE "<project>\designer\impl2\top.pdb,pdb"
-STATE="utd"
+STATE="ood"
 TIME="1450729930"
 SIZE="48778"
 ENDFILE
 VALUE "<project>\designer\impl2\top_compile_log.rpt,log"
 STATE="utd"
-TIME="1450733780"
-SIZE="9106"
+TIME="1450817302"
+SIZE="9342"
 ENDFILE
 VALUE "<project>\designer\impl2\top_fp\projectData\top.pdb,pdb"
 STATE="utd"
@@ -115,10 +115,20 @@ STATE="utd"
 TIME="1450729930"
 SIZE="2386"
 ENDFILE
+VALUE "<project>\designer\impl2\top_placeroute_log.rpt,log"
+STATE="utd"
+TIME="1450817362"
+SIZE="2601"
+ENDFILE
 VALUE "<project>\designer\impl2\top_timingconstraints_log.rpt,log"
 STATE="utd"
 TIME="1450733755"
 SIZE="1085"
+ENDFILE
+VALUE "<project>\designer\impl2\top_verifytiming_log.rpt,log"
+STATE="utd"
+TIME="1450817369"
+SIZE="1319"
 ENDFILE
 VALUE "<project>\smartgen\outp\outp.cxf,actgen_cxf"
 STATE="utd"
@@ -148,26 +158,26 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\sysClk\sysClk.cxf,actgen_cxf"
 STATE="utd"
-TIME="1450712355"
+TIME="1450817408"
 SIZE="1471"
 ENDFILE
 VALUE "<project>\smartgen\sysClk\sysClk.gen,gen"
 STATE="utd"
-TIME="1450712348"
+TIME="1450817403"
 SIZE="559"
 PARENT="<project>\smartgen\sysClk\sysClk.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\sysClk\sysClk.log,log"
 STATE="utd"
-TIME="1450712352"
+TIME="1450817405"
 SIZE="2675"
 PARENT="<project>\smartgen\sysClk\sysClk.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\sysClk\sysClk.vhd,hdl"
 STATE="utd"
-TIME="1450712352"
+TIME="1450817405"
 SIZE="7555"
 PARENT="<project>\smartgen\sysClk\sysClk.cxf"
 IS_READONLY="TRUE"
@@ -193,7 +203,7 @@ TIME="1450529872"
 SIZE="1484"
 ENDFILE
 VALUE "<project>\synthesis\top.edn,syn_edn"
-STATE="utd"
+STATE="ood"
 TIME="1450729596"
 SIZE="177800"
 ENDFILE
@@ -203,7 +213,7 @@ TIME="1450729596"
 SIZE="225"
 ENDFILE
 VALUE "<project>\synthesis\top_sdc.sdc,syn_sdc"
-STATE="utd"
+STATE="ood"
 TIME="1450729596"
 SIZE="310"
 ENDFILE
@@ -219,8 +229,8 @@ SIZE="2310"
 ENDFILE
 VALUE "C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd,hdl"
 STATE="utd"
-TIME="1450733579"
-SIZE="4462"
+TIME="1450816607"
+SIZE="5987"
 ENDFILE
 VALUE "C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd,hdl"
 STATE="utd"
@@ -259,43 +269,13 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "C:\Users\matze\Documents\igloo\uart\uart.vhd,hdl"
 STATE="utd"
-TIME="1450529696"
+TIME="1450817389"
 SIZE="5664"
 ENDFILE
 ENDLIST
 LIST UsedFile
 ENDLIST
 LIST NewModulesInfo
-LIST "top::work"
-FILE "<project>\component\work\top\top.vhd,hdl"
-LIST ProjectState5.1
-LIST Impl1
-LiberoState=Post_Synthesis
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-LiberoState=Post_Layout
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl2\top.adb,adb)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
-LIST PinReports
-VALUE "<project>\designer\impl2\top_report_pin_byname.txt,log"
-VALUE "<project>\designer\impl2\top_report_pin_bynumber.txt,log"
-ENDLIST
-ENDLIST
 ENDLIST
 LIST AssociatedStimulus
 ENDLIST
@@ -395,29 +375,6 @@ IS32BIT="1"
 EndProfile
 ENDLIST
 LIST ProjectState5.1
-LIST "top::work"
-LIST Impl1
-LiberoState=Post_Synthesis
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-LiberoState=Post_Layout
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl2\top.adb,adb)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
 ENDLIST
@@ -431,14 +388,15 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
+HDL;C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd;0
 Reports;Reports;0
-ReportsCurrentItem;Program Device:top_program.log
+ReportsCurrentItem;Place and Route:top_placeroute_log.rpt
+HDL;C:\Users\matze\Documents\igloo\uart\uart.vhd;0
 SmartDesign;top;0
 StartPage;StartPage;0
 HDL;C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd;0
 HDL;C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd;0
-HDL;C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd;0
-ACTIVEVIEW;Reports
+ACTIVEVIEW;C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd
 ENDLIST
 LIST ModuleSubBlockList
 LIST "baudgen::work","C:\Users\matze\Documents\igloo\uart\baudgen.vhd","FALSE","FALSE"
@@ -467,8 +425,8 @@ ENDLIST
 LIST "top::work","component\work\top\top.vhd","TRUE","FALSE"
 SUBBLOCK "COMPXCTRL::work","C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd","FALSE","FALSE"
 SUBBLOCK "EEPROMCTRL::work","C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd","FALSE","FALSE"
-SUBBLOCK "sysClk::work","smartgen\sysClk\sysClk.vhd","TRUE","FALSE"
 SUBBLOCK "uart::work","C:\Users\matze\Documents\igloo\uart\uart.vhd","FALSE","FALSE"
+SUBBLOCK "sysClk::work","smartgen\sysClk\sysClk.vhd","TRUE","FALSE"
 ENDLIST
 LIST "transmitter::work","C:\Users\matze\Documents\igloo\uart\transmitter.vhd","FALSE","FALSE"
 ENDLIST
