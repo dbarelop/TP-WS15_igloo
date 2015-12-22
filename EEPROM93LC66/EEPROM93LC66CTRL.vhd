@@ -101,9 +101,9 @@ BEGIN
 				strb <= '0';
 				IF busyout = '0' THEN
 					readcmd <= TXANSWER;
+					uartout <= dout(7 DOWNTO 0);
 				END IF;
 			ELSIF readcmd = TXANSWER THEN
-				uartout <= dout(7 DOWNTO 0);
 				uartTx <= '1';
 				state <= ENDCOM;
 				readcmd <= SENDCMD;
