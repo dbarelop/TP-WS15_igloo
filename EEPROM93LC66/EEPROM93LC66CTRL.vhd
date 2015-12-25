@@ -115,7 +115,7 @@ BEGIN
 
 		BEGIN
 			IF readcmd = SENDCMD THEN
-				cmd <= "1110";
+				cmd <= "0110";
 				strb <= '1';
 				readcmd <= WAITANSWER;
 			ELSIF readcmd = WAITANSWER THEN
@@ -131,7 +131,7 @@ BEGIN
 
 		BEGIN
 			IF readcmd = SENDCMD THEN
-				cmd <= "1100";
+				cmd <= "0100";
 				strb <= '1';
 				readcmd <= WAITANSWER;
 			ELSIF readcmd = WAITANSWER THEN
