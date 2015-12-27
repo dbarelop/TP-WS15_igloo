@@ -41,7 +41,7 @@ ARCHITECTURE behaviour OF EEPROM93LC66IF IS
 	SIGNAL serClk:		std_logic;
 	SIGNAL busyS:		std_logic;
 
-	SIGNAL outCnt:		integer RANGE 0 TO 27;
+	SIGNAL outCnt:		integer RANGE 0 TO 28;
 	SIGNAL MemAccess:	std_logic;
 
 BEGIN
@@ -77,7 +77,7 @@ BEGIN
 								MemAccess <= '1';
 							WHEN "1010" => --16bit read
 								serialOut <= "110" & adrin(7 DOWNTO 0) & "0000000000000000";
-								outCnt <= 27;
+								outCnt <= 28;
 							WHEN "1011" => --16bit erase
 								serialOut <= "111" & adrin(7 DOWNTO 0) & "0000000000000000";
 								outCnt <= 11;
@@ -103,7 +103,7 @@ BEGIN
 								MemAccess <= '1';
 							WHEN "0010" => --8bit read
 								serialOut <= "110" & adrin(8 DOWNTO 0) & "000000000000000";
-								outCnt <= 20;
+								outCnt <= 21;
 							WHEN "0011" => --8bit erase
 								serialOut <= "111" & adrin(8 DOWNTO 0) & "000000000000000";
 								outCnt <= 12;

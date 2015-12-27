@@ -149,27 +149,27 @@ BEGIN
 		eeprom_com(cmd8, cmd_ewen, "000000000", "0000000000000000");
 		eeprom_com(cmd8, cmd_wral, "000000000", "0000000010101010");
 		eeprom_com(cmd8, cmd_rd, "111000101", "0000000000000000");
-		assert dout = "1111111110101010" report "read1 8bit failed";
+		assert dout = "1111111010101010" report "read1 8bit failed";
 
 		eeprom_com(cmd8, cmd_wr, "111000101", "0000000010100110");
 		eeprom_com(cmd8, cmd_rd, "111000101", "0000000000000000");
-		assert dout = "1111111110100110" report "read2 8bit failed";
+		assert dout = "1111111010100110" report "read2 8bit failed";
 
 		eeprom_com(cmd8, cmd_er, "111000101", "0000000000000000");
 		eeprom_com(cmd8, cmd_rd, "111000101", "0000000000000000");
-		assert dout = "1111111111111111" report "erase 8bit failed";
+		assert dout = "1111111011111111" report "erase 8bit failed";
 		eeprom_com(cmd8, cmd_rd, "011001101", "0000000000000000");
-		assert dout = "1111111110101010" report "erase 8bit failed";
+		assert dout = "1111111010101010" report "erase 8bit failed";
 
    		eeprom_com(cmd8, cmd_ewds, "000000000", "0000000000000000");
 		eeprom_com(cmd8, cmd_eral, "000000000", "0000000000000000");
 		eeprom_com(cmd8, cmd_rd, "011001101", "0000000000000000");
-		assert dout = "1111111110101010" report "ewds 8bit failed";
+		assert dout = "1111111010101010" report "ewds 8bit failed";
    		
    		eeprom_com(cmd8, cmd_ewen, "000000000", "0000000000000000");
 		eeprom_com(cmd8, cmd_eral, "000000000", "0000000000000000");
 		eeprom_com(cmd8, cmd_rd, "111000101", "0000000000000000");
-		assert dout = "1111111111111111" report "erase 8bit failed";
+		assert dout = "1111111011111111" report "erase 8bit failed";
 
 
       	REPORT "all tests done..." SEVERITY note;
