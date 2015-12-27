@@ -96,13 +96,33 @@ BEGIN
 
 
 	p1: PROCESS
-		PROCEDURE uartTX (dataIn: std_logic_vector) IS
+		PROCEDURE uartSend (dataIn: std_logic_vector; result: std_logic_vector) IS
 			
 		BEGIN
 			uartin <= dataIn;
 			uartRx <= '1';
 			WAIT UNTIL uartRd = '1';
+			uartRx <= '0';
+			WAIT UNTIL uartTx = '1';
+			assert uartout = x"AA" report "OK message failed";
+			uartTxReady <= '1';
+			WAIT UNTIL uartTx = '0';
+			WAIT UNTIL uartTx = '1';
+			assert uartout = result report "wrong result";
+			
+		END PROCEDURE;
 
+		PROCEDURE uartSendNoResult (dataIn: std_logic_vector) IS
+			
+		BEGIN
+			uartin <= dataIn;
+			uartRx <= '1';
+			WAIT UNTIL uartRd = '1';
+			uartRx <= '0';
+			WAIT UNTIL uartTx = '1';
+			assert uartout = x"AA" report "OK message failed";
+			uartTxReady <= '1';
+			WAIT UNTIL busy = 'Z';
 			
 		END PROCEDURE;
 		
@@ -110,12 +130,16 @@ BEGIN
    		WAIT FOR 1 us;
    		rst <= NOT RSTDEF;
 
-   		
+   		uartSend("00010000", "11111111");
+		uartSendNoResult("00010001");
+   		uartSend("00010000", x"BB");
+		uartSendNoResult("00010010");
+		uartSend("00010000", x"FF");
+
 
 
       	REPORT "all tests done..." SEVERITY note;
-		WAIT;
-
+	WAIT;
 
 	END PROCESS;
 

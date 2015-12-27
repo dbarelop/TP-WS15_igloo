@@ -62,7 +62,6 @@ ARCHITECTURE behaviour OF EEPROMCTRL IS
 	SIGNAL state: tstate;
 	SIGNAL maincmd: tmaincmd;
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
-    SIGNAL sbusy: std_logic;
 
     TYPE tcmd IS (SENDCMD, WAITANSWER, TXANSWER);
 	SIGNAL readcmd: tcmd;
@@ -99,7 +98,7 @@ BEGIN
                 readcmd <= WAITANSWER;
 			ELSIF readcmd = WAITANSWER THEN
 				strb <= '0';
-				IF busyout = '0' THEN
+				IF busyout = '0' AND strb = '0' THEN
 					readcmd <= TXANSWER;
 				END IF;
 			ELSIF readcmd = TXANSWER THEN
@@ -120,7 +119,7 @@ BEGIN
 				readcmd <= WAITANSWER;
 			ELSIF readcmd = WAITANSWER THEN
 				strb <= '0';
-				IF busyout = '0' THEN
+				IF busyout = '0' AND strb = '0' THEN
 					readcmd <= SENDCMD;
 					state <= ENDCOM;
 				END IF;
@@ -136,7 +135,7 @@ BEGIN
 				readcmd <= WAITANSWER;
 			ELSIF readcmd = WAITANSWER THEN
 				strb <= '0';
-				IF busyout = '0' THEN
+				IF busyout = '0' AND strb = '0' THEN
 					readcmd <= SENDCMD;
 					state <= ENDCOM;
 				END IF;
@@ -153,7 +152,7 @@ BEGIN
 				readcmd <= WAITANSWER;
 			ELSIF readcmd = WAITANSWER THEN
 				strb <= '0';
-				IF busyout = '0' THEN
+				IF busyout = '0' AND strb = '0' THEN
 					readcmd <= SENDCMD;
 					state <= ENDCOM;
 				END IF;
@@ -162,7 +161,7 @@ BEGIN
 
 	BEGIN
 		IF rst = RSTDEF THEN
-			sbusy <= 'Z';
+			busy <= 'Z';
 			uartout <= (others => 'Z');
 			uartTx <= 'Z';
 			uartRd <= 'Z';
@@ -178,8 +177,8 @@ BEGIN
 
 		ELSIF rising_edge(clk) THEN
 			IF state = IDLE AND uartRx = '1' THEN
-				IF uartin(7 DOWNTO 4) = DEVICEID AND sbusy /= '1' THEN
-					sbusy <= '1';
+				IF uartin(7 DOWNTO 4) = DEVICEID AND busy /= '1' AND busyout /= '1' THEN
+					busy <= '1';
 					uartRd <= '1';
 					dataIN <= uartin;
 					state <= READSENDOK;
@@ -198,7 +197,7 @@ BEGIN
                 END IF;
             ELSIF state = DEFCMD THEN
             	CASE dataIN(3 DOWNTO 0) IS
-            		WHEN x"0" => -- read
+            		WHEN "0000" => -- read
             			maincmd <= READ;
                     WHEN x"1" => --write
                         maincmd <= WRITE;
@@ -224,12 +223,12 @@ BEGIN
 				uartout <= (others => 'Z');
 				uartTx <= 'Z';
 				uartRd <= 'Z';
-				sbusy <= 'Z';
+				busy <= 'Z';
 				state <= IDLE;
 			END IF;
 		END IF;
 	END PROCESS;
 
-    busy <= sbusy;
+    --busy <= sbusy;
 
 END behaviour;
