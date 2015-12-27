@@ -157,7 +157,6 @@ BEGIN
 						-- wait for falling edge in CS
 						state <= WAITFORCS;							
 					ELSIF cmd = RE4D THEN
-						-- DOUT = 0 at A0 missing!!
 						state <= TXDOUT;
 					ELSIF cmd = WR1TE THEN
 						state <= RXDIN;
@@ -204,26 +203,28 @@ BEGIN
 				cnt := 0;
 				addressOffset := 0;
 				txstate <= BUSY;
-			END IF;
-			IF cnt = 0 THEN
-				IF org = '1' THEN
-					TXtmpSerOut := MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '0'))+addressOffset) & 
-							MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '1'))+addressOffset);
-				ELSE
-					TXtmpSerOut(15 DOWNTO 8) := MEM_DATA(TO_INTEGER(unsigned(address))+addressOffset);			
+				dout <= '0';
+			ELSE
+				IF cnt = 0 THEN
+					IF org = '1' THEN
+						TXtmpSerOut := MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '0'))+addressOffset) & 
+								MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '1'))+addressOffset);
+					ELSE
+						TXtmpSerOut(15 DOWNTO 8) := MEM_DATA(TO_INTEGER(unsigned(address))+addressOffset);			
+					END IF;
 				END IF;
-			END IF;
-			dout <= TXtmpSerOut(15);
-			TXtmpSerOut := TXtmpSerOut(14 DOWNTO 0) & '0';
-			cnt := cnt + 1;
-			IF (org = '1' AND cnt = 16) OR (org = '0' AND cnt = 8) THEN
-				--continious reading
-				IF org = '1' THEN
-					addressOffset := addressOffset + 2;
-				ELSE
-					addressOffset := addressOffset + 1;
+				dout <= TXtmpSerOut(15);
+				TXtmpSerOut := TXtmpSerOut(14 DOWNTO 0) & '0';
+				cnt := cnt + 1;
+				IF (org = '1' AND cnt = 16) OR (org = '0' AND cnt = 8) THEN
+					--continious reading
+					IF org = '1' THEN
+						addressOffset := addressOffset + 2;
+					ELSE
+						addressOffset := addressOffset + 1;
+					END IF;
+					cnt := 0;
 				END IF;
-				cnt := 0;
 			END IF;			
 		ELSIF rising_edge(cs) AND mstate = BUSY THEN
 			dout <= '0';

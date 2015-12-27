@@ -93,31 +93,31 @@ BEGIN
 		-- write 8 bit
 		spi_write("01", "000000000", "10101010", 20);
 		-- read 8 bit
-		spi_write("10", "000000000", "00000000", 20);
+		spi_write("10", "000000000", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "10101010" report "8bit write / read failed";
 		-- EWDS
 		spi_write("00", "000000000", "", 12);
 		-- write 8 bit
 		spi_write("01", "000000000", "01010101", 20);
 		-- read 8 bit
-		spi_write("10", "000000000", "00000000", 20);
+		spi_write("10", "000000000", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "10101010" report "write protection failed";
 		-- erase 8 bit with EWDS
 		spi_write("11", "000000000", "", 12);
 		-- read 8 bit
-		spi_write("10", "000000000", "00000000", 20);
+		spi_write("10", "000000000", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "10101010" report "erase protection failed";
 		-- ERAL 8 bit with EWDS
 		spi_write("00", "100000000", "", 12);
 		-- read 8 bit
-		spi_write("10", "000000000", "00000000", 20);
+		spi_write("10", "000000000", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "10101010" report "ERAL protection failed";
 		-- EWEN
 		spi_write("00", "110000000", "", 12);
 		-- ERAL 8 bit with EWEN
 		spi_write("00", "100000000", "", 12);
 		-- read 8 bit
-		spi_write("10", "000000000", "00000000", 20);
+		spi_write("10", "000000000", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "11111111" report "ERAL failed";
 
 		-- EWEN
@@ -125,32 +125,32 @@ BEGIN
 		-- write 8 bit
 		spi_write("01", "111110000", "11111010", 20);
 		-- read 8 bit
-		spi_write("10", "111110000", "00000000", 20);
+		spi_write("10", "111110000", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "11111010" report "8bit write / read failed";
 		-- write 8 bit
 		spi_write("01", "000011111", "10101111", 20);
 		-- read 8 bit
-		spi_write("10", "000011111", "00000000", 20);
+		spi_write("10", "000011111", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "10101111" report "8bit write / read failed";
 		-- ERASE 8 bit
 		spi_write("11", "111110000", "", 12);
 		-- read 8 bit
-		spi_write("10", "111110000", "00000000", 20);
+		spi_write("10", "111110000", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "11111111" report "ERASE failed";
 		-- read 8 bit
-		spi_write("10", "000011111", "00000000", 20);
+		spi_write("10", "000011111", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "10101111" report "ERASED all!?";
 
 		-- WRAL 8 bit
 		spi_write("00", "010000000", "11001100", 20);
 		-- read 8 bit
-		spi_write("10", "011111111", "00000000", 20);
+		spi_write("10", "011111111", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "11001100" report "WRAL fail1";
 		-- read 8 bit
-		spi_write("10", "000000000", "00000000", 20);
+		spi_write("10", "000000000", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "11001100" report "WRAL fail2";
 		-- read 8 bit
-		spi_write("10", "111111111", "00000000", 20);
+		spi_write("10", "111111111", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "11001100" report "WRAL fail3";
 
 
@@ -164,13 +164,13 @@ BEGIN
 		-- write 16 bit
 		spi_write("01", "00000000", "1010101000000000", 27);
 		-- read 16 bit
-		spi_write("10", "00000000", "0000000000000000", 27);
+		spi_write("10", "00000000", "00000000000000000", 28);
 		assert serIN = "1010101000000000" report "16bit write / read failed";
 
 		-- WRAL 16 bit
 		spi_write("00", "01000000", "1100110011110000", 27);
 		-- read 16 bit
-		spi_write("10", "01010101", "0000000000000000", 27);
+		spi_write("10", "01010101", "00000000000000000", 28);
 		assert serIN = "1100110011110000" report "16bit WRAL failed";
 
 		-- =====================
@@ -179,10 +179,10 @@ BEGIN
 
 		org <= '0';
 		-- read 8 bit
-		spi_write("10", "011111110", "00000000", 20);
+		spi_write("10", "011111110", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "11001100" report "8bit read failed";
 		-- read 8 bit
-		spi_write("10", "011111111", "00000000", 20);
+		spi_write("10", "011111111", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "11110000" report "8bit read failed";
 
 		-- =====================
@@ -201,7 +201,7 @@ BEGIN
 		-- =====================
 		org <= '0';
 		-- read 8 bit - continious
-		spi_write("10", "011111110", "0000000000000000", 28);
+		spi_write("10", "011111110", "00000000000000000", 29);
 		assert serIN = "1100110011110000" report "8bit continious read failed";
 
 		-- =====================
@@ -209,7 +209,7 @@ BEGIN
 		-- =====================
 		org <= '1';
 		-- read 16 bit - continious
-		spi_write("10", "11111110", "00000000000000000000000000000000", 43);
+		spi_write("10", "11111110", "000000000000000000000000000000000", 44);
 		-- first 16 bits cant be checked :(
 		assert serIN = "1100110011110000" report "16bit continious read failed";
       
