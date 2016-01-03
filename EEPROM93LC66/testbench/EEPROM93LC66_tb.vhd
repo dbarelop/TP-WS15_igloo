@@ -61,7 +61,7 @@ BEGIN
 			WAIT FOR tcyc;
 			sclk <= '0';
 			WAIT FOR tcyc;
-			
+
 			FOR cnt IN clkcycl - 2 DOWNTO 0 LOOP
 				mosi <= serialOut(serialOut'left);
 				serialOut := serialOut(serialOut'left - 1 DOWNTO 0) & '0';
@@ -81,7 +81,7 @@ BEGIN
 			cs <= '0';
 			WAIT FOR 2*tcyc;
 		END PROCEDURE;
-		
+
 	BEGIN
 		-- EWEN
 		spi_write("00", "110000000", "", 12);

@@ -21,7 +21,7 @@ ENTITY EEPROM93LC66IF IS
 			org:	OUT std_logic);			-- memory-config =1 16 bit / =0 8 bit wordlength
 END EEPROM93LC66IF;
 
--- comands:
+-- commands for interface:
 -- X001		WRITE address
 -- X010		READ  address
 -- X011		ERASE address
@@ -33,9 +33,9 @@ END EEPROM93LC66IF;
 
 ARCHITECTURE behaviour OF EEPROM93LC66IF IS
 
-   	TYPE tstate IS (IDLE, BUSY, WAITEEPROM);
+	TYPE tstate IS (IDLE, BUSY, WAITEEPROM);
 
-   	SIGNAL state:		tstate;
+	SIGNAL state:		tstate;
 	SIGNAL serialOut: 	std_logic_vector(26 DOWNTO 0);
 	SIGNAL serialIn:	std_logic_vector(15 DOWNTO 0);
 	SIGNAL serClk:		std_logic;
@@ -47,7 +47,6 @@ ARCHITECTURE behaviour OF EEPROM93LC66IF IS
 BEGIN
 
 	main: PROCESS(rst, clk) IS
-		
 
 	BEGIN
 		IF rst = RSTDEF THEN
@@ -166,9 +165,9 @@ BEGIN
 
 	END PROCESS;
 
-   mosi <= serialOut(serialOut'LEFT);
-   sclk <= serClk;
-   busyout <= busyS;
+	mosi <= serialOut(serialOut'LEFT);
+	sclk <= serClk;
+	busyout <= busyS;
 
 
 END behaviour;

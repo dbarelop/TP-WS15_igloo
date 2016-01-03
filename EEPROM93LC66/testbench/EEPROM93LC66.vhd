@@ -19,7 +19,7 @@ ARCHITECTURE simulation OF EEPROM93LC66 IS
 	constant TeraseWrite: 	time := 6 ms;
 	constant TeraseAll:		time := 6 ms;
 	constant TwriteAll:		time := 15 ms;
-	
+
 	signal MEM_DATA			: memory_array := ((others=> (others=>'1')));
 
 	signal writeProtect 	: std_logic := '1'; -- write protection, active high
@@ -155,7 +155,7 @@ BEGIN
 					address <= tmpSerialIn(8 DOWNTO 0);
 					IF cmd = ERASE THEN
 						-- wait for falling edge in CS
-						state <= WAITFORCS;							
+						state <= WAITFORCS;
 					ELSIF cmd = RE4D THEN
 						state <= TXDOUT;
 					ELSIF cmd = WR1TE THEN
@@ -210,7 +210,7 @@ BEGIN
 						TXtmpSerOut := MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '0'))+addressOffset) & 
 								MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '1'))+addressOffset);
 					ELSE
-						TXtmpSerOut(15 DOWNTO 8) := MEM_DATA(TO_INTEGER(unsigned(address))+addressOffset);			
+						TXtmpSerOut(15 DOWNTO 8) := MEM_DATA(TO_INTEGER(unsigned(address))+addressOffset);
 					END IF;
 				END IF;
 				dout <= TXtmpSerOut(15);
@@ -225,7 +225,7 @@ BEGIN
 					END IF;
 					cnt := 0;
 				END IF;
-			END IF;			
+			END IF;
 		ELSIF rising_edge(cs) AND mstate = BUSY THEN
 			dout <= '0';
 		ELSIF mstate = IDLE AND cs = '1' AND state /= TXDOUT THEN
