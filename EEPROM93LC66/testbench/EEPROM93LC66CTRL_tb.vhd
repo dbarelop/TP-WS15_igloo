@@ -1,6 +1,6 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
-USE ieee.std_logic_unsigned.ALL;
+USE ieee.numeric_std.ALL;
 
 ENTITY EEPROM93LC66CTRL_tb IS
    -- empty
@@ -96,10 +96,12 @@ BEGIN
 
 
 	p1: PROCESS
-		PROCEDURE uartSend (dataIn: std_logic_vector; result: std_logic_vector) IS
-			
+		VARIABLE n_bytes: integer;
+
+		PROCEDURE uartSendN (dataIn: std_logic_vector((n_bytes*8)-1 DOWNTO 0); result: std_logic_vector) IS
+			VARIABLE dataInLength: INTEGER := dataIn'LENGTH-1;
 		BEGIN
-			uartin <= dataIn;
+			uartin <= dataIn(dataInLength DOWNTO dataInLength-7);
 			uartRx <= '1';
 			WAIT UNTIL uartRd = '1';
 			uartRx <= '0';
@@ -107,36 +109,35 @@ BEGIN
 			assert uartout = x"AA" report "OK message failed";
 			uartTxReady <= '1';
 			WAIT UNTIL uartTx = '0';
-			WAIT UNTIL uartTx = '1';
-			assert uartout = result report "wrong result";
-			
-		END PROCEDURE;
+			FOR i in 1 to n_bytes-1 LOOP
+				uartin <= dataIn(dataInLength-8*i DOWNTO dataInLength-15*i);
+				uartRx <= '1';
+				WAIT UNTIL uartRd = '1';
+				uartRx <= '0';
+				WAIT UNTIL uartRd = '0';
+			END LOOP;
+			IF result'LENGTH = 8 THEN
+				WAIT UNTIL uartTx = '1';
+				assert uartout = result report "wrong result";
+			END IF;
 
-		PROCEDURE uartSendNoResult (dataIn: std_logic_vector) IS
-			
-		BEGIN
-			uartin <= dataIn;
-			uartRx <= '1';
-			WAIT UNTIL uartRd = '1';
-			uartRx <= '0';
-			WAIT UNTIL uartTx = '1';
-			assert uartout = x"AA" report "OK message failed";
-			uartTxReady <= '1';
-			WAIT UNTIL busy = 'Z';
-			
 		END PROCEDURE;
 		
 	BEGIN
    		WAIT FOR 1 us;
    		rst <= NOT RSTDEF;
-
-   		uartSend("00010000", "11111111");
-		uartSendNoResult("00010001");
-   		uartSend("00010000", x"BB");
-		uartSendNoResult("00010010");
-		uartSend("00010000", x"FF");
-
-
+   		
+   		--uartSend("00010000", "11111111");
+		--uartSendNoResult("00010001");
+   		--uartSend("00010000", x"BB");
+		--uartSendNoResult("00010010");
+		--uartSend("00010000", x"FF");
+		n_bytes:= 2;
+		uartSendN("00010000"&"00000000", "11111111");
+		n_bytes:= 1;
+		uartSendN("00010001", "0");
+		n_bytes:= 2;
+		uartSendN("00010000"&"00000000", x"BB");
 
       	REPORT "all tests done..." SEVERITY note;
 	WAIT;
