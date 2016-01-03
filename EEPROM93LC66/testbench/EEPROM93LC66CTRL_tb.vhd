@@ -127,17 +127,24 @@ BEGIN
    		WAIT FOR 1 us;
    		rst <= NOT RSTDEF;
    		
-   		--uartSend("00010000", "11111111");
-		--uartSendNoResult("00010001");
-   		--uartSend("00010000", x"BB");
-		--uartSendNoResult("00010010");
-		--uartSend("00010000", x"FF");
 		n_bytes:= 2;
-		uartSendN("00010000"&"00000000", "11111111");
+		uartSendN("00010000"&"00000000", x"FF");
 		n_bytes:= 3;
 		uartSendN("00010001"&"00000000"&x"CC", "0");
+		uartSendN("00010001"&"00000001"&x"DD", "0");
+		uartSendN("00010001"&"00000010"&x"EE", "0");
 		n_bytes:= 2;
 		uartSendN("00010000"&"00000000", x"CC");
+		uartSendN("00010000"&"00000001", x"DD");
+		uartSendN("00010000"&"00000010", x"EE");
+		--ERAL
+		n_bytes:= 1;
+		uartSendN("00010010", "0");
+		n_bytes:= 2;
+		uartSendN("00010000"&"00000000", x"FF");
+		uartSendN("00010000"&"00000001", x"FF");
+		uartSendN("00010000"&"00000010", x"FF");
+
 
       	REPORT "all tests done..." SEVERITY note;
 	WAIT;
