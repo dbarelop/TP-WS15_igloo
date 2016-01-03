@@ -27,7 +27,6 @@ ARCHITECTURE behaviour OF COMPXCTRL IS
 	
 	SIGNAL state: tstate;
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
-    SIGNAL sbusy: std_logic;
 
 BEGIN
 
@@ -35,7 +34,7 @@ BEGIN
 
 	BEGIN
 		IF rst = RSTDEF THEN
-			sbusy <= 'Z';
+			busy <= 'Z';
 			uartout <= (others => 'Z');
 			uartTx <= 'Z';
 			uartRd <= 'Z';
@@ -43,8 +42,8 @@ BEGIN
 			state <= IDLE;
 		ELSIF rising_edge(clk) THEN
 			IF state = IDLE AND uartRx = '1' THEN
-				IF uartin(7 DOWNTO 4) = DEVICEID AND sbusy /= '1' THEN
-					sbusy <= '1';
+				IF uartin(7 DOWNTO 4) = DEVICEID AND busy /= '1' THEN
+					busy <= '1';
 					uartRd <= '1';
 					dataIN <= uartin;
 					state <= READSENDOK;
@@ -74,12 +73,10 @@ BEGIN
 				uartout <= (others => 'Z');
 				uartTx <= 'Z';
 				uartRd <= 'Z';
-				sbusy <= 'Z';
+				busy <= 'Z';
 				state <= IDLE;
 			END IF;
 		END IF;
 	END PROCESS;
-
-    busy <= sbusy;
 
 END behaviour;
