@@ -110,7 +110,7 @@ BEGIN
 			uartTxReady <= '1';
 			WAIT UNTIL uartTx = '0';
 			FOR i in 1 to n_bytes-1 LOOP
-				uartin <= dataIn(dataInLength-8*i DOWNTO dataInLength-15*i);
+				uartin <= dataIn(dataInLength-8*i DOWNTO dataInLength-8*i-7);
 				uartRx <= '1';
 				WAIT UNTIL uartRd = '1';
 				uartRx <= '0';
@@ -134,10 +134,10 @@ BEGIN
 		--uartSend("00010000", x"FF");
 		n_bytes:= 2;
 		uartSendN("00010000"&"00000000", "11111111");
-		n_bytes:= 1;
-		uartSendN("00010001", "0");
+		n_bytes:= 3;
+		uartSendN("00010001"&"00000000"&x"CC", "0");
 		n_bytes:= 2;
-		uartSendN("00010000"&"00000000", x"BB");
+		uartSendN("00010000"&"00000000", x"CC");
 
       	REPORT "all tests done..." SEVERITY note;
 	WAIT;
