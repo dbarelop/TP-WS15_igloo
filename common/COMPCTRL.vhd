@@ -62,9 +62,11 @@ BEGIN
 			ELSIF state = EXECMD THEN
 				-- BEGIN handle command
 				CASE dataIN(3 DOWNTO 0) IS
-					WHEN others =>
+					WHEN "0000" =>
 						uartout <= x"01";
 						uartTx <= '1';
+						state <= ENDCOM;
+					WHEN others =>
 						state <= ENDCOM;
 				END CASE;
 				-- END handle command
