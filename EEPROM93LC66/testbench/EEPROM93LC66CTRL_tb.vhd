@@ -12,10 +12,8 @@ ARCHITECTURE verhalten OF EEPROM93LC66CTRL_tb IS
 	CONSTANT FRQDEF: 	natural		:= 4e6;
 	CONSTANT tcyc:		time		:= 1 sec / FRQDEF;
 
-	CONSTANT cmd_wr: std_logic_vector := "001";
-
 	COMPONENT EEPROMCTRL
-	GENERIC(RSTDEF: std_logic ;
+	GENERIC(RSTDEF: std_logic;
 			DEVICEID: std_logic_vector);
 	PORT(	rst:		IN	std_logic;
 			clk:		IN	std_logic;
@@ -59,7 +57,7 @@ ARCHITECTURE verhalten OF EEPROM93LC66CTRL_tb IS
 	SIGNAL uartRx:std_logic:= '0';
 	SIGNAL uartRd:std_logic:= '0';
 	SIGNAL uartout:std_logic_vector(7 DOWNTO 0) := (others => '0');
-	SIGNAL uartTxReady:std_logic :='0';
+	SIGNAL uartTxReady:std_logic :='1';
 	SIGNAL uartTx: std_logic:='0';
 	SIGNAL busy:	std_logic := '0';
 
@@ -106,9 +104,13 @@ BEGIN
 			WAIT UNTIL uartRd = '1';
 			uartRx <= '0';
 			WAIT UNTIL uartTx = '1';
+			uartTxReady <= '0';
+			WAIT FOR 1 us;
 			assert uartout = x"AA" report "OK message failed";
 			uartTxReady <= '1';
-			WAIT UNTIL uartTx = '0';
+			IF uartTx /= '0' THEN
+				WAIT UNTIL uartTx = '0';
+			END IF;
 			FOR i in 1 to n_bytes-1 LOOP
 				uartin <= dataIn(dataInLength-8*i DOWNTO dataInLength-8*i-7);
 				uartRx <= '1';

@@ -3,7 +3,7 @@ USE ieee.std_logic_1164.ALL;
 USE ieee.std_logic_unsigned.ALL;
 
 ENTITY COMPXCTRL_tb IS
-
+	-- empty
 END COMPXCTRL_tb;
 
 ARCHITECTURE behaviour OF COMPXCTRL_tb IS
@@ -25,7 +25,9 @@ ARCHITECTURE behaviour OF COMPXCTRL_tb IS
 		);
 	END COMPONENT;
 
-	CONSTANT RSTDEF: 	std_logic := '1';
+	CONSTANT RSTDEF: 	std_logic 	:= '0';
+	CONSTANT FRQDEF: 	natural		:= 4e6;
+	CONSTANT tcyc:		time		:= 1 sec / FRQDEF;
 	
 	SIGNAL rst:			std_logic := RSTDEF;
 	SIGNAL clk:			std_logic := '0';
@@ -33,75 +35,70 @@ ARCHITECTURE behaviour OF COMPXCTRL_tb IS
 	SIGNAL uartRx:		std_logic := '0';
 	SIGNAL uartRd:		std_logic := '0';
 	SIGNAL uartout:   	std_logic_vector(7 DOWNTO 0) := (others => '0');
+	SIGNAL uartTxReady:	std_logic :='0';
 	SIGNAL uartTx:		std_logic := '0';
 	
-	SIGNAL busy:		std_logic := 'L';
+	SIGNAL busy:		std_logic := '0';
 	
 	SIGNAL serOut:		std_logic_vector(7 DOWNTO 0) := (others => '0');
 
 BEGIN
 
+	clk <= NOT clk AFTER tcyc/2;
+
 	c1: COMPXCTRL
 	GENERIC MAP(RSTDEF => RSTDEF,
-				DEVICEID => "1010")
+				DEVICEID => "0000")
 	PORT MAP(	rst => rst,
 				clk => clk,
 				uartin => uartin,
 				uartRx => uartRx,
 				uartRd => uartRd,
 				uartout => uartout,
-				uartTxReady => '1',
-				uartTx => uartTx,
-				busy => busy
-			);
-			
-	c2: COMPXCTRL
-	GENERIC MAP(RSTDEF => RSTDEF,
-				DEVICEID => "0010")
-	PORT MAP(	rst => rst,
-				clk => clk,
-				uartin => uartin,
-				uartRx => uartRx,
-				uartRd => uartRd,
-				uartout => uartout,
-				uartTxReady => '1',
+				uartTxReady => uartTxReady,
 				uartTx => uartTx,
 				busy => busy
 			);
 			
 	test: PROCESS IS
 	
-		PROCEDURE newByte(data: std_logic_vector) IS
-		
+		VARIABLE n_bytes: integer;
+
+		PROCEDURE uartSendN (dataIn: std_logic_vector((n_bytes*8)-1 DOWNTO 0); result: std_logic_vector) IS
+			VARIABLE dataInLength: INTEGER := dataIn'LENGTH-1;
 		BEGIN
-			IF clk /= '0' THEN
-				WAIT UNTIL clk = '0';
-			END IF;
-			uartin <= data;
+			uartin <= dataIn(dataInLength DOWNTO dataInLength-7);
 			uartRx <= '1';
 			WAIT UNTIL uartRd = '1';
-			WAIT UNTIL clk = '1';
 			uartRx <= '0';
-			WAIT UNTIL busy /= '1';
+			WAIT UNTIL uartTx = '1';
+			assert uartout = x"AA" report "OK message failed";
+			uartTxReady <= '1';
+			WAIT UNTIL uartTx = '0';
+			FOR i in 1 to n_bytes-1 LOOP
+				uartin <= dataIn(dataInLength-8*i DOWNTO dataInLength-8*i-7);
+				uartRx <= '1';
+				WAIT UNTIL uartRd = '1';
+				uartRx <= '0';
+				WAIT UNTIL uartRd = '0';
+			END LOOP;
+			IF result'LENGTH = 8 THEN
+				WAIT UNTIL uartTx = '1';
+				assert uartout = result report "wrong result";
+			END IF;
+
 		END PROCEDURE;
 	
 	BEGIN
-		WAIT UNTIL rst = NOT RSTDEF;
-		newByte("10100101");
-		newByte("00100101");
+		WAIT FOR 1 us;
+		rst <= NOT RSTDEF;
+
+		n_bytes := 1;
+		uartSendN("00000000", "00000001");
+		
+		REPORT "all tests done..." SEVERITY note;
 		WAIT;
 		
 	END PROCESS;
-	
-	serialOut: PROCESS(clk) IS
-	
-	BEGIN
-		IF rising_edge(clk) AND uartTx = '1' THEN
-			serOut <= uartout;
-		END IF;
-	END PROCESS;
-	
-	rst <= RSTDEF, NOT RSTDEF AFTER 10 ns;
-	clk <= NOT clk AFTER 10 ns;
 
 END behaviour;

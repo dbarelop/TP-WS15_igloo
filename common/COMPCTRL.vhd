@@ -24,7 +24,7 @@ ARCHITECTURE behaviour OF COMPXCTRL IS
 
 	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, EXECMD, ENDCOM);
     --TYPE tcmd IS (GETVERSION);
-	
+
 	SIGNAL state: tstate;
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
 
@@ -38,7 +38,7 @@ BEGIN
 			uartout <= (others => 'Z');
 			uartTx <= 'Z';
 			uartRd <= 'Z';
-			
+
 			state <= IDLE;
 		ELSIF rising_edge(clk) THEN
 			IF state = IDLE AND uartRx = '1' THEN
@@ -60,7 +60,7 @@ BEGIN
                 IF uartTxReady = '1' THEN
                     state <= EXECMD;
                 END IF;
-			ELSIF state = EXECMD THEN				
+			ELSIF state = EXECMD THEN
 				-- BEGIN handle command
 				CASE dataIN(3 DOWNTO 0) IS
 					WHEN others =>
