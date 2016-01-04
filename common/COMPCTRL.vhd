@@ -5,17 +5,17 @@ USE ieee.std_logic_unsigned.ALL;
 ENTITY COMPXCTRL IS
 	GENERIC(RSTDEF: std_logic := '1';
 			DEVICEID: std_logic_vector(3 DOWNTO 0) := "0000");
-	PORT(    rst:		IN	std_logic;
-			 clk:		IN	std_logic;
-			 
-			 uartin:	IN 	std_logic_vector(7 DOWNTO 0);
-			 uartRx:	IN	std_logic;						-- indicates new byte is available
-			 uartRd:	INOUT std_logic; 						-- indicates value was read from controller
-			 uartout:   INOUT std_logic_vector(7 DOWNTO 0);
-			 uartTxReady: IN std_logic;						-- indicates new byte can be send
-			 uartTx:	INOUT std_logic;						-- starts transmission of new byte
-			 
-			 busy:		INOUT	std_logic					-- busy bit indicates working component
+	PORT(	rst:		IN	std_logic;
+			clk:		IN	std_logic;
+
+			uartin:		IN 	std_logic_vector(7 DOWNTO 0);
+			uartRx:		IN	std_logic;						-- indicates new byte is available
+			uartRd:		INOUT std_logic; 						-- indicates value was read from controller
+			uartout:	INOUT std_logic_vector(7 DOWNTO 0);
+			uartTxReady:IN 	std_logic;						-- indicates new byte can be send
+			uartTx:		INOUT std_logic;						-- starts transmission of new byte
+
+			busy:		INOUT	std_logic					-- busy bit indicates working component
 	);
 
 END COMPXCTRL;
@@ -23,7 +23,6 @@ END COMPXCTRL;
 ARCHITECTURE behaviour OF COMPXCTRL IS
 
 	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, EXECMD, ENDCOM);
-    --TYPE tcmd IS (GETVERSION);
 
 	SIGNAL state: tstate;
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
@@ -53,20 +52,20 @@ BEGIN
 				uartTx <= '1';
 				uartRd <= '0';
 				state <= DELAY;
-            ELSIF state = DELAY THEN
-                state <= WAITSENDOK;
-            ELSIF state = WAITSENDOK THEN                
-                uartTx <= '0';
-                IF uartTxReady = '1' THEN
-                    state <= EXECMD;
-                END IF;
+			ELSIF state = DELAY THEN
+				state <= WAITSENDOK;
+			ELSIF state = WAITSENDOK THEN
+				uartTx <= '0';
+				IF uartTxReady = '1' THEN
+					state <= EXECMD;
+				END IF;
 			ELSIF state = EXECMD THEN
 				-- BEGIN handle command
 				CASE dataIN(3 DOWNTO 0) IS
 					WHEN others =>
 						uartout <= x"01";
-                        uartTx <= '1';
-                        state <= ENDCOM;
+						uartTx <= '1';
+						state <= ENDCOM;
 				END CASE;
 				-- END handle command
 			ELSIF state = ENDCOM THEN

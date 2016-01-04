@@ -7,39 +7,39 @@ ENTITY COMPXCTRL_tb IS
 END COMPXCTRL_tb;
 
 ARCHITECTURE behaviour OF COMPXCTRL_tb IS
-	
+
 	COMPONENT COMPXCTRL
 		GENERIC(RSTDEF: std_logic;
 				DEVICEID: std_logic_vector);
-		PORT(    rst:		IN	std_logic;
-				 clk:		IN	std_logic;
-				 
-				 uartin:	IN 	std_logic_vector(7 DOWNTO 0);
-				 uartRx:	IN	std_logic;						-- indicates new byte is available
-				 uartRd:	INOUT std_logic; 						-- indicates value was read from controller
-				 uartout:   INOUT std_logic_vector(7 DOWNTO 0);
-			 	 uartTxReady: IN std_logic;						-- indicates new byte can be send
-				 uartTx:	INOUT std_logic;
-				 
-				 busy:		INOUT	std_logic					-- busy bit indicates working component
+		PORT(	rst:		IN	std_logic;
+				clk:		IN	std_logic;
+
+				uartin:		IN 	std_logic_vector(7 DOWNTO 0);
+				uartRx:		IN	std_logic;						-- indicates new byte is available
+				uartRd:		INOUT std_logic; 						-- indicates value was read from controller
+				uartout:	INOUT std_logic_vector(7 DOWNTO 0);
+				uartTxReady:IN std_logic;						-- indicates new byte can be send
+				uartTx:		INOUT std_logic;
+
+				busy:		INOUT	std_logic					-- busy bit indicates working component
 		);
 	END COMPONENT;
 
 	CONSTANT RSTDEF: 	std_logic 	:= '0';
 	CONSTANT FRQDEF: 	natural		:= 4e6;
 	CONSTANT tcyc:		time		:= 1 sec / FRQDEF;
-	
+
 	SIGNAL rst:			std_logic := RSTDEF;
 	SIGNAL clk:			std_logic := '0';
 	SIGNAL uartin:		std_logic_vector(7 DOWNTO 0) := (others => '0');
 	SIGNAL uartRx:		std_logic := '0';
 	SIGNAL uartRd:		std_logic := '0';
-	SIGNAL uartout:   	std_logic_vector(7 DOWNTO 0) := (others => '0');
-	SIGNAL uartTxReady:	std_logic :='0';
+	SIGNAL uartout:		std_logic_vector(7 DOWNTO 0) := (others => '0');
+	SIGNAL uartTxReady:	std_logic :='1';
 	SIGNAL uartTx:		std_logic := '0';
-	
+
 	SIGNAL busy:		std_logic := '0';
-	
+
 	SIGNAL serOut:		std_logic_vector(7 DOWNTO 0) := (others => '0');
 
 BEGIN
@@ -59,9 +59,9 @@ BEGIN
 				uartTx => uartTx,
 				busy => busy
 			);
-			
+
 	test: PROCESS IS
-	
+
 		VARIABLE n_bytes: integer;
 
 		PROCEDURE uartSendN (dataIn: std_logic_vector((n_bytes*8)-1 DOWNTO 0); result: std_logic_vector) IS
@@ -88,17 +88,17 @@ BEGIN
 			END IF;
 
 		END PROCEDURE;
-	
+
 	BEGIN
 		WAIT FOR 1 us;
 		rst <= NOT RSTDEF;
 
 		n_bytes := 1;
 		uartSendN("00000000", "00000001");
-		
+
 		REPORT "all tests done..." SEVERITY note;
 		WAIT;
-		
+
 	END PROCESS;
 
 END behaviour;
