@@ -63,7 +63,7 @@ BEGIN
 				-- BEGIN handle command
 				CASE dataIN(3 DOWNTO 0) IS
 					WHEN "0000" =>
-						uartout <= x"01";
+						uartout <= x"02";
 						uartTx <= '1';
 						state <= ENDCOM;
 					WHEN others =>

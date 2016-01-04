@@ -94,7 +94,7 @@ BEGIN
 		rst <= NOT RSTDEF;
 
 		n_bytes := 1;
-		uartSendN("00000000", "00000001");
+		uartSendN("00000000", "00000010");
 
 		REPORT "all tests done..." SEVERITY note;
 		WAIT;
