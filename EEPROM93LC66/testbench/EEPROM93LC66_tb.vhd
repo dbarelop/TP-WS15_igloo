@@ -3,46 +3,41 @@ USE ieee.std_logic_1164.ALL;
 USE ieee.std_logic_unsigned.ALL;
 
 ENTITY EEPROM93LC66_tb IS
-   -- empty
+	-- empty
 END EEPROM93LC66_tb;
 
 ARCHITECTURE verhalten OF EEPROM93LC66_tb IS
 
-   CONSTANT RSTDEF: std_logic := '0';
-   CONSTANT FRQDEF: natural   := 1e6;
-   CONSTANT tcyc:   time      := 1 sec / FRQDEF;
+	CONSTANT RSTDEF:	std_logic 	:= '0';
+	CONSTANT FRQDEF:	natural		:= 1e6;
+	CONSTANT tcyc:		time		:= 1 sec / FRQDEF;
 
-   COMPONENT EEPROM93LC66
-      PORT(sclk: IN  std_logic;  -- serial clock input
-           cs:   IN  std_logic;  -- chip select, low active
-           din:  IN  std_logic;  -- serial data input
-           dout: OUT std_logic; -- serial data output
-		   org:  IN std_logic); -- 8 or 16 bit
-   END COMPONENT;
+	COMPONENT EEPROM93LC66
+		PORT(sclk: 	IN std_logic; -- serial clock input
+			cs: 	IN std_logic; -- chip select, low active
+			din:	IN std_logic; -- serial data input
+			dout:	OUT std_logic; -- serial data output
+			org:	IN std_logic); -- 8 or 16 bit
+	END COMPONENT;
 
-   --SIGNAL rst:  std_logic := RSTDEF;
-   --SIGNAL clk:  std_logic := '0';
-   SIGNAL cs:   std_logic := '0';
-   SIGNAL sclk: std_logic := '0';
-   SIGNAL miso: std_logic := '0';
-   SIGNAL mosi: std_logic := '0';
-   SIGNAL org: std_logic := '0';
+	SIGNAL cs:		std_logic := '0';
+	SIGNAL sclk: 	std_logic := '0';
+	SIGNAL miso: 	std_logic := '0';
+	SIGNAL mosi: 	std_logic := '0';
+	SIGNAL org: 	std_logic := '0';
 
-   SIGNAL serIN: std_logic_vector(15 DOWNTO 0) := (others => '0');
+	SIGNAL serIN: std_logic_vector(15 DOWNTO 0) := (others => '0');
 
 BEGIN
 
-   --rst <= RSTDEF, NOT RSTDEF AFTER 5 us;
---   clk <= NOT clk AFTER tcyc/2;
+	u1: EEPROM93LC66
+	PORT MAP(sclk 	=> sclk,
+			cs 		=> cs,
+			din		=> mosi,
+			dout 	=> miso,
+			org 	=> org);
 
-   u1: EEPROM93LC66
-   PORT MAP(sclk => sclk,
-            cs   => cs,
-            din  => mosi,
-            dout => miso,
-			org => org);
-
-    serialIn: PROCESS (sclk) IS
+	serialIn: PROCESS (sclk) IS
 
 	BEGIN
 		IF falling_edge(sclk) THEN
@@ -66,10 +61,10 @@ BEGIN
 			WAIT FOR tcyc;
 			sclk <= '0';
 			WAIT FOR tcyc;
-			
+
 			FOR cnt IN clkcycl - 2 DOWNTO 0 LOOP
 				mosi <= serialOut(serialOut'left);
-				serialOut := serialOut(serialOut'left - 1 DOWNTO 0)  & '0';
+				serialOut := serialOut(serialOut'left - 1 DOWNTO 0) & '0';
 				sclk <= '1';
 				WAIT FOR tcyc;
 				sclk <= '0';
@@ -86,38 +81,38 @@ BEGIN
 			cs <= '0';
 			WAIT FOR 2*tcyc;
 		END PROCEDURE;
-		
+
 	BEGIN
 		-- EWEN
 		spi_write("00", "110000000", "", 12);
 		-- write 8 bit
 		spi_write("01", "000000000", "10101010", 20);
 		-- read 8 bit
-		spi_write("10", "000000000", "00000000", 20);
+		spi_write("10", "000000000", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "10101010" report "8bit write / read failed";
 		-- EWDS
 		spi_write("00", "000000000", "", 12);
 		-- write 8 bit
 		spi_write("01", "000000000", "01010101", 20);
 		-- read 8 bit
-		spi_write("10", "000000000", "00000000", 20);
+		spi_write("10", "000000000", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "10101010" report "write protection failed";
 		-- erase 8 bit with EWDS
 		spi_write("11", "000000000", "", 12);
 		-- read 8 bit
-		spi_write("10", "000000000", "00000000", 20);
+		spi_write("10", "000000000", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "10101010" report "erase protection failed";
 		-- ERAL 8 bit with EWDS
 		spi_write("00", "100000000", "", 12);
 		-- read 8 bit
-		spi_write("10", "000000000", "00000000", 20);
+		spi_write("10", "000000000", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "10101010" report "ERAL protection failed";
 		-- EWEN
 		spi_write("00", "110000000", "", 12);
 		-- ERAL 8 bit with EWEN
 		spi_write("00", "100000000", "", 12);
 		-- read 8 bit
-		spi_write("10", "000000000", "00000000", 20);
+		spi_write("10", "000000000", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "11111111" report "ERAL failed";
 
 		-- EWEN
@@ -125,32 +120,32 @@ BEGIN
 		-- write 8 bit
 		spi_write("01", "111110000", "11111010", 20);
 		-- read 8 bit
-		spi_write("10", "111110000", "00000000", 20);
+		spi_write("10", "111110000", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "11111010" report "8bit write / read failed";
 		-- write 8 bit
 		spi_write("01", "000011111", "10101111", 20);
 		-- read 8 bit
-		spi_write("10", "000011111", "00000000", 20);
+		spi_write("10", "000011111", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "10101111" report "8bit write / read failed";
 		-- ERASE 8 bit
 		spi_write("11", "111110000", "", 12);
 		-- read 8 bit
-		spi_write("10", "111110000", "00000000", 20);
+		spi_write("10", "111110000", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "11111111" report "ERASE failed";
 		-- read 8 bit
-		spi_write("10", "000011111", "00000000", 20);
+		spi_write("10", "000011111", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "10101111" report "ERASED all!?";
 
 		-- WRAL 8 bit
 		spi_write("00", "010000000", "11001100", 20);
 		-- read 8 bit
-		spi_write("10", "011111111", "00000000", 20);
+		spi_write("10", "011111111", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "11001100" report "WRAL fail1";
 		-- read 8 bit
-		spi_write("10", "000000000", "00000000", 20);
+		spi_write("10", "000000000", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "11001100" report "WRAL fail2";
 		-- read 8 bit
-		spi_write("10", "111111111", "00000000", 20);
+		spi_write("10", "111111111", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "11001100" report "WRAL fail3";
 
 
@@ -164,13 +159,13 @@ BEGIN
 		-- write 16 bit
 		spi_write("01", "00000000", "1010101000000000", 27);
 		-- read 16 bit
-		spi_write("10", "00000000", "0000000000000000", 27);
+		spi_write("10", "00000000", "00000000000000000", 28);
 		assert serIN = "1010101000000000" report "16bit write / read failed";
 
 		-- WRAL 16 bit
 		spi_write("00", "01000000", "1100110011110000", 27);
 		-- read 16 bit
-		spi_write("10", "01010101", "0000000000000000", 27);
+		spi_write("10", "01010101", "00000000000000000", 28);
 		assert serIN = "1100110011110000" report "16bit WRAL failed";
 
 		-- =====================
@@ -179,10 +174,10 @@ BEGIN
 
 		org <= '0';
 		-- read 8 bit
-		spi_write("10", "011111110", "00000000", 20);
+		spi_write("10", "011111110", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "11001100" report "8bit read failed";
 		-- read 8 bit
-		spi_write("10", "011111111", "00000000", 20);
+		spi_write("10", "011111111", "000000000", 21);
 		assert serIN(7 DOWNTO 0) = "11110000" report "8bit read failed";
 
 		-- =====================
@@ -201,7 +196,7 @@ BEGIN
 		-- =====================
 		org <= '0';
 		-- read 8 bit - continious
-		spi_write("10", "011111110", "0000000000000000", 28);
+		spi_write("10", "011111110", "00000000000000000", 29);
 		assert serIN = "1100110011110000" report "8bit continious read failed";
 
 		-- =====================
@@ -209,11 +204,11 @@ BEGIN
 		-- =====================
 		org <= '1';
 		-- read 16 bit - continious
-		spi_write("10", "11111110", "00000000000000000000000000000000", 43);
+		spi_write("10", "11111110", "000000000000000000000000000000000", 44);
 		-- first 16 bits cant be checked :(
 		assert serIN = "1100110011110000" report "16bit continious read failed";
-      
-      	REPORT "all tests done..." SEVERITY note;
+
+		REPORT "all tests done..." SEVERITY note;
 		WAIT;
 
 
