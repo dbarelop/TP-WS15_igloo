@@ -1,4 +1,8 @@
 # Firmware working parts / protocol
+Path to flash-file:
+
+igloo/system/teamprojekt/designer/impl2/top.pdb
+
 Config:
 * 9600 Baudrate
 * 8 data bits
