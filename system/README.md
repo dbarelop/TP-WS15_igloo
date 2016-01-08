@@ -32,13 +32,12 @@ Device ID: 0b0000
 Device ID: 0b0001
 ### read
 * 8 bit reading only so far
-* highest (9th) bit of internal addressing in eeprom always 0, addresses 0b0 00000000 to 0b0 11111111 accessable, has to be fixed
 
 #### TX
-|              |            |
-|--------------|------------|
-| 0b00010000   | 0bAAAAAAAA |
-| read command | A-address  |
+|              |            |            |
+|--------------|------------|------------|
+| 0b00010000   | 0bxxxxxxxA | 0bAAAAAAAA |
+| read command | x-don't care, A-address  | A-address  |
 
 #### RX
 |         |                     |
@@ -48,14 +47,13 @@ Device ID: 0b0001
 
 ### write
 * 8 bit writing only so far
-* highest (9th) bit of internal addressing in eeprom always 0, addresses 0b0 00000000 to 0b0 11111111 accessable, has to be fixed
 * finished message missing!!! (OK-byte is send before writing is finished!)
 
 #### TX
-|              |            |          |
-|--------------|------------|----------|
-| 0b00010001   | 0bAAAAAAAA |0bDDDDDDDD|
-| write command | A-address  | D-byte   |
+|              |            |            |          |
+|--------------|------------|------------|----------|
+| 0b00010001   | 0bxxxxxxxA | 0bAAAAAAAA |0bDDDDDDDD|
+| write command | x-don't care, A-address | A-address  | D-byte   |
 
 #### RX
 |         |
