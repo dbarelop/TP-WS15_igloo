@@ -88,12 +88,16 @@ BEGIN
 			IF uartTx /= '0' THEN
 				WAIT UNTIL uartTx = '0';
 			END IF;
-			FOR i in 0 to n_rxbytes-1 LOOP
+			FOR i in 1 to n_rxbytes-1 LOOP
 				uartin <= dataIn(dataInLength-8*i DOWNTO dataInLength-8*i-7);
 				uartRx <= '1';
-				WAIT UNTIL uartRd = '1';
+				IF uartRd = '0' THEN
+					WAIT UNTIL uartRd = '1';
+				END IF;
 				uartRx <= '0';
-				WAIT UNTIL uartRd = '0';
+				IF uartRd = '1' THEN
+					WAIT UNTIL uartRd = '0';
+				END IF;
 			END LOOP;
 			IF result'LENGTH >= 8 THEN
 				FOR i in 0 to n_txbytes-1 LOOP
@@ -109,7 +113,6 @@ BEGIN
 			END IF;
 
 		END PROCEDURE;
-
 	BEGIN
 		WAIT FOR 1 us;
 		rst <= NOT RSTDEF;
