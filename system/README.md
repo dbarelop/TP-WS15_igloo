@@ -37,7 +37,7 @@ Device ID: 0b0001
 |              |            |            |
 |--------------|------------|------------|
 | 0b00010000   | 0bxxxxxxxA | 0bAAAAAAAA |
-| read command | x-don't care, A-address  | A-address  |
+| read command | x-don't care, A-address MSB  | A-address  |
 
 #### RX
 |         |                     |
@@ -53,7 +53,7 @@ Device ID: 0b0001
 |              |            |            |          |
 |--------------|------------|------------|----------|
 | 0b00010001   | 0bxxxxxxxA | 0bAAAAAAAA |0bDDDDDDDD|
-| write command | x-don't care, A-address | A-address  | D-byte   |
+| write command | x-don't care, A-address MSB | A-address  | D-byte   |
 
 #### RX
 |         |
