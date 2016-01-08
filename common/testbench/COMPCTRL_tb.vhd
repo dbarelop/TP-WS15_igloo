@@ -62,10 +62,19 @@ BEGIN
 
 	test: PROCESS IS
 
-		VARIABLE n_bytes: integer;
+		VARIABLE n_rxbytes: integer;
+		VARIABLE n_txbytes: integer;
 
-		PROCEDURE uartSendN (dataIn: std_logic_vector((n_bytes*8)-1 DOWNTO 0); result: std_logic_vector) IS
+		PROCEDURE setNBytes(rxBytes: integer; txBytes: integer) IS
+
+		BEGIN
+			n_rxbytes := rxBytes;
+			n_txbytes := txBytes;
+		END PROCEDURE;
+
+		PROCEDURE uartSendN (dataIn: std_logic_vector((n_rxbytes*8)-1 DOWNTO 0); result: std_logic_vector((n_txbytes*8)-1 DOWNTO 0)) IS
 			VARIABLE dataInLength: INTEGER := dataIn'LENGTH-1;
+			VARIABLE dataOutLength: INTEGER := result'LENGTH-1;
 		BEGIN
 			uartin <= dataIn(dataInLength DOWNTO dataInLength-7);
 			uartRx <= '1';
@@ -73,18 +82,30 @@ BEGIN
 			uartRx <= '0';
 			WAIT UNTIL uartTx = '1';
 			assert uartout = x"AA" report "OK message failed";
+			uartTxReady <= '0';
+			WAIT FOR 1 us;
 			uartTxReady <= '1';
-			WAIT UNTIL uartTx = '0';
-			FOR i in 1 to n_bytes-1 LOOP
+			IF uartTx /= '0' THEN
+				WAIT UNTIL uartTx = '0';
+			END IF;
+			FOR i in 0 to n_rxbytes-1 LOOP
 				uartin <= dataIn(dataInLength-8*i DOWNTO dataInLength-8*i-7);
 				uartRx <= '1';
 				WAIT UNTIL uartRd = '1';
 				uartRx <= '0';
 				WAIT UNTIL uartRd = '0';
 			END LOOP;
-			IF result'LENGTH = 8 THEN
-				WAIT UNTIL uartTx = '1';
-				assert uartout = result report "wrong result";
+			IF result'LENGTH >= 8 THEN
+				FOR i in 0 to n_txbytes-1 LOOP
+					WAIT UNTIL uartTx = '1';
+					assert uartout = result(dataOutLength-8*i DOWNTO dataOutLength-8*i-7) report "wrong result";
+					uartTxReady <= '0';
+					WAIT FOR 1 us;
+					uartTxReady <= '1';
+					IF uartTx = '1' THEN
+						WAIT UNTIL uartTx = '0';
+					END IF;
+				END LOOP;
 			END IF;
 
 		END PROCEDURE;
@@ -93,7 +114,7 @@ BEGIN
 		WAIT FOR 1 us;
 		rst <= NOT RSTDEF;
 
-		n_bytes := 1;
+		setNBytes(1, 1);
 		uartSendN("00000000", "00000010");
 
 		REPORT "all tests done..." SEVERITY note;
