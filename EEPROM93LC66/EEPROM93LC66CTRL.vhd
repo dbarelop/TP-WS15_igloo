@@ -98,7 +98,18 @@ BEGIN
 			ELSIF readcmd = RXARG1 THEN
 				-- rx address
 				IF uartRx = '1' THEN
-					adrin <= '0' & uartin;
+					adrin(8) <= uartin(0);
+					uartRd <= '1';
+					readcmd <= DELAY;
+				END IF;
+			ELSIF readcmd = DELAY THEN
+				uartRd <= '0';
+				IF uartRx = '0' THEN
+					readcmd <= RXARG2;
+				END IF;
+			ELSIF readcmd = RXARG2 THEN
+				IF uartRx = '1' THEN
+					adrin(7 DOWNTO 0) <= uartin;
 					uartRd <= '1';
 					strb <= '1';
 					readcmd <= WAITANSWER;
