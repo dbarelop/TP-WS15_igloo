@@ -57,13 +57,13 @@ ARCHITECTURE behaviour OF EEPROMCTRL IS
 
 
 	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, DEFCMD, EXECMD, ENDCOM);
-	TYPE tmaincmd IS (READ, WRITE, ERASE, EWEN);
+	TYPE tmaincmd IS (READ, READ16, WRITE, ERASE, EWEN);
 
 	SIGNAL state: tstate;
 	SIGNAL maincmd: tmaincmd;
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
 
-	TYPE tcmd IS (SENDCMD, RXARG1, DELAY, RXARG2, DELAY2, RXARG3, WAITANSWER, TXANSWER);
+	TYPE tcmd IS (SENDCMD, RXARG1, DELAY, RXARG2, DELAY2, RXARG3, WAITANSWER, TXANSWER, TXANSWER2);
 	SIGNAL readcmd: tcmd;
 
 BEGIN
@@ -89,7 +89,7 @@ BEGIN
 
 	main: PROCESS (clk, rst) IS
 
-		PROCEDURE re4d IS
+		PROCEDURE readPro IS
 
 		BEGIN
 			IF readcmd = SENDCMD THEN
@@ -121,6 +121,44 @@ BEGIN
 					readcmd <= TXANSWER;
 				END IF;
 			ELSIF readcmd = TXANSWER THEN
+				uartout <= dout(7 DOWNTO 0);
+				uartTx <= '1';
+				state <= ENDCOM;
+				readcmd <= SENDCMD;
+			END IF;
+
+		END PROCEDURE;
+
+		PROCEDURE read16Pro IS
+
+		BEGIN
+			IF readcmd = SENDCMD THEN
+				cmd <= "1010";
+				readcmd <= RXARG1;
+			ELSIF readcmd = RXARG1 THEN
+				-- rx address
+				IF uartRx = '1' THEN
+					adrin(7 DOWNTO 0) <= uartin;
+					uartRd <= '1';
+					strb <= '1';
+					readcmd <= WAITANSWER;
+				END IF;
+			ELSIF readcmd = WAITANSWER THEN
+				strb <= '0';
+				uartRd <= '0';
+				IF busyout = '0' AND strb = '0' THEN
+					readcmd <= TXANSWER;
+				END IF;
+			ELSIF readcmd = TXANSWER THEN
+				uartout <= dout(15 DOWNTO 8);
+				uartTx <= '1';
+				readcmd <= DELAY;
+			ELSIF readcmd = DELAY THEN
+				uartTx <= '0';
+				IF uartTxReady = '1' THEN
+					readcmd <= TXANSWER2;
+				END IF;
+			ELSIF readcmd = TXANSWER2 THEN
 				uartout <= dout(7 DOWNTO 0);
 				uartTx <= '1';
 				state <= ENDCOM;
@@ -246,12 +284,14 @@ BEGIN
 				END IF;
 			ELSIF state = DEFCMD THEN
 				CASE dataIN(3 DOWNTO 0) IS
-					WHEN "0000" => -- read
+					WHEN x"0" => -- read
 						maincmd <= READ;
 					WHEN x"1" => --write
 						maincmd <= WRITE;
 					WHEN x"2" => -- erase
 						maincmd <= ERASE;
+					WHEN x"7" => -- read16
+						maincmd <= READ16;
 					WHEN others =>
 						state <= ENDCOM;
 					END CASE;
@@ -261,11 +301,13 @@ BEGIN
 				IF maincmd = ERASE THEN
 					erasePro;
 				ELSIF maincmd = READ THEN
-					re4d;
+					readPro;
 				ELSIF maincmd = WRITE THEN
 					writePro;
 				ELSIF maincmd = EWEN THEN
 					ewenPro;
+				ELSIF maincmd = READ16 THEN
+					read16Pro;
 				END IF;
 				-- END handle command
 			ELSIF state = ENDCOM THEN

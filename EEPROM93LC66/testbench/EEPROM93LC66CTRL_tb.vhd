@@ -168,6 +168,13 @@ BEGIN
 		uartSendN("00010000"&"00000000"&"00000001", x"FF");
 		uartSendN("00010000"&"00000000"&"00000010", x"FF");
 
+		--16 bit
+		setNBytes(4,0);
+		uartSendN(x"11"&"00000000"&"00000000"&x"CC", "");
+		uartSendN(x"11"&"00000000"&"00000001"&x"DD", "");
+		setNBytes(2,2);
+		uartSendN(x"17"&"00000000", x"CC"&x"DD");
+
 
 		REPORT "all tests done..." SEVERITY note;
 		WAIT;
