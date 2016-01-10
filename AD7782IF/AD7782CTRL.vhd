@@ -15,12 +15,12 @@ ENTITY AD7782CTRL IS
 			uartRx:		IN			std_logic;						-- indicates new byte is available
 			uartTx:		INOUT 	std_logic;						-- starts transmission of new byte
 
-			strb: IN  std_logic;  									-- strobe, inicial new ADC:	high active
-			csel: IN  std_logic;  									-- select wich chanel is used AIN1(0), AIN2(1)
-			rsel: IN  std_logic;  									-- select wich range is used 2.56V(1), 160mV(0)
-			done: OUT std_logic;  									-- set done if datas are valid on ch1/2 output (High Active)
-			ch1:  OUT std_logic_vector(24-1 DOWNTO 0);
-			ch2:  OUT std_logic_vector(24-1 DOWNTO 0)));
+			strb: OUT  	std_logic;  									-- strobe, inicial new ADC:	high active
+			csel: OUT  	std_logic;  									-- select wich chanel is used AIN1(0), AIN2(1)
+			rsel: OUT  	std_logic;  									-- select wich range is used 2.56V(1), 160mV(0)
+			done: IN 	std_logic;  									-- set done if datas are valid on ch1/2 output (High Active)
+			ch1:  IN 	std_logic_vector(24-1 DOWNTO 0);
+			ch2:  IN 	std_logic_vector(24-1 DOWNTO 0)));
 END AD7782CTRL;
 
 ARCHITECTURE behaviour OF AD7782CTRL IS
