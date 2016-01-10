@@ -21,7 +21,7 @@ cov*/
 transcript*
 sc_dpiheader.h
 vsim.dbg
-
+uart/simuli/
 
 # ignore pdf files
 Literatur/

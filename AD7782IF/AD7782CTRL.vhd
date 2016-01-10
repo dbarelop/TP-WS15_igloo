@@ -6,6 +6,7 @@ ENTITY AD7782CTRL IS
 	GENERIC(RSTDEF: std_logic := '1');
 	PORT( rst:			IN			std_logic;
 			clk: 			IN 		std_logic;
+			swrst			IN 		std_logic;
 			busy:			INOUT		std_logic;
 
 			uartEN: 		OUT 		std_logic;
@@ -26,11 +27,25 @@ END AD7782CTRL;
 
 ARCHITECTURE behaviour OF AD7782CTRL IS
 
+	
+	TYPE tstate IS (IDLE, CHECK, );
+	SIGNAL state: 	tstate;
+
 BEGIN
 	p1: PROCESS(clk, rst) IS
 	BEGIN
 		IF rst=RSTDEF THEN
-			-- 
+			-- reset
+		ELSIF rising_edge(clk) THEN
+			IF swrst=RSTDEF THEN
+				-- reset
+			ELSE
+				-- working
+				CASE state IS
+					WHEN IDLE =>
+						
+				END CASE;
+			END IF;
 		END IF;
 	END PROCESS;
 END behaviour;
