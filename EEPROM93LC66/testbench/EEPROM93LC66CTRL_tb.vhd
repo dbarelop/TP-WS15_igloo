@@ -170,10 +170,17 @@ BEGIN
 
 		--16 bit
 		setNBytes(4,0);
-		uartSendN(x"11"&"00000000"&"00000000"&x"CC", "");
-		uartSendN(x"11"&"00000000"&"00000001"&x"DD", "");
+		uartSendN(x"18"&"00000000"&x"CC"&x"DD", "");
+		uartSendN(x"18"&"00000001"&x"AB"&x"BE", "");
 		setNBytes(2,2);
 		uartSendN(x"17"&"00000000", x"CC"&x"DD");
+		uartSendN(x"17"&"00000001", x"AB"&x"BE");
+		-- check with 8 bit read
+		setNBytes(3,1);
+		uartSendN(x"10"&"00000000"&"00000000", x"CC");
+		uartSendN(x"10"&"00000000"&"00000001", x"DD");
+		uartSendN(x"10"&"00000000"&"00000010", x"AB");
+		uartSendN(x"10"&"00000000"&"00000011", x"BE");
 
 
 		REPORT "all tests done..." SEVERITY note;

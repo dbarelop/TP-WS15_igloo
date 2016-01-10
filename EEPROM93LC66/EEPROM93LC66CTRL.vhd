@@ -57,7 +57,7 @@ ARCHITECTURE behaviour OF EEPROMCTRL IS
 
 
 	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, DEFCMD, EXECMD, ENDCOM);
-	TYPE tmaincmd IS (READ, READ16, WRITE, ERASE, EWEN);
+	TYPE tmaincmd IS (READ, READ16, WRITE, WRITE16, ERASE, EWEN);
 
 	SIGNAL state: tstate;
 	SIGNAL maincmd: tmaincmd;
@@ -246,6 +246,53 @@ BEGIN
 			END IF;
 		END PROCEDURE;
 
+		PROCEDURE write16Pro IS
+
+		BEGIN
+			IF readcmd = SENDCMD THEN
+				cmd <= "1001"; --write
+				readcmd <= RXARG1;
+			ELSIF readcmd = RXARG1 THEN
+				-- rx address
+				IF uartRx = '1' THEN
+					adrin(7 DOWNTO 0) <= uartin;
+					uartRd <= '1';
+					readcmd <= DELAY;
+				END IF;
+			ELSIF readcmd = DELAY THEN
+				uartRd <= '0';
+				IF uartRx = '0' THEN
+					readcmd <= RXARG2;
+				END IF;
+			ELSIF readcmd = RXARG2 THEN
+				-- rx data
+				IF uartRx = '1' THEN
+					din(15 DOWNTO 8) <= uartin;
+					uartRd <= '1';
+					readcmd <= DELAY2;
+				END IF;
+			ELSIF readcmd = DELAY2 THEN
+				uartRd <= '0';
+				IF uartRx = '0' THEN
+					readcmd <= RXARG3;
+				END IF;
+			ELSIF readcmd = RXARG3 THEN
+				IF uartRx = '1' THEN
+					din(7 DOWNTO 0) <= uartin;
+					uartRd <= '1';
+					strb <= '1';
+					readcmd <= WAITANSWER;
+				END IF;
+			ELSIF readcmd = WAITANSWER THEN
+				uartRd <= '0';
+				strb <= '0';
+				IF busyout = '0' AND strb = '0' THEN
+					readcmd <= SENDCMD;
+					state <= ENDCOM;
+				END IF;
+			END IF;
+		END PROCEDURE;
+
 	BEGIN
 		IF rst = RSTDEF THEN
 			busy <= 'Z';
@@ -286,12 +333,14 @@ BEGIN
 				CASE dataIN(3 DOWNTO 0) IS
 					WHEN x"0" => -- read
 						maincmd <= READ;
-					WHEN x"1" => --write
+					WHEN x"1" => -- write
 						maincmd <= WRITE;
 					WHEN x"2" => -- erase
 						maincmd <= ERASE;
 					WHEN x"7" => -- read16
 						maincmd <= READ16;
+					WHEN x"8" => -- write16
+						maincmd <= WRITE16;
 					WHEN others =>
 						state <= ENDCOM;
 					END CASE;
@@ -308,6 +357,8 @@ BEGIN
 					ewenPro;
 				ELSIF maincmd = READ16 THEN
 					read16Pro;
+				ELSIF maincmd = WRITE16 THEN
+					write16Pro;
 				END IF;
 				-- END handle command
 			ELSIF state = ENDCOM THEN
