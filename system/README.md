@@ -19,7 +19,7 @@ Device ID: 0b0000
 #### TX
 |              |
 |--------------|
-| 0b00000000   |
+| 0x00   |
 | get firmware version command |
 
 #### RX
@@ -31,12 +31,11 @@ Device ID: 0b0000
 ## EEPROM
 Device ID: 0b0001
 ### read
-* 8 bit reading only so far
 
 #### TX
 |              |            |            |
 |--------------|------------|------------|
-| 0b00010000   | 0bxxxxxxxA | 0bAAAAAAAA |
+| 0x10   | 0bxxxxxxxA | 0bAAAAAAAA |
 | read command | x-don't care, A-address MSB  | A-address  |
 
 #### RX
@@ -45,15 +44,45 @@ Device ID: 0b0001
 | 0xAA    | 0bDDDDDDDD          |
 | OK-byte | D-byte at address A |
 
+### read 16bit
+
+#### TX
+|         |                     |
+|---------|---------------------|
+| 0x17    | 0bAAAAAAAA          |
+| read 16bit command | A-address |
+
+#### RX
+|              |            |            |
+|--------------|------------|------------|
+| 0xAA   | 0bDDDDDDDD | 0bdddddddd |
+| OK-byte | D-byte at address A  | d-byte at address A+1  |
+
 ### write
-* 8 bit writing only so far
 * finished message missing!!! (OK-byte is send before writing is finished!)
+* must be handled with care: only 1 000 000 cycles endurance (should only be called by user, not automatically)
 
 #### TX
 |              |            |            |          |
 |--------------|------------|------------|----------|
-| 0b00010001   | 0bxxxxxxxA | 0bAAAAAAAA |0bDDDDDDDD|
+| 0x11         | 0bxxxxxxxA | 0bAAAAAAAA |0bDDDDDDDD|
 | write command | x-don't care, A-address MSB | A-address  | D-byte   |
+
+#### RX
+|         |
+|---------|
+| 0xAA    |
+| OK-byte |
+
+### write 16bit
+* finished message missing!!! (OK-byte is send before writing is finished!)
+* must be handled with care: only 1 000 000 cycles endurance (should only be called by user, not automatically)
+
+#### TX
+|              |            |            |          |
+|--------------|------------|------------|----------|
+| 0x18         | 0bAAAAAAAA | 0bDDDDDDDD | 0bdddddddd |
+| write 16bit command | A-address | D-byte  | d-byte for address A+1   |
 
 #### RX
 |         |
@@ -69,7 +98,7 @@ Device ID: 0b0001
 #### TX
 |              |
 |--------------|
-| 0b00010010   |
+| 0x12   |
 | erase all command |
 
 #### RX
