@@ -2,11 +2,11 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.std_logic_unsigned.ALL;
 
-ENTITY COMPXCTRL_tb IS
+ENTITY AD7782CTRL_tb IS
 	-- empty
-END COMPXCTRL_tb;
+END AD7782CTRL_tb;
 
-ARCHITECTURE behaviour OF COMPXCTRL_tb IS
+ARCHITECTURE behaviour OF AD7782CTRL_tb IS
 
 	COMPONENT AD7782CTRL IS
 		GENERIC(RSTDEF: std_logic := '1';
