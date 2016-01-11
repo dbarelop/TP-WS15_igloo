@@ -63,7 +63,7 @@ ARCHITECTURE behaviour OF EEPROMCTRL IS
 	SIGNAL maincmd: tmaincmd;
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
 
-	TYPE tcmd IS (SENDCMD, RXARG1, DELAY, RXARG2, DELAY2, RXARG3, WAITANSWER, TXANSWER, TXANSWER2);
+	TYPE tcmd IS (SENDCMD, RXARG1, DELAY, RXARG2, DELAY2, RXARG3, WAITANSWER, TXANSWER, TXANSWER2, FINISH);
 	SIGNAL readcmd: tcmd;
 
 BEGIN
@@ -163,7 +163,11 @@ BEGIN
 				uartTx <= '1';
 				readcmd <= DELAY2;
 			ELSIF readcmd = DELAY2 THEN
-				uartTx <= '0';
+				IF uartTxReady = '0' THEN
+					uartTx <= '0';
+					readcmd <= FINISH;
+				END IF;
+			ELSIF readcmd = FINISH THEN
 				IF uartTxReady = '1' THEN
 					state <= ENDCOM;
 					readcmd <= SENDCMD;
