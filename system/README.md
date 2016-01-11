@@ -79,3 +79,64 @@ Device ID: 0b0001
 |---------|
 | 0xAA    |
 | OK-byte |
+
+## AD Converter
+Device ID: 0b0010
+
+### read
+* Reads all 24 bit seperated in three Bytes (from lowes to highest velued Byte(bit)).
+* The 24 bit value is Signed!
+* Highest bit '1': Indicates a zero or positive full-scale voltage.
+* Highest bit '0': Indicates a negative full-scale voltage.
+
+#### TX
+|  	|
+|-----|
+|0x20|
+|read command|
+
+#### RX
+|	 |   |
+|---|---|
+|0xAA|3x 0xD|
+|OK-byte|3 Data Bytes|
+
+### CH1
+* Set the Chanal for the next AD Conversion on CH1.
+* Dont sends any OK Message untill now...
+
+#### TX
+|   |
+|---|
+|0x23|
+|chanel select command|
+
+### CH2
+* Set the Chanal for the next AD Conversion on CH2.
+* Dont sends any OK Message untill now...
+
+#### TX
+|   |
+|---|
+|0x24|
+|chanel select command|
+
+### RNG1
+* Set the range for the next AD Conversion on +- 2.56V
+* Dont sends any OK Message untill now...
+
+#### TX
+|   |
+|---|
+|0x25|
+|range select command|
+
+### RNG2
+* Set the range for the next AD Conversion on +- 0.16V
+* Dont sends any OK Message untill now...
+
+#### TX
+|   |
+|---|
+|0x26|
+|range select command|
