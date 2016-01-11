@@ -155,7 +155,7 @@ BEGIN
 				readcmd <= DELAY;
 			ELSIF readcmd = DELAY THEN
 				uartTx <= '0';
-				IF uartTxReady = '1' THEN
+				IF uartTxReady = '1' AND uartTx = '0' THEN
 					readcmd <= TXANSWER2;
 				END IF;
 			ELSIF readcmd = TXANSWER2 THEN
