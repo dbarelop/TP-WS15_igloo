@@ -30,8 +30,6 @@ ARCHITECTURE behaviour OF AD7782CTRL IS
 	CONSTANT AIN2: std_logic := '1';
 	CONSTANT RANGEHIG: std_logic := '1';
 	CONSTANT RANGELOW: std_logic := '0';
-	CONSTANT HIG:	std_logic := '1';
-	CONSTANT LOW:	std_logic := '0';
 	
 	CONSTANT BYTE:	natural	:= 8;
 
@@ -100,13 +98,13 @@ BEGIN
 		CASE ps IS
 			WHEN S0 =>				-- set strb to '1'
 				blockCMDs <= '1';
-				strb	<= HIG;
+				strb	<= '1';
 				ps		<= S1;	
 			WHEN S1 =>				-- set strb back to '0'
-				strb 	<= LOW;
+				strb 	<= '0';
 				ps		<= S2;
 			WHEN S2 =>				-- wait for AD Conversion
-				IF done=HIG THEN
+				IF done='1' THEN
 					ps	<= FB;
 				END IF;
 			WHEN FB => 				-- Send first Byte
@@ -173,8 +171,8 @@ BEGIN
 			
 			csel 	<= AIN1;
 			rsel	<= RANGEHIG;
-			strb	<= LOW;
-			cnt	<= (OTHERS => LOW);
+			strb	<= '0';
+			cnt	<= (OTHERS => '0');
 
 			state <= IDLE;
 		ELSIF rising_edge(clk) THEN
@@ -185,7 +183,7 @@ BEGIN
 					dataIN <= uartin;
 					state <= READSENDOK;
 					
-					cnt	<= (OTHERS => LOW);
+					cnt	<= (OTHERS => '0');
 				END IF;
 			ELSIF state = READSENDOK THEN
 				uartout <= x"AA"; -- OK message
@@ -226,7 +224,7 @@ BEGIN
 				busy <= 'Z';
 				state <= IDLE;
 				
-				cnt	<= (OTHERS => LOW);
+				cnt	<= (OTHERS => '0');
 			END IF;
 		END IF;
 	END PROCESS;
