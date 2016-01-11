@@ -11,7 +11,7 @@ ENTITY EEPROM93LC66 IS
 END EEPROM93LC66;
 
 ARCHITECTURE simulation OF EEPROM93LC66 IS
-	type	memory_array is array(0 to 4095) of std_logic_vector(7 downto 0);
+	type	memory_array is array(0 to 511) of std_logic_vector(7 downto 0);
 	type	tstate IS (IDLE, RXSB, RXOP, RXOP2, RXADDR, WAITFORCS, RXDIN, TXDOUT);
 	type	tcmd IS (NONE, ERASE, ERAL, RE4D, WR1TE, WRAL);
 	type	t2state IS (IDLE, BUSY);
@@ -60,7 +60,7 @@ BEGIN
 					END IF;
 				ELSIF cmd = WRAL THEN
 					IF org = '1' THEN
-						for i in 0 to 2047 LOOP
+						for i in 0 to 255 LOOP
 							MEM_DATA(i*2) <= serialInR(15 DOWNTO 8);
 							MEM_DATA((i*2)+1) <= serialInR(7 DOWNTO 0);
 						END LOOP;
@@ -207,10 +207,10 @@ BEGIN
 			ELSE
 				IF cnt = 0 THEN
 					IF org = '1' THEN
-						TXtmpSerOut := MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '0'))+addressOffset) & 
-								MEM_DATA(TO_INTEGER(unsigned(address(7 DOWNTO 0) & '1'))+addressOffset);
+						TXtmpSerOut := MEM_DATA((TO_INTEGER(unsigned(address(7 DOWNTO 0) & '0'))+addressOffset) mod 512) & 
+								MEM_DATA((TO_INTEGER(unsigned(address(7 DOWNTO 0) & '1'))+addressOffset) mod 512);
 					ELSE
-						TXtmpSerOut(15 DOWNTO 8) := MEM_DATA(TO_INTEGER(unsigned(address))+addressOffset);
+						TXtmpSerOut(15 DOWNTO 8) := MEM_DATA((TO_INTEGER(unsigned(address))+addressOffset) mod 512);
 					END IF;
 				END IF;
 				dout <= TXtmpSerOut(15);
