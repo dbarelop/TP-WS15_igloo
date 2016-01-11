@@ -87,15 +87,15 @@ BEGIN
 				ADCsclk			=> ADCsclk);			-- serial clock output
 
 	u2: AD7782
-   GENERIC MAP(ref => ref)
+   GENERIC MAP(ref => RSTDEF)
    PORT MAP(ain1 => ain1,
             ain2 => ain2,
-            rng  => rng,
-            sel  => sel,
-            mode => mode,
-            sclk => sclk,
-            cs   => cs,
-            dout => adot);
+            rng  => ADCrng,
+            sel  => ADCsel,
+            mode => ADCmode,
+            sclk => ADCsclk,
+            cs   => ACDcs,
+            dout => ADCdin);
 				
 	test: PROCESS IS
 
