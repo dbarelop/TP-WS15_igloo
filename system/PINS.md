@@ -27,9 +27,9 @@ IGLOO nano Starter Kit
 
 | Pin No. | Net name   |
 |---------|------------|
-| 86      | MODE       |
-| 85      | MISO      |
-| 84      | CS        |
-| 83      | RANGE        |
-| 82      | SCLK        |
 | 81      | CH1/CH2    |
+| 82      | SCLK        |
+| 83      | RANGE        |
+| 84      | CS        |
+| 85      | MISO      |
+| 86      | MODE       |
