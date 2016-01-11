@@ -96,14 +96,13 @@ Device ID: 0b0010
 |read command|
 
 #### RX
-|	 |   |
-|---|---|
-|0xAA|3x 0xD|
-|OK-byte|3 Data Bytes|
+|	 |   |   |   |
+|---|---|---|---|
+|0xAA|0bDDDDDDDD|0bDDDDDDDD|0bDDDDDDDD|
+|OK-byte|last Highest Byte| second Byte| first lowest Byte|
 
 ### CH1
 * Set the Chanal for the next AD Conversion on CH1.
-* Dont sends any OK Message untill now...
 
 #### TX
 |   |
@@ -111,9 +110,14 @@ Device ID: 0b0010
 |0x23|
 |chanel select command|
 
+#### RX
+|         |
+|---------|
+| 0xAA    |
+| OK-byte |
+
 ### CH2
 * Set the Chanal for the next AD Conversion on CH2.
-* Dont sends any OK Message untill now...
 
 #### TX
 |   |
@@ -121,9 +125,14 @@ Device ID: 0b0010
 |0x24|
 |chanel select command|
 
+#### RX
+|         |
+|---------|
+| 0xAA    |
+| OK-byte |
+
 ### RNG1
 * Set the range for the next AD Conversion on +- 2.56V
-* Dont sends any OK Message untill now...
 
 #### TX
 |   |
@@ -131,12 +140,23 @@ Device ID: 0b0010
 |0x25|
 |range select command|
 
+#### RX
+|         |
+|---------|
+| 0xAA    |
+| OK-byte |
+
 ### RNG2
 * Set the range for the next AD Conversion on +- 0.16V
-* Dont sends any OK Message untill now...
 
 #### TX
 |   |
 |---|
 |0x26|
 |range select command|
+
+#### RX
+|         |
+|---------|
+| 0xAA    |
+| OK-byte |
