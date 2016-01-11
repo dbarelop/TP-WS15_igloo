@@ -161,6 +161,8 @@ BEGIN
 			ELSIF readcmd = TXANSWER2 THEN
 				uartout <= dout(7 DOWNTO 0);
 				uartTx <= '1';
+				readcmd <= DELAY2;
+			ELSIF readcmd = DELAY2 THEN
 				state <= ENDCOM;
 				readcmd <= SENDCMD;
 			END IF;
