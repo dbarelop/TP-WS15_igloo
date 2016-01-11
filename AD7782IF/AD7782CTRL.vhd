@@ -4,7 +4,7 @@ USE ieee.std_logic_unsigned.ALL;
 
 ENTITY AD7782CTRL IS
 	GENERIC(RSTDEF: std_logic := '1';
-			DEVICEID: std_logic_vector(3 DOWNTO 0) := "0000");
+			DEVICEID: std_logic_vector(3 DOWNTO 0) := "0010");
 	PORT(	rst:		IN	std_logic;
 			clk:		IN	std_logic;
 			busy:		INOUT	std_logic;							-- busy bit indicates working component
@@ -26,8 +26,18 @@ ENTITY AD7782CTRL IS
 END AD7782CTRL;
 
 ARCHITECTURE behaviour OF AD7782CTRL IS
+	CONSTANT AIN1: std_logic := '0';
+	CONSTANT AIN2: std_logic := '1';
+	CONSTANT RANGEHIG: std_logic := '1';
+	CONSTANT RANGELOW: std_logic := '0';
+	CONSTANT HIG:	std_logic := '1';
+	CONSTANT LOW:	std_logic := '0';
+	
+	CONSTANT BYTE:	natural	:= 8;
 
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
+	SIGNAL cnt:		std_logic_vector(2 DOWNTO 0);
+	SIGNAL adcBUF: std_logic_vector(24-1 DOWNTO 0);
 	
 	SIGNAL strb:	std_logic;									-- Inicial new AD Calculation
 	SIGNAL csel:	std_logic;									-- select wich chanel is used AIN1(0), AIN2(1)
@@ -37,7 +47,12 @@ ARCHITECTURE behaviour OF AD7782CTRL IS
 	SIGNAL ch2:		std_logic_vector(24-1 DOWNTO 0);
 
 	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, EXECMD, ENDCOM);
-	SIGNAL state: tstate;
+	TYPE pstate IS (S0, S1, S2, FB, SB, TB);
+	TYPE sstate IS (S0, S1, S2, D0, D1);
+	SIGNAL state:	tstate;
+	SIGNAL ps: 		pstate;
+	SIGNAL ss:		sstate;
+	
 	
 	COMPONENT AD7782IF IS
    GENERIC(RSTDEF: std_logic := '1');
@@ -58,6 +73,8 @@ ARCHITECTURE behaviour OF AD7782CTRL IS
 	END COMPONENT;
 
 BEGIN
+	adcBUF <= ch1 WHEN csel='0' ELSE ch2 WHEN csel='1';
+	
 	u1: AD7782IF
 	GENERIC MAP(RSTDEF => RSTDEF)
 	PORT MAP(rst 	=> rst,
@@ -76,12 +93,87 @@ BEGIN
 				ch2	=> ch2);
 
 	main: PROCESS (clk, rst) IS
+	
+	PROCEDURE readADwriteUART IS
+	BEGIN
+		CASE ps IS
+			WHEN S0 =>				-- set strb to '1'
+				strb	<= HIG;
+				ps		<= S1;	
+			WHEN S1 =>				-- set strb back to '0'
+				strb 	<= LOW;
+				ps		<= S2;
+			WHEN S2 =>				-- wait for AD Conversion
+				IF done=HIG THEN
+					ps	<= FB;
+				END IF;
+			WHEN FB => 				-- Send first Byte
+				CASE ss IS
+					WHEN S0 =>
+						uartout 	<= adcBUF(7 DOWNTO 0);
+						uartTx	<= '1';
+						ss 		<= D0;
+					WHEN D0 =>
+						ss			<= D1;
+					WHEN D1 =>
+						ss			<= S1;
+					WHEN S1 =>
+						uartTx	<= '0';
+						ss			<= S2;
+					WHEN S2 =>
+						IF uartTxReady='1' THEN
+							ps		<= SB;
+						END IF;
+				END CASE;
+			WHEN SB => 				-- Send second Byte
+				CASE ss IS
+					WHEN S0 =>
+						uartout 	<= adcBUF(15 DOWNTO 8);
+						uartTx	<= '1';
+						ss 		<= D0;
+					WHEN D0 =>
+						ss			<= D1;
+					WHEN D1 =>
+						ss			<= S1;
+					WHEN S1 =>
+						uartTx	<= '0';
+						ss			<= S2;
+					WHEN S2 =>
+						IF uartTxReady='1' THEN
+							ps		<= TB;
+						END IF;
+				END CASE;
+			WHEN TB => 				-- Send thirds(last) Byte
+				CASE ss IS
+					WHEN S0 =>
+						uartout 	<= adcBUF(23 DOWNTO 16);
+						uartTx	<= '1';
+						ss 		<= D0;
+					WHEN D0 =>
+						ss			<= D1;
+					WHEN D1 =>
+						ss			<= S1;
+					WHEN S1 =>
+						uartTx	<= '0';
+						ss			<= S2;
+					WHEN S2 =>
+						state <= ENDCOM;
+						ps		<= S0;
+				END CASE;
+		END CASE;
+	END PROCEDURE
+	
 	BEGIN
 		IF rst = RSTDEF THEN
 			busy <= 'Z';
 			uartout <= (others => 'Z');
 			uartTx <= 'Z';
 			uartRd <= 'Z';
+			
+			csel 	<= AIN1;
+			rsel	<= RANGEHIG;
+			strb	<= LOW;
+			cnt	<= (OTHERS => LOW);
 
 			state <= IDLE;
 		ELSIF rising_edge(clk) THEN
@@ -91,6 +183,8 @@ BEGIN
 					uartRd <= '1';
 					dataIN <= uartin;
 					state <= READSENDOK;
+					
+					cnt	<= (OTHERS => LOW);
 				END IF;
 			ELSIF state = READSENDOK THEN
 				uartout <= x"AA"; -- OK message
@@ -107,13 +201,21 @@ BEGIN
 			ELSIF state = EXECMD THEN
 				-- BEGIN handle command
 				CASE dataIN(3 DOWNTO 0) IS
-					WHEN "0000" =>
-						uartout <= x"02";
-						uartTx <= '1';
-						state <= ENDCOM;
+					WHEN X"0" =>
+						-- Lese AD Wert und gebe Ihn auf UartOUT aus.
+						readADwriteUART;
+					WHEN X"3" =>
+						csel <= AIN1;
+					WHEN X"4" =>
+						csel <= AIN2;
+					WHEN X"5" =>
+						rsel <= RANGEHIG;
+					WHEN X"6" =>
+						rsel <= RANGELOW;
 					WHEN others =>
 						state <= ENDCOM;
 				END CASE;
+				state <= ENDCOM;
 				-- END handle command
 			ELSIF state = ENDCOM THEN
 				uartout <= (others => 'Z');
@@ -121,6 +223,8 @@ BEGIN
 				uartRd <= 'Z';
 				busy <= 'Z';
 				state <= IDLE;
+				
+				cnt	<= (OTHERS => LOW);
 			END IF;
 		END IF;
 	END PROCESS;
