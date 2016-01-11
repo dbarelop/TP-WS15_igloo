@@ -163,8 +163,8 @@ BEGIN
 				uartTx <= '1';
 				readcmd <= DELAY2;
 			ELSIF readcmd = DELAY2 THEN
+				uartTx <= '0';
 				IF uartTxReady = '1' THEN
-					uartTx <= '0';
 					state <= ENDCOM;
 					readcmd <= SENDCMD;
 				END IF;
