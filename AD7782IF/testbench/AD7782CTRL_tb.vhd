@@ -61,6 +61,7 @@ ARCHITECTURE behaviour OF COMPXCTRL_tb IS
 	SIGNAL ADCsel: 		std_logic;
 	SIGNAL ADCcs:			std_logic;
 	SIGNAL ADCsclk:		std_logic;
+	SIGNAL ADCmode:		std_logic;
 
 	SIGNAL busy:		std_logic := '0';
 	SIGNAL serOut:		std_logic_vector(7 DOWNTO 0) := (others => '0');
@@ -93,14 +94,14 @@ BEGIN
 				ADCsclk			=> ADCsclk);			-- serial clock output
 
 	u2: AD7782
-   GENERIC MAP(ref => RSTDEF)
+   GENERIC MAP(ref => 2.5)
    PORT MAP(ain1 => ain1,
             ain2 => ain2,
             rng  => ADCrng,
             sel  => ADCsel,
             mode => ADCmode,
             sclk => ADCsclk,
-            cs   => ACDcs,
+            cs   => ADCcs,
             dout => ADCdin);
 				
 	test: PROCESS IS
