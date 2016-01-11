@@ -7,6 +7,7 @@ ENTITY AD7782CTRL IS
 			DEVICEID: std_logic_vector(3 DOWNTO 0) := "0000");
 	PORT(	rst:		IN	std_logic;
 			clk:		IN	std_logic;
+			busy:		INOUT	std_logic;							-- busy bit indicates working component
 
 			uartin:		IN 	std_logic_vector(7 DOWNTO 0);
 			uartout:		INOUT std_logic_vector(7 DOWNTO 0);
@@ -14,28 +15,26 @@ ENTITY AD7782CTRL IS
 			uartTx:		INOUT std_logic;						-- starts transmission of new byte
 			uartRx:		IN		std_logic;						-- indicates new byte is available to read
 			uartTxReady:IN 	std_logic;						-- indicates new byte can be send
-
-			busy:			INOUT	std_logic						-- busy bit indicates working component
 			
-			strb: OUT  	std_logic;  							-- strobe, inicial new ADC:	high active
-			csel: OUT  	std_logic;  							-- select wich chanel is used AIN1(0), AIN2(1)
-			rsel: OUT  	std_logic;  							-- select wich range is used 2.56V(1), 160mV(0)
-			done: IN 	std_logic;  							-- get done if datas are valid on ch1/2 output (High Active)
-			ch1:  IN 	std_logic_vector(24-1 DOWNTO 0);
-			ch2:  IN 	std_logic_vector(24-1 DOWNTO 0));
-			
-			ADCdin: 	OUT 	std_logic;
-			ADCrng: 	IN		std_logic;
-			ADCsel: 	IN 	std_logic;  -- logic output which selects the active channel AIN1 (=0) or ANI2 (=1)
-         ADCmode:	IN 	std_logic;  -- logic output which selects master (=0) or slave (=1) mode of operation
-         ADCcs:  	IN 	std_logic;  -- chip select, low active
-         ADCsclk:	IN 	std_logic;  -- serial clock output
+			ADCdin: 	IN 	std_logic;
+			ADCrng: 	OUT	std_logic;
+			ADCsel: 	OUT 	std_logic;  -- logic output which selects the active channel AIN1 (=0) or ANI2 (=1)
+         ADCmode:	OUT 	std_logic;  -- logic output which selects master (=0) or slave (=1) mode of operation
+         ADCcs:  	OUT 	std_logic;  -- chip select, low active
+         ADCsclk:	OUT 	std_logic); -- serial clock output
 
 END AD7782CTRL;
 
 ARCHITECTURE behaviour OF AD7782CTRL IS
 
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
+	
+	SIGNAL strb:	std_logic;									-- Inicial new AD Calculation
+	SIGNAL csel:	std_logic;									-- select wich chanel is used AIN1(0), AIN2(1)
+	SIGNAL rsel: 	std_logic;									-- select wich range is used 2.56V(1), 160mV(0)
+	SIGNAL done:	std_logic;									-- get done if datas are valid on ch1/2 output (High Active)
+	SIGNAL ch1:		std_logic_vector(24-1 DOWNTO 0);
+	SIGNAL ch2:		std_logic_vector(24-1 DOWNTO 0);
 
 	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, EXECMD, ENDCOM);
 	SIGNAL state: tstate;
@@ -56,11 +55,11 @@ ARCHITECTURE behaviour OF AD7782CTRL IS
          done: OUT std_logic;  -- set done if datas are valid on ch1/2 output (High Active)
          ch1:  OUT std_logic_vector(24-1 DOWNTO 0);
          ch2:  OUT std_logic_vector(24-1 DOWNTO 0));
-	END AD7782IF;
+	END COMPONENT;
 
 BEGIN
-	u1: ADIF
-	GENERIC MAP(RSTDEF => RSTDEF);
+	u1: AD7782IF
+	GENERIC MAP(RSTDEF => RSTDEF)
 	PORT MAP(rst 	=> rst,
 				clk 	=> clk,
 				strb 	=> strb,

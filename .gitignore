@@ -22,6 +22,7 @@ transcript*
 sc_dpiheader.h
 vsim.dbg
 uart/simuli/
+simuli/
 
 # ignore pdf files
 Literatur/
