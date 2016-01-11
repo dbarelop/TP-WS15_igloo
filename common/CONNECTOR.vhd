@@ -20,7 +20,7 @@ ENTITY CONNECTOR IS
 			ADCsel: 	OUT 	std_logic;  -- logic output which selects the active channel: AIN1 (=0) or ANI2 (=1)
          ADCmode:	OUT 	std_logic;  -- logic output which selects master (=0) or slave (=1) mode of operation
          ADCcs:  	OUT 	std_logic;  -- chip select, low active
-         ADCsclk:	OUT 	std_logic); -- serial clock output
+         ADCsclk:	OUT 	std_logic -- serial clock output
 
 	);
 
@@ -199,7 +199,7 @@ BEGIN
 	GENERIC MAP(RSTDEF	=>	RSTDEF,
 			DEVICEID	=>	"0010")
 	PORT MAP(rst	=> rst,
-				clk:	=> clk,
+				clk	=> clk,
 				busy	=> busy,								-- busy bit indicates working component
 
 				uartin			=> dout,

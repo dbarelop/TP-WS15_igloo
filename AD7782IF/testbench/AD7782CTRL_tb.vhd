@@ -57,7 +57,7 @@ BEGIN
 	GENERIC MAP(RSTDEF	=>	RSTDEF,
 			DEVICEID	=>	"0010")
 	PORT MAP(rst	=> rst,
-				clk:	=> clk,
+				clk	=> clk,
 				busy	=> busy,								-- busy bit indicates working component
 
 				uartin			=> uartin,

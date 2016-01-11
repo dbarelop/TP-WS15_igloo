@@ -47,7 +47,7 @@ ARCHITECTURE behaviour OF AD7782CTRL IS
 
 	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, EXECMD, ENDCOM);
 	TYPE pstate IS (S0, S1, S2, FB, SB, TB);
-	TYPE sstate IS (S0, S1, S2, D0, D1);
+	TYPE sstate IS (S0, S1, S2);
 	SIGNAL state:	tstate;
 	SIGNAL ps: 		pstate;
 	SIGNAL ss:		sstate;
@@ -160,7 +160,7 @@ BEGIN
 						END IF;
 				END CASE;
 		END CASE;
-	END PROCEDURE
+	END PROCEDURE;
 	
 	BEGIN
 		IF rst = RSTDEF THEN
