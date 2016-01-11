@@ -30,6 +30,18 @@ ARCHITECTURE behaviour OF COMPXCTRL_tb IS
 				ADCsclk:	OUT 	std_logic); -- serial clock output
 	END COMPONENT;
 
+   COMPONENT AD7782
+      GENERIC(ref: real);
+      PORT( ain1: IN  real;        -- analog input: +/- Ref
+            ain2: IN  real;        -- analog input: +/- Ref
+            rng:  IN  std_logic;   -- logic input which configures the input range on the internal PGA
+            sel:  IN  std_logic;   -- logic input which selects the active channel AIN1 oo ANI2
+            mode: IN  std_logic;   -- logic input which selects master (=0) or slave (=1) mode of operation
+            sclk: IN  std_logic;   -- serial clock output
+            cs:   IN  std_logic;   -- chip select, low active
+            dout: OUT std_logic);  -- serial data output
+   END COMPONENT;
+	
 	CONSTANT RSTDEF: 	std_logic 	:= '0';
 	CONSTANT FRQDEF: 	natural		:= 4e6;
 	CONSTANT tcyc:		time		:= 1 sec / FRQDEF;
@@ -74,6 +86,17 @@ BEGIN
 				ADCcs				=> ADCcs,				-- chip select, low active
 				ADCsclk			=> ADCsclk);			-- serial clock output
 
+	u2: AD7782
+   GENERIC MAP(ref => ref)
+   PORT MAP(ain1 => ain1,
+            ain2 => ain2,
+            rng  => rng,
+            sel  => sel,
+            mode => mode,
+            sclk => sclk,
+            cs   => cs,
+            dout => adot);
+				
 	test: PROCESS IS
 
 		VARIABLE n_rxbytes: integer;
