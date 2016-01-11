@@ -9,13 +9,13 @@ ENTITY COMPXCTRL IS
 			clk:		IN	std_logic;
 
 			uartin:		IN 	std_logic_vector(7 DOWNTO 0);
-			uartRx:		IN	std_logic;						-- indicates new byte is available
+			uartout:		INOUT std_logic_vector(7 DOWNTO 0);
 			uartRd:		INOUT std_logic; 						-- indicates value was read from controller
-			uartout:	INOUT std_logic_vector(7 DOWNTO 0);
-			uartTxReady:IN 	std_logic;						-- indicates new byte can be send
 			uartTx:		INOUT std_logic;						-- starts transmission of new byte
+			uartRx:		IN		std_logic;						-- indicates new byte is available to read
+			uartTxReady:IN 	std_logic;						-- indicates new byte can be send
 
-			busy:		INOUT	std_logic					-- busy bit indicates working component
+			busy:			INOUT	std_logic						-- busy bit indicates working component
 	);
 
 END COMPXCTRL;

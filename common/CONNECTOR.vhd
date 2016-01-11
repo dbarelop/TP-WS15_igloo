@@ -101,7 +101,7 @@ ARCHITECTURE behaviour OF CONNECTOR IS
 
 BEGIN
 
-	uartTxReady <= tsre AND thre;
+	uartTxReady <= tsre AND thre;		-- new byte can be send
 
 	u1: uart
 	GENERIC MAP(RSTDEF => RSTDEF,
@@ -113,15 +113,15 @@ BEGIN
 			swrst	=>	NOT RSTDEF,
 			ena		=>	'1',
 
-			rxd		=>	uartRx,
-			rden	=>	rden,
+			rxd		=>	uartRx,			-- pc Connection
+			rden	=>	rden,					-- dout read
 			dout	=>	dout,
-			rhrf	=>	rhrf,
+			rhrf	=>	rhrf,					-- new byte on dout
 			ovre	=>	OPEN,
 			frme	=>	OPEN,
 
-			txd		=>	uartTx,
-			wren	=>	wren,
+			txd		=>	uartTx,			-- pc Connection
+			wren	=>	wren,					-- send din
 			din		=>	din, 
 			tsre	=>	tsre,
 			thre	=>	thre 
