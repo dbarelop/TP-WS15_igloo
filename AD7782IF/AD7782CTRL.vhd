@@ -38,6 +38,7 @@ ARCHITECTURE behaviour OF AD7782CTRL IS
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
 	SIGNAL cnt:		std_logic_vector(2 DOWNTO 0);
 	SIGNAL adcBUF: std_logic_vector(24-1 DOWNTO 0);
+	SIGNAL blockCMDs: std_logic := '0';
 	
 	SIGNAL strb:	std_logic;									-- Inicial new AD Calculation
 	SIGNAL csel:	std_logic;									-- select wich chanel is used AIN1(0), AIN2(1)
@@ -98,6 +99,7 @@ BEGIN
 	BEGIN
 		CASE ps IS
 			WHEN S0 =>				-- set strb to '1'
+				blockCMDs <= '1';
 				strb	<= HIG;
 				ps		<= S1;	
 			WHEN S1 =>				-- set strb back to '0'
@@ -112,16 +114,15 @@ BEGIN
 					WHEN S0 =>
 						uartout 	<= adcBUF(7 DOWNTO 0);
 						uartTx	<= '1';
-						ss 		<= D0;
-					WHEN D0 =>
-						ss			<= D1;
-					WHEN D1 =>
 						ss			<= S1;
 					WHEN S1 =>
-						uartTx	<= '0';
-						ss			<= S2;
+						IF uartTxReady='0' THEN
+							uartTx	<= '0';
+							ss			<= S2;
+						END IF;
 					WHEN S2 =>
 						IF uartTxReady='1' THEN
+							ss 	<= S0;
 							ps		<= SB;
 						END IF;
 				END CASE;
@@ -130,35 +131,35 @@ BEGIN
 					WHEN S0 =>
 						uartout 	<= adcBUF(15 DOWNTO 8);
 						uartTx	<= '1';
-						ss 		<= D0;
-					WHEN D0 =>
-						ss			<= D1;
-					WHEN D1 =>
 						ss			<= S1;
 					WHEN S1 =>
-						uartTx	<= '0';
-						ss			<= S2;
+						IF uartTxReady='0' THEN
+							uartTx	<= '0';
+							ss			<= S2;
+						END IF;
 					WHEN S2 =>
 						IF uartTxReady='1' THEN
+							ss 	<= S0;
 							ps		<= TB;
 						END IF;
 				END CASE;
-			WHEN TB => 				-- Send thirds(last) Byte
+			WHEN TB => 				-- Send third(last) Byte
 				CASE ss IS
 					WHEN S0 =>
 						uartout 	<= adcBUF(23 DOWNTO 16);
 						uartTx	<= '1';
-						ss 		<= D0;
-					WHEN D0 =>
-						ss			<= D1;
-					WHEN D1 =>
 						ss			<= S1;
 					WHEN S1 =>
-						uartTx	<= '0';
-						ss			<= S2;
+						IF uartTxReady='0' THEN
+							uartTx	<= '0';
+							ss			<= S2;
+						END IF;
 					WHEN S2 =>
-						state <= ENDCOM;
-						ps		<= S0;
+						IF uartTxReady='1' THEN
+							ss 	<= S0;
+							ps		<= S0;
+							blockCMDs <= '0';
+						END IF;
 				END CASE;
 		END CASE;
 	END PROCEDURE
@@ -200,22 +201,23 @@ BEGIN
 				END IF;
 			ELSIF state = EXECMD THEN
 				-- BEGIN handle command
-				CASE dataIN(3 DOWNTO 0) IS
-					WHEN X"0" =>
-						-- Lese AD Wert und gebe Ihn auf UartOUT aus.
-						readADwriteUART;
-					WHEN X"3" =>
-						csel <= AIN1;
-					WHEN X"4" =>
-						csel <= AIN2;
-					WHEN X"5" =>
-						rsel <= RANGEHIG;
-					WHEN X"6" =>
-						rsel <= RANGELOW;
-					WHEN others =>
-						state <= ENDCOM;
-				END CASE;
-				state <= ENDCOM;
+				IF blockCMDs='0' THEN
+					CASE dataIN(3 DOWNTO 0) IS
+						WHEN X"0" =>
+							readADwriteUART;
+						WHEN X"3" =>
+							csel <= AIN1;
+						WHEN X"4" =>
+							csel <= AIN2;
+						WHEN X"5" =>
+							rsel <= RANGEHIG;
+						WHEN X"6" =>
+							rsel <= RANGELOW;
+						WHEN others =>
+							state <= ENDCOM;
+					END CASE;
+					state <= ENDCOM;
+				END IF;
 				-- END handle command
 			ELSIF state = ENDCOM THEN
 				uartout <= (others => 'Z');
