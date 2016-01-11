@@ -13,7 +13,14 @@ ENTITY CONNECTOR IS
 			eepromSCLK:	OUT std_logic;
 			eepromMOSI: OUT std_logic;
 			eepromMISO: IN  std_logic;
-			eepromORG:	OUT std_logic
+			eepromORG:	OUT std_logic;
+			
+			ADCdin: 	IN 	std_logic;	-- Serial Datainput from the AD Converter
+			ADCrng: 	OUT	std_logic;	-- logic output which selects the range for AD Converter: 2.56V(1), 160mV(0)
+			ADCsel: 	OUT 	std_logic;  -- logic output which selects the active channel: AIN1 (=0) or ANI2 (=1)
+         ADCmode:	OUT 	std_logic;  -- logic output which selects master (=0) or slave (=1) mode of operation
+         ADCcs:  	OUT 	std_logic;  -- chip select, low active
+         ADCsclk:	OUT 	std_logic); -- serial clock output
 
 	);
 
@@ -97,6 +104,29 @@ ARCHITECTURE behaviour OF CONNECTOR IS
 			org:		OUT 	std_logic
 		);
 	END COMPONENT;
+	
+	COMPONENT AD7782CTRL IS
+	GENERIC(RSTDEF: std_logic := '1';
+			DEVICEID: std_logic_vector(3 DOWNTO 0) := "0010");
+	PORT(	rst:		IN	std_logic;
+			clk:		IN	std_logic;
+			busy:		INOUT	std_logic;							-- busy bit indicates working component
+
+			uartin:		IN 	std_logic_vector(7 DOWNTO 0);
+			uartout:		INOUT std_logic_vector(7 DOWNTO 0);
+			uartRd:		INOUT std_logic; 						-- indicates value was read from controller
+			uartTx:		INOUT std_logic;						-- starts transmission of new byte
+			uartRx:		IN		std_logic;						-- indicates new byte is available to read
+			uartTxReady:IN 	std_logic;						-- indicates new byte can be send
+			
+			ADCdin: 	IN 	std_logic;
+			ADCrng: 	OUT	std_logic;
+			ADCsel: 	OUT 	std_logic;  -- logic output which selects the active channel AIN1 (=0) or ANI2 (=1)
+         ADCmode:	OUT 	std_logic;  -- logic output which selects master (=0) or slave (=1) mode of operation
+         ADCcs:  	OUT 	std_logic;  -- chip select, low active
+         ADCsclk:	OUT 	std_logic); -- serial clock output
+
+	END COMPONENT;
 
 
 BEGIN
@@ -164,5 +194,26 @@ BEGIN
 			miso	=>		eepromMISO,
 			org		=>		eepromORG
 			);
+	
+	d2: AD7782CTRL
+	GENERIC MAP(RSTDEF	=>	RSTDEF,
+			DEVICEID	=>	"0010")
+	PORT MAP(rst	=> rst,
+				clk:	=> clk,
+				busy	=> busy,								-- busy bit indicates working component
+
+				uartin			=> dout,
+				uartout			=> din,
+				uartRd			=> rden,					-- indicates value was read from controller
+				uartTx			=> wren,					-- starts transmission of new byte
+				uartRx			=> rhrf,					-- indicates new byte is available to read
+				uartTxReady		=> uartTxReady,		-- indicates new byte can be send
+				
+				ADCdin			=> ADCdin,
+				ADCrng			=> ADCrng,
+				ADCsel			=> ADCsel,				-- logic output which selects the active channel AIN1 (=0) or ANI2 (=1)
+				ADCmode			=> ADCmode,				-- logic output which selects master (=0) or slave (=1) mode of operation
+				ADCcs				=> ADCcs,				-- chip select, low active
+				ADCsclk			=> ADCsclk);			-- serial clock output
 
 END behaviour;
