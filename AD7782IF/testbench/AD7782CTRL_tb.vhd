@@ -55,6 +55,12 @@ ARCHITECTURE behaviour OF COMPXCTRL_tb IS
 	SIGNAL uartRd:			std_logic := '0';
 	SIGNAL uartTxReady:	std_logic := '1';
 	SIGNAL uartTx:			std_logic := '0';
+	
+	SIGNAL ADCdin:			std_logic;
+	SIGNAL ADCrng:			std_logic;
+	SIGNAL ADCsel: 		std_logic;
+	SIGNAL ADCcs:			std_logic;
+	SIGNAL ADCsclk:		std_logic;
 
 	SIGNAL busy:		std_logic := '0';
 	SIGNAL serOut:		std_logic_vector(7 DOWNTO 0) := (others => '0');
