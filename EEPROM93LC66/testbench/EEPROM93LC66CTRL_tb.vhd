@@ -152,10 +152,10 @@ BEGIN
 
 		setNBytes(3,1);
 		uartSendN("00010000"&"00000000"&"00000000", x"FF");
-		setNBytes(4,0);
-		uartSendN("00010001"&"00000001"&"00000000"&x"CC", "");
-		uartSendN("00010001"&"00000000"&"00000001"&x"DD", "");
-		uartSendN("00010001"&"00000000"&"00000010"&x"EE", "");
+		setNBytes(4,1);
+		uartSendN("00010001"&"00000001"&"00000000"&x"CC", x"BB");
+		uartSendN("00010001"&"00000000"&"00000001"&x"DD", x"BB");
+		uartSendN("00010001"&"00000000"&"00000010"&x"EE", x"BB");
 		setNBytes(3,1);
 		uartSendN("00010000"&"00000001"&"00000000", x"CC");
 		uartSendN("00010000"&"00000000"&"00000001", x"DD");
@@ -169,9 +169,9 @@ BEGIN
 		uartSendN("00010000"&"00000000"&"00000010", x"FF");
 
 		--16 bit
-		setNBytes(4,0);
-		uartSendN(x"18"&"00000000"&x"CC"&x"DD", "");
-		uartSendN(x"18"&"00000001"&x"AB"&x"BE", "");
+		setNBytes(4,1);
+		uartSendN(x"18"&"00000000"&x"CC"&x"DD", x"BB");
+		uartSendN(x"18"&"00000001"&x"AB"&x"BE", x"BB");
 		setNBytes(2,2);
 		uartSendN(x"17"&"00000000", x"CC"&x"DD");
 		uartSendN(x"17"&"00000001", x"AB"&x"BE");
