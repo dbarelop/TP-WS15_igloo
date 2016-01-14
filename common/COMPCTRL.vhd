@@ -4,7 +4,8 @@ USE ieee.std_logic_unsigned.ALL;
 
 ENTITY COMPXCTRL IS
 	GENERIC(RSTDEF: std_logic := '1';
-			DEVICEID: std_logic_vector(3 DOWNTO 0) := "0000");
+			DEVICEID: std_logic_vector(3 DOWNTO 0) := "0000";
+            TIMEOUT: NATURAL := 17);
 	PORT(	rst:		IN	std_logic;
 			clk:		IN	std_logic;
 
@@ -22,10 +23,23 @@ END COMPXCTRL;
 
 ARCHITECTURE behaviour OF COMPXCTRL IS
 
+    COMPONENT COUNTER
+		GENERIC(RSTDEF: std_logic := '1');
+        PORT(	rst:		IN	std_logic;
+                swrst:      IN  std_logic;
+                clk:		IN	std_logic;
+                en:         IN  std_logic;
+                length:     IN  NATURAL;
+                overflow:   OUT std_logic
+        );
+	END COMPONENT;
+
 	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, EXECMD, ENDCOM);
 
 	SIGNAL state: tstate;
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
+    SIGNAL overflow: std_logic;
+
 
 BEGIN
 
@@ -79,5 +93,15 @@ BEGIN
 			END IF;
 		END IF;
 	END PROCESS;
+
+    timoutCounter: COUNTER
+    GENERIC MAP(RSTDEF	=> 	RSTDEF)
+    PORT MAP(
+            rst => rst,
+            clk => clk,
+            en => busy,
+            length => TIMEOUT,
+            overflow => swrst
+	);
 
 END behaviour;
