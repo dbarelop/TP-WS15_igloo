@@ -46,11 +46,11 @@ ARCHITECTURE behaviour OF AD7782CTRL IS
 	SIGNAL ch2:		std_logic_vector(24-1 DOWNTO 0);
 
 	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, EXECMD, ENDCOM);
-	TYPE pstate IS (S0, S1, S2, FB, SB, TB);
-	TYPE sstate IS (S0, S1, S2);
-	SIGNAL state:	tstate;
-	SIGNAL ps: 		pstate;
-	SIGNAL ss:		sstate;
+	TYPE ADCSTATE IS (S0, S1, S2, FB, SB, TB);
+	TYPE UARTSTATE IS (S0, S1, S2);
+	SIGNAL state:		tstate;
+	SIGNAL adcState:	ADCSTATE;
+	SIGNAL uartState:	UARTSTATE;
 	
 	
 	COMPONENT AD7782IF IS
@@ -95,67 +95,67 @@ BEGIN
 	
 	PROCEDURE readADwriteUART IS
 	BEGIN
-		CASE ps IS
+		CASE adcState IS
 			WHEN S0 =>				-- set strb to '1'
 				blockCMDs <= '1';
 				strb	<= '1';
-				ps		<= S1;	
+				adcState		<= S1;	
 			WHEN S1 =>				-- set strb back to '0'
 				strb 	<= '0';
-				ps		<= S2;
+				adcState		<= S2;
 			WHEN S2 =>				-- wait for AD Conversion
 				IF done='1' THEN
-					ps	<= FB;
+					adcState	<= FB;
 				END IF;
 			WHEN FB => 				-- Send first Byte
-				CASE ss IS
-					WHEN S0 =>
+				CASE uartState IS
+					WHEN S0 =>		-- Set uartOUT and uartTx
 						uartout 	<= adcBUF(7 DOWNTO 0);
 						uartTx	<= '1';
-						ss			<= S1;
-					WHEN S1 =>
+						uartState			<= S1;
+					WHEN S1 =>		-- Wait on Ready
 						IF uartTxReady='0' THEN
 							uartTx	<= '0';
-							ss			<= S2;
+							uartState			<= S2;
 						END IF;
 					WHEN S2 =>
 						IF uartTxReady='1' THEN
-							ss 	<= S0;
-							ps		<= SB;
+							uartState 	<= S0;
+							adcState		<= SB;
 						END IF;
 				END CASE;
 			WHEN SB => 				-- Send second Byte
-				CASE ss IS
+				CASE uartState IS
 					WHEN S0 =>
 						uartout 	<= adcBUF(15 DOWNTO 8);
 						uartTx	<= '1';
-						ss			<= S1;
+						uartState			<= S1;
 					WHEN S1 =>
 						IF uartTxReady='0' THEN
 							uartTx	<= '0';
-							ss			<= S2;
+							uartState			<= S2;
 						END IF;
 					WHEN S2 =>
 						IF uartTxReady='1' THEN
-							ss 	<= S0;
-							ps		<= TB;
+							uartState 	<= S0;
+							adcState		<= TB;
 						END IF;
 				END CASE;
 			WHEN TB => 				-- Send third(last) Byte
-				CASE ss IS
+				CASE uartState IS
 					WHEN S0 =>
 						uartout 	<= adcBUF(23 DOWNTO 16);
 						uartTx	<= '1';
-						ss			<= S1;
+						uartState			<= S1;
 					WHEN S1 =>
 						IF uartTxReady='0' THEN
 							uartTx	<= '0';
-							ss			<= S2;
+							uartState			<= S2;
 						END IF;
 					WHEN S2 =>
 						IF uartTxReady='1' THEN
-							ss 	<= S0;
-							ps		<= S0;
+							uartState 	<= S0;
+							adcState		<= S0;
 							blockCMDs <= '0';
 						END IF;
 				END CASE;
