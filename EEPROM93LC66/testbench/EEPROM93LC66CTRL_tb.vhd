@@ -161,8 +161,8 @@ BEGIN
 		uartSendN("00010000"&"00000000"&"00000001", x"DD");
 		uartSendN("00010000"&"00000000"&"00000010", x"EE");
 		--ERAL
-		setNBytes(1,0);
-		uartSendN("00010010", "");
+		setNBytes(1,1);
+		uartSendN("00010010", x"BB");
 		setNBytes(3,1);
 		uartSendN("00010000"&"00000001"&"00000000", x"FF");
 		uartSendN("00010000"&"00000000"&"00000001", x"FF");

@@ -202,6 +202,15 @@ BEGIN
 			ELSIF readcmd = WAITANSWER THEN
 				strb <= '0';
 				IF busyout = '0' AND strb = '0' THEN
+					readcmd <= DONEMSG;
+				END IF;
+			ELSIF readcmd = DONEMSG THEN
+				uartout <= x"bb";
+				uartTx <= '1';
+				readcmd <= DELAYDONE;
+			ELSIF readcmd = DELAYDONE THEN
+				uartTx <= '0';
+				IF uartTxReady = '1' AND uartTx = '0' THEN
 					readcmd <= SENDCMD;
 					state <= ENDCOM;
 				END IF;

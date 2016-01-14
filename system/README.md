@@ -100,7 +100,7 @@ Device ID: 0b0001
 | erase all command |
 
 #### RX
-|         |
-|---------|
-| 0xAA    |
-| OK-byte |
+|         |         |
+|---------|---------|
+| 0xAA    | 0xBB    |
+| OK-byte | Done-byte |
