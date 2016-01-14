@@ -41,6 +41,7 @@ ARCHITECTURE behaviour OF COMPXCTRL_tb IS
 	SIGNAL busy:		std_logic := '0';
 
 	SIGNAL serOut:		std_logic_vector(7 DOWNTO 0) := (others => '0');
+    SIGNAL swrstCounter: natural := 0;
 
 BEGIN
 
@@ -113,16 +114,55 @@ BEGIN
 			END IF;
 
 		END PROCEDURE;
+        
+        PROCEDURE waitXClocks(clocks: integer) IS
+        
+        VARIABLE clockCount: integer;
+        
+        BEGIN
+            WHILE clockCount < clocks LOOP 
+                WAIT UNTIL clk = '1';
+                clockCount := clockCount + 1;
+                WAIT UNTIL clk = '0';
+            END LOOP;
+        END PROCEDURE;
+        
+        PROCEDURE watchdog IS
+        BEGIN
+            swrstCounter <= 0;
+            busy <= '1';
+            waitXClocks(127000);
+            busy <= '0';
+            assert swrstCounter = 0 report "Watchdog reseted to early";
+            swrstCounter <= 0;
+            busy <= '1';
+            waitXClocks(129000);
+            busy <= '0';
+            assert swrstCounter = 1 report "Watchdog did not reset correctly";
+        END PROCEDURE;
+        
 	BEGIN
 		WAIT FOR 1 us;
 		rst <= NOT RSTDEF;
 
 		setNBytes(1, 1);
 		uartSendN("00000000", x"03");
-
+        
+        
+        
 		REPORT "all tests done..." SEVERITY note;
 		WAIT;
 
 	END PROCESS;
+    
+    watchdogtest: PROCESS(swrst) IS
+    BEGIN
+        IF rising_edge(swrst) THEN
+            swrstCounter <= swrstCounter + 1;
+        END IF;
+    END PROCESS;    
+       
+    
+     
 
 END behaviour;
