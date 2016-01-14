@@ -36,7 +36,6 @@ ARCHITECTURE behaviour OF AD7782CTRL IS
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
 	SIGNAL cnt:		std_logic_vector(2 DOWNTO 0);
 	SIGNAL adcBUF: std_logic_vector(24-1 DOWNTO 0);
-	SIGNAL blockCMDs: std_logic := '0';
 	
 	SIGNAL strb:	std_logic;									-- Inicial new AD Calculation
 	SIGNAL csel:	std_logic;									-- select wich chanel is used AIN1(0), AIN2(1)
@@ -45,13 +44,14 @@ ARCHITECTURE behaviour OF AD7782CTRL IS
 	SIGNAL ch1:		std_logic_vector(24-1 DOWNTO 0);
 	SIGNAL ch2:		std_logic_vector(24-1 DOWNTO 0);
 
-	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, EXECMD, ENDCOM);
+	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, REDCMD, EXECMD, ENDCOM);
 	TYPE ADCSTATE IS (S0, S1, S2, FB, SB, TB);
 	TYPE UARTSTATE IS (S0, S1, S2);
+	TYPE CMDSTATE	IS	(IDLE, RW, setAIN1, setAIN2, setRNGH, setRNGL)
 	SIGNAL state:		tstate;
-	SIGNAL adcState:	ADCSTATE;
-	SIGNAL uartState:	UARTSTATE;
-	
+	SIGNAL adcs:		ADCSTATE;
+	SIGNAL uarts:		UARTSTATE;
+	SIGNAL cmds:		CMDSTATE;
 	
 	COMPONENT AD7782IF IS
    GENERIC(RSTDEF: std_logic := '1');
@@ -95,68 +95,67 @@ BEGIN
 	
 	PROCEDURE readADwriteUART IS
 	BEGIN
-		CASE adcState IS
+		CASE adcs IS
 			WHEN S0 =>				-- set strb to '1'
-				blockCMDs <= '1';
 				strb	<= '1';
-				adcState		<= S1;	
+				adcs		<= S1;	
 			WHEN S1 =>				-- set strb back to '0'
 				strb 	<= '0';
-				adcState		<= S2;
+				adcs		<= S2;
 			WHEN S2 =>				-- wait for AD Conversion
 				IF done='1' THEN
-					adcState	<= FB;
+					adcs	<= FB;
 				END IF;
 			WHEN FB => 				-- Send first Byte
-				CASE uartState IS
+				CASE uarts IS
 					WHEN S0 =>		-- Set uartOUT and uartTx
 						uartout 	<= adcBUF(7 DOWNTO 0);
 						uartTx	<= '1';
-						uartState			<= S1;
+						uarts			<= S1;
 					WHEN S1 =>		-- Wait on Ready
 						IF uartTxReady='0' THEN
 							uartTx	<= '0';
-							uartState			<= S2;
+							uarts			<= S2;
 						END IF;
 					WHEN S2 =>
 						IF uartTxReady='1' THEN
-							uartState 	<= S0;
-							adcState		<= SB;
+							uarts 	<= S0;
+							adcs		<= SB;
 						END IF;
 				END CASE;
 			WHEN SB => 				-- Send second Byte
-				CASE uartState IS
+				CASE uarts IS
 					WHEN S0 =>
 						uartout 	<= adcBUF(15 DOWNTO 8);
 						uartTx	<= '1';
-						uartState			<= S1;
+						uarts			<= S1;
 					WHEN S1 =>
 						IF uartTxReady='0' THEN
 							uartTx	<= '0';
-							uartState			<= S2;
+							uarts			<= S2;
 						END IF;
 					WHEN S2 =>
 						IF uartTxReady='1' THEN
-							uartState 	<= S0;
-							adcState		<= TB;
+							uarts 	<= S0;
+							adcs		<= TB;
 						END IF;
 				END CASE;
 			WHEN TB => 				-- Send third(last) Byte
-				CASE uartState IS
+				CASE uarts IS
 					WHEN S0 =>
 						uartout 	<= adcBUF(23 DOWNTO 16);
 						uartTx	<= '1';
-						uartState			<= S1;
+						uarts			<= S1;
 					WHEN S1 =>
 						IF uartTxReady='0' THEN
 							uartTx	<= '0';
-							uartState			<= S2;
+							uarts			<= S2;
 						END IF;
 					WHEN S2 =>
 						IF uartTxReady='1' THEN
-							uartState 	<= S0;
-							adcState		<= S0;
-							blockCMDs <= '0';
+							uarts 	<= S0;
+							adcs		<= S0;
+							state <= ENDCOM;
 						END IF;
 				END CASE;
 		END CASE;
@@ -171,6 +170,7 @@ BEGIN
 			
 			csel 	<= AIN1;
 			rsel	<= RANGEHIG;
+			cmds	<= IDLE;
 			strb	<= '0';
 			cnt	<= (OTHERS => '0');
 
@@ -197,26 +197,44 @@ BEGIN
 				IF uartTxReady = '1' THEN
 					state <= EXECMD;
 				END IF;
-			ELSIF state = EXECMD THEN
+			ELSIF state = REDCMD THEN
 				-- BEGIN handle command
-				IF blockCMDs='0' THEN
-					CASE dataIN(3 DOWNTO 0) IS
-						WHEN X"0" =>
-							readADwriteUART;
-						WHEN X"3" =>
-							csel <= AIN1;
-						WHEN X"4" =>
-							csel <= AIN2;
-						WHEN X"5" =>
-							rsel <= RANGEHIG;
-						WHEN X"6" =>
-							rsel <= RANGELOW;
-						WHEN others =>
-							state <= ENDCOM;
-					END CASE;
-					state <= ENDCOM;
-				END IF;
+				CASE dataIN(3 DOWNTO 0) IS
+					WHEN X"0" =>
+						cmds	<= RD;
+					WHEN X"3" =>
+						cmds	<= setAIN1;
+					WHEN X"4" =>
+						cmds	<= setAIN2;
+					WHEN X"5" =>
+						cmds	<= setRNGH;
+					WHEN X"6" =>
+						cmds	<= setRNGL;
+					WHEN others =>
+						cmds	<= IDLE;
+						state <= ENDCOM;
+				END CASE;
+					--state <= ENDCOM;
 				-- END handle command
+			ELSIF state = EXECMD THEN
+				CASE cmds IS									-- (IDLE, RW, setAIN1, setAIN2, setRNGH, setRNGL)
+					WHEN IDLE 	=>
+						-- Do Nothing |_|>
+					WHEN RD		=>
+						readADwriteUART;
+					WHEN setAIN1 =>
+						csel 	<= AIN1;
+						state <= ENDCOM;
+					WHEN setAIN2 =>
+						csel	<= AIN2;
+						state <= ENDCOM;
+					WHEN setRNGH =>
+						rsel	<= RANGEHIG;
+						state <= ENDCOM;
+					WHEN set RNGL =>
+						rsel	<= RANGELOW;
+						state	<= ENDCOM;
+				END CASE
 			ELSIF state = ENDCOM THEN
 				uartout <= (others => 'Z');
 				uartTx <= 'Z';
