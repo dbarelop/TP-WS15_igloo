@@ -50,12 +50,12 @@ SIZE="413"
 ENDFILE
 VALUE "<project>\component\work\top\top.cxf,actgen_cxf"
 STATE="utd"
-TIME="1451933707"
+TIME="1452763837"
 SIZE="2947"
 ENDFILE
 VALUE "<project>\component\work\top\top.vhd,hdl"
 STATE="utd"
-TIME="1451933706"
+TIME="1452763836"
 SIZE="4987"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
@@ -87,42 +87,42 @@ SIZE="1368"
 ENDFILE
 VALUE "<project>\designer\impl2\top.adb,adb"
 STATE="utd"
-TIME="1450821569"
-SIZE="508928"
+TIME="1452532776"
+SIZE="934400"
 ENDFILE
 VALUE "<project>\designer\impl2\top.ide_des,ide_des"
 STATE="utd"
-TIME="1450821569"
+TIME="1452532777"
 SIZE="984"
 ENDFILE
 VALUE "<project>\designer\impl2\top.pdb,pdb"
 STATE="utd"
-TIME="1450821637"
-SIZE="55643"
+TIME="1452517116"
+SIZE="64208"
 ENDFILE
 VALUE "<project>\designer\impl2\top_compile_log.rpt,log"
 STATE="utd"
-TIME="1451933763"
-SIZE="9528"
+TIME="1452763880"
+SIZE="9571"
 ENDFILE
 VALUE "<project>\designer\impl2\top_fp\projectData\top.pdb,pdb"
 STATE="utd"
-TIME="1450821637"
-SIZE="55643"
+TIME="1452517116"
+SIZE="64208"
 ENDFILE
 VALUE "<project>\designer\impl2\top_fp\top.pro,pro"
 STATE="utd"
-TIME="1450821637"
+TIME="1452517116"
 SIZE="2386"
 ENDFILE
 VALUE "<project>\designer\impl2\top_placeroute_log.rpt,log"
 STATE="utd"
-TIME="1451933903"
+TIME="1452763982"
 SIZE="2601"
 ENDFILE
 VALUE "<project>\designer\impl2\top_prgdata_log.rpt,log"
 STATE="utd"
-TIME="1451933993"
+TIME="1452764132"
 SIZE="1618"
 ENDFILE
 VALUE "<project>\designer\impl2\top_timingconstraints_log.rpt,log"
@@ -132,7 +132,7 @@ SIZE="1085"
 ENDFILE
 VALUE "<project>\designer\impl2\top_verifytiming_log.rpt,log"
 STATE="utd"
-TIME="1451933912"
+TIME="1452763991"
 SIZE="1319"
 ENDFILE
 VALUE "<project>\smartgen\sysClk\sysClk.cxf,actgen_cxf"
@@ -183,27 +183,27 @@ SIZE="1484"
 ENDFILE
 VALUE "<project>\synthesis\top.edn,syn_edn"
 STATE="utd"
-TIME="1450821384"
-SIZE="274557"
+TIME="1452516818"
+SIZE="403249"
 ENDFILE
 VALUE "<project>\synthesis\top.so,so"
 STATE="utd"
-TIME="1450821384"
+TIME="1452516818"
 SIZE="225"
 ENDFILE
 VALUE "<project>\synthesis\top_sdc.sdc,syn_sdc"
 STATE="utd"
-TIME="1450821383"
+TIME="1452516818"
 SIZE="310"
 ENDFILE
 VALUE "<project>\synthesis\top_syn.prj,prj"
 STATE="utd"
-TIME="1450821384"
-SIZE="2329"
+TIME="1452516818"
+SIZE="2409"
 ENDFILE
 VALUE "C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd,hdl"
 STATE="utd"
-TIME="1451933521"
+TIME="1452762690"
 SIZE="2107"
 ENDFILE
 VALUE "C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd,hdl"
@@ -213,8 +213,8 @@ SIZE="4562"
 ENDFILE
 VALUE "C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd,hdl"
 STATE="utd"
-TIME="1451933521"
-SIZE="6304"
+TIME="1452763295"
+SIZE="10042"
 ENDFILE
 VALUE "C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd,hdl"
 STATE="utd"
@@ -426,11 +426,12 @@ ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 Reports;Reports;0
-ReportsCurrentItem;Generate Programming Data:top_prgdata_log.rpt
-SmartDesign;top;0
+ReportsCurrentItem;Program Device:top_program.log
 StartPage;StartPage;0
+SmartDesign;top;0
+HDL;C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd;0
 HDL;C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd;0
-ACTIVEVIEW;top
+ACTIVEVIEW;Reports
 ENDLIST
 LIST ModuleSubBlockList
 LIST "baudgen::work","C:\Users\matze\Documents\igloo\uart\baudgen.vhd","FALSE","FALSE"
@@ -438,9 +439,9 @@ ENDLIST
 LIST "COMPXCTRL::work","C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd","FALSE","FALSE"
 ENDLIST
 LIST "CONNECTOR::work","C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd","FALSE","FALSE"
+SUBBLOCK "uart::work","C:\Users\matze\Documents\igloo\uart\uart.vhd","FALSE","FALSE"
 SUBBLOCK "COMPXCTRL::work","C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd","FALSE","FALSE"
 SUBBLOCK "EEPROMCTRL::work","C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd","FALSE","FALSE"
-SUBBLOCK "uart::work","C:\Users\matze\Documents\igloo\uart\uart.vhd","FALSE","FALSE"
 ENDLIST
 LIST "DESIGN_FIRMWARE::work","component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf","TRUE","FALSE"
 ENDLIST
