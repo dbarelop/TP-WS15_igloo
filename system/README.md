@@ -91,7 +91,6 @@ Device ID: 0b0001
 ### erase all
 * erases complete memory (all bits set to 1)
 * must be handled with care: only 1 000 000 cycles endurance (should only be called by user, not automatically)
-* finished message missing!!! (OK-byte is send before erasing is finished!)
 
 #### TX
 |              |
