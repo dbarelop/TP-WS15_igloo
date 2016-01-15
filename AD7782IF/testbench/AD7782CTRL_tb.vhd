@@ -72,7 +72,7 @@ ARCHITECTURE behaviour OF AD7782CTRL_tb IS
 BEGIN
 	clk <= NOT clk AFTER tcyc/2;
 
-	u1: AD7782CTRL
+	ctrl: AD7782CTRL
 	GENERIC MAP(RSTDEF	=>	RSTDEF,
 			DEVICEID	=>	"0010")
 	PORT MAP(rst	=> rst,
@@ -93,7 +93,7 @@ BEGIN
 				ADCcs				=> ADCcs,				-- chip select, low active
 				ADCsclk			=> ADCsclk);			-- serial clock output
 
-	u2: AD7782
+	adc: AD7782
    GENERIC MAP(ref => 2.5)
    PORT MAP(ain1 => ain1,
             ain2 => ain2,
@@ -170,6 +170,7 @@ BEGIN
 		
 		setNBytes(1, 3);
 		uartSendN(X"20", X"800000", 0.0, 0.0);
+		WAIT FOR 1 us;
 		uartSendN(X"20", X"800000", 0.0, 0.0);
 		uartSendN(X"20", X"800000", 0.0, 0.0);
 		uartSendN(X"20", X"800000", 0.0, 0.0);
