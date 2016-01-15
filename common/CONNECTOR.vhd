@@ -6,8 +6,8 @@ ENTITY CONNECTOR IS
 	PORT(	rst:		IN	std_logic;
 			clk:		IN	std_logic;
 
-			uartRx:		IN	std_logic;
-			uartTx:		OUT std_logic;
+			rxd:		IN	std_logic;
+			txd:		OUT std_logic;
 
 			eepromCS:	OUT std_logic;
 			eepromSCLK:	OUT std_logic;
@@ -113,14 +113,14 @@ BEGIN
 			swrst	=>	NOT RSTDEF,
 			ena		=>	'1',
 
-			rxd		=>	uartRx,
+			rxd		=>	rxd,
 			rden	=>	rden,
 			dout	=>	dout,
 			rhrf	=>	rhrf,
 			ovre	=>	OPEN,
 			frme	=>	OPEN,
 
-			txd		=>	uartTx,
+			txd		=>	txd,
 			wren	=>	wren,
 			din		=>	din, 
 			tsre	=>	tsre,
