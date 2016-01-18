@@ -12,6 +12,7 @@ IGLOO nano Starter Kit
 | 15      | CLK        |
 | 16      | RXD        |
 | 19      | TXD        |
+| 26      | WATCHDOGEN |
 
 ## EEPROM
 

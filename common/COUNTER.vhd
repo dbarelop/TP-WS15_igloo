@@ -38,7 +38,7 @@ BEGIN
             END IF;
             IF swrst = RSTDEF THEN
                 counter <= (others => '0');
-		overflow <= '0';
+		        overflow <= '0';
             END IF;
         END IF;
     END PROCESS;

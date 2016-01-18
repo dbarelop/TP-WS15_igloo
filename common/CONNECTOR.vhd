@@ -9,6 +9,8 @@ ENTITY CONNECTOR IS
 			rxd:		IN	std_logic;
 			txd:		OUT std_logic;
 
+			watchdogen: IN 	std_logic;
+
 			eepromCS:	OUT std_logic;
 			eepromSCLK:	OUT std_logic;
 			eepromMOSI: OUT std_logic;
@@ -22,6 +24,8 @@ END CONNECTOR;
 ARCHITECTURE behaviour OF CONNECTOR IS
 
 	CONSTANT RSTDEF: std_logic := '1';
+
+	SIGNAL swrst:	std_logic;
 
 	SIGNAL rden:	std_logic;
 	SIGNAL wren:	std_logic;
@@ -60,8 +64,10 @@ ARCHITECTURE behaviour OF CONNECTOR IS
 
 	COMPONENT COMPXCTRL
 		GENERIC(RSTDEF: 	std_logic;
-				DEVICEID: 	std_logic_vector(3 DOWNTO 0));
+				DEVICEID: 	std_logic_vector(3 DOWNTO 0);
+				TIMEOUT:	NATURAL);
 		PORT(rst:		IN	std_logic;
+			swrst:		IN  std_logic;
 			clk:		IN	std_logic;
 
 			uartin:		IN 	std_logic_vector(7 DOWNTO 0);
@@ -71,7 +77,9 @@ ARCHITECTURE behaviour OF CONNECTOR IS
 			uartTxReady:IN 	std_logic;						-- indicates new byte can be send
 			uartTx:		INOUT std_logic;						-- starts transmission of new byte
 
-			busy:		INOUT	std_logic					-- busy bit indicates working component
+			busy:		INOUT	std_logic;					-- busy bit indicates working component
+			watchdog:	OUT 	std_logic;
+			watchdogen: IN 		std_logic
 			);
 	END COMPONENT;
 
@@ -110,7 +118,7 @@ BEGIN
 	PORT MAP(
 			rst		=>	rst,
 			clk		=>	clk,
-			swrst	=>	NOT RSTDEF,
+			swrst	=>	swrst,
 			ena		=>	'1',
 
 			rxd		=>	rxd,
@@ -129,8 +137,10 @@ BEGIN
 
 	m1: COMPXCTRL
 	GENERIC MAP(RSTDEF	=> 	RSTDEF,
-				DEVICEID=> 	"0000")
+				DEVICEID=> 	"0000",
+				TIMEOUT =>	17)
 	PORT MAP(rst	=>		rst,
+			swrst	=>		swrst,
 			clk		=>		clk,
 
 			uartin	=>		dout,
@@ -140,7 +150,9 @@ BEGIN
 			uartTxReady	=>	uartTxReady,
 			uartTx	=>		wren,
 
-			busy	=>		busy
+			busy	=>		busy,
+			watchdog=>		swrst,
+			watchdogen=>	watchdogen
 			);
 
 	d1: EEPROMCTRL
