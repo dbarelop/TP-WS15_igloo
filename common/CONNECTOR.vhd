@@ -184,7 +184,7 @@ BEGIN
 
 	aliveCnt: ALIVECOUNTER
 	GENERIC MAP(RSTDEF 	=> RSTDEF,
-			LENGTH		=> 18)
+			LENGTH		=> 17)
     PORT MAP(rst		=>	rst,
             swrst      	=>	swrst,
             clk			=>	clk,
