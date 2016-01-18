@@ -114,7 +114,7 @@ BEGIN
     			LENGTH =>	TIMEOUT)
     PORT MAP(
             rst => rst,
-            swrst => NOT RSTDEF,
+            swrst => swrst,
             clk => clk,
             en => wen,
             overflow => watchdog
