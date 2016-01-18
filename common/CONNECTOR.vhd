@@ -143,7 +143,7 @@ BEGIN
 
 	uartTxReady <= tsre AND thre;		-- new byte can be send
 
-	watchdogEnLED <= NOT watchdogen;
+	watchdogEnLED <= watchdogen;
 
 	u1: uart
 	GENERIC MAP(RSTDEF => RSTDEF,
