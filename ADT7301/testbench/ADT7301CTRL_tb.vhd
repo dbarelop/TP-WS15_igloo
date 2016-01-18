@@ -13,7 +13,7 @@ ARCHITECTURE behaviour OF ADT7301CTRL_tb IS
 	CONSTANT tcyc:		time		:= 1 sec / FRQDEF;
 
 	COMPONENT ADT7301CTRL
-	GENERIC(RSTEDF: std_logic;
+	GENERIC(RSTDEF: std_logic;
 			DEVICEID: std_logic_vector);
 	PORT(	rst:		IN	std_logic;
 			clk:		IN	std_logic;
@@ -25,10 +25,9 @@ ARCHITECTURE behaviour OF ADT7301CTRL_tb IS
 			uartTxReady:IN 	std_logic;						-- indicates new byte can be send
 			uartTx:		INOUT std_logic;						-- starts transmission of new byte
 
-			busy:		INOUT	std_logic					-- busy bit indicates working component
+			busy:		INOUT	std_logic;					-- busy bit indicates working component
 
 			-- Component pins
-			ADTdout:	OUT std_logic_vector(13 DOWNTO 0);
 			ADTsclk:	OUT std_logic;
 			ADTcs:		OUT std_logic;
 			ADTmosi:	OUT std_logic;
@@ -47,6 +46,8 @@ ARCHITECTURE behaviour OF ADT7301CTRL_tb IS
 		 mosi:	OUT std_logic;
 		 miso:	IN std_logic);
 	END COMPONENT;
+
+	SIGNAL strb: std_logic;
 
 	SIGNAL rst:	std_logic := RSTDEF;
 	SIGNAL clk:	std_logic := '0';
@@ -91,7 +92,6 @@ BEGIN
 			 uartTxReady	=> uartTxReady,
 			 uartTx			=> uartTx,
 			 busy			=> busy,
-			 ADTdout		=> ADTdout,
 			 ADTsclk		=> ADTsclk,
 			 ADTcs			=> ADTcs,
 			 ADTmosi		=> ADTmosi,

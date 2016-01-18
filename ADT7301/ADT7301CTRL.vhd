@@ -15,10 +15,9 @@ ENTITY ADT7301CTRL IS
 			uartTxReady:IN 	std_logic;						-- indicates new byte can be send
 			uartTx:		INOUT std_logic;						-- starts transmission of new byte
 
-			busy:		INOUT	std_logic					-- busy bit indicates working component
+			busy:		INOUT	std_logic;					-- busy bit indicates working component
 
 			-- Component pins
-			ADTdout:	OUT std_logic_vector(13 DOWNTO 0);
 			ADTsclk:	OUT std_logic;
 			ADTcs:		OUT std_logic;
 			ADTmosi:	OUT std_logic;
@@ -44,10 +43,6 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 	-- Component signals
 	SIGNAL strb: std_logic;
 	SIGNAL dout: std_logic_vector(13 DOWNTO 0);
-	SIGNAL sclk: std_logic;
-	SIGNAL cs: std_logic;
-	SIGNAL mosi: std_logic;
-	SIGNAL miso: std_logic;
 
 	CONSTANT CMD_READTEMP: std_logic_vector(3 DOWNTO 0) := X"1";
 
@@ -69,11 +64,11 @@ BEGIN
 	PORT MAP(rst	=> rst,
 			 clk	=> clk,
 			 strb	=> strb,
-			 dout	=> ADTdout,
+			 dout	=> dout,
 			 sclk	=> ADTsclk,
 			 cs		=> ADTcs,
 			 mosi	=> ADTmosi,
-			 miso	=> miso);
+			 miso	=> ADTmiso);
 
 	main: PROCESS (clk, rst) IS
 
