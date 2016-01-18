@@ -50,24 +50,24 @@ SIZE="413"
 ENDFILE
 VALUE "<project>\component\work\top\top.cxf,actgen_cxf"
 STATE="utd"
-TIME="1452763837"
-SIZE="2947"
+TIME="1453112828"
+SIZE="3871"
 ENDFILE
 VALUE "<project>\component\work\top\top.vhd,hdl"
 STATE="utd"
-TIME="1452763836"
-SIZE="4987"
+TIME="1453112827"
+SIZE="6410"
 PARENT="<project>\component\work\top\top.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\designer\impl2\COMPXCTRL.adb,adb"
 STATE="ood"
-TIME="1450530135"
+TIME="1453115403"
 SIZE="67584"
 ENDFILE
 VALUE "<project>\designer\impl2\COMPXCTRL.ide_des,ide_des"
 STATE="utd"
-TIME="1450530135"
+TIME="1453115403"
 SIZE="1005"
 ENDFILE
 VALUE "<project>\designer\impl2\COMPXCTRL_compile_log.rpt,log"
@@ -86,54 +86,44 @@ TIME="1450530038"
 SIZE="1368"
 ENDFILE
 VALUE "<project>\designer\impl2\top.adb,adb"
-STATE="utd"
-TIME="1452532776"
-SIZE="934400"
+STATE="ood"
+TIME="1453115438"
+SIZE="1208832"
 ENDFILE
 VALUE "<project>\designer\impl2\top.ide_des,ide_des"
 STATE="utd"
-TIME="1452532777"
+TIME="1453115403"
 SIZE="984"
 ENDFILE
 VALUE "<project>\designer\impl2\top.pdb,pdb"
-STATE="utd"
-TIME="1452517116"
-SIZE="64208"
+STATE="ood"
+TIME="1453115438"
+SIZE="77996"
 ENDFILE
 VALUE "<project>\designer\impl2\top_compile_log.rpt,log"
 STATE="utd"
-TIME="1452763880"
-SIZE="9571"
+TIME="1453112878"
+SIZE="9812"
 ENDFILE
 VALUE "<project>\designer\impl2\top_fp\projectData\top.pdb,pdb"
 STATE="utd"
-TIME="1452517116"
-SIZE="64208"
+TIME="1453115438"
+SIZE="77996"
 ENDFILE
 VALUE "<project>\designer\impl2\top_fp\top.pro,pro"
 STATE="utd"
-TIME="1452517116"
+TIME="1453115403"
 SIZE="2386"
-ENDFILE
-VALUE "<project>\designer\impl2\top_placeroute_log.rpt,log"
-STATE="utd"
-TIME="1452763982"
-SIZE="2601"
 ENDFILE
 VALUE "<project>\designer\impl2\top_prgdata_log.rpt,log"
 STATE="utd"
-TIME="1452764132"
+TIME="1453113327"
 SIZE="1618"
 ENDFILE
 VALUE "<project>\designer\impl2\top_timingconstraints_log.rpt,log"
 STATE="utd"
 TIME="1450734117"
 SIZE="1085"
-ENDFILE
-VALUE "<project>\designer\impl2\top_verifytiming_log.rpt,log"
-STATE="utd"
-TIME="1452763991"
-SIZE="1319"
 ENDFILE
 VALUE "<project>\smartgen\sysClk\sysClk.cxf,actgen_cxf"
 STATE="utd"
@@ -142,7 +132,7 @@ SIZE="1471"
 ENDFILE
 VALUE "<project>\smartgen\sysClk\sysClk.gen,gen"
 STATE="utd"
-TIME="1450817403"
+TIME="1453115403"
 SIZE="559"
 PARENT="<project>\smartgen\sysClk\sysClk.cxf"
 IS_READONLY="TRUE"
@@ -182,43 +172,53 @@ TIME="1450529872"
 SIZE="1484"
 ENDFILE
 VALUE "<project>\synthesis\top.edn,syn_edn"
-STATE="utd"
-TIME="1452516818"
-SIZE="403249"
+STATE="ood"
+TIME="1453112855"
+SIZE="590888"
 ENDFILE
 VALUE "<project>\synthesis\top.so,so"
 STATE="utd"
-TIME="1452516818"
+TIME="1453112855"
 SIZE="225"
 ENDFILE
 VALUE "<project>\synthesis\top_sdc.sdc,syn_sdc"
-STATE="utd"
-TIME="1452516818"
+STATE="ood"
+TIME="1453112855"
 SIZE="310"
 ENDFILE
 VALUE "<project>\synthesis\top_syn.prj,prj"
 STATE="utd"
-TIME="1452516818"
-SIZE="2409"
+TIME="1453112856"
+SIZE="2619"
+ENDFILE
+VALUE "C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd,hdl"
+STATE="utd"
+TIME="1453115438"
+SIZE="7303"
+ENDFILE
+VALUE "C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd,hdl"
+STATE="utd"
+TIME="1452442702"
+SIZE="4006"
 ENDFILE
 VALUE "C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd,hdl"
 STATE="utd"
-TIME="1452762690"
-SIZE="2107"
+TIME="1453115513"
+SIZE="2119"
 ENDFILE
 VALUE "C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd,hdl"
 STATE="utd"
-TIME="1451933521"
-SIZE="4562"
+TIME="1453115438"
+SIZE="7120"
 ENDFILE
 VALUE "C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd,hdl"
 STATE="utd"
-TIME="1452763295"
+TIME="1453115403"
 SIZE="10042"
 ENDFILE
 VALUE "C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd,hdl"
 STATE="utd"
-TIME="1451933521"
+TIME="1453115403"
 SIZE="4833"
 ENDFILE
 VALUE "C:\Users\matze\Documents\igloo\uart\baudgen.vhd,hdl"
@@ -253,43 +253,13 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "C:\Users\matze\Documents\igloo\uart\uart.vhd,hdl"
 STATE="utd"
-TIME="1450817389"
+TIME="1453115403"
 SIZE="5664"
 ENDFILE
 ENDLIST
 LIST UsedFile
 ENDLIST
 LIST NewModulesInfo
-LIST "top::work"
-FILE "<project>\component\work\top\top.vhd,hdl"
-LIST ProjectState5.1
-LIST Impl1
-LiberoState=Post_Synthesis
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-LiberoState=Post_Layout
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl2\top.adb,adb)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
-LIST PinReports
-VALUE "<project>\designer\impl2\top_report_pin_byname.txt,log"
-VALUE "<project>\designer\impl2\top_report_pin_bynumber.txt,log"
-ENDLIST
-ENDLIST
 ENDLIST
 LIST AssociatedStimulus
 ENDLIST
@@ -355,8 +325,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\bin\synplify_pro.exe"
-PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
-BATCH=1
+PARAM=""
+BATCH=0
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -389,29 +359,6 @@ IS32BIT="1"
 EndProfile
 ENDLIST
 LIST ProjectState5.1
-LIST "top::work"
-LIST Impl1
-LiberoState=Post_Synthesis
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-LiberoState=Post_Layout
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
-ideDESIGNER(<project>\designer\impl2\top.adb,adb)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
 ENDLIST
@@ -425,23 +372,24 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
-Reports;Reports;0
-ReportsCurrentItem;Program Device:top_program.log
 StartPage;StartPage;0
-SmartDesign;top;0
-HDL;C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd;0
-HDL;C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd;0
-ACTIVEVIEW;Reports
+ACTIVEVIEW;StartPage
 ENDLIST
 LIST ModuleSubBlockList
+LIST "AD7782CTRL::work","C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd","FALSE","FALSE"
+SUBBLOCK "AD7782IF::work","C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd","FALSE","FALSE"
+ENDLIST
+LIST "AD7782IF::work","C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd","FALSE","FALSE"
+ENDLIST
 LIST "baudgen::work","C:\Users\matze\Documents\igloo\uart\baudgen.vhd","FALSE","FALSE"
 ENDLIST
 LIST "COMPXCTRL::work","C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd","FALSE","FALSE"
 ENDLIST
 LIST "CONNECTOR::work","C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd","FALSE","FALSE"
-SUBBLOCK "uart::work","C:\Users\matze\Documents\igloo\uart\uart.vhd","FALSE","FALSE"
+SUBBLOCK "AD7782CTRL::work","C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd","FALSE","FALSE"
 SUBBLOCK "COMPXCTRL::work","C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd","FALSE","FALSE"
 SUBBLOCK "EEPROMCTRL::work","C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd","FALSE","FALSE"
+SUBBLOCK "uart::work","C:\Users\matze\Documents\igloo\uart\uart.vhd","FALSE","FALSE"
 ENDLIST
 LIST "DESIGN_FIRMWARE::work","component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf","TRUE","FALSE"
 ENDLIST
