@@ -91,7 +91,6 @@ Device ID: 0b0001
 ### erase all
 * erases complete memory (all bits set to 1)
 * must be handled with care: only 1 000 000 cycles endurance (should only be called by user, not automatically)
-* finished message missing!!! (OK-byte is send before erasing is finished!)
 
 #### TX
 |              |
@@ -104,3 +103,98 @@ Device ID: 0b0001
 |---------|---------|
 | 0xAA    | 0xBB    |
 | OK-byte | Done-byte |
+
+
+## AD Converter
+Device ID: 0b0010
+
+### HEX Code to Voltage calculation
+* AIN 	//analog input (the real voltage you print out)
+* VReff 	//refference voltage = 2.5
+* rng		//range select
+* N = 24 // number of bits got by ADC (MISO)
+* dec_input //MISO (24 bit Vector) in Decimal
+
+GAIN = 1 IF rng=2,56V ELSE 16;  
+v = 1.024 * VReff;  
+a = 2^(N-1);  
+AIN = (v*((dec_input/a)-1))/GAIN;  
+
+
+### read
+* Reads all 24 bit seperated in three Bytes (from lowes to highest velued Byte(bit)).
+* The 24 bit value is Signed!
+* Highest bit '1': Indicates a zero or positive full-scale voltage.
+* Highest bit '0': Indicates a negative full-scale voltage.
+
+#### TX
+|  	|
+|-----|
+|0x20|
+|read command|
+
+#### RX
+|	 |   |   |   |
+|---|---|---|---|
+|0xAA|0bDDDDDDDD|0bDDDDDDDD|0bDDDDDDDD|
+|OK-byte|last Highest Byte| second Byte| first lowest Byte|
+
+### CH1
+* Set the Chanal for the next AD Conversion on CH1.
+
+#### TX
+|   |
+|---|
+|0x23|
+|chanel select command|
+
+#### RX
+|         |
+|---------|
+| 0xAA    |
+| OK-byte |
+
+### CH2
+* Set the Chanal for the next AD Conversion on CH2.
+
+#### TX
+|   |
+|---|
+|0x24|
+|chanel select command|
+
+#### RX
+|         |
+|---------|
+| 0xAA    |
+| OK-byte |
+
+### RNG1
+* Set the range for the next AD Conversion on +- 2.56V
+
+#### TX
+|   |
+|---|
+|0x25|
+|range select command|
+
+#### RX
+|         |
+|---------|
+| 0xAA    |
+| OK-byte |
+
+### RNG2
+* Set the range for the next AD Conversion on +- 0.16V
+
+#### TX
+|   |
+|---|
+|0x26|
+|range select command|
+
+#### RX
+|         |
+|---------|
+| 0xAA    |
+| OK-byte |

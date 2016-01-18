@@ -11,11 +11,11 @@ ENTITY COMPXCTRL IS
 			clk:		IN	std_logic;
 
 			uartin:		IN 	std_logic_vector(7 DOWNTO 0);
-			uartRx:		IN	std_logic;						-- indicates new byte is available
+			uartout:		INOUT std_logic_vector(7 DOWNTO 0);
 			uartRd:		INOUT std_logic; 						-- indicates value was read from controller
-			uartout:	INOUT std_logic_vector(7 DOWNTO 0);
-			uartTxReady:IN 	std_logic;						-- indicates new byte can be send
 			uartTx:		INOUT std_logic;						-- starts transmission of new byte
+			uartRx:		IN		std_logic;						-- indicates new byte is available to read
+			uartTxReady:IN 	std_logic;						-- indicates new byte can be send
 
 			busy:		INOUT	std_logic;					-- busy bit indicates working component
 			watchdog:	OUT	std_logic;
@@ -89,7 +89,7 @@ BEGIN
 				-- BEGIN handle command
 				CASE dataIN(3 DOWNTO 0) IS
 					WHEN "0000" =>
-						uartout <= x"03";
+						uartout <= x"04";
 						uartTx <= '1';
 						state <= ENDCOM;
 					WHEN others =>
