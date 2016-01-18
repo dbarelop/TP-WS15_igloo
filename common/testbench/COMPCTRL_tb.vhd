@@ -118,7 +118,7 @@ BEGIN
 		rst <= NOT RSTDEF;
 
 		setNBytes(1, 1);
-		uartSendN("00000000", x"03");
+		uartSendN("00000000", x"04");
 
 		REPORT "all tests done..." SEVERITY note;
 		WAIT;
