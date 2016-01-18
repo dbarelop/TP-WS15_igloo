@@ -12,6 +12,8 @@ ENTITY CONNECTOR IS
 			watchdogen: IN 	std_logic;
 			watchdogEnLED: OUT std_logic;
 
+			aliveLED:	OUT std_logic;
+
 			eepromCS:	OUT std_logic;
 			eepromSCLK:	OUT std_logic;
 			eepromMOSI: OUT std_logic;
@@ -45,6 +47,17 @@ ARCHITECTURE behaviour OF CONNECTOR IS
 
 	SIGNAL uartTxReady: std_logic;
 	SIGNAL busy:		std_logic;
+
+	COMPONENT ALIVECOUNTER
+		GENERIC(RSTDEF: std_logic;
+				LENGTH: NATURAL);
+        PORT(	rst:		IN	std_logic;
+                swrst:      IN  std_logic;
+                clk:		IN	std_logic;
+                en:         IN  std_logic;
+                overflow:   OUT std_logic
+        );
+	END COMPONENT;
 
 	COMPONENT uart 
 		GENERIC(RSTDEF: std_logic;
@@ -168,6 +181,16 @@ BEGIN
 			tsre	=>	tsre,
 			thre	=>	thre 
 		);
+
+	aliveCnt: ALIVECOUNTER
+	GENERIC MAP(RSTDEF 	=> RSTDEF,
+			LENGTH		=> 18)
+    PORT MAP(rst		=>	rst,
+            swrst      	=>	swrst,
+            clk			=>	clk,
+            en         	=>	'1',
+            overflow   	=>	aliveLED
+    );
 
 	m1: COMPXCTRL
 	GENERIC MAP(RSTDEF	=> 	RSTDEF,
