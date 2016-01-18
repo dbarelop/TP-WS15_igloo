@@ -115,10 +115,10 @@ Device ID: 0b0010
 * N = 24 // number of bits got by ADC (MISO)
 * dec_input //MISO (24 bit Vector) in Decimal
 
-GAIN = 1 IF rng=2,56V ELSE 16;
-v = 1.024 * VReff;
-a = 2^(N-1);
-AIN = (v*((dec_input/a)-1))/GAIN;
+GAIN = 1 IF rng=2,56V ELSE 16;  
+v = 1.024 * VReff;  
+a = 2^(N-1);  
+AIN = (v*((dec_input/a)-1))/GAIN;  
 
 
 ### read
