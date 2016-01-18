@@ -22,6 +22,7 @@ BEGIN
     BEGIN
         IF rst = RSTDEF THEN
             counter <= (others => '0');
+            overflow <= '0';
         ELSIF rising_edge(clk) THEN
             IF en = '1' THEN
                 IF counter(counter'LEFT) = '1' THEN
@@ -37,6 +38,7 @@ BEGIN
             END IF;
             IF swrst = RSTDEF THEN
                 counter <= (others => '0');
+                overflow <= '0';
             END IF;
         END IF;
     END PROCESS;

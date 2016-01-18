@@ -112,7 +112,7 @@ BEGIN
             rst => rst,
             swrst => swrst,
             clk => clk,
-            en => busy,
+            en => '0',
             overflow => watchdog
 	);
 

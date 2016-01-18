@@ -156,7 +156,7 @@ BEGIN
 		setNBytes(1, 1);
 		uartSendN("00000000", x"03");
         
-        watchdogTest;
+        --watchdogTest;
         
         
 		REPORT "all tests done..." SEVERITY note;
