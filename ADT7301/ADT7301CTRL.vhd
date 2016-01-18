@@ -44,7 +44,7 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 	SIGNAL strb: std_logic;
 	SIGNAL dout: std_logic_vector(13 DOWNTO 0);
 
-	CONSTANT CMD_READTEMP: std_logic_vector(3 DOWNTO 0) := X"1";
+	CONSTANT CMD_READTEMP: std_logic_vector(3 DOWNTO 0) := X"01";
 
 	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, EXECMD, ENDCOM);
 
