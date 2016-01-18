@@ -1,6 +1,7 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.std_logic_unsigned.ALL;
+use IEEE.math_real.all;
 
 ENTITY COMPXCTRL_tb IS
 	-- empty
@@ -10,8 +11,10 @@ ARCHITECTURE behaviour OF COMPXCTRL_tb IS
 
 	COMPONENT COMPXCTRL
 		GENERIC(RSTDEF: std_logic;
-				DEVICEID: std_logic_vector);
+				DEVICEID: std_logic_vector;
+				TIMEOUT: NATURAL);
 		PORT(	rst:		IN	std_logic;
+				swrst:		IN  std_logic;
 				clk:		IN	std_logic;
 
 				uartin:		IN 	std_logic_vector(7 DOWNTO 0);
@@ -21,13 +24,16 @@ ARCHITECTURE behaviour OF COMPXCTRL_tb IS
 				uartTxReady:IN std_logic;						-- indicates new byte can be send
 				uartTx:		INOUT std_logic;
 
-				busy:		INOUT	std_logic					-- busy bit indicates working component
+				busy:		INOUT	std_logic;					-- busy bit indicates working component
+				watchdog:	OUT	std_logic
+
 		);
 	END COMPONENT;
 
 	CONSTANT RSTDEF: 	std_logic 	:= '0';
 	CONSTANT FRQDEF: 	natural		:= 4e6;
 	CONSTANT tcyc:		time		:= 1 sec / FRQDEF;
+	CONSTANT TIMEOUT:	natural		:= 2;
 
 	SIGNAL rst:			std_logic := RSTDEF;
 	SIGNAL clk:			std_logic := '0';
@@ -39,6 +45,7 @@ ARCHITECTURE behaviour OF COMPXCTRL_tb IS
 	SIGNAL uartTx:		std_logic := '0';
 
 	SIGNAL busy:		std_logic := '0';
+	SIGNAL watchdog:	std_logic := '0';
 
 	SIGNAL serOut:		std_logic_vector(7 DOWNTO 0) := (others => '0');
     SIGNAL swrstCounter: natural := 0;
@@ -49,8 +56,10 @@ BEGIN
 
 	c1: COMPXCTRL
 	GENERIC MAP(RSTDEF => RSTDEF,
-				DEVICEID => "0000")
+				DEVICEID => "0000",
+				TIMEOUT => TIMEOUT)
 	PORT MAP(	rst => rst,
+				swrst => NOT RSTDEF,
 				clk => clk,
 				uartin => uartin,
 				uartRx => uartRx,
@@ -58,7 +67,8 @@ BEGIN
 				uartout => uartout,
 				uartTxReady => uartTxReady,
 				uartTx => uartTx,
-				busy => busy
+				busy => busy,
+				watchdog => watchdog
 			);
 
 	test: PROCESS IS
@@ -127,16 +137,14 @@ BEGIN
             END LOOP;
         END PROCEDURE;
         
-        PROCEDURE watchdog IS
+        PROCEDURE watchdogTest IS
         BEGIN
-            swrstCounter <= 0;
             busy <= '1';
-            waitXClocks(127000);
+            waitXClocks(2**TIMEOUT-1);
             busy <= '0';
             assert swrstCounter = 0 report "Watchdog reseted to early";
-            swrstCounter <= 0;
             busy <= '1';
-            waitXClocks(129000);
+            waitXClocks(2**TIMEOUT);
             busy <= '0';
             assert swrstCounter = 1 report "Watchdog did not reset correctly";
         END PROCEDURE;
@@ -148,6 +156,7 @@ BEGIN
 		setNBytes(1, 1);
 		uartSendN("00000000", x"03");
         
+        watchdogTest;
         
         
 		REPORT "all tests done..." SEVERITY note;
@@ -155,14 +164,11 @@ BEGIN
 
 	END PROCESS;
     
-    watchdogtest: PROCESS(swrst) IS
+    watchdogcnt: PROCESS(watchdog) IS
     BEGIN
-        IF rising_edge(swrst) THEN
+        IF rising_edge(watchdog) THEN
             swrstCounter <= swrstCounter + 1;
         END IF;
-    END PROCESS;    
-       
-    
-     
+    END PROCESS;     
 
 END behaviour;
