@@ -13,6 +13,7 @@ IGLOO nano Starter Kit
 | 16      | RXD        |
 | 19      | TXD        |
 | 26      | WATCHDOGEN |
+| 42      | WATCHDOGENLED |
 
 ## EEPROM
 
