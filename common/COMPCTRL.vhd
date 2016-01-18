@@ -18,7 +18,8 @@ ENTITY COMPXCTRL IS
 			uartTx:		INOUT std_logic;						-- starts transmission of new byte
 
 			busy:		INOUT	std_logic;					-- busy bit indicates working component
-			watchdog:	OUT	std_logic
+			watchdog:	OUT	std_logic;
+			watchdogen: IN  std_logic
 	);
 
 END COMPXCTRL;
@@ -41,9 +42,12 @@ ARCHITECTURE behaviour OF COMPXCTRL IS
 	SIGNAL state: tstate;
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
     SIGNAL overflow: std_logic;
+    SIGNAL wen: std_logic;
 
 
 BEGIN
+
+	wen <= '1' WHEN watchdogen = '1' AND busy = '1' ELSE '0';
 
 	main: PROCESS (clk, rst) IS
 
@@ -112,7 +116,7 @@ BEGIN
             rst => rst,
             swrst => NOT RSTDEF,
             clk => clk,
-            en => busy,
+            en => wen,
             overflow => watchdog
 	);
 

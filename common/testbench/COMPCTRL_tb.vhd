@@ -25,7 +25,8 @@ ARCHITECTURE behaviour OF COMPXCTRL_tb IS
 				uartTx:		INOUT std_logic;
 
 				busy:		INOUT	std_logic;					-- busy bit indicates working component
-				watchdog:	OUT	std_logic
+				watchdog:	OUT	std_logic;
+				watchdogen: IN  std_logic
 
 		);
 	END COMPONENT;
@@ -33,7 +34,7 @@ ARCHITECTURE behaviour OF COMPXCTRL_tb IS
 	CONSTANT RSTDEF: 	std_logic 	:= '0';
 	CONSTANT FRQDEF: 	natural		:= 4e6;
 	CONSTANT tcyc:		time		:= 1 sec / FRQDEF;
-	CONSTANT TIMEOUT:	natural		:= 2;
+	CONSTANT TIMEOUT:	natural		:= 3;
 
 	SIGNAL rst:			std_logic := RSTDEF;
 	SIGNAL clk:			std_logic := '0';
@@ -50,6 +51,7 @@ ARCHITECTURE behaviour OF COMPXCTRL_tb IS
 	SIGNAL serOut:		std_logic_vector(7 DOWNTO 0) := (others => '0');
     SIGNAL swrstCounter: natural := 0;
 	SIGNAL swrst: std_logic;
+	SIGNAL watchdogen: std_logic := '1';
 
 BEGIN
 
@@ -70,7 +72,8 @@ BEGIN
 				uartTxReady => uartTxReady,
 				uartTx => uartTx,
 				busy => busy,
-				watchdog => watchdog
+				watchdog => watchdog,
+				watchdogen => watchdogen
 			);
 
 	test: PROCESS IS
@@ -132,6 +135,7 @@ BEGIN
         VARIABLE clockCount: integer := 0;
         
         BEGIN
+        	clockCount := 0;
             WHILE clockCount < clocks LOOP 
                 WAIT UNTIL clk = '1';
                 clockCount := clockCount + 1;
@@ -140,15 +144,28 @@ BEGIN
         END PROCEDURE;
         
         PROCEDURE watchdogTest IS
+        VARIABLE swrstBeforeStart: natural := 0;
         BEGIN
+        	swrstBeforeStart := swrstCounter;
             busy <= '1';
             waitXClocks(2**TIMEOUT);
             busy <= 'Z';
-            assert swrstCounter = 0 report "Watchdog reseted to early";
+            assert swrstCounter = swrstBeforeStart report "Watchdog reseted to early";
+
+            waitXClocks(2);
+            swrstBeforeStart := swrstCounter;
             busy <= '1';
-            waitXClocks(2**(TIMEOUT + 1));
+            waitXClocks(2**(TIMEOUT + 1) + 1);
             busy <= 'Z';
-            assert swrstCounter = 1 report "Watchdog did not reset correctly";
+            assert swrstCounter = swrstBeforeStart + 1 report "Watchdog did not reset correctly";
+
+            waitXClocks(2);
+            swrstBeforeStart := swrstCounter;
+            watchdogen <= '0';
+            busy <= '1';
+            waitXClocks(2**(TIMEOUT + 1) + 1);
+            busy <= 'Z';
+            assert swrstCounter = swrstBeforeStart report "Watchdog reseted when not enabled";
         END PROCEDURE;
         
 	BEGIN
