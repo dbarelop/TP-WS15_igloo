@@ -6,6 +6,7 @@ ENTITY EEPROMCTRL IS
 	GENERIC(RSTDEF: std_logic := '1';
 			DEVICEID: std_logic_vector(3 DOWNTO 0) := "0001");
 	PORT(	rst:		IN		std_logic;
+			swrst:		IN 		std_logic;
 			clk:		IN		std_logic;
 			 
 			uartin:		IN 		std_logic_vector(7 DOWNTO 0);
@@ -88,6 +89,25 @@ BEGIN
 			);
 
 	main: PROCESS (clk, rst) IS
+
+		PROCEDURE reset IS
+
+		BEGIN
+			busy <= 'Z';
+			uartout <= (others => 'Z');
+			uartTx <= 'Z';
+			uartRd <= 'Z';
+
+			state <= EXECMD;
+			maincmd <= EWEN;
+
+			cmd <= (others => '0');
+			strb <= '0';
+			din <= (others => '0');
+			adrin <= (others => '0');
+			readcmd <= SENDCMD;
+
+		END PROCEDURE;
 
 		PROCEDURE readPro IS
 
@@ -331,19 +351,7 @@ BEGIN
 
 	BEGIN
 		IF rst = RSTDEF THEN
-			busy <= 'Z';
-			uartout <= (others => 'Z');
-			uartTx <= 'Z';
-			uartRd <= 'Z';
-
-			state <= EXECMD;
-			maincmd <= EWEN;
-
-			cmd <= (others => '0');
-			strb <= '0';
-			din <= (others => '0');
-			adrin <= (others => '0');
-			readcmd <= SENDCMD;
+			reset;
 
 		ELSIF rising_edge(clk) THEN
 			IF state = IDLE AND uartRx = '1' THEN
@@ -403,6 +411,9 @@ BEGIN
 				uartRd <= 'Z';
 				busy <= 'Z';
 				state <= IDLE;
+			END IF;
+			IF swrst = RSTDEF THEN
+				reset;
 			END IF;
 		END IF;
 	END PROCESS;

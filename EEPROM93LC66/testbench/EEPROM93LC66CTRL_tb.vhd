@@ -16,6 +16,7 @@ ARCHITECTURE verhalten OF EEPROM93LC66CTRL_tb IS
 	GENERIC(RSTDEF: std_logic;
 			DEVICEID: std_logic_vector);
 	PORT(	rst:		IN	std_logic;
+			swrst:		IN  std_logic;
 			clk:		IN	std_logic;
 
 			uartin:		IN 	std_logic_vector(7 DOWNTO 0);
@@ -76,6 +77,7 @@ BEGIN
 	GENERIC MAP(RSTDEF => RSTDEF,
 				DEVICEID => "0001")
 	PORT MAP(rst		=>	rst,
+			swrst	=>	NOT RSTDEF,
 			clk		=>	clk,
 			uartin	=>	uartin,
 			uartRx	=>	uartRx,

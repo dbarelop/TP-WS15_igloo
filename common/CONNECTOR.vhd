@@ -87,6 +87,7 @@ ARCHITECTURE behaviour OF CONNECTOR IS
 		GENERIC(RSTDEF: std_logic;
 				DEVICEID: std_logic_vector(3 DOWNTO 0));
 		PORT(rst:		IN		std_logic;
+			swrst:		IN 		std_logic;
 			clk:		IN		std_logic;
 			 
 			uartin:		IN 		std_logic_vector(7 DOWNTO 0);
@@ -159,6 +160,7 @@ BEGIN
 	GENERIC MAP(RSTDEF	=>	RSTDEF,
 			DEVICEID	=>	"0001")
 	PORT MAP(rst	=>		rst,
+			swrst	=>		swrst,
 			clk		=>		clk,
 			 
 			uartin	=>		dout,
