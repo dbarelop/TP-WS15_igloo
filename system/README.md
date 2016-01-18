@@ -59,7 +59,6 @@ Device ID: 0b0001
 | OK-byte | D-byte at address A  | d-byte at address A+1  |
 
 ### write
-* finished message missing!!! (OK-byte is send before writing is finished!)
 * must be handled with care: only 1 000 000 cycles endurance (should only be called by user, not automatically)
 
 #### TX
@@ -69,13 +68,12 @@ Device ID: 0b0001
 | write command | x-don't care, A-address MSB | A-address  | D-byte   |
 
 #### RX
-|         |
-|---------|
-| 0xAA    |
-| OK-byte |
+|         |         |
+|---------|---------|
+| 0xAA    | 0xBB    |
+| OK-byte | Done-byte |
 
 ### write 16bit
-* finished message missing!!! (OK-byte is send before writing is finished!)
 * must be handled with care: only 1 000 000 cycles endurance (should only be called by user, not automatically)
 
 #### TX
@@ -85,15 +83,14 @@ Device ID: 0b0001
 | write 16bit command | A-address | D-byte  | d-byte for address A+1   |
 
 #### RX
-|         |
-|---------|
-| 0xAA    |
-| OK-byte |
+|         |         |
+|---------|---------|
+| 0xAA    | 0xBB    |
+| OK-byte | Done-byte |
 
 ### erase all
 * erases complete memory (all bits set to 1)
 * must be handled with care: only 1 000 000 cycles endurance (should only be called by user, not automatically)
-* finished message missing!!! (OK-byte is send before erasing is finished!)
 
 #### TX
 |              |
@@ -102,10 +99,11 @@ Device ID: 0b0001
 | erase all command |
 
 #### RX
-|         |
-|---------|
-| 0xAA    |
-| OK-byte |
+|         |         |
+|---------|---------|
+| 0xAA    | 0xBB    |
+| OK-byte | Done-byte |
+
 
 ## AD Converter
 Device ID: 0b0010
