@@ -170,7 +170,6 @@ BEGIN
 		
 		setNBytes(1, 3);
 		uartSendN(X"20", X"800000", 0.0, 0.0);
-		WAIT FOR 1 us;
 		uartSendN(X"20", X"800000", 0.0, 0.0);
 		uartSendN(X"20", X"800000", 0.0, 0.0);
 		uartSendN(X"20", X"800000", 0.0, 0.0);
