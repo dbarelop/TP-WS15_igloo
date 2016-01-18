@@ -115,12 +115,12 @@ BEGIN
 			n_txbytes := txBytes;
 		END PROCEDURE;
 
-		PROCEDURE uartSendN (dataIn: std_logic_vector((n_rxbytes*8)-1 DOWNTO 0); result: std_logic_vector((n_txbytes*8)-1 DOWNTO 0); ain1Input: real; ain2Input: real) IS
+		PROCEDURE uartSendN (dataIn: std_logic_vector((n_rxbytes*8)-1 DOWNTO 0); result: std_logic_vector((n_txbytes*8)-1 DOWNTO 0); ain: real) IS
 			VARIABLE dataInLength: INTEGER := dataIn'LENGTH-1;
 			VARIABLE dataOutLength: INTEGER := result'LENGTH-1;
 		BEGIN
-			ain1 <= ain1Input;
-			ain2 <= ain2Input;
+			ain1 <= ain;
+			ain2 <= ain;
 			WAIT UNTIL rising_edge(clk);
 			
 			uartin <= dataIn(dataInLength DOWNTO dataInLength-7);
@@ -149,7 +149,7 @@ BEGIN
 			IF result'LENGTH >= 8 THEN
 				FOR i in 0 to n_txbytes-1 LOOP
 					WAIT UNTIL uartTx = '1';
-					assert uartout = result(dataOutLength-8*i DOWNTO dataOutLength-8*i-7) report "wrong result";
+					assert uartout = result(dataOutLength-8*i DOWNTO dataOutLength-8*i-7) report "wrong result at AIN := " & real'image(ain);
 					uartTxReady <= '0';
 					WAIT FOR 1 us;
 					uartTxReady <= '1';
@@ -165,14 +165,36 @@ BEGIN
 		rst <= NOT RSTDEF;
 
 		setNBytes(1,0);
-		uartSendN(X"23", X"", 0.0, 0.0);			-- ch2
-		uartSendN(X"25", X"", 0.0, 0.0);			-- rng1
+		uartSendN(X"23", X"", 0.0);			-- ch1
+		uartSendN(X"25", X"", 0.0);			-- rng1	(2.56V)
 		
 		setNBytes(1, 3);
-		uartSendN(X"20", X"800000", 0.0, 0.0);
-		uartSendN(X"20", X"800000", 0.0, 0.0);
-		uartSendN(X"20", X"800000", 0.0, 0.0);
-		uartSendN(X"20", X"800000", 0.0, 0.0);
+		uartSendN(X"20", X"350000", -1.5);
+		uartSendN(X"20", X"670000", -0.5);
+		uartSendN(X"20", X"800000", 0.0);
+		uartSendN(X"20", X"990000", 0.5);
+		uartSendN(X"20", X"CB0000", 1.5);
+		uartSendN(X"20", X"FD0000", 2.5);
+
+		setNBytes(1,0);
+		uartSendN(X"24", X"", 0.0);			-- ch2
+		uartSendN(X"26", X"", 0.0);			-- rng2 	(0.16V)
+		
+		setNBytes(1,3);
+		uartSendN(X"20", X"FFFFFF", 5.0);
+		uartSendN(X"20", X"FFFFFF", 0.16);
+		uartSendN(X"20", X"980000", 0.03);
+		uartSendN(X"20", X"800000", 0.0);
+		uartSendN(X"20", X"680000", -0.03);
+		uartSendN(X"20", X"000000", -0.16);
+		uartSendN(X"20", X"000000", -5.0);
+		
+		setNBytes(1,0);
+		uartSendN(X"25", X"", 0.0);			-- rng1	(2.56V)
+		
+		setNBytes(1,3);
+		uartSendN(X"20", X"FD0000", 2.5);
+		uartSendN(X"20", X"030000", -2.5);
 		
 		
 		REPORT "all tests done..." SEVERITY note;
