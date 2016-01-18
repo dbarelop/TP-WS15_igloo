@@ -10,6 +10,7 @@ ENTITY CONNECTOR IS
 			txd:		OUT std_logic;
 
 			watchdogen: IN 	std_logic;
+			watchdogEnLED: OUT std_logic;
 
 			eepromCS:	OUT std_logic;
 			eepromSCLK:	OUT std_logic;
@@ -115,8 +116,8 @@ ARCHITECTURE behaviour OF CONNECTOR IS
 	END COMPONENT;
 	
 	COMPONENT AD7782CTRL IS
-	GENERIC(RSTDEF: std_logic := '1';
-			DEVICEID: std_logic_vector(3 DOWNTO 0) := "0010");
+	GENERIC(RSTDEF: std_logic;
+			DEVICEID: std_logic_vector(3 DOWNTO 0));
 	PORT(	rst:		IN	std_logic;
 			clk:		IN	std_logic;
 			busy:		INOUT	std_logic;							-- busy bit indicates working component
@@ -141,6 +142,8 @@ ARCHITECTURE behaviour OF CONNECTOR IS
 BEGIN
 
 	uartTxReady <= tsre AND thre;		-- new byte can be send
+
+	watchdogEnLED <= NOT watchdogen;
 
 	u1: uart
 	GENERIC MAP(RSTDEF => RSTDEF,
@@ -183,7 +186,7 @@ BEGIN
 
 			busy	=>		busy,
 			watchdog=>		swrst,
-			watchdogen=>	watchdogen
+			watchdogen=>	NOT watchdogen		-- dip-switch activ low
 			);
 
 	d1: EEPROMCTRL
