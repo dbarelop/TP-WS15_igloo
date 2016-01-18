@@ -34,6 +34,16 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 		 miso:	IN std_logic);
 	END COMPONENT;
 
+	-- Component signals
+	SIGNAL rst: std_logic;
+	SIGNAL clk: std_logic;
+	SIGNAL strb: std_logic;
+	SIGNAL dout: std_logic_vector(13 DOWNTO 0);
+	SIGNAL sclk: std_logic;
+	SIGNAL cs: std_logic;
+	SIGNAL mosi: std_logic;
+	SIGNAL miso: std_logic;
+
 	CONSTANT CMD_READTEMP: std_logic_vector(3 DOWNTO 0) := X"1";
 
 	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, EXECMD, ENDCOM);
@@ -62,46 +72,46 @@ BEGIN
 
 	main: PROCESS (clk, rst) IS
 
-	PROCEDURE sendUART(value: IN std_logic_vector(7 DOWNTO 0)) IS
-	BEGIN
-		CASE uartstate IS
-			WHEN S0 =>
-				uartout <= value(7 DOWNTO 0);
-				uartTx <= '1';
-				uartstate <= S1;
-			WHEN S1 =>
-				IF uartTxReady = '0' THEN
-					uartTx <= '0';
-					uartstate <= S2;
-				END IF;
-			WHEN S2 =>
-				IF uartTxReady = '1' THEN
-					uartstate <= S0;
-				END IF;
-		END CASE;
-	END PROCEDURE;
+		PROCEDURE sendUART(value: IN std_logic_vector(7 DOWNTO 0)) IS
+		BEGIN
+			CASE uartstate IS
+				WHEN S0 =>
+					uartout <= value(7 DOWNTO 0);
+					uartTx <= '1';
+					uartstate <= S1;
+				WHEN S1 =>
+					IF uartTxReady = '0' THEN
+						uartTx <= '0';
+						uartstate <= S2;
+					END IF;
+				WHEN S2 =>
+					IF uartTxReady = '1' THEN
+						uartstate <= S0;
+					END IF;
+			END CASE;
+		END PROCEDURE;
 
-	PROCEDURE readADT IS
-	BEGIN
-		CASE readstate IS
-			WHEN S0 =>
-				strb <= '1';
-				readstate <= S1;
-			WHEN S1 =>	-- send the first byte
-				strb <= '0';
-				uartstate <= S0;
-				sendUART("0000" & dout(13 DOWNTO 0));
-				IF uartstate = S0 THEN
-					readstate <= S2;
-				END IF;
-			WHEN S2 =>	-- send the second byte
-				uartstate <= S0;
-				sendUART(dout(7 DOWNTO 0));
-				IF uartstate <= S0 THEN
-					readstate <= S0;
-				END IF;
-		END CASE;
-	END PROCEDURE;
+		PROCEDURE readADT IS
+		BEGIN
+			CASE readstate IS
+				WHEN S0 =>
+					strb <= '1';
+					readstate <= S1;
+				WHEN S1 =>	-- send the first byte
+					strb <= '0';
+					uartstate <= S0;
+					sendUART("0000" & dout(13 DOWNTO 0));
+					IF uartstate = S0 THEN
+						readstate <= S2;
+					END IF;
+				WHEN S2 =>	-- send the second byte
+					uartstate <= S0;
+					sendUART(dout(7 DOWNTO 0));
+					IF uartstate <= S0 THEN
+						readstate <= S0;
+					END IF;
+			END CASE;
+		END PROCEDURE;
 
 	BEGIN
 		IF rst = RSTDEF THEN
