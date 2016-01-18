@@ -21,7 +21,8 @@ ENTITY ADT7301CTRL IS
 			ADTdout:	OUT std_logic_vector(13 DOWNTO 0);
 			ADTsclk:	OUT std_logic;
 			ADTcs:		OUT std_logic;
-			ADTmosi:	OUT std_logic
+			ADTmosi:	OUT std_logic;
+			ADTmiso:	IN std_logic
 	);
 
 END ADT7301CTRL;
@@ -68,10 +69,10 @@ BEGIN
 	PORT MAP(rst	=> rst,
 			 clk	=> clk,
 			 strb	=> strb,
-			 dout	=> dout,
-			 sclk	=> sclk,
-			 cs		=> cs,
-			 mosi	=> mosi,
+			 dout	=> ADTdout,
+			 sclk	=> ADTsclk,
+			 cs		=> ADTcs,
+			 mosi	=> ADTmosi,
 			 miso	=> miso);
 
 	main: PROCESS (clk, rst) IS
