@@ -4,7 +4,7 @@ USE ieee.std_logic_unsigned.ALL;
 
 ENTITY ADT7301CTRL IS
 	GENERIC(RSTDEF: std_logic := '1';
-			DEVICEID: std_logic_vector(3 DOWNTO 0) := "0000");
+			DEVICEID: std_logic_vector(3 DOWNTO 0) := "0011");
 	PORT(	rst:		IN	std_logic;
 			clk:		IN	std_logic;
 
