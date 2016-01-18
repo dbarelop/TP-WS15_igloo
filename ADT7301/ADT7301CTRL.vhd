@@ -35,8 +35,6 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 	END COMPONENT;
 
 	-- Component signals
-	SIGNAL rst: std_logic;
-	SIGNAL clk: std_logic;
 	SIGNAL strb: std_logic;
 	SIGNAL dout: std_logic_vector(13 DOWNTO 0);
 	SIGNAL sclk: std_logic;
@@ -146,9 +144,9 @@ BEGIN
 				CASE dataIN(3 DOWNTO 0) IS
 					WHEN CMD_READTEMP =>
 					-- Read ADT temperature value and output to UART
-						readstate = S0;
+						readstate <= S0;
 						readADT;
-						IF readstate = S3 THEN
+						IF readstate = S2 THEN
 							state <= ENDCOM;
 						END IF;
 					WHEN others =>
