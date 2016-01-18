@@ -13,6 +13,7 @@ ENTITY CONNECTOR IS
 			watchdogEnLED: OUT std_logic;
 
 			aliveLED:	OUT std_logic;
+			busyLEDMstr:OUT std_logic;
 
 			eepromCS:	OUT std_logic;
 			eepromSCLK:	OUT std_logic;
@@ -99,6 +100,7 @@ ARCHITECTURE behaviour OF CONNECTOR IS
 			uartTx:		INOUT std_logic;						-- starts transmission of new byte
 
 			busy:		INOUT	std_logic;					-- busy bit indicates working component
+			busyLED:	OUT 	std_logic;
 			watchdog:	OUT 	std_logic;
 			watchdogen: IN 		std_logic
 			);
@@ -184,7 +186,7 @@ BEGIN
 
 	aliveCnt: ALIVECOUNTER
 	GENERIC MAP(RSTDEF 	=> RSTDEF,
-			LENGTH		=> 17)
+			LENGTH		=> 16)
     PORT MAP(rst		=>	rst,
             swrst      	=>	swrst,
             clk			=>	clk,
@@ -208,6 +210,7 @@ BEGIN
 			uartTx	=>		wren,
 
 			busy	=>		busy,
+			busyLED =>		busyLEDMstr,
 			watchdog=>		swrst,
 			watchdogen=>	NOT watchdogen		-- dip-switch activ low
 			);

@@ -18,6 +18,7 @@ ENTITY COMPXCTRL IS
 			uartTxReady:IN 	std_logic;						-- indicates new byte can be send
 
 			busy:		INOUT	std_logic;					-- busy bit indicates working component
+			busyLED:	OUT 	std_logic;
 			watchdog:	OUT	std_logic;
 			watchdogen: IN  std_logic
 	);
@@ -25,6 +26,17 @@ ENTITY COMPXCTRL IS
 END COMPXCTRL;
 
 ARCHITECTURE behaviour OF COMPXCTRL IS
+
+	COMPONENT BUSYCOUNTER
+    GENERIC(RSTDEF: std_logic;
+            LENGTH: NATURAL);
+	PORT(	rst:		IN	std_logic;
+            swrst:      IN  std_logic;
+			clk:		IN	std_logic;
+            en:         IN  std_logic;
+			delayOut:   OUT std_logic 
+	);
+	END COMPONENT;
 
     COMPONENT COUNTER
 		GENERIC(RSTDEF: std_logic;
@@ -41,6 +53,8 @@ ARCHITECTURE behaviour OF COMPXCTRL IS
 
 	SIGNAL state: tstate;
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
+	SIGNAL startLED: std_logic;
+
     SIGNAL overflow: std_logic;
     SIGNAL wen: std_logic;
 
@@ -58,6 +72,7 @@ BEGIN
 			uartout <= (others => 'Z');
 			uartTx <= 'Z';
 			uartRd <= 'Z';
+			startLED <= '0';
 
 			state <= IDLE;
 		END PROCEDURE;
@@ -71,9 +86,11 @@ BEGIN
 					busy <= '1';
 					uartRd <= '1';
 					dataIN <= uartin;
+					startLED <= '1';
 					state <= READSENDOK;
 				END IF;
 			ELSIF state = READSENDOK THEN
+				startLED <= '0';
 				uartout <= x"AA"; -- OK message
 				uartTx <= '1';
 				uartRd <= '0';
@@ -108,6 +125,16 @@ BEGIN
 			END IF;
 		END IF;
 	END PROCESS;
+
+	bsyCnt: BUSYCOUNTER
+    GENERIC MAP(RSTDEF	=> RSTDEF,
+            LENGTH		=> 16)
+	PORT MAP(rst 		=> rst,		
+            swrst		=> swrst,      
+			clk			=> clk,		
+            en 			=> startLED,
+			delayOut	=> busyLED
+	);
 
     timoutCounter: COUNTER
     GENERIC MAP(RSTDEF	=> 	RSTDEF,
