@@ -36,10 +36,6 @@ BEGIN
                 overflow <= '0';
                 counter <= (others => '0');
             END IF;
-            IF swrst = RSTDEF THEN
-                counter <= (others => '0');
-                overflow <= '0';
-            END IF;
         END IF;
     END PROCESS;
 

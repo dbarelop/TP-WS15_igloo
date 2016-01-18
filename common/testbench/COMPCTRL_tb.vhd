@@ -44,22 +44,24 @@ ARCHITECTURE behaviour OF COMPXCTRL_tb IS
 	SIGNAL uartTxReady:	std_logic :='1';
 	SIGNAL uartTx:		std_logic := '0';
 
-	SIGNAL busy:		std_logic := '0';
+	SIGNAL busy:		std_logic := 'Z';
 	SIGNAL watchdog:	std_logic := '0';
 
 	SIGNAL serOut:		std_logic_vector(7 DOWNTO 0) := (others => '0');
     SIGNAL swrstCounter: natural := 0;
+	SIGNAL swrst: std_logic;
 
 BEGIN
 
 	clk <= NOT clk AFTER tcyc/2;
+	swrst <= NOT watchdog;
 
 	c1: COMPXCTRL
 	GENERIC MAP(RSTDEF => RSTDEF,
 				DEVICEID => "0000",
 				TIMEOUT => TIMEOUT)
 	PORT MAP(	rst => rst,
-				swrst => NOT RSTDEF,
+				swrst => swrst,
 				clk => clk,
 				uartin => uartin,
 				uartRx => uartRx,
@@ -127,7 +129,7 @@ BEGIN
         
         PROCEDURE waitXClocks(clocks: integer) IS
         
-        VARIABLE clockCount: integer;
+        VARIABLE clockCount: integer := 0;
         
         BEGIN
             WHILE clockCount < clocks LOOP 
@@ -140,12 +142,12 @@ BEGIN
         PROCEDURE watchdogTest IS
         BEGIN
             busy <= '1';
-            waitXClocks(2**TIMEOUT-1);
-            busy <= '0';
+            waitXClocks(2**TIMEOUT);
+            busy <= 'Z';
             assert swrstCounter = 0 report "Watchdog reseted to early";
             busy <= '1';
-            waitXClocks(2**TIMEOUT);
-            busy <= '0';
+            waitXClocks(2**(TIMEOUT + 1));
+            busy <= 'Z';
             assert swrstCounter = 1 report "Watchdog did not reset correctly";
         END PROCEDURE;
         
@@ -156,7 +158,7 @@ BEGIN
 		setNBytes(1, 1);
 		uartSendN("00000000", x"03");
         
-        --watchdogTest;
+        watchdogTest;
         
         
 		REPORT "all tests done..." SEVERITY note;
