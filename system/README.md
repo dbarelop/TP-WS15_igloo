@@ -10,6 +10,30 @@ Config:
 * no parity
 * no handshake
 
+## Peripherals
+
+### LEDs
+|  LED No. |  Indication  |
+|----------|--------------|
+| LED1     | Master busy  |
+| LED2     | (Not implemented yet) reserved for ADT  |
+| LED3     | EEPROM busy  |
+| LED4     | AD7782 busy  |
+| LED5     | Watchdog enabled  |
+| LED8     | System alive (blinking)  |
+
+### Switches
+| Switch No. | Function   |
+|------------|------------|
+| 1          | En/disable watchdog for debug purposes |
+
+## Watchdog
+If the watchdog is enabled and the busy-flag is active for more than
+~130 ms, a software-reset for all components will be triggered.
+
+The watchdog can be disabled via the switch 1 on the board. Make sure all jumpers are set correctly.
+
+
 ## Master
 Device ID: 0b0000
 ### get firmware version
