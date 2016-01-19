@@ -216,9 +216,9 @@ BEGIN
 			uartTx	=>		wren,
 
 			busy	=>		busy,
-			busyLED =>		busyMstr,	-- LED active low
+			busyLED =>		busyMstr,
 			watchdog=>		swrst,
-			watchdogen=>	NOT watchdogen -- switch active low
+			watchdogen=>	watchdogen
 			);
 
 	d1: EEPROMCTRL
