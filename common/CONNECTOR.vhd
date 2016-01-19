@@ -16,6 +16,7 @@ ENTITY CONNECTOR IS
 			busyLEDMstr:OUT std_logic;
 			busyLEDEEPROM:OUT std_logic;
 			busyLEDAD7782:OUT std_logic;
+			busyLEDADT7301:OUT std_logic;
 
 			eepromCS:	OUT std_logic;
 			eepromSCLK:	OUT std_logic;
@@ -54,6 +55,7 @@ ARCHITECTURE behaviour OF CONNECTOR IS
     SIGNAL busyMstr:    std_logic;
     SIGNAL busyEEPROM:	std_logic;
     SIGNAL busyAD7782:	std_logic;
+    SIGNAL busyADT7301:	std_logic;
 
 	COMPONENT ALIVECOUNTER
 		GENERIC(RSTDEF: std_logic;
@@ -172,6 +174,7 @@ BEGIN
     busyLEDMstr <= NOT busyMstr;        -- LED active low
     busyLEDEEPROM <= NOT busyEEPROM;	-- LED active low
     busyLEDAD7782 <= NOT busyAD7782;	-- LED active low
+    busyLEDADT7301 <= '1';				-- preparation
 
 	u1: uart
 	GENERIC MAP(RSTDEF => RSTDEF,

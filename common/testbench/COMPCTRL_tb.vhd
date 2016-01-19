@@ -173,7 +173,7 @@ BEGIN
 		rst <= NOT RSTDEF;
 
 		setNBytes(1, 1);
-		uartSendN("00000000", x"04");
+		uartSendN("00000000", x"05");
         
         watchdogTest;
         
