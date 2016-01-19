@@ -15,6 +15,7 @@ IGLOO nano Starter Kit
 | 26      | WATCHDOGEN |
 | 35      | BUSYLEDMSTR |
 | 40      | BUSYLEDEEPROM |
+| 41      | BUSYLEDAD7782 |
 | 42      | WATCHDOGENLED |
 | 45      | ALIVELED |
 
