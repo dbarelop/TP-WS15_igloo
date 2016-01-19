@@ -34,6 +34,7 @@ BEGIN
         ELSIF rising_edge(clk) THEN
             IF state = IDLE AND en = '1' THEN
                 delayOut <= '1';
+                state <= RUNNING;
             ELSIF state = RUNNING THEN
                 counter <= counter + 1;
                 IF counter(counter'LEFT) = '1' THEN
