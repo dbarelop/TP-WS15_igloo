@@ -158,7 +158,7 @@ BEGIN
 
 	uartTxReady <= tsre AND thre;		-- new byte can be send
 
-	watchdogEnLED <= watchdogen;
+	watchdogEnLED <= NOT watchdogen;	-- LED active low
 
 	u1: uart
 	GENERIC MAP(RSTDEF => RSTDEF,
@@ -210,9 +210,9 @@ BEGIN
 			uartTx	=>		wren,
 
 			busy	=>		busy,
-			busyLED =>		busyLEDMstr,
+			busyLED =>		NOT busyLEDMstr,	-- LED active low
 			watchdog=>		swrst,
-			watchdogen=>	NOT watchdogen		-- dip-switch activ low
+			watchdogen=>	watchdogen
 			);
 
 	d1: EEPROMCTRL
