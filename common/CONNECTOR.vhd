@@ -48,6 +48,7 @@ ARCHITECTURE behaviour OF CONNECTOR IS
 
 	SIGNAL uartTxReady: std_logic;
 	SIGNAL busy:		std_logic;
+    SIGNAL busyMstr:    std_logic;
 
 	COMPONENT ALIVECOUNTER
 		GENERIC(RSTDEF: std_logic;
@@ -159,6 +160,7 @@ BEGIN
 	uartTxReady <= tsre AND thre;		-- new byte can be send
 
 	watchdogEnLED <= NOT watchdogen;	-- LED active low
+    busyLEDMstr <= NOT busyMstr;        -- LED active low
 
 	u1: uart
 	GENERIC MAP(RSTDEF => RSTDEF,
@@ -210,9 +212,9 @@ BEGIN
 			uartTx	=>		wren,
 
 			busy	=>		busy,
-			busyLED =>		NOT busyLEDMstr,	-- LED active low
+			busyLED =>		busyMstr,	-- LED active low
 			watchdog=>		swrst,
-			watchdogen=>	watchdogen
+			watchdogen=>	NOT watchdogen -- switch active low
 			);
 
 	d1: EEPROMCTRL
