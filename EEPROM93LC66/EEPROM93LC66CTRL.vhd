@@ -377,7 +377,6 @@ BEGIN
 					state <= READSENDOK;
 				END IF;
 			ELSIF state = READSENDOK THEN
-				startLED <= '0';
 				uartout <= x"AA"; -- OK message
 				uartTx <= '1';
 				uartRd <= '0';
@@ -426,6 +425,7 @@ BEGIN
 				uartTx <= 'Z';
 				uartRd <= 'Z';
 				busy <= 'Z';
+				startLED <= '0';
 				state <= IDLE;
 			END IF;
 			IF swrst = RSTDEF THEN
