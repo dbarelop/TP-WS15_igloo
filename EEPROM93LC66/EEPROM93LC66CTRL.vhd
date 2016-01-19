@@ -17,6 +17,7 @@ ENTITY EEPROMCTRL IS
 			uartTx:		INOUT 	std_logic;						-- starts transmission of new byte
 			 
 			busy:		INOUT	std_logic;					-- busy bit indicates working component
+			busyLED:	OUT		std_logic;
 			-- component pins
 			sclk:		OUT 	std_logic;
 			cs:			OUT 	std_logic;
@@ -48,6 +49,17 @@ ARCHITECTURE behaviour OF EEPROMCTRL IS
 
 	END COMPONENT;
 
+	COMPONENT BUSYCOUNTER
+    GENERIC(RSTDEF: std_logic;
+            LENGTH: NATURAL);
+	PORT(	rst:		IN	std_logic;
+            swrst:      IN  std_logic;
+			clk:		IN	std_logic;
+            en:         IN  std_logic;
+			delayOut:   OUT std_logic 
+	);
+	END COMPONENT;
+
 	-- component signals
 	SIGNAL cmd: std_logic_vector(3 DOWNTO 0);
 	SIGNAL strb: std_logic;
@@ -63,6 +75,7 @@ ARCHITECTURE behaviour OF EEPROMCTRL IS
 	SIGNAL state: tstate;
 	SIGNAL maincmd: tmaincmd;
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
+	SIGNAL startLED: std_logic;
 
 	TYPE tcmd IS (SENDCMD, RXARG1, DELAY, RXARG2, DELAY2, RXARG3, WAITANSWER, TXANSWER, TXANSWER2, DONEMSG, DELAYDONE, FINISH);
 	SIGNAL readcmd: tcmd;
@@ -97,6 +110,7 @@ BEGIN
 			uartout <= (others => 'Z');
 			uartTx <= 'Z';
 			uartRd <= 'Z';
+			startLED <= '0';
 
 			state <= EXECMD;
 			maincmd <= EWEN;
@@ -359,9 +373,11 @@ BEGIN
 					busy <= '1';
 					uartRd <= '1';
 					dataIN <= uartin;
+					startLED <= '1';
 					state <= READSENDOK;
 				END IF;
 			ELSIF state = READSENDOK THEN
+				startLED <= '0';
 				uartout <= x"AA"; -- OK message
 				uartTx <= '1';
 				uartRd <= '0';
@@ -417,5 +433,15 @@ BEGIN
 			END IF;
 		END IF;
 	END PROCESS;
+
+	bsyCnt: BUSYCOUNTER
+    GENERIC MAP(RSTDEF	=> RSTDEF,
+            LENGTH		=> 16)
+	PORT MAP(rst 		=> rst,		
+            swrst		=> swrst,      
+			clk			=> clk,		
+            en 			=> startLED,
+			delayOut	=> busyLED
+	);
 
 END behaviour;

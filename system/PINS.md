@@ -14,6 +14,7 @@ IGLOO nano Starter Kit
 | 19      | TXD        |
 | 26      | WATCHDOGEN |
 | 35      | BUSYLEDMSTR |
+| 40      | BUSYLEDEEPROM |
 | 42      | WATCHDOGENLED |
 | 45      | ALIVELED |
 

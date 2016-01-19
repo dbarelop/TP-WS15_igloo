@@ -14,6 +14,7 @@ ENTITY CONNECTOR IS
 
 			aliveLED:	OUT std_logic;
 			busyLEDMstr:OUT std_logic;
+			busyLEDEEPROM:OUT std_logic;
 
 			eepromCS:	OUT std_logic;
 			eepromSCLK:	OUT std_logic;
@@ -49,6 +50,7 @@ ARCHITECTURE behaviour OF CONNECTOR IS
 	SIGNAL uartTxReady: std_logic;
 	SIGNAL busy:		std_logic;
     SIGNAL busyMstr:    std_logic;
+    SIGNAL busyEEPROM:	std_logic;
 
 	COMPONENT ALIVECOUNTER
 		GENERIC(RSTDEF: std_logic;
@@ -122,6 +124,7 @@ ARCHITECTURE behaviour OF CONNECTOR IS
 			uartTx:		INOUT 	std_logic;						-- starts transmission of new byte
 				 
 			busy:		INOUT	std_logic;					-- busy bit indicates working component
+			busyLED:	OUT 	std_logic;
 			-- component pins
 			sclk:		OUT 	std_logic;
 			cs:			OUT 	std_logic;
@@ -161,6 +164,7 @@ BEGIN
 
 	watchdogEnLED <= NOT watchdogen;	-- LED active low
     busyLEDMstr <= NOT busyMstr;        -- LED active low
+    busyLEDEEPROM <= NOT busyEEPROM;	-- LED active low
 
 	u1: uart
 	GENERIC MAP(RSTDEF => RSTDEF,
@@ -232,6 +236,7 @@ BEGIN
 			uartTx	=>		wren,				-- starts transmission of new byte
 			 
 			busy	=>		busy,				-- busy bit indicates working component
+			busyLED =>		busyEEPROM,
 			-- component pins
 			sclk	=>		eepromSCLK,
 			cs		=>		eepromCS,
