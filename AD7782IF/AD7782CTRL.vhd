@@ -6,8 +6,10 @@ ENTITY AD7782CTRL IS
 	GENERIC(RSTDEF: std_logic := '1';
 			DEVICEID: std_logic_vector(3 DOWNTO 0) := "0010");
 	PORT(	rst:		IN	std_logic;
+			swrst:		IN 	std_logic;
 			clk:		IN	std_logic;
 			busy:		INOUT	std_logic;							-- busy bit indicates working component
+			busyLED:	OUT 	std_logic;
 
 			uartin:		IN 	std_logic_vector(7 DOWNTO 0);
 			uartout:		INOUT std_logic_vector(7 DOWNTO 0);
@@ -36,6 +38,7 @@ ARCHITECTURE behaviour OF AD7782CTRL IS
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
 	SIGNAL cnt:		std_logic_vector(2 DOWNTO 0);
 	SIGNAL adcBUF: std_logic_vector(24-1 DOWNTO 0);
+	SIGNAL startLED: std_logic;
 	
 	SIGNAL strb:	std_logic;									-- Inicial new AD Calculation
 	SIGNAL csel:	std_logic;									-- select wich chanel is used AIN1(0), AIN2(1)
@@ -71,6 +74,17 @@ ARCHITECTURE behaviour OF AD7782CTRL IS
          ch2:  OUT std_logic_vector(24-1 DOWNTO 0));
 	END COMPONENT;
 
+	COMPONENT BUSYCOUNTER
+    GENERIC(RSTDEF: std_logic;
+            LENGTH: NATURAL);
+	PORT(	rst:		IN	std_logic;
+            swrst:      IN  std_logic;
+			clk:		IN	std_logic;
+            en:         IN  std_logic;
+			delayOut:   OUT std_logic 
+	);
+	END COMPONENT;
+
 BEGIN
 	adcBUF <= ch1 WHEN csel='0' ELSE ch2 WHEN csel='1';
 	
@@ -90,6 +104,17 @@ BEGIN
 				done	=> done,
 				ch1 	=> ch1,
 				ch2	=> ch2);
+
+	bsyCnt: BUSYCOUNTER
+    GENERIC MAP(RSTDEF	=> RSTDEF,
+            LENGTH		=> 16)
+	PORT MAP(rst 		=> rst,		
+            swrst		=> swrst,      
+			clk			=> clk,		
+            en 			=> startLED,
+			delayOut	=> busyLED
+	);
+
 
 	main: PROCESS (clk, rst) IS
 	
@@ -161,21 +186,27 @@ BEGIN
 				END CASE;
 		END CASE;
 	END PROCEDURE;
-	
+
+	PROCEDURE reset IS
+	BEGIN
+		busy <= 'Z';
+		uartout <= (others => 'Z');
+		uartTx <= 'Z';
+		uartRd <= 'Z';
+		startLED <= '0';
+		
+		csel 	<= AIN1;
+		rsel	<= RANGEHIG;
+		cmds	<= IDLE;
+		strb	<= '0';
+		cnt	<= (OTHERS => '0');
+
+		state <= IDLE;
+	END PROCEDURE;
+
 	BEGIN
 		IF rst = RSTDEF THEN
-			busy <= 'Z';
-			uartout <= (others => 'Z');
-			uartTx <= 'Z';
-			uartRd <= 'Z';
-			
-			csel 	<= AIN1;
-			rsel	<= RANGEHIG;
-			cmds	<= IDLE;
-			strb	<= '0';
-			cnt	<= (OTHERS => '0');
-
-			state <= IDLE;
+			reset;
 		ELSIF rising_edge(clk) THEN
 			IF state = IDLE AND uartRx = '1' THEN
 				IF uartin(7 DOWNTO 4) = DEVICEID AND busy /= '1' THEN
@@ -183,6 +214,7 @@ BEGIN
 					uartRd <= '1';
 					dataIN <= uartin;
 					state <= READSENDOK;
+					startLED <= '1';
 					
 					cnt	<= (OTHERS => '0');
 				END IF;
@@ -240,8 +272,12 @@ BEGIN
 				uartRd <= 'Z';
 				busy <= 'Z';
 				state <= IDLE;
+				startLED <= '0';
 				
 				cnt	<= (OTHERS => '0');
+			END IF;
+			IF swrst = RSTDEF THEN
+				reset;
 			END IF;
 		END IF;
 	END PROCESS;

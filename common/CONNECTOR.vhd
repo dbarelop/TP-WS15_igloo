@@ -9,12 +9,13 @@ ENTITY CONNECTOR IS
 			rxd:		IN	std_logic;
 			txd:		OUT std_logic;
 
-			watchdogen: IN 	std_logic;
+			watchdogenSwitch: IN 	std_logic;
 			watchdogEnLED: OUT std_logic;
 
 			aliveLED:	OUT std_logic;
 			busyLEDMstr:OUT std_logic;
 			busyLEDEEPROM:OUT std_logic;
+			busyLEDAD7782:OUT std_logic;
 
 			eepromCS:	OUT std_logic;
 			eepromSCLK:	OUT std_logic;
@@ -48,9 +49,11 @@ ARCHITECTURE behaviour OF CONNECTOR IS
 	SIGNAL dout:	std_logic_vector(7 DOWNTO 0);
 
 	SIGNAL uartTxReady: std_logic;
+	SIGNAL watchdogen: std_logic;
 	SIGNAL busy:		std_logic;
     SIGNAL busyMstr:    std_logic;
     SIGNAL busyEEPROM:	std_logic;
+    SIGNAL busyAD7782:	std_logic;
 
 	COMPONENT ALIVECOUNTER
 		GENERIC(RSTDEF: std_logic;
@@ -138,8 +141,10 @@ ARCHITECTURE behaviour OF CONNECTOR IS
 	GENERIC(RSTDEF: std_logic;
 			DEVICEID: std_logic_vector(3 DOWNTO 0));
 	PORT(	rst:		IN	std_logic;
+			swrst:		IN 	std_logic;
 			clk:		IN	std_logic;
 			busy:		INOUT	std_logic;							-- busy bit indicates working component
+			busyLED:	OUT 	std_logic;
 
 			uartin:		IN 	std_logic_vector(7 DOWNTO 0);
 			uartout:		INOUT std_logic_vector(7 DOWNTO 0);
@@ -162,9 +167,11 @@ BEGIN
 
 	uartTxReady <= tsre AND thre;		-- new byte can be send
 
+	watchdogen <= NOT watchdogenSwitch; -- switch active low
 	watchdogEnLED <= NOT watchdogen;	-- LED active low
     busyLEDMstr <= NOT busyMstr;        -- LED active low
     busyLEDEEPROM <= NOT busyEEPROM;	-- LED active low
+    busyLEDAD7782 <= NOT busyAD7782;	-- LED active low
 
 	u1: uart
 	GENERIC MAP(RSTDEF => RSTDEF,
@@ -249,8 +256,10 @@ BEGIN
 	GENERIC MAP(RSTDEF	=>	RSTDEF,
 			DEVICEID	=>	"0010")
 	PORT MAP(rst	=> rst,
+				swrst 	=> swrst,
 				clk	=> clk,
 				busy	=> busy,								-- busy bit indicates working component
+				busyLED => busyAD7782,
 
 				uartin			=> dout,
 				uartout			=> din,
