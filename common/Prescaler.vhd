@@ -18,12 +18,12 @@ ARCHITECTURE behaviour OF Prescaler IS
     SIGNAL temp: std_logic;
 BEGIN
 
-    PROCESS(clk, rst) IS
+    PROCESS(clkin, rst) IS
     BEGIN
         IF rst = RSTDEF THEN
             counter <= 0;
             temp <= '0';
-        ELSIF rising_edge(clk) THEN
+        ELSIF rising_edge(clkin) THEN
             IF en = '1' THEN
                 IF counter = 19 THEN
                     counter <= 0;
