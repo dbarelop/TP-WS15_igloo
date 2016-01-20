@@ -14,7 +14,7 @@ ENTITY Prescaler IS
 END Prescaler;
 
 ARCHITECTURE behaviour OF Prescaler IS
-    SIGNAL counter: integer range 0 to 19;
+    SIGNAL counter: integer range 0 to 9;
     SIGNAL temp: std_logic;
 BEGIN
 
@@ -25,7 +25,7 @@ BEGIN
             temp <= '0';
         ELSIF rising_edge(clkin) THEN
             IF en = '1' THEN
-                IF counter = 19 THEN
+                IF counter = 9 THEN
                     counter <= 0;
                     temp <= NOT temp;
                 ELSE
