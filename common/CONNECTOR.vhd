@@ -4,7 +4,7 @@ USE ieee.std_logic_unsigned.ALL;
 
 ENTITY CONNECTOR IS
 	PORT(	rst:		IN	std_logic;
-			clk:		IN	std_logic;
+			clkin:		IN	std_logic;
 
 			rxd:		IN	std_logic;
 			txd:		OUT std_logic;
@@ -40,6 +40,7 @@ ARCHITECTURE behaviour OF CONNECTOR IS
 	CONSTANT RSTDEF: std_logic := '1';
 
 	SIGNAL swrst:	std_logic;
+	SIGNAL clk:		std_logic;
 
 	SIGNAL rden:	std_logic;
 	SIGNAL wren:	std_logic;
@@ -66,6 +67,17 @@ ARCHITECTURE behaviour OF CONNECTOR IS
                 en:         IN  std_logic;
                 overflow:   OUT std_logic
         );
+	END COMPONENT;
+
+	COMPONENT Prescaler
+    GENERIC(RSTDEF: std_logic);
+	PORT(	rst:		IN	std_logic;
+            swrst:      IN  std_logic;
+			clkin:		IN	std_logic;
+            en:         IN  std_logic;
+			clkout:   OUT std_logic 
+	);
+
 	END COMPONENT;
 
 	COMPONENT uart 
@@ -209,6 +221,15 @@ BEGIN
             en         	=>	'1',
             overflow   	=>	aliveLED
     );
+
+    prescl: Prescaler
+    GENERIC MAP(RSTDEF => RSTDEF)
+	PORT MAP(rst 		=> rst,
+            swrst		=> swrst,
+			clkin		=> clkin,
+            en 			=> '1',
+			clkout		=> clk
+	);
 
 	m1: COMPXCTRL
 	GENERIC MAP(RSTDEF	=> 	RSTDEF,
