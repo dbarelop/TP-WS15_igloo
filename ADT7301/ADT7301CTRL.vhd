@@ -100,7 +100,7 @@ BEGIN
 				WHEN S1 =>	-- send the first byte
 					strb <= '0';
 					uartstate <= S0;
-					sendUART("0000" & dout(13 DOWNTO 0));
+					sendUART("00" & dout(13 DOWNTO 8));
 					IF uartstate = S0 THEN
 						readstate <= S2;
 					END IF;
