@@ -57,6 +57,9 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 	TYPE treadstate IS (S0, S1, S2, FINISHED);
 	SIGNAL readstate: treadstate;
 
+	TYPE tcmd IS (READTEMP);
+	SIGNAL cmd: tcmd;
+
 BEGIN
 
 	adtif: ADT7301IF
@@ -98,15 +101,17 @@ BEGIN
 				WHEN S0 =>
 					strb <= '1';
 					readstate <= S1;
+					uartstate <= S0;
 				WHEN S1 =>	-- send the first byte
 					strb <= '0';
-					uartstate <= S0;
+					--uartstate <= S0;
 					sendUART("00" & dout(13 DOWNTO 8));
 					IF uartstate = FINISHED THEN
+						uartstate <= S0;
 						readstate <= S2;
 					END IF;
 				WHEN S2 =>	-- send the second byte
-					uartstate <= S0;
+					--uartstate <= S0;
 					sendUART(dout(7 DOWNTO 0));
 					IF uartstate <= FINISHED THEN
 						readstate <= FINISHED;
@@ -132,10 +137,19 @@ BEGIN
 					state <= READSENDOK;
 				END IF;
 			ELSIF state = READSENDOK THEN
-				uartout <= x"AA"; -- OK message
-				uartTx <= '1';
-				uartRd <= '0';
-				state <= DELAY;
+				CASE dataIn(3 DOWNTO 0) IS
+					WHEN CMD_READTEMP =>
+						cmd <= READTEMP;
+						uartout <= x"AA"; -- OK message
+						uartTx <= '1';
+						uartRd <= '0';
+						state <= DELAY;
+					WHEN OTHERS =>
+						uartout <= x"FF"; -- Error message
+						uartTx <= '1';
+						uartRd <= '0';
+						state <= ENDCOM;
+				END CASE;
 			ELSIF state = DELAY THEN
 				state <= WAITSENDOK;
 			ELSIF state = WAITSENDOK THEN
@@ -145,16 +159,15 @@ BEGIN
 				END IF;
 			ELSIF state = EXECMD THEN
 				-- BEGIN handle command
-				CASE dataIN(3 DOWNTO 0) IS
-					WHEN CMD_READTEMP =>
+				CASE cmd IS
+					WHEN READTEMP =>
 					-- Read ADT temperature value and output to UART
-						readstate <= S0;
+						--readstate <= S0;
 						readADT;
 						IF readstate = FINISHED THEN
 							state <= ENDCOM;
+							readstate <= S0;
 						END IF;
-					WHEN others =>
-						state <= ENDCOM;
 				END CASE;
 				-- END handle command
 			ELSIF state = ENDCOM THEN
