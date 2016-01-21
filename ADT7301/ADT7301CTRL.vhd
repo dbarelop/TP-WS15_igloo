@@ -44,7 +44,7 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 	SIGNAL strb: std_logic;
 	SIGNAL dout: std_logic_vector(13 DOWNTO 0);
 
-	CONSTANT CMD_READTEMP: std_logic_vector(3 DOWNTO 0) := X"01";
+	CONSTANT CMD_READTEMP: std_logic_vector(7 DOWNTO 0) := X"01";
 
 	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, EXECMD, ENDCOM);
 
@@ -143,7 +143,7 @@ BEGIN
 				END IF;
 			ELSIF state = EXECMD THEN
 				-- BEGIN handle command
-				CASE dataIN(3 DOWNTO 0) IS
+				CASE dataIN(7 DOWNTO 0) IS
 					WHEN CMD_READTEMP =>
 					-- Read ADT temperature value and output to UART
 						readstate <= S0;

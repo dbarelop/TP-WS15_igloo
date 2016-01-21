@@ -47,7 +47,7 @@ ARCHITECTURE behaviour OF ADT7301CTRL_tb IS
 		 miso:	IN std_logic);
 	END COMPONENT;
 
-	CONSTANT CMD_READTEMP: std_logic_vector(3 DOWNTO 0) := X"01";
+	CONSTANT CMD_READTEMP: std_logic_vector(7 DOWNTO 0) := X"01";
 
 	SIGNAL strb: std_logic;
 
@@ -66,6 +66,8 @@ ARCHITECTURE behaviour OF ADT7301CTRL_tb IS
 	SIGNAL uartTxReady:std_logic :='1';
 	SIGNAL uartTx: std_logic:='0';
 	SIGNAL busy:	std_logic := '0';
+
+	SIGNAL result: std_logic_vector(15 DOWNTO 0);
 
 BEGIN
 
@@ -110,7 +112,6 @@ BEGIN
 		END FUNCTION;
 
 		PROCEDURE uartSendN (dataIn: std_logic_vector(7 DOWNTO 0)) IS
-			SIGNAL result: std_logic_vector(15 DOWNTO 0);
 		BEGIN
 			uartin <= dataIn(7 DOWNTO 0);
 			uartRx <= '1';
@@ -138,12 +139,12 @@ BEGIN
 
 			-- Receive the result
 			WAIT UNTIL uartTx = '1';
-			result <= "x00" & uartout;
+			result <= x"00" & uartout;
 			uartTxReady <= '0';
 			WAIT FOR 1 us;
 			uartTxReady <= '1';
 			WAIT UNTIL uartTx = '1';
-			result = result(7 DOWNTO 0) & uartout;
+			result <= result(7 DOWNTO 0) & uartout;
 			assert valid_temp_value(result) report "wrong result";
 			uartTxReady <= '0';
 			WAIT FOR 1 us;
