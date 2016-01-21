@@ -47,7 +47,8 @@ ARCHITECTURE behaviour OF ADT7301CTRL_tb IS
 		 miso:	IN std_logic);
 	END COMPONENT;
 
-	CONSTANT CMD_READTEMP: std_logic_vector(7 DOWNTO 0) := X"01";
+	CONSTANT ADT_DEVICEID: std_logic_vector(3 DOWNTO 0) := "0011";
+	CONSTANT CMD_READTEMP: std_logic_vector(3 DOWNTO 0) := "0001";
 
 	SIGNAL strb: std_logic;
 
@@ -102,7 +103,7 @@ BEGIN
 			 ADTmiso		=> ADTmiso);
 
 	p1: PROCESS
-		CONSTANT NUM_CHECKS: integer := 6079;
+		CONSTANT NUM_CHECKS: integer := 10;
 
 		-- Returns TRUE only when the given value belongs to the range [0x0000,0x12C0]U[0x3B00,0x3FFF]
 		FUNCTION valid_temp_value(val: std_logic_vector)
@@ -113,6 +114,7 @@ BEGIN
 
 		PROCEDURE uartSendN (dataIn: std_logic_vector(7 DOWNTO 0)) IS
 		BEGIN
+			-- Send
 			uartin <= dataIn(7 DOWNTO 0);
 			uartRx <= '1';
 			WAIT UNTIL uartRd = '1';
@@ -124,17 +126,6 @@ BEGIN
 			uartTxReady <= '1';
 			IF uartTx /= '0' THEN
 				WAIT UNTIL uartTx = '0';
-			END IF;
-
-			-- Send the command
-			uartin <= dataIn(7 DOWNTO 0);
-			uartRx <= '1';
-			IF uartRd = '0' THEN
-				WAIT UNTIL uartRd = '1';
-			END IF;
-			uartRx <= '0';
-			IF uartRd = '1' THEN
-				WAIT UNTIL uartRd = '0';
 			END IF;
 
 			-- Receive the result
@@ -157,9 +148,7 @@ BEGIN
 		rst <= NOT RSTDEF;
 
 		FOR i IN NUM_CHECKS DOWNTO 0 LOOP
-
-			uartSendN(CMD_READTEMP);
-
+			uartSendN(ADT_DEVICEID & CMD_READTEMP);
 		END LOOP;
 
 		REPORT "all tests done..." SEVERITY note;

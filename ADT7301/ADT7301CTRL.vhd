@@ -44,17 +44,17 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 	SIGNAL strb: std_logic;
 	SIGNAL dout: std_logic_vector(13 DOWNTO 0);
 
-	CONSTANT CMD_READTEMP: std_logic_vector(7 DOWNTO 0) := X"01";
+	CONSTANT CMD_READTEMP: std_logic_vector(3 DOWNTO 0) := "0001";
 
 	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, EXECMD, ENDCOM);
 
 	SIGNAL state: tstate;
 	SIGNAL dataIN: std_logic_vector(7 DOWNTO 0);
 
-	TYPE tuartstate IS (S0, S1, S2);
+	TYPE tuartstate IS (S0, S1, S2, FINISHED);
 	SIGNAL uartstate: tuartstate;
 
-	TYPE treadstate IS (S0, S1, S2);
+	TYPE treadstate IS (S0, S1, S2, FINISHED);
 	SIGNAL readstate: treadstate;
 
 BEGIN
@@ -86,8 +86,9 @@ BEGIN
 					END IF;
 				WHEN S2 =>
 					IF uartTxReady = '1' THEN
-						uartstate <= S0;
+						uartstate <= FINISHED;
 					END IF;
+				WHEN FINISHED =>
 			END CASE;
 		END PROCEDURE;
 
@@ -101,15 +102,16 @@ BEGIN
 					strb <= '0';
 					uartstate <= S0;
 					sendUART("00" & dout(13 DOWNTO 8));
-					IF uartstate = S0 THEN
+					IF uartstate = FINISHED THEN
 						readstate <= S2;
 					END IF;
 				WHEN S2 =>	-- send the second byte
 					uartstate <= S0;
 					sendUART(dout(7 DOWNTO 0));
-					IF uartstate <= S0 THEN
-						readstate <= S0;
+					IF uartstate <= FINISHED THEN
+						readstate <= FINISHED;
 					END IF;
+				WHEN FINISHED =>
 			END CASE;
 		END PROCEDURE;
 
@@ -143,12 +145,12 @@ BEGIN
 				END IF;
 			ELSIF state = EXECMD THEN
 				-- BEGIN handle command
-				CASE dataIN(7 DOWNTO 0) IS
+				CASE dataIN(3 DOWNTO 0) IS
 					WHEN CMD_READTEMP =>
 					-- Read ADT temperature value and output to UART
 						readstate <= S0;
 						readADT;
-						IF readstate = S2 THEN
+						IF readstate = FINISHED THEN
 							state <= ENDCOM;
 						END IF;
 					WHEN others =>
