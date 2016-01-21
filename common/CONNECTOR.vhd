@@ -37,7 +37,7 @@ END CONNECTOR;
 
 ARCHITECTURE behaviour OF CONNECTOR IS
 
-	CONSTANT RSTDEF: std_logic := '0';
+	CONSTANT RSTDEF: std_logic := '1';
 
 	SIGNAL swrst:	std_logic;
 
