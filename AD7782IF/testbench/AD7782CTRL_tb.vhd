@@ -12,7 +12,9 @@ ARCHITECTURE behaviour OF AD7782CTRL_tb IS
 		GENERIC(RSTDEF: std_logic := '1';
 				DEVICEID: std_logic_vector(3 DOWNTO 0) := "0010");
 		PORT(	rst:		IN	std_logic;
+				swrst:	IN std_logic;
 				clk:		IN	std_logic;
+				busyLED:	OUT std_logic;
 				busy:		INOUT	std_logic;							-- busy bit indicates working component
 
 				uartin:		IN 	std_logic_vector(7 DOWNTO 0);
@@ -64,6 +66,8 @@ ARCHITECTURE behaviour OF AD7782CTRL_tb IS
 	SIGNAL ADCmode:		std_logic;
 
 	SIGNAL busy:		std_logic := '0';
+	SIGNAL swrst:		std_logic := NOT RSTDEF;
+	SIGNAL busyLED:	std_logic := '0';
 	SIGNAL serOut:		std_logic_vector(7 DOWNTO 0) := (others => '0');
 
    SIGNAL ain1    : real := 0.0;
@@ -76,8 +80,10 @@ BEGIN
 	GENERIC MAP(RSTDEF	=>	RSTDEF,
 			DEVICEID	=>	"0010")
 	PORT MAP(rst	=> rst,
+				swrst => swrst,
 				clk	=> clk,
 				busy	=> busy,								-- busy bit indicates working component
+				busyLED => busyLED,
 
 				uartin			=> uartin,
 				uartout			=> uartout,

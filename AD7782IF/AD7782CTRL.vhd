@@ -6,7 +6,7 @@ ENTITY AD7782CTRL IS
 	GENERIC(RSTDEF: std_logic := '1';
 			DEVICEID: std_logic_vector(3 DOWNTO 0) := "0010");
 	PORT(	rst:		IN	std_logic;
-			swrst:		IN 	std_logic;
+			swrst:	IN 	std_logic;
 			clk:		IN	std_logic;
 			busy:		INOUT	std_logic;							-- busy bit indicates working component
 			busyLED:	OUT 	std_logic;
