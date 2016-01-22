@@ -6,6 +6,7 @@ ENTITY ADT7301CTRL IS
 	GENERIC(RSTDEF: std_logic := '1';
 			DEVICEID: std_logic_vector(3 DOWNTO 0) := "0011");
 	PORT(	rst:		IN	std_logic;
+			swrst:		IN 	std_logic;
 			clk:		IN	std_logic;
 
 			uartin:		IN 	std_logic_vector(7 DOWNTO 0);
@@ -16,6 +17,7 @@ ENTITY ADT7301CTRL IS
 			uartTx:		INOUT std_logic;						-- starts transmission of new byte
 
 			busy:		INOUT	std_logic;					-- busy bit indicates working component
+			busyLED:	OUT 	std_logic;
 
 			-- Component pins
 			ADTsclk:	OUT std_logic;
@@ -40,6 +42,18 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 		 miso:	IN std_logic);
 	END COMPONENT;
 
+	COMPONENT BUSYCOUNTER
+    GENERIC(RSTDEF: std_logic;
+            LENGTH: NATURAL);
+	PORT(	rst:		IN	std_logic;
+            swrst:      IN  std_logic;
+			clk:		IN	std_logic;
+            en:         IN  std_logic;
+			delayOut:   OUT std_logic 
+	);
+	END COMPONENT;
+
+	SIGNAL startLED std_logic;
 	-- Component signals
 	SIGNAL strb: std_logic;
 	SIGNAL dout: std_logic_vector(13 DOWNTO 0);
@@ -73,6 +87,16 @@ BEGIN
 			 cs		=> cs,
 			 mosi	=> ADTmosi,
 			 miso	=> ADTmiso);
+
+	bsyCnt: BUSYCOUNTER
+    GENERIC MAP(RSTDEF	=> RSTDEF,
+            LENGTH		=> 16)
+	PORT MAP(rst 		=> rst,		
+            swrst		=> swrst,      
+			clk			=> clk,		
+            en 			=> startLED,
+			delayOut	=> busyLED
+	);
 
 	main: PROCESS (clk, rst) IS
 
@@ -126,14 +150,22 @@ BEGIN
 			END CASE;
 		END PROCEDURE;
 
-	BEGIN
-		IF rst = RSTDEF THEN
+		PROCEDURE reset IS
+		BEGIN
 			busy <= 'Z';
 			uartout <= (others => 'Z');
 			uartTx <= 'Z';
 			uartRd <= 'Z';
+			startLED <= '0';
 
 			state <= IDLE;
+			readstate <= S0;
+			uartstate <= S0;
+		END PROCEDURE;
+
+	BEGIN
+		IF rst = RSTDEF THEN
+			reset;
 		ELSIF rising_edge(clk) THEN
 			IF state = IDLE AND uartRx = '1' THEN
 				IF uartin(7 DOWNTO 4) = DEVICEID AND busy /= '1' THEN
@@ -141,6 +173,7 @@ BEGIN
 					uartRd <= '1';
 					dataIN <= uartin;
 					state <= READSENDOK;
+					startLED <= '1';
 				END IF;
 			ELSIF state = READSENDOK THEN
 				CASE dataIn(3 DOWNTO 0) IS
@@ -181,6 +214,10 @@ BEGIN
 				uartRd <= 'Z';
 				busy <= 'Z';
 				state <= IDLE;
+				startLED <= '0';
+			END IF;
+			IF swrst = RSTDEF THEN
+				reset;
 			END IF;
 		END IF;
 	END PROCESS;

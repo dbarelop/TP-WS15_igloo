@@ -27,9 +27,14 @@ ENTITY CONNECTOR IS
 			ADCdin: 	IN 	std_logic;	-- Serial Datainput from the AD Converter
 			ADCrng: 	OUT	std_logic;	-- logic output which selects the range for AD Converter: 2.56V(1), 160mV(0)
 			ADCsel: 	OUT 	std_logic;  -- logic output which selects the active channel: AIN1 (=0) or ANI2 (=1)
-         ADCmode:	OUT 	std_logic;  -- logic output which selects master (=0) or slave (=1) mode of operation
-         ADCcs:  	OUT 	std_logic;  -- chip select, low active
-         ADCsclk:	OUT 	std_logic -- serial clock output
+         	ADCmode:	OUT 	std_logic;  -- logic output which selects master (=0) or slave (=1) mode of operation
+         	ADCcs:  	OUT 	std_logic;  -- chip select, low active
+         	ADCsclk:	OUT 	std_logic; -- serial clock output
+
+         	ADTsclk:	OUT std_logic;
+			ADTcs:		OUT std_logic;
+			ADTmosi:	OUT std_logic;
+			ADTmiso:	IN std_logic
 
 	);
 
@@ -164,6 +169,32 @@ ARCHITECTURE behaviour OF CONNECTOR IS
 
 	END COMPONENT;
 
+	COMPONENT ADT7301CTRL IS
+	GENERIC(RSTDEF: std_logic;
+			DEVICEID: std_logic_vector(3 DOWNTO 0));
+	PORT(	rst:		IN	std_logic;
+			swrst:		IN 	std_logic;
+			clk:		IN	std_logic;
+
+			uartin:		IN 	std_logic_vector(7 DOWNTO 0);
+			uartRx:		IN	std_logic;						-- indicates new byte is available
+			uartRd:		INOUT std_logic; 						-- indicates value was read from controller
+			uartout:	INOUT std_logic_vector(7 DOWNTO 0);
+			uartTxReady:IN 	std_logic;						-- indicates new byte can be send
+			uartTx:		INOUT std_logic;						-- starts transmission of new byte
+
+			busy:		INOUT	std_logic;					-- busy bit indicates working component
+			busyLED:	OUT 	std_logic;
+
+			-- Component pins
+			ADTsclk:	OUT std_logic;
+			ADTcs:		OUT std_logic;
+			ADTmosi:	OUT std_logic;
+			ADTmiso:	IN std_logic
+	);
+
+	END COMPONENT;
+
 
 BEGIN
 
@@ -174,7 +205,7 @@ BEGIN
     busyLEDMstr <= NOT busyMstr;        -- LED active low
     busyLEDEEPROM <= NOT busyEEPROM;	-- LED active low
     busyLEDAD7782 <= NOT busyAD7782;	-- LED active low
-    busyLEDADT7301 <= '1';				-- preparation
+    busyLEDADT7301 <= NOT busyADT7301;	-- LED active low
 
 	u1: uart
 	GENERIC MAP(RSTDEF => RSTDEF,
@@ -277,5 +308,29 @@ BEGIN
 				ADCmode			=> ADCmode,				-- logic output which selects master (=0) or slave (=1) mode of operation
 				ADCcs				=> ADCcs,				-- chip select, low active
 				ADCsclk			=> ADCsclk);			-- serial clock output
+
+	d3: ADT7301CTRL
+	GENERIC MAP(RSTDEF 		=> RSTDEF,
+			DEVICEID	=> "0011");
+	PORT MAP(	rst 		=> rst,
+			swrst 		=> swrst,
+			clk 		=> clk,
+
+			uartin		=> dout,
+			uartRx 		=> rhrf,						-- indicates new byte is available
+			uartRd 		=> rden, 						-- indicates value was read from controller
+			uartout		=> din,
+			uartTxReady => uartTxReady,						-- indicates new byte can be send
+			uartTx 		=> wren,						-- starts transmission of new byte
+
+			busy 		=> busy,					-- busy bit indicates working component
+			busyLED 	=> busyADT7301,
+
+			-- Component pins
+			ADTsclk		=> ADTsclk,
+			ADTcs 		=> ADTcs,
+			ADTmosi 	=> ADTmosi,
+			ADTmiso 	=> ADTmiso
+	);
 
 END behaviour;
