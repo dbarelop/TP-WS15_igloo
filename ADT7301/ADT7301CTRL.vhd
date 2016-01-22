@@ -55,7 +55,7 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 	TYPE tuartstate IS (S0, S1, S2, FINISHED);
 	SIGNAL uartstate: tuartstate;
 
-	TYPE treadstate IS (S0, S0_2, S1, S2, S3, S4, S5, S6, FINISHED);
+	TYPE treadstate IS (S0, S1, S2, S3, S4, S5, S6, FINISHED);
 	SIGNAL readstate: treadstate;
 
 	TYPE tcmd IS (READTEMP);
@@ -102,11 +102,8 @@ BEGIN
 		BEGIN
 			CASE readstate IS
 				WHEN S0 =>
-					ADTcs <= '1';
-					ADTmosi <= '1';
-					readstate <= S0_2;
-				WHEN S0_2 =>
 					ADTcs <= '0';
+					ADTmosi <= '1';
 					readstate <= S1;
 				WHEN S1 =>
 					ADTmosi <= '0';

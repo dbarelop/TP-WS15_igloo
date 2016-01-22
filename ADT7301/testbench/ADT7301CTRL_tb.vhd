@@ -35,12 +35,12 @@ ARCHITECTURE behaviour OF ADT7301CTRL_tb IS
 	);
 	END COMPONENT;
 
-   COMPONENT ADT7301
-      PORT(sclk: IN  std_logic;  -- serial clock input
-           cs:   IN  std_logic;  -- chip select, low active
-           din:  IN  std_logic;  -- serial data input
-           dout: OUT std_logic); -- serial data output
-   END COMPONENT;
+	COMPONENT ADT7301
+		PORT(sclk:	IN std_logic;  -- serial clock input
+			cs:		IN std_logic;  -- chip select, low active
+			din:	IN std_logic;  -- serial data input
+			dout:	OUT std_logic); -- serial data output
+	END COMPONENT;
 
 	CONSTANT ADT_DEVICEID: std_logic_vector(3 DOWNTO 0) := "0011";
 	CONSTANT CMD_READTEMP: std_logic_vector(3 DOWNTO 0) := "0001";
