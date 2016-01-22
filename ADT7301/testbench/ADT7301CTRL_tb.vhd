@@ -135,6 +135,7 @@ BEGIN
 		rst <= NOT RSTDEF;
 
 		FOR i IN NUM_CHECKS DOWNTO 0 LOOP
+			WAIT FOR 1.5 ms;	-- ADT's conversion time
 			uartSendN(ADT_DEVICEID & CMD_READTEMP);
 		END LOOP;
 
