@@ -1,0 +1,19 @@
+Microsemi Libero Software
+Version: 11.6.0.34
+Release: v11.6
+
+Info: The design C:/Users/matze/Documents/igloo/system/teamprojekt2/designer/impl1/top.adb was
+      last modified by software version 11.6.0.34.
+Opened an existing Libero design
+C:/Users/matze/Documents/igloo/system/teamprojekt2/designer/impl1/top.adb.
+
+The Export-map command succeeded ( 00:00:26 )
+Wrote to the file: C:\Users\matze\Documents\igloo\system\teamprojekt2\designer\impl1\top.pdb
+CHECKSUM: 3FE8
+
+The Generate programming file command succeeded ( 00:00:28 )
+Design saved to file C:/Users/matze/Documents/igloo/system/teamprojekt2/designer/impl1/top.adb.
+
+The Execute Script command succeeded ( 00:00:35 )
+Design closed.
+

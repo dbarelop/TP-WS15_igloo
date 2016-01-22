@@ -1,0 +1,33 @@
+@P:  Worst Slack : -26.100
+@P:  sCLK|GLA_inferred_clock - Estimated Frequency : 27.7 MHz
+@P:  sCLK|GLA_inferred_clock - Requested Frequency : 100.0 MHz
+@P:  sCLK|GLA_inferred_clock - Estimated Period : 36.100
+@P:  sCLK|GLA_inferred_clock - Requested Period : 10.000
+@P:  sCLK|GLA_inferred_clock - Slack : -26.100
+@P:  Worst Slack(min analysis) : NA
+@P:  sCLK|GLA_inferred_clock - Estimated Frequency(min analysis) : 27.7 MHz
+@P:  sCLK|GLA_inferred_clock - Requested Frequency(min analysis) : 100.0 MHz
+@P:  sCLK|GLA_inferred_clock - Estimated Period(min analysis) : 36.100
+@P:  sCLK|GLA_inferred_clock - Requested Period(min analysis) : 10.000
+@P:  sCLK|GLA_inferred_clock - Slack(min analysis) : -26.100
+@P:  Total Area : 1839.0
+@P:  Total Area : 1816.0
+@P:  Total Area : 447.0
+@P:  Total Area : 63.0
+@P:  Total Area : 122.0
+@P:  Total Area : 797.0
+@P:  Total Area : 63.0
+@P:  Total Area : 269.0
+@P:  Total Area : 254.0
+@P:  Total Area : 116.0
+@P:  Total Area : 62.0
+@P:  Total Area : 53.0
+@P:  Total Area : 265.0
+@P:  Total Area : 83.0
+@P:  Total Area : 114.0
+@P:  Total Area : 48.0
+@P:  Total Area : 18.0
+@P:  Total Area : 2.0
+@P:  Total Area : 0.0
+@P:  Total Area : 1839.0
+@P:  CPU Time : 0h:00m:14s

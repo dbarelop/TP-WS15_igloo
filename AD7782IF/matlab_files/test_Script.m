@@ -1,6 +1,6 @@
 N = 24;
-a_in = 0;
-gain = 16;
+a_in = 0.85;
+gain = 1;
 Vref = 2.5;
 
 code = adcCodeGeneration(N, a_in, gain, Vref);

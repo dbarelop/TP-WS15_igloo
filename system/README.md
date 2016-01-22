@@ -10,6 +10,30 @@ Config:
 * no parity
 * no handshake
 
+## Peripherals
+
+### LEDs
+|  LED No. |  Indication  |
+|----------|--------------|
+| LED1     | Master busy  |
+| LED2     | (Not implemented yet) reserved for ADT  |
+| LED3     | EEPROM busy  |
+| LED4     | AD7782 busy  |
+| LED5     | Watchdog enabled  |
+| LED8     | System alive (blinking)  |
+
+### Switches
+| Switch No. | Function   |
+|------------|------------|
+| 1          | En/disable watchdog for debug purposes |
+
+## Watchdog
+If the watchdog is enabled and the busy-flag is active for more than
+~130 ms, a software-reset for all components will be triggered.
+
+The watchdog can be disabled via the switch 1 on the board. Make sure all jumpers are set correctly.
+
+
 ## Master
 Device ID: 0b0000
 ### get firmware version
@@ -103,3 +127,98 @@ Device ID: 0b0001
 |---------|---------|
 | 0xAA    | 0xBB    |
 | OK-byte | Done-byte |
+
+
+## AD Converter
+Device ID: 0b0010
+
+### HEX Code to Voltage calculation
+* AIN 	//analog input (the real voltage you print out)
+* VReff 	//refference voltage = 2.5
+* rng		//range select
+* N = 24 // number of bits got by ADC (MISO)
+* dec_input //MISO (24 bit Vector) in Decimal
+
+GAIN = 1 IF rng=2,56V ELSE 16;  
+v = 1.024 * VReff;  
+a = 2^(N-1);  
+AIN = (v*((dec_input/a)-1))/GAIN;  
+
+
+### read
+* Reads all 24 bit seperated in three Bytes (from lowes to highest velued Byte(bit)).
+* The 24 bit value is Signed!
+* Highest bit '1': Indicates a zero or positive full-scale voltage.
+* Highest bit '0': Indicates a negative full-scale voltage.
+
+#### TX
+|  	|
+|-----|
+|0x20|
+|read command|
+
+#### RX
+|	 |   |   |   |
+|---|---|---|---|
+|0xAA|0bDDDDDDDD|0bDDDDDDDD|0bDDDDDDDD|
+|OK-byte|last Highest Byte| second Byte| first lowest Byte|
+
+### CH1
+* Set the Chanal for the next AD Conversion on CH1.
+
+#### TX
+|   |
+|---|
+|0x23|
+|chanel select command|
+
+#### RX
+|         |
+|---------|
+| 0xAA    |
+| OK-byte |
+
+### CH2
+* Set the Chanal for the next AD Conversion on CH2.
+
+#### TX
+|   |
+|---|
+|0x24|
+|chanel select command|
+
+#### RX
+|         |
+|---------|
+| 0xAA    |
+| OK-byte |
+
+### RNG1
+* Set the range for the next AD Conversion on +- 2.56V
+
+#### TX
+|   |
+|---|
+|0x25|
+|range select command|
+
+#### RX
+|         |
+|---------|
+| 0xAA    |
+| OK-byte |
+
+### RNG2
+* Set the range for the next AD Conversion on +- 0.16V
+
+#### TX
+|   |
+|---|
+|0x26|
+|range select command|
+
+#### RX
+|         |
+|---------|
+| 0xAA    |
+| OK-byte |

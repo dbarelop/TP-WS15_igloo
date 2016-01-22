@@ -1,0 +1,16 @@
+Project Name: teamprojekt2
+Location: C:\Users\matze\Documents\igloo\system\teamprojekt2
+Description: 
+Preferred HDL Type: Verilog
+
+#-----------------------------------------------------
+                  Device Details
+#-----------------------------------------------------
+
+Part Number    : AGLN250V2-VQ100
+Family         : IGLOO
+Die            : AGLN250V2
+Package        : 100 VQFP
+Speed          : STD
+Core Voltage   : 1.2
+Range          : COM

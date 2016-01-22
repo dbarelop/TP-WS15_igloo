@@ -1,0 +1,43 @@
+@N|Running in 32-bit mode
+@N|Running in 32-bit mode
+@N: CD720 :"C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
+@N:"C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd":5:7:5:15|Top entity is set to CONNECTOR.
+@N: CD630 :"C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd":5:7:5:15|Synthesizing work.connector.behaviour 
+@N: CD630 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":5:7:5:16|Synthesizing work.ad7782ctrl.behaviour 
+@N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":50:13:50:14|Using onehot encoding for type tstate (idle="1000000")
+@N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":51:15:51:16|Using onehot encoding for type adcstate (s0="100000")
+@N: CD233 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":52:16:52:17|Using sequential encoding for type uartstate
+@N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":53:15:53:16|Using onehot encoding for type cmdstate (idle="100000")
+@N: CD630 :"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd":5:7:5:17|Synthesizing work.busycounter.behaviour 
+@N: CD233 :"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd":18:16:18:17|Using sequential encoding for type tstate
+@N: CD630 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd":20:7:20:14|Synthesizing work.ad7782if.behaviour 
+@N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd":45:15:45:16|Using onehot encoding for type tstate (s0="10000")
+@N: CD630 :"C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd":5:7:5:16|Synthesizing work.eepromctrl.behaviour 
+@N: CD231 :"C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd":72:13:72:14|Using onehot encoding for type tstate (idle="1000000")
+@N: CD231 :"C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd":73:15:73:16|Using onehot encoding for type tmaincmd (read="100000")
+@N: CD231 :"C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd":80:11:80:12|Using onehot encoding for type tcmd (sendcmd="100000000000")
+@N: CD630 :"C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd":6:7:6:20|Synthesizing work.eeprom93lc66if.behaviour 
+@N: CD233 :"C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd":36:13:36:14|Using sequential encoding for type tstate
+@N: CD630 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":5:7:5:15|Synthesizing work.compxctrl.behaviour 
+@N: CD231 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":52:13:52:14|Using onehot encoding for type tstate (idle="100000")
+@N: CD630 :"C:\Users\matze\Documents\igloo\common\COUNTER.vhd":5:7:5:13|Synthesizing work.counter.behaviour 
+@N: CD630 :"C:\Users\matze\Documents\igloo\common\AliveCOUNTER.vhd":5:7:5:18|Synthesizing work.alivecounter.behaviour 
+@N: CD630 :"C:\Users\matze\Documents\igloo\uart\uart.vhd":4:7:4:10|Synthesizing work.uart.structure 
+@N: CD630 :"C:\Users\matze\Documents\igloo\uart\transmitter.vhd":5:7:5:17|Synthesizing work.transmitter.verhalten 
+@N: CD630 :"C:\Users\matze\Documents\igloo\uart\receiver.vhd":5:7:5:14|Synthesizing work.receiver.behaviour 
+@N: CD232 :"C:\Users\matze\Documents\igloo\uart\receiver.vhd":24:17:24:18|Using gray code encoding for type tstate
+@N: CD630 :"C:\Users\matze\Documents\igloo\uart\baudgen.vhd":6:7:6:13|Synthesizing work.baudgen.behaviour 
+@N: CD630 :"C:\Users\matze\Documents\igloo\uart\glitchfilter.vhd":4:7:4:18|Synthesizing work.glitchfilter.behaviour 
+@N: CD630 :"C:\Users\matze\Documents\igloo\uart\sync_flipflop.vhd":5:7:5:19|Synthesizing work.sync_flipflop.structure 
+@N: CL201 :"C:\Users\matze\Documents\igloo\uart\receiver.vhd":50:6:50:7|Trying to extract state machine for register state
+@N: CL201 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Trying to extract state machine for register state
+@N: CL201 :"C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd":52:2:52:3|Trying to extract state machine for register state
+@N: CL201 :"C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd":367:2:367:3|Trying to extract state machine for register state
+@N: CL201 :"C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd":367:2:367:3|Trying to extract state machine for register readcmd
+@N: CL201 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd":73:6:73:7|Trying to extract state machine for register state
+@N: CL201 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":208:2:208:3|Trying to extract state machine for register uarts
+@N: CL201 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":208:2:208:3|Trying to extract state machine for register adcs
+@N: CL201 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":208:2:208:3|Trying to extract state machine for register state
+@N: CL201 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":208:2:208:3|Trying to extract state machine for register cmds
+@N|Running in 32-bit mode
+

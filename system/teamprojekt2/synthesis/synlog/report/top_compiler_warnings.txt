@@ -1,0 +1,12 @@
+@W: CD638 :"C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd":58:11:58:21|Signal busyadt7301 is undriven 
+@W: CL169 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":208:2:208:3|Pruning register cnt_5(2 downto 0)  
+@W: CL271 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":208:2:208:3|Pruning bits 7 to 4 of dataIN_4(7 downto 0) -- not in use ... 
+@W: CL271 :"C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd":367:2:367:3|Pruning bits 7 to 4 of dataIN_4(7 downto 0) -- not in use ... 
+@W: CD638 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":58:11:58:18|Signal overflow is undriven 
+@W: CL271 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Pruning bits 7 to 4 of dataIN_4(7 downto 0) -- not in use ... 
+@W: CL190 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Optimizing register bit uartout(6) to a constant 0
+@W: CL190 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Optimizing register bit uartout(4) to a constant 0
+@W: CL169 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Pruning register uartout(4)  
+@W: CL169 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Pruning register uartout(6)  
+@W: CL169 :"C:\Users\matze\Documents\igloo\uart\receiver.vhd":50:6:50:7|Pruning register tmp_5  
+

@@ -43,7 +43,7 @@ BEGIN
 
    lock <= '0', '1' AFTER StartUpTime;
 
-   clk  <= NOT clk AFTER tcyc/2 WHEN lock='1' AND cs='0' ELSE '0';
+   clk  <= NOT clk AFTER tcyc/2 WHEN lock='1' ELSE '0';
 
    p1: PROCESS (cs, clk) IS
       VARIABLE tmp:  integer;

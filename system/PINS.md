@@ -12,6 +12,13 @@ IGLOO nano Starter Kit
 | 15      | CLK        |
 | 16      | RXD        |
 | 19      | TXD        |
+| 26      | WATCHDOGEN |
+| 35      | BUSYLEDMSTR |
+| 36      | BUSYLEDADT7301 |
+| 40      | BUSYLEDEEPROM |
+| 41      | BUSYLEDAD7782 |
+| 42      | WATCHDOGENLED |
+| 45      | ALIVELED |
 
 ## EEPROM
 

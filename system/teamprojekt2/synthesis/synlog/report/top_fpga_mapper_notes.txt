@@ -1,0 +1,15 @@
+@N: MF249 |Running in 32-bit mode.
+@N: MF667 |Clock conversion disabled 
+@N: BN362 :"c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd":367:2:367:3|Removing sequential instance uartout_cl_1[7] of view:PrimLib.dffr(prim) in hierarchy view:work.EEPROMCTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
+@N: BN362 :"c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd":208:2:208:3|Removing sequential instance uartout_cl_2[7] of view:PrimLib.dffr(prim) in hierarchy view:work.AD7782CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
+@N: BN362 :"c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd":208:2:208:3|Removing sequential instance uartout_cl_3[7] of view:PrimLib.dffr(prim) in hierarchy view:work.AD7782CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
+@N: BN362 :"c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd":208:2:208:3|Removing sequential instance uartout_cl_4[7] of view:PrimLib.dffr(prim) in hierarchy view:work.AD7782CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
+@N: BN362 :"c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd":208:2:208:3|Removing sequential instance uartout_cl_5[7] of view:PrimLib.dffr(prim) in hierarchy view:work.AD7782CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
+@N: BN362 :"c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd":208:2:208:3|Removing sequential instance uartout_cl_6[7] of view:PrimLib.dffr(prim) in hierarchy view:work.AD7782CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
+@N: BN362 :"c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd":208:2:208:3|Removing sequential instance uartout_cl_7[7] of view:PrimLib.dffr(prim) in hierarchy view:work.AD7782CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
+@N: BN362 :"c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd":208:2:208:3|Removing sequential instance uartout_cl_1[7] of view:PrimLib.dffr(prim) in hierarchy view:work.AD7782CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
+@N: MF238 :"c:\users\matze\documents\igloo\common\counter.vhd":32:31:32:41|Found 19-bit incrementor, 'un4_counter[18:0]'
+@N: MT320 |Timing report estimates place and route data. Please look at the place and route timing report for final timing.
+@N: MT322 |Clock constraints cover only FF-to-FF paths associated with the clock.
+@N: MT320 |Timing report estimates place and route data. Please look at the place and route timing report for final timing.
+@N: MT322 |Clock constraints cover only FF-to-FF paths associated with the clock.

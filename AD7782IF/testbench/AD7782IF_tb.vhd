@@ -78,7 +78,7 @@ BEGIN
    rst  <= RSTDEF, not RSTDEF after 50 us;
    clk  <= NOT clk AFTER tcyc/2;
 
-   u1: AD7782
+   adc: AD7782
    GENERIC MAP(ref => ref)
    PORT MAP(ain1 => ain1,
             ain2 => ain2,
@@ -89,7 +89,7 @@ BEGIN
             cs   => cs,
             dout => adot);
 
-   u2: AD7782IF
+   adif: AD7782IF
    GENERIC MAP(RSTDEF => RSTDEF)
    PORT MAP(rst   => rst,
             clk   => clk,

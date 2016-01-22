@@ -1,0 +1,241 @@
+Microsemi Libero Software
+Version: 11.6.0.34
+Release: v11.6
+
+Info: The design top.adb was last modified by software version 11.6.0.34.
+Opened an existing Libero design top.adb.
+'BA_NAME' set to 'top_ba'
+'IDE_DESIGNERVIEW_NAME' set to 'Impl1'
+'IDE_DESIGNERVIEW_COUNT' set to '1'
+'IDE_DESIGNERVIEW_REV0' set to 'Impl1'
+'IDE_DESIGNERVIEW_REVNUM0' set to '1'
+'IDE_DESIGNERVIEW_ROOTDIR' set to 'C:\Users\matze\Documents\igloo\system\teamprojekt2\designer'
+'IDE_DESIGNERVIEW_LASTREV' set to '1'
+
+ Netlist Reading Time = 0.0 seconds
+Imported the file:
+   C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.edn
+
+The Import command succeeded ( 00:00:08 )
+=====================================================================
+Parameters used to run compile:
+===============================
+
+Family      : IGLOO
+Device      : AGLN250V2
+Package     : 100 VQFP
+Source      : C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.edn
+Format      : EDIF
+Topcell     : top
+Speed grade : STD
+Temp        : 0:25:70
+Voltage     : 1.26:1.20:1.14
+
+Keep Existing Physical Constraints : Yes
+Keep Existing Timing Constraints   : Yes
+
+pdc_abort_on_error                 : Yes
+pdc_eco_display_unmatched_objects  : No
+pdc_eco_max_warnings               : 10000
+
+demote_globals                     : No
+promote_globals                    : No
+localclock_max_shared_instances    : 12
+localclock_buffer_tree_max_fanout  : 12
+
+combine_register                   : No
+delete_buffer_tree                 : No
+
+report_high_fanout_nets_limit      : 10
+
+=====================================================================
+Compile starts ...
+
+Warning: CMP201: Net sCLK_0/Core_GLB drives no load.
+Warning: CMP201: Net sCLK_0/Core_GLC drives no load.
+Warning: CMP201: Net sCLK_0/Core_LOCK drives no load.
+Warning: CMP201: Net sCLK_0/Core_YB drives no load.
+Warning: CMP201: Net sCLK_0/Core_YC drives no load.
+
+Netlist Optimization Report
+===========================
+
+Optimized macros:
+  - Dangling net drivers:   0
+  - Buffers:                0
+  - Inverters:              0
+  - Tieoff:                 0
+  - Logic combining:        24
+
+    Total macros optimized  24
+
+Warning: CMP503: Remapped 292 enable flip-flop(s) to a 2-tile implementation because the CLR/PRE
+         pin on the enable flip-flop is not being driven by a global net.
+
+There were 0 error(s) and 6 warning(s) in this design.
+=====================================================================
+
+Reading previous post-compile physical placement constraints.
+
+
+There were 0 error(s) and 0 warning(s).
+
+=====================================================================
+Compile report:
+===============
+
+    CORE                       Used:   2107  Total:   6144   (34.29%)
+    IO (W/ clocks)             Used:     22  Total:     68   (32.35%)
+    GLOBAL (Chip+Quadrant)     Used:      1  Total:     18   (5.56%)
+    PLL                        Used:      1  Total:      1   (100.00%)
+    RAM/FIFO                   Used:      0  Total:      8   (0.00%)
+    Low Static ICC             Used:      0  Total:      1   (0.00%)
+    FlashROM                   Used:      0  Total:      1   (0.00%)
+    User JTAG                  Used:      0  Total:      1   (0.00%)
+
+Global Information:
+
+    Type            | Used   | Total
+    ----------------|--------|--------------
+    Chip global     | 1      | 6  (16.67%)*
+    Quadrant global | 0      | 12 (0.00%)
+
+    (*) Chip globals may be assigned to Quadrant globals using the Multi-View Navigator (MVN)
+        or Physical Design Constraints (PDC).
+        They may also be assigned to Quadrant globals automatically during Layout.
+
+Core Information:
+
+    Type    | Instances    | Core tiles
+    --------|--------------|-----------
+    COMB    | 1626         | 1626
+    SEQ     | 481          | 481
+
+I/O Function:
+
+    Type                                  | w/o register  | w/ register  | w/ DDR register
+    --------------------------------------|---------------|--------------|----------------
+    Input I/O                             | 6             | 0            | 0
+    Output I/O                            | 16            | 0            | 0
+    Bidirectional I/O                     | 0             | 0            | 0
+    Differential Input I/O Pairs          | 0             | 0            | 0
+    Differential Output I/O Pairs         | 0             | 0            | 0
+
+I/O Technology:
+
+                                    |   Voltages    |             I/Os
+    --------------------------------|-------|-------|-------|--------|--------------
+    I/O Standard(s)                 | Vcci  | Vref  | Input | Output | Bidirectional
+    --------------------------------|-------|-------|-------|--------|--------------
+    LVCMOS33                        | 3.30v | N/A   | 6     | 16     | 0
+
+I/O Placement:
+
+    Locked  :  22 ( 100.00% )
+    Placed  :   0
+    UnPlaced:   0
+
+Net information report:
+=======================
+
+The following nets drive enable flip-flops that have been remapped to a 2-tile implementation:
+    EffCnt  Type          Name
+    --------------------------
+    24      SET/RESET_NET Net   : rst_c_0
+                          Driver: rst_pad_RNIDGQ2_10
+    24      SET/RESET_NET Net   : rst_c_1
+                          Driver: rst_pad_RNIDGQ2_17
+    24      SET/RESET_NET Net   : rst_c_2
+                          Driver: rst_pad_RNIDGQ2_20
+    24      SET/RESET_NET Net   : rst_c_3
+                          Driver: rst_pad_RNIDGQ2_19
+    24      SET/RESET_NET Net   : rst_c_4
+                          Driver: rst_pad_RNIDGQ2_12
+    24      SET/RESET_NET Net   : rst_c_5
+                          Driver: rst_pad_RNIDGQ2_16
+    24      SET/RESET_NET Net   : rst_c_6
+                          Driver: rst_pad_RNIDGQ2_11
+    24      SET/RESET_NET Net   : rst_c_7
+                          Driver: rst_pad_RNIDGQ2_14
+    24      SET/RESET_NET Net   : rst_c_8
+                          Driver: rst_pad_RNIDGQ2_21
+    24      SET/RESET_NET Net   : rst_c_9
+                          Driver: rst_pad_RNIDGQ2_15
+
+The following nets have been assigned to a chip global resource:
+    Fanout  Type          Name
+    --------------------------
+    481     CLK_NET       Net   : GLA
+                          Driver: sCLK_0/Core
+                          Source: ESSENTIAL
+
+High fanout nets in the post compile netlist:
+    Fanout  Type          Name
+    --------------------------
+    24      SET/RESET_NET Net   : rst_c_0
+                          Driver: rst_pad_RNIDGQ2_10
+    24      SET/RESET_NET Net   : rst_c_1
+                          Driver: rst_pad_RNIDGQ2_17
+    24      SET/RESET_NET Net   : rst_c_2
+                          Driver: rst_pad_RNIDGQ2_20
+    24      SET/RESET_NET Net   : rst_c_3
+                          Driver: rst_pad_RNIDGQ2_19
+    24      SET/RESET_NET Net   : rst_c_4
+                          Driver: rst_pad_RNIDGQ2_12
+    24      SET/RESET_NET Net   : rst_c_5
+                          Driver: rst_pad_RNIDGQ2_16
+    24      SET/RESET_NET Net   : rst_c_6
+                          Driver: rst_pad_RNIDGQ2_11
+    24      SET/RESET_NET Net   : rst_c_7
+                          Driver: rst_pad_RNIDGQ2_14
+    24      SET/RESET_NET Net   : rst_c_8
+                          Driver: rst_pad_RNIDGQ2_21
+    24      SET/RESET_NET Net   : rst_c_9
+                          Driver: rst_pad_RNIDGQ2_15
+
+Nets that are candidates for clock assignment and the resulting fanout:
+    Fanout  Type          Name
+    --------------------------
+    461     SET/RESET_NET Net   : rst_c
+                          Driver: rst_pad
+    24      INT_NET       Net   : CONNECTOR_0/swrst_2
+                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_2
+    24      INT_NET       Net   : CONNECTOR_0/swrst_5
+                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_5
+    24      INT_NET       Net   : CONNECTOR_0/swrst_6
+                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_6
+    24      INT_NET       Net   : CONNECTOR_0/swrst_3
+                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_3
+    24      INT_NET       Net   : CONNECTOR_0/swrst_1
+                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_1
+    24      INT_NET       Net   : CONNECTOR_0/swrst_4
+                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_4
+    24      INT_NET       Net   : CONNECTOR_0/swrst_0
+                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_0
+    24      INT_NET       Net   : CONNECTOR_0/d2/adif/ch1_0_sqmuxa
+                          Driver: CONNECTOR_0/d2/adif/state_RNIALGJ_0[0]
+    24      INT_NET       Net   : CONNECTOR_0/d2/adif/ch1_1_sqmuxa
+                          Driver: CONNECTOR_0/d2/adif/state_RNIALGJ[0]
+====================
+Flash*Freeze report:
+====================
+
+The design does not use the Flash*Freeze feature.
+
+====================
+
+The Compile command succeeded ( 00:00:06 )
+Wrote status report to file: top_compile_report.txt
+
+The Report command succeeded ( 00:00:00 )
+Wrote pin report to file: top_report_pin_byname.txt
+
+The Report command succeeded ( 00:00:01 )
+Wrote pin report to file: top_report_pin_bynumber.txt
+
+The Report command succeeded ( 00:00:01 )
+Design saved to file C:\Users\matze\Documents\igloo\system\teamprojekt2\designer\impl1\top.adb.
+
+The Execute Script command succeeded ( 00:00:20 )
+Design closed.
+

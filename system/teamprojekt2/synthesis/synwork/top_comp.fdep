@@ -1,0 +1,123 @@
+#OPTIONS:"|-mixedhdl|-modhint|C:\\Users\\matze\\Documents\\igloo\\system\\teamprojekt2\\synthesis\\synwork\\_verilog_hintfile|-top|top|-layerid|0|-orig_srs|C:\\Users\\matze\\Documents\\igloo\\system\\teamprojekt2\\synthesis\\synwork\\top_comp.srs|-prodtype|synplify_pro|-nram|-fixsmult|-divnmod|-I|C:\\Users\\matze\\Documents\\igloo\\system\\teamprojekt2\\synthesis\\|-I|C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib|-v2001|-devicelib|C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\proasic\\igloo.v|-encrypt|-pro|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-lib|work|-lib|work"
+#CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\bin\\c_ver.exe":1431624990
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\system\\teamprojekt2\\synthesis\\synwork\\_verilog_hintfile":1453458569
+#CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\proasic\\igloo.v":1431615982
+#CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\vlog\\hypermods.v":1431624842
+#CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\vlog\\umr_capim.v":1431624842
+#CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\vlog\\scemi_objects.v":1431624842
+#CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\vlog\\scemi_pipes.svh":1431624842
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\system\\teamprojekt2\\smartgen\\sCLK\\sCLK.v":1453332190
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\system\\teamprojekt2\\component\\work\\top\\top.v":1453458559
+#OPTIONS:"|-mixedhdl|-top|work.CONNECTOR|-mpparams|C:\\Users\\matze\\Documents\\igloo\\system\\teamprojekt2\\synthesis\\synwork\\_mh_params|-layerid|1|-orig_srs|C:\\Users\\matze\\Documents\\igloo\\system\\teamprojekt2\\synthesis\\synwork\\top_comp.srs|-prodtype|synplify_pro|-nram|-fixsmult|-divnmod|-encrypt|-pro|-lite|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-ignore_undefined_lib|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work"
+#CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\bin\\c_vhdl.exe":1431625022
+#CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\vhd\\location.map":1431712710
+#CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\vhd\\std.vhd":1431624842
+#CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\vhd\\snps_haps_pkg.vhd":1431624842
+#CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\vhd\\std1164.vhd":1431624842
+#CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\vhd\\numeric.vhd":1431624842
+#CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\vhd\\umr_capim.vhd":1431624842
+#CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\vhd\\arith.vhd":1431624842
+#CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\vhd\\unsigned.vhd":1431624842
+#CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\vhd\\hyperents.vhd":1431624842
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\common\\AliveCOUNTER.vhd":1453234382
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\common\\BusyCOUNTER.vhd":1453234382
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\common\\COUNTER.vhd":1453234382
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\EEPROM93LC66\\EEPROM93LC66IF.vhd":1453115403
+#CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\vhd\\signed.vhd":1431624842
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\uart\\baudgen.vhd":1450529630
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\uart\\glitchfilter.vhd":1450529630
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\uart\\receiver.vhd":1450529630
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\uart\\sync_flipflop.vhd":1450529630
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\uart\\transmitter.vhd":1450529630
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\AD7782IF\\AD7782IF.vhd":1452442702
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\common\\COMPCTRL.vhd":1453234382
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\EEPROM93LC66\\EEPROM93LC66CTRL.vhd":1453234382
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\uart\\uart.vhd":1453115403
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\AD7782IF\\AD7782CTRL.vhd":1453458546
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\common\\CONNECTOR.vhd":1453364618
+0			"C:\Users\matze\Documents\igloo\system\teamprojekt2\smartgen\sCLK\sCLK.v" verilog
+1			"C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v" verilog
+2			"C:\Users\matze\Documents\igloo\common\AliveCOUNTER.vhd" vhdl
+3			"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd" vhdl
+4			"C:\Users\matze\Documents\igloo\common\COUNTER.vhd" vhdl
+5			"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd" vhdl
+6			"C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd" vhdl
+7			"C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd" vhdl
+8			"C:\Users\matze\Documents\igloo\uart\baudgen.vhd" vhdl
+9			"C:\Users\matze\Documents\igloo\uart\glitchfilter.vhd" vhdl
+10			"C:\Users\matze\Documents\igloo\uart\receiver.vhd" vhdl
+11			"C:\Users\matze\Documents\igloo\uart\sync_flipflop.vhd" vhdl
+12			"C:\Users\matze\Documents\igloo\uart\transmitter.vhd" vhdl
+13			"C:\Users\matze\Documents\igloo\uart\uart.vhd" vhdl
+14			"C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd" vhdl
+15			"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd" vhdl
+16			"C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd" vhdl
+#Dependency Lists(Uses List)
+0 -1
+1 0
+2 -1
+3 -1
+4 -1
+5 4 3
+6 -1
+7 3 6
+8 -1
+9 -1
+10 -1
+11 -1
+12 -1
+13 12 10 8 9 11
+14 -1
+15 3 14
+16 15 7 5 2 13
+#Dependency Lists(Users Of)
+0 1
+1 -1
+2 16
+3 5 7 15
+4 5
+5 16
+6 7
+7 16
+8 13
+9 13
+10 13
+11 13
+12 13
+13 16
+14 15
+15 16
+16 -1
+#Design Unit to File Association
+module work connector 16
+arch work connector behaviour 16
+module work ad7782ctrl 15
+arch work ad7782ctrl behaviour 15
+module work ad7782if 14
+arch work ad7782if behaviour 14
+module work uart 13
+arch work uart structure 13
+module work transmitter 12
+arch work transmitter verhalten 12
+module work sync_flipflop 11
+arch work sync_flipflop structure 11
+module work receiver 10
+arch work receiver behaviour 10
+module work glitchfilter 9
+arch work glitchfilter behaviour 9
+module work baudgen 8
+arch work baudgen behaviour 8
+module work eepromctrl 7
+arch work eepromctrl behaviour 7
+module work eeprom93lc66if 6
+arch work eeprom93lc66if behaviour 6
+module work compxctrl 5
+arch work compxctrl behaviour 5
+module work counter 4
+arch work counter behaviour 4
+module work busycounter 3
+arch work busycounter behaviour 3
+module work alivecounter 2
+arch work alivecounter behaviour 2
+module work top 1
+module work sCLK 0

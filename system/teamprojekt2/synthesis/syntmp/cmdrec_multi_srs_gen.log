@@ -1,0 +1,7 @@
+C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\bin\syn_nfilter.exe  -link  -top  top  -multisrs  C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synwork\top_comp.srs  -osyn  C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synwork\top_mult.srs  -log  C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synlog\top_multi_srs_gen.srr 
+rc:0 success:1
+C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synwork\top_comp.srs|i|1453458574|59576
+C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synwork\top_mult.srs|o|1453458576|4860
+C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synlog\top_multi_srs_gen.srr|o|1453458576|484
+C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\bin64\syn_nfilter.exe|i|1431625246|3968000
+C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\bin\syn_nfilter.exe|i|1431625058|3001344
