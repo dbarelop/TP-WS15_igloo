@@ -1,5 +1,5 @@
 *****************************************************************
-Pin Report - Date: Fri Jan 22 11:32:51 2016 Pinchecksum: NOT-AVAILABLE
+Pin Report - Date: Fri Jan 22 22:30:46 2016 Pinchecksum: NOT-AVAILABLE
 Product: Designer
 Release: v11.6
 Version: 11.6.0.34
@@ -23,6 +23,10 @@ ADCmode           86   Yes    IO09RSB0       LVCMOS33  8                  High  
 ADCrng            83   Yes    IO12RSB0       LVCMOS33  8                  High  None           5                 No           No             ---              No
 ADCsclk           82   Yes    IO13RSB0       LVCMOS33  8                  High  None           5                 No           No             ---              No
 ADCsel            81   Yes    GBC0/IO14RSB0  LVCMOS33  8                  High  None           5                 No           No             ---              No
+ADTcs             97   Yes    GAA1/IO01RSB0  LVCMOS33  8                  High  None           5                 No           No             ---              No
+ADTmiso           98   Yes    GAA0/IO00RSB0  LVCMOS33  ---                ---   None           ---               No           No             No               No
+ADTmosi           95   Yes    GAB1/IO03RSB0  LVCMOS33  8                  High  None           5                 No           No             ---              No
+ADTsclk           96   Yes    GAB0/IO02RSB0  LVCMOS33  8                  High  None           5                 No           No             ---              No
 aliveLED          45   Yes    GDA2/IO34RSB2  LVCMOS33  8                  High  None           5                 No           No             ---              No
 busyLEDAD7782     41   Yes    IO38RSB2       LVCMOS33  8                  High  None           5                 No           No             ---              No
 busyLEDADT7301    36   Yes    IO40RSB2       LVCMOS33  8                  High  None           5                 No           No             ---              No

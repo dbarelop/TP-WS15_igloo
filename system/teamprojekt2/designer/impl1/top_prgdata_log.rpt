@@ -7,13 +7,13 @@ Info: The design C:/Users/matze/Documents/igloo/system/teamprojekt2/designer/imp
 Opened an existing Libero design
 C:/Users/matze/Documents/igloo/system/teamprojekt2/designer/impl1/top.adb.
 
-The Export-map command succeeded ( 00:00:26 )
+The Export-map command succeeded ( 00:00:28 )
 Wrote to the file: C:\Users\matze\Documents\igloo\system\teamprojekt2\designer\impl1\top.pdb
-CHECKSUM: 3FE8
+CHECKSUM: 8E8D
 
-The Generate programming file command succeeded ( 00:00:28 )
+The Generate programming file command succeeded ( 00:00:30 )
 Design saved to file C:/Users/matze/Documents/igloo/system/teamprojekt2/designer/impl1/top.adb.
 
-The Execute Script command succeeded ( 00:00:35 )
+The Execute Script command succeeded ( 00:00:36 )
 Design closed.
 

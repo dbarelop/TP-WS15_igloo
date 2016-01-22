@@ -12,7 +12,7 @@
     <project-description>
     </project-description>
     <location>C:/Users/matze/Documents/igloo/system/teamprojekt2/component/work/top</location>
-    <state>GENERATED ( Fri Jan 22 11:29:20 2016 )</state>
+    <state>GENERATED ( Fri Jan 22 22:26:12 2016 )</state>
     <swide-toolchain>SoftConsole workspace has not been generated</swide-toolchain>
   </project-settings>
   <site-map>
@@ -23,6 +23,8 @@
     <file>C:\Users\matze\Documents\igloo\system\teamprojekt2\smartgen\sCLK\sCLK.v</file>
     <file>C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd</file>
     <file>C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd</file>
+    <file>C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd</file>
+    <file>C:\Users\matze\Documents\igloo\ADT7301\ADT7301IF.vhd</file>
     <file>C:\Users\matze\Documents\igloo\common\AliveCOUNTER.vhd</file>
     <file>C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd</file>
     <file>C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd</file>
@@ -75,6 +77,12 @@
   </io>
   <io>
     <port-name>busyLEDAD7782</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>ADTsclk</port-name>
     <direction>OUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
@@ -134,6 +142,12 @@
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
+    <port-name>ADTmiso</port-name>
+    <direction>IN</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
     <port-name>watchdogenSwitch</port-name>
     <direction>IN</direction>
     <pin-number>-</pin-number>
@@ -158,6 +172,12 @@
     <io-standard>LVCMOS33</io-standard>
   </io>
   <io>
+    <port-name>ADTmosi</port-name>
+    <direction>OUT</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
     <port-name>ADCsclk</port-name>
     <direction>OUT</direction>
     <pin-number>-</pin-number>
@@ -166,6 +186,12 @@
   <io>
     <port-name>eepromMISO</port-name>
     <direction>IN</direction>
+    <pin-number>-</pin-number>
+    <io-standard>LVCMOS33</io-standard>
+  </io>
+  <io>
+    <port-name>ADTcs</port-name>
+    <direction>OUT</direction>
     <pin-number>-</pin-number>
     <io-standard>LVCMOS33</io-standard>
   </io>

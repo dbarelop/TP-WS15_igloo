@@ -1,13 +1,13 @@
 ***************************************************************************
                                Status Report
-                          Fri Jan 22 11:32:49 2016 ***************************************************************************
+                          Fri Jan 22 22:30:44 2016 ***************************************************************************
 
 Product: Designer
 Release: v11.6
 Version: 11.6.0.34
 File Name: C:\Users\matze\Documents\igloo\system\teamprojekt2\designer\impl1\top.adb
 Design Name: top  Design State: layout
-Last Saved: Fri Jan 22 11:30:20 2016
+Last Saved: Fri Jan 22 22:27:30 2016
 
 ***** Device Data **************************************************
 
@@ -22,7 +22,7 @@ Voltage Range:   COM
 
 ***** Import Variables *********************************************
 
-Source File(s) Imported on Fri Jan 22 11:30:02 2016:
+Source File(s) Imported on Fri Jan 22 22:27:09 2016:
         C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.edn
 
 
@@ -90,11 +90,11 @@ Optimized macros:
   - Buffers:                0
   - Inverters:              0
   - Tieoff:                 0
-  - Logic combining:        24
+  - Logic combining:        31
 
-    Total macros optimized  24
+    Total macros optimized  31
 
-Warning: CMP503: Remapped 292 enable flip-flop(s) to a 2-tile implementation because the CLR/PRE
+Warning: CMP503: Remapped 359 enable flip-flop(s) to a 2-tile implementation because the CLR/PRE
          pin on the enable flip-flop is not being driven by a global net.
 
 There were 0 error(s) and 6 warning(s) in this design.
@@ -109,8 +109,8 @@ There were 0 error(s) and 0 warning(s).
 Compile report:
 ===============
 
-    CORE                       Used:   2107  Total:   6144   (34.29%)
-    IO (W/ clocks)             Used:     22  Total:     68   (32.35%)
+    CORE                       Used:   2494  Total:   6144   (40.59%)
+    IO (W/ clocks)             Used:     26  Total:     68   (38.24%)
     GLOBAL (Chip+Quadrant)     Used:      1  Total:     18   (5.56%)
     PLL                        Used:      1  Total:      1   (100.00%)
     RAM/FIFO                   Used:      0  Total:      8   (0.00%)
@@ -133,15 +133,15 @@ Core Information:
 
     Type    | Instances    | Core tiles
     --------|--------------|-----------
-    COMB    | 1626         | 1626
-    SEQ     | 481          | 481
+    COMB    | 1902         | 1902
+    SEQ     | 592          | 592
 
 I/O Function:
 
     Type                                  | w/o register  | w/ register  | w/ DDR register
     --------------------------------------|---------------|--------------|----------------
-    Input I/O                             | 6             | 0            | 0
-    Output I/O                            | 16            | 0            | 0
+    Input I/O                             | 7             | 0            | 0
+    Output I/O                            | 19            | 0            | 0
     Bidirectional I/O                     | 0             | 0            | 0
     Differential Input I/O Pairs          | 0             | 0            | 0
     Differential Output I/O Pairs         | 0             | 0            | 0
@@ -152,11 +152,11 @@ I/O Technology:
     --------------------------------|-------|-------|-------|--------|--------------
     I/O Standard(s)                 | Vcci  | Vref  | Input | Output | Bidirectional
     --------------------------------|-------|-------|-------|--------|--------------
-    LVCMOS33                        | 3.30v | N/A   | 6     | 16     | 0
+    LVCMOS33                        | 3.30v | N/A   | 7     | 19     | 0
 
 I/O Placement:
 
-    Locked  :  22 ( 100.00% )
+    Locked  :  26 ( 100.00% )
     Placed  :   0
     UnPlaced:   0
 
@@ -167,30 +167,30 @@ The following nets drive enable flip-flops that have been remapped to a 2-tile i
     EffCnt  Type          Name
     --------------------------
     24      SET/RESET_NET Net   : rst_c_0
-                          Driver: rst_pad_RNIDGQ2_10
+                          Driver: rst_pad_RNIDGQ2_1
     24      SET/RESET_NET Net   : rst_c_1
-                          Driver: rst_pad_RNIDGQ2_17
+                          Driver: rst_pad_RNIDGQ2_0
     24      SET/RESET_NET Net   : rst_c_2
-                          Driver: rst_pad_RNIDGQ2_20
+                          Driver: rst_pad_RNIDGQ2_10
     24      SET/RESET_NET Net   : rst_c_3
-                          Driver: rst_pad_RNIDGQ2_19
-    24      SET/RESET_NET Net   : rst_c_4
                           Driver: rst_pad_RNIDGQ2_12
-    24      SET/RESET_NET Net   : rst_c_5
-                          Driver: rst_pad_RNIDGQ2_16
-    24      SET/RESET_NET Net   : rst_c_6
+    24      SET/RESET_NET Net   : rst_c_4
                           Driver: rst_pad_RNIDGQ2_11
+    24      SET/RESET_NET Net   : rst_c_5
+                          Driver: rst_pad_RNIDGQ2_8
+    24      SET/RESET_NET Net   : rst_c_6
+                          Driver: rst_pad_RNIDGQ2_3
     24      SET/RESET_NET Net   : rst_c_7
-                          Driver: rst_pad_RNIDGQ2_14
+                          Driver: rst_pad_RNIDGQ2_7
     24      SET/RESET_NET Net   : rst_c_8
-                          Driver: rst_pad_RNIDGQ2_21
+                          Driver: rst_pad_RNIDGQ2_2
     24      SET/RESET_NET Net   : rst_c_9
-                          Driver: rst_pad_RNIDGQ2_15
+                          Driver: rst_pad_RNIDGQ2_4
 
 The following nets have been assigned to a chip global resource:
     Fanout  Type          Name
     --------------------------
-    481     CLK_NET       Net   : GLA
+    592     CLK_NET       Net   : GLA
                           Driver: sCLK_0/Core
                           Source: ESSENTIAL
 
@@ -198,49 +198,49 @@ High fanout nets in the post compile netlist:
     Fanout  Type          Name
     --------------------------
     24      SET/RESET_NET Net   : rst_c_0
-                          Driver: rst_pad_RNIDGQ2_10
+                          Driver: rst_pad_RNIDGQ2_1
     24      SET/RESET_NET Net   : rst_c_1
-                          Driver: rst_pad_RNIDGQ2_17
+                          Driver: rst_pad_RNIDGQ2_0
     24      SET/RESET_NET Net   : rst_c_2
-                          Driver: rst_pad_RNIDGQ2_20
+                          Driver: rst_pad_RNIDGQ2_10
     24      SET/RESET_NET Net   : rst_c_3
-                          Driver: rst_pad_RNIDGQ2_19
-    24      SET/RESET_NET Net   : rst_c_4
                           Driver: rst_pad_RNIDGQ2_12
-    24      SET/RESET_NET Net   : rst_c_5
-                          Driver: rst_pad_RNIDGQ2_16
-    24      SET/RESET_NET Net   : rst_c_6
+    24      SET/RESET_NET Net   : rst_c_4
                           Driver: rst_pad_RNIDGQ2_11
+    24      SET/RESET_NET Net   : rst_c_5
+                          Driver: rst_pad_RNIDGQ2_8
+    24      SET/RESET_NET Net   : rst_c_6
+                          Driver: rst_pad_RNIDGQ2_3
     24      SET/RESET_NET Net   : rst_c_7
-                          Driver: rst_pad_RNIDGQ2_14
+                          Driver: rst_pad_RNIDGQ2_7
     24      SET/RESET_NET Net   : rst_c_8
-                          Driver: rst_pad_RNIDGQ2_21
+                          Driver: rst_pad_RNIDGQ2_2
     24      SET/RESET_NET Net   : rst_c_9
-                          Driver: rst_pad_RNIDGQ2_15
+                          Driver: rst_pad_RNIDGQ2_4
 
 Nets that are candidates for clock assignment and the resulting fanout:
     Fanout  Type          Name
     --------------------------
-    461     SET/RESET_NET Net   : rst_c
+    559     SET/RESET_NET Net   : rst_c
                           Driver: rst_pad
-    24      INT_NET       Net   : CONNECTOR_0/swrst_2
-                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_2
-    24      INT_NET       Net   : CONNECTOR_0/swrst_5
-                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_5
-    24      INT_NET       Net   : CONNECTOR_0/swrst_6
-                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_6
-    24      INT_NET       Net   : CONNECTOR_0/swrst_3
-                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_3
-    24      INT_NET       Net   : CONNECTOR_0/swrst_1
-                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_1
-    24      INT_NET       Net   : CONNECTOR_0/swrst_4
-                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_4
-    24      INT_NET       Net   : CONNECTOR_0/swrst_0
-                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_0
-    24      INT_NET       Net   : CONNECTOR_0/d2/adif/ch1_0_sqmuxa
-                          Driver: CONNECTOR_0/d2/adif/state_RNIALGJ_0[0]
+    24      INT_NET       Net   : CONNECTOR_0/rhrf_0
+                          Driver: CONNECTOR_0/u1/re/done_0
+    24      INT_NET       Net   : CONNECTOR_0/rhrf
+                          Driver: CONNECTOR_0/u1/re/done
     24      INT_NET       Net   : CONNECTOR_0/d2/adif/ch1_1_sqmuxa
                           Driver: CONNECTOR_0/d2/adif/state_RNIALGJ[0]
+    24      INT_NET       Net   : CONNECTOR_0/d2/adif/ch1_0_sqmuxa
+                          Driver: CONNECTOR_0/d2/adif/state_RNIALGJ_0[0]
+    24      INT_NET       Net   : CONNECTOR_0/d3/adtif/state[1]
+                          Driver: CONNECTOR_0/d3/adtif/state[1]
+    24      INT_NET       Net   : CONNECTOR_0/d1/maincmd[4]
+                          Driver: CONNECTOR_0/d1/maincmd[4]/U1
+    23      INT_NET       Net   : CONNECTOR_0/swrst_2
+                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_2
+    23      INT_NET       Net   : CONNECTOR_0/swrst_7
+                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_7
+    23      INT_NET       Net   : CONNECTOR_0/swrst_6
+                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_6
 ====================
 Flash*Freeze report:
 ====================
@@ -272,16 +272,16 @@ Global net placement completed successfully.
 
                         o - o - o - o - o - o
 
-Timing-driven Placer Started: Fri Jan 22 11:30:30 2016
+Timing-driven Placer Started: Fri Jan 22 22:27:42 2016
 
-Placer Finished: Fri Jan 22 11:31:37 2016
-Total Placer CPU Time:     00:01:07
+Placer Finished: Fri Jan 22 22:29:08 2016
+Total Placer CPU Time:     00:01:26
 
                         o - o - o - o - o - o
 
 
 Timing-driven Router 
-Design: top                             Started: Fri Jan 22 11:31:45 2016
+Design: top                             Started: Fri Jan 22 22:29:18 2016
 
  
 Iterative improvement...
@@ -289,9 +289,9 @@ Iterative improvement...
 Timing-driven Router completed successfully.
 
 Design: top                             
-Finished: Fri Jan 22 11:32:41 2016
-Total CPU Time:     00:00:53            Total Elapsed Time: 00:00:56
-Total Memory Usage: 179.9 Mbytes
+Finished: Fri Jan 22 22:30:32 2016
+Total CPU Time:     00:01:12            Total Elapsed Time: 00:01:14
+Total Memory Usage: 185.2 Mbytes
                         o - o - o - o - o - o
 
 

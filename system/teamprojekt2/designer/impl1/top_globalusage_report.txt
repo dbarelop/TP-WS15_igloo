@@ -5,7 +5,7 @@
 Product: Designer
 Release: v11.6
 Version: 11.6.0.34
-Date: Fri Jan 22 11:32:50 2016
+Date: Fri Jan 22 22:30:44 2016
 Design Name: top  Family: IGLOO  Die: AGLN250V2  Package: 100 VQFP
 Design State: Post-Layout
 
@@ -13,7 +13,7 @@ The following nets have been routed to a chip global resource:
 
     Fanout            Name
     ----------------------
-    481               Net   : GLA
+    592               Net   : GLA
                       Driver: sCLK_0/Core/U_PLL
 
 

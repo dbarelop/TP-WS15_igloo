@@ -13,18 +13,18 @@ Opened an existing Libero design top.adb.
 'IDE_DESIGNERVIEW_LASTREV' set to '1'
 Wrote timing report to file: top_maxdelay_timing_report.txt
 
-The Report command succeeded ( 00:00:06 )
+The Report command succeeded ( 00:00:08 )
 Wrote timing report to file: top_mindelay_timing_report.txt
 
-The Report command succeeded ( 00:00:01 )
+The Report command succeeded ( 00:00:02 )
 Wrote timing_violations report to file: top_maxdelay_timingviolations_report.txt
 
 The Report command succeeded ( 00:00:00 )
 Wrote timing_violations report to file: top_mindelay_timingviolations_report.txt
 
-The Report command succeeded ( 00:00:01 )
+The Report command succeeded ( 00:00:00 )
 Design saved to file C:\Users\matze\Documents\igloo\system\teamprojekt2\designer\impl1\top.adb.
 
-The Execute Script command succeeded ( 00:00:10 )
+The Execute Script command succeeded ( 00:00:13 )
 Design closed.
 

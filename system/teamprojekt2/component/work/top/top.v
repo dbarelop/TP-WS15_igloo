@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Fri Jan 22 11:29:19 2016
+// Created by SmartDesign Fri Jan 22 22:26:11 2016
 // Version: v11.6 11.6.0.34
 //////////////////////////////////////////////////////////////////////
 
@@ -9,6 +9,7 @@
 module top(
     // Inputs
     ADCdin,
+    ADTmiso,
     CLKA,
     eepromMISO,
     rst,
@@ -20,6 +21,9 @@ module top(
     ADCrng,
     ADCsclk,
     ADCsel,
+    ADTcs,
+    ADTmosi,
+    ADTsclk,
     aliveLED,
     busyLEDAD7782,
     busyLEDADT7301,
@@ -37,6 +41,7 @@ module top(
 // Input
 //--------------------------------------------------------------------
 input  ADCdin;
+input  ADTmiso;
 input  CLKA;
 input  eepromMISO;
 input  rst;
@@ -50,6 +55,9 @@ output ADCmode;
 output ADCrng;
 output ADCsclk;
 output ADCsel;
+output ADTcs;
+output ADTmosi;
+output ADTsclk;
 output aliveLED;
 output busyLEDAD7782;
 output busyLEDADT7301;
@@ -70,6 +78,10 @@ wire   ADCmode_net_0;
 wire   ADCrng_net_0;
 wire   ADCsclk_net_0;
 wire   ADCsel_net_0;
+wire   ADTcs_net_0;
+wire   ADTmiso;
+wire   ADTmosi_net_0;
+wire   ADTsclk_net_0;
 wire   aliveLED_net_0;
 wire   busyLEDAD7782_net_0;
 wire   busyLEDADT7301_net_0;
@@ -102,6 +114,9 @@ wire   busyLEDMstr_net_1;
 wire   aliveLED_net_1;
 wire   watchdogEnLED_net_1;
 wire   txd_net_1;
+wire   ADTsclk_net_1;
+wire   ADTcs_net_1;
+wire   ADTmosi_net_1;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
@@ -154,6 +169,12 @@ assign watchdogEnLED_net_1  = watchdogEnLED_net_0;
 assign watchdogEnLED        = watchdogEnLED_net_1;
 assign txd_net_1            = txd_net_0;
 assign txd                  = txd_net_1;
+assign ADTsclk_net_1        = ADTsclk_net_0;
+assign ADTsclk              = ADTsclk_net_1;
+assign ADTcs_net_1          = ADTcs_net_0;
+assign ADTcs                = ADTcs_net_1;
+assign ADTmosi_net_1        = ADTmosi_net_0;
+assign ADTmosi              = ADTmosi_net_1;
 //--------------------------------------------------------------------
 // Component instances
 //--------------------------------------------------------------------
@@ -166,6 +187,7 @@ CONNECTOR CONNECTOR_0(
         .watchdogenSwitch ( watchdogenSwitch ),
         .eepromMISO       ( eepromMISO ),
         .ADCdin           ( ADCdin ),
+        .ADTmiso          ( ADTmiso ),
         // Outputs
         .txd              ( txd_net_0 ),
         .watchdogEnLED    ( watchdogEnLED_net_0 ),
@@ -182,7 +204,10 @@ CONNECTOR CONNECTOR_0(
         .ADCsel           ( ADCsel_net_0 ),
         .ADCmode          ( ADCmode_net_0 ),
         .ADCcs            ( ADCcs_net_0 ),
-        .ADCsclk          ( ADCsclk_net_0 ) 
+        .ADCsclk          ( ADCsclk_net_0 ),
+        .ADTsclk          ( ADTsclk_net_0 ),
+        .ADTcs            ( ADTcs_net_0 ),
+        .ADTmosi          ( ADTmosi_net_0 ) 
         );
 
 //--------sCLK

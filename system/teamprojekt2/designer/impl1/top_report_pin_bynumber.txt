@@ -1,5 +1,5 @@
 *****************************************************************
-Pin Report - Date: Fri Jan 22 11:32:51 2016 Pinchecksum: NOT-AVAILABLE
+Pin Report - Date: Fri Jan 22 22:30:47 2016 Pinchecksum: NOT-AVAILABLE
 Product: Designer
 Release: v11.6
 Version: 11.6.0.34
@@ -111,9 +111,9 @@ Number |Port             |Function         |State       |I/O Std  |Output Drive 
 92      eepromSCLK        IO06RSB0          Fixed        LVCMOS33  8                  High  None           5                 No           No             ---              No
 93      eepromMOSI        GAC1/IO05RSB0     Special      LVCMOS33  8                  High  None           5                 No           No             ---              No
 94      eepromMISO        GAC0/IO04RSB0     Special      LVCMOS33  ---                ---   None           ---               No           No             No               No
-95                        GAB1/IO03RSB0     Special
-96                        GAB0/IO02RSB0     Special
-97                        GAA1/IO01RSB0     Special
-98                        GAA0/IO00RSB0     Special
+95      ADTmosi           GAB1/IO03RSB0     Special      LVCMOS33  8                  High  None           5                 No           No             ---              No
+96      ADTsclk           GAB0/IO02RSB0     Special      LVCMOS33  8                  High  None           5                 No           No             ---              No
+97      ADTcs             GAA1/IO01RSB0     Special      LVCMOS33  8                  High  None           5                 No           No             ---              No
+98      ADTmiso           GAA0/IO00RSB0     Special      LVCMOS33  ---                ---   None           ---               No           No             No               No
 99                        GNDQ              Reserved
 100                       VMV0              Reserved

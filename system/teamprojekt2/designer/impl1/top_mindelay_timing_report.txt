@@ -2,7 +2,7 @@ Timing Report Min Delay Analysis
 
 SmartTime Version v11.6
 Microsemi Corporation - Microsemi Libero Software Release v11.6 (Version 11.6.0.34)
-Date: Fri Jan 22 11:33:03 2016
+Date: Fri Jan 22 22:31:02 2016
 
 
 Design: top
@@ -34,18 +34,18 @@ Min Clock-To-Out (ns):      N/A
 Max Clock-To-Out (ns):      N/A
 
 Clock Domain:               sCLK_0/Core:GLA
-Period (ns):                23.781
-Frequency (MHz):            42.050
+Period (ns):                22.738
+Frequency (MHz):            43.979
 Required Period (ns):       N/A
 Required Frequency (MHz):   N/A
-External Setup (ns):        23.135
-External Hold (ns):         -0.412
-Min Clock-To-Out (ns):      2.454
-Max Clock-To-Out (ns):      11.180
+External Setup (ns):        23.623
+External Hold (ns):         -0.399
+Min Clock-To-Out (ns):      2.547
+Max Clock-To-Out (ns):      10.734
 
                             Input to Output
-Min Delay (ns):             2.519
-Max Delay (ns):             7.625
+Min Delay (ns):             2.512
+Max Delay (ns):             7.668
 
 END SUMMARY
 -----------------------------------------------------
@@ -107,20 +107,20 @@ Clock Domain sCLK_0/Core:GLA
 SET Register to Register
 
 Path 1
-  From:                        CONNECTOR_0/u1/sff/tmp:CLK
-  To:                          CONNECTOR_0/u1/sff/dout:D
+  From:                        CONNECTOR_0/d2/adif/dff1:CLK
+  To:                          CONNECTOR_0/d2/adif/dff2:D
   Delay (ns):                  0.467
   Slack (ns):
-  Arrival (ns):                0.955
+  Arrival (ns):                0.946
   Required (ns):
   Hold (ns):                   0.000
 
 Path 2
-  From:                        CONNECTOR_0/d2/adif/dff1:CLK
-  To:                          CONNECTOR_0/d2/adif/dff2:D
-  Delay (ns):                  0.466
+  From:                        CONNECTOR_0/u1/sff/tmp:CLK
+  To:                          CONNECTOR_0/u1/sff/dout:D
+  Delay (ns):                  0.467
   Slack (ns):
-  Arrival (ns):                0.925
+  Arrival (ns):                0.964
   Required (ns):
   Hold (ns):                   0.000
 
@@ -129,33 +129,33 @@ Path 3
   To:                          CONNECTOR_0/d2/adif/state[1]:D
   Delay (ns):                  0.499
   Slack (ns):
-  Arrival (ns):                0.958
+  Arrival (ns):                0.998
   Required (ns):
   Hold (ns):                   0.000
 
 Path 4
-  From:                        CONNECTOR_0/u1/re/dout[2]/U1:CLK
-  To:                          CONNECTOR_0/d1/dataIN[2]:D
-  Delay (ns):                  0.891
+  From:                        CONNECTOR_0/d3/adtif/dout[10]/U1:CLK
+  To:                          CONNECTOR_0/d3/result[10]:D
+  Delay (ns):                  0.550
   Slack (ns):
-  Arrival (ns):                1.357
+  Arrival (ns):                1.071
   Required (ns):
   Hold (ns):                   0.000
 
 Path 5
-  From:                        CONNECTOR_0/d2/busy_1:CLK
-  To:                          CONNECTOR_0/d2/busy_1:D
-  Delay (ns):                  0.909
+  From:                        CONNECTOR_0/d3/adtif/dout[8]/U1:CLK
+  To:                          CONNECTOR_0/d3/result[8]:D
+  Delay (ns):                  0.550
   Slack (ns):
-  Arrival (ns):                1.383
+  Arrival (ns):                1.071
   Required (ns):
   Hold (ns):                   0.000
 
 
 Expanded Path 1
-  From: CONNECTOR_0/u1/sff/tmp:CLK
-  To: CONNECTOR_0/u1/sff/dout:D
-  data arrival time                              0.955
+  From: CONNECTOR_0/d2/adif/dff1:CLK
+  To: CONNECTOR_0/d2/adif/dff2:D
+  data arrival time                              0.946
   data required time                         -   N/C
   slack                                          N/C
   ________________________________________________________
@@ -163,23 +163,23 @@ Expanded Path 1
   0.000                        sCLK_0/Core:GLA
                +     0.000          Clock source
   0.000                        sCLK_0/Core:GLA (r)
-               +     0.488          net: GLA
-  0.488                        CONNECTOR_0/u1/sff/tmp:CLK (r)
+               +     0.479          net: GLA
+  0.479                        CONNECTOR_0/d2/adif/dff1:CLK (r)
                +     0.358          cell: ADLIB:DFN1P0
-  0.846                        CONNECTOR_0/u1/sff/tmp:Q (r)
-               +     0.109          net: CONNECTOR_0/u1/sff/tmp
-  0.955                        CONNECTOR_0/u1/sff/dout:D (r)
+  0.837                        CONNECTOR_0/d2/adif/dff1:Q (r)
+               +     0.109          net: CONNECTOR_0/d2/adif/dff1
+  0.946                        CONNECTOR_0/d2/adif/dff2:D (r)
                                     
-  0.955                        data arrival time
+  0.946                        data arrival time
   ________________________________________________________
   Data required time calculation
   N/C                          sCLK_0/Core:GLA
                +     0.000          Clock source
   N/C                          sCLK_0/Core:GLA (r)
-               +     0.516          net: GLA
-  N/C                          CONNECTOR_0/u1/sff/dout:CLK (r)
+               +     0.529          net: GLA
+  N/C                          CONNECTOR_0/d2/adif/dff2:CLK (r)
                +     0.000          Library hold time: ADLIB:DFN1P0
-  N/C                          CONNECTOR_0/u1/sff/dout:D
+  N/C                          CONNECTOR_0/d2/adif/dff2:D
 
 
 END SET Register to Register
@@ -189,86 +189,86 @@ END SET Register to Register
 SET External Hold
 
 Path 1
-  From:                        ADCdin
-  To:                          CONNECTOR_0/d2/adif/dff1:D
-  Delay (ns):                  0.979
-  Slack (ns):
-  Arrival (ns):                0.979
-  Required (ns):
-  Hold (ns):                   0.000
-  External Hold (ns):          -0.412
-
-Path 2
   From:                        rxd
   To:                          CONNECTOR_0/u1/sff/tmp:D
-  Delay (ns):                  1.128
+  Delay (ns):                  1.011
   Slack (ns):
-  Arrival (ns):                1.128
+  Arrival (ns):                1.011
   Required (ns):
   Hold (ns):                   0.000
-  External Hold (ns):          -0.527
+  External Hold (ns):          -0.399
+
+Path 2
+  From:                        ADCdin
+  To:                          CONNECTOR_0/d2/adif/dff1:D
+  Delay (ns):                  1.387
+  Slack (ns):
+  Arrival (ns):                1.387
+  Required (ns):
+  Hold (ns):                   0.000
+  External Hold (ns):          -0.795
 
 Path 3
-  From:                        ADCdin
-  To:                          CONNECTOR_0/d2/adif/reg[0]/U1:D
-  Delay (ns):                  1.620
+  From:                        eepromMISO
+  To:                          CONNECTOR_0/d1/u2/serialIn[0]/U1:D
+  Delay (ns):                  1.476
   Slack (ns):
-  Arrival (ns):                1.620
+  Arrival (ns):                1.476
   Required (ns):
   Hold (ns):                   0.000
-  External Hold (ns):          -1.014
+  External Hold (ns):          -0.878
 
 Path 4
   From:                        eepromMISO
-  To:                          CONNECTOR_0/d1/u2/serialIn[0]/U1:D
-  Delay (ns):                  1.784
+  To:                          CONNECTOR_0/d1/u2/cs/U1:D
+  Delay (ns):                  1.912
   Slack (ns):
-  Arrival (ns):                1.784
+  Arrival (ns):                1.912
   Required (ns):
   Hold (ns):                   0.000
-  External Hold (ns):          -1.196
+  External Hold (ns):          -1.341
 
 Path 5
-  From:                        eepromMISO
-  To:                          CONNECTOR_0/d1/u2/state[1]:D
-  Delay (ns):                  2.268
+  From:                        watchdogenSwitch
+  To:                          CONNECTOR_0/m1/timoutCounter/counter[14]:D
+  Delay (ns):                  1.979
   Slack (ns):
-  Arrival (ns):                2.268
+  Arrival (ns):                1.979
   Required (ns):
   Hold (ns):                   0.000
-  External Hold (ns):          -1.696
+  External Hold (ns):          -1.377
 
 
 Expanded Path 1
-  From: ADCdin
-  To: CONNECTOR_0/d2/adif/dff1:D
-  data arrival time                              0.979
+  From: rxd
+  To: CONNECTOR_0/u1/sff/tmp:D
+  data arrival time                              1.011
   data required time                         -   N/C
   slack                                          N/C
   ________________________________________________________
   Data arrival time calculation
-  0.000                        ADCdin (r)
-               +     0.000          net: ADCdin
-  0.000                        ADCdin_pad/U0/U0:PAD (r)
+  0.000                        rxd (r)
+               +     0.000          net: rxd
+  0.000                        rxd_pad/U0/U0:PAD (r)
                +     0.314          cell: ADLIB:IOPAD_IN
-  0.314                        ADCdin_pad/U0/U0:Y (r)
-               +     0.000          net: ADCdin_pad/U0/NET1
-  0.314                        ADCdin_pad/U0/U1:YIN (r)
+  0.314                        rxd_pad/U0/U0:Y (r)
+               +     0.000          net: rxd_pad/U0/NET1
+  0.314                        rxd_pad/U0/U1:YIN (r)
                +     0.086          cell: ADLIB:IOIN_IB
-  0.400                        ADCdin_pad/U0/U1:Y (r)
-               +     0.579          net: ADCdin_c
-  0.979                        CONNECTOR_0/d2/adif/dff1:D (r)
+  0.400                        rxd_pad/U0/U1:Y (r)
+               +     0.611          net: rxd_c
+  1.011                        CONNECTOR_0/u1/sff/tmp:D (r)
                                     
-  0.979                        data arrival time
+  1.011                        data arrival time
   ________________________________________________________
   Data required time calculation
   N/C                          sCLK_0/Core:GLA
                +     0.000          Clock source
   N/C                          sCLK_0/Core:GLA (r)
-               +     0.567          net: GLA
-  N/C                          CONNECTOR_0/d2/adif/dff1:CLK (r)
+               +     0.612          net: GLA
+  N/C                          CONNECTOR_0/u1/sff/tmp:CLK (r)
                +     0.000          Library hold time: ADLIB:DFN1P0
-  N/C                          CONNECTOR_0/d2/adif/dff1:D
+  N/C                          CONNECTOR_0/u1/sff/tmp:D
 
 
 END SET External Hold
@@ -278,55 +278,55 @@ END SET External Hold
 SET Clock to Output
 
 Path 1
-  From:                        CONNECTOR_0/d1/u2/serialOut[26]/U1:CLK
-  To:                          eepromMOSI
-  Delay (ns):                  1.996
+  From:                        CONNECTOR_0/d2/adif/sclk/U1:CLK
+  To:                          ADCsclk
+  Delay (ns):                  2.099
   Slack (ns):
-  Arrival (ns):                2.454
+  Arrival (ns):                2.547
   Required (ns):
-  Clock to Out (ns):           2.454
+  Clock to Out (ns):           2.547
 
 Path 2
-  From:                        CONNECTOR_0/aliveCnt/counter[17]:CLK
-  To:                          aliveLED
-  Delay (ns):                  2.071
+  From:                        CONNECTOR_0/d1/u2/cs/U1:CLK
+  To:                          eepromCS
+  Delay (ns):                  2.196
   Slack (ns):
-  Arrival (ns):                2.523
+  Arrival (ns):                2.658
   Required (ns):
-  Clock to Out (ns):           2.523
+  Clock to Out (ns):           2.658
 
 Path 3
-  From:                        CONNECTOR_0/u1/tr/tsr[0]/U1:CLK
-  To:                          txd
-  Delay (ns):                  2.104
+  From:                        CONNECTOR_0/d2/adif/cs/U1:CLK
+  To:                          ADCcs
+  Delay (ns):                  2.197
   Slack (ns):
-  Arrival (ns):                2.588
+  Arrival (ns):                2.676
   Required (ns):
-  Clock to Out (ns):           2.588
+  Clock to Out (ns):           2.676
 
 Path 4
-  From:                        CONNECTOR_0/d1/u2/org/U1:CLK
-  To:                          eepromORG
-  Delay (ns):                  2.359
+  From:                        CONNECTOR_0/d1/u2/serialOut[26]/U1:CLK
+  To:                          eepromMOSI
+  Delay (ns):                  2.206
   Slack (ns):
-  Arrival (ns):                2.827
+  Arrival (ns):                2.685
   Required (ns):
-  Clock to Out (ns):           2.827
+  Clock to Out (ns):           2.685
 
 Path 5
-  From:                        CONNECTOR_0/d1/u2/serClk:CLK
-  To:                          eepromSCLK
-  Delay (ns):                  2.420
+  From:                        CONNECTOR_0/d3/adtif/sclk/U1:CLK
+  To:                          ADTsclk
+  Delay (ns):                  2.252
   Slack (ns):
-  Arrival (ns):                2.878
+  Arrival (ns):                2.749
   Required (ns):
-  Clock to Out (ns):           2.878
+  Clock to Out (ns):           2.749
 
 
 Expanded Path 1
-  From: CONNECTOR_0/d1/u2/serialOut[26]/U1:CLK
-  To: eepromMOSI
-  data arrival time                              2.454
+  From: CONNECTOR_0/d2/adif/sclk/U1:CLK
+  To: ADCsclk
+  data arrival time                              2.547
   data required time                         -   N/C
   slack                                          N/C
   ________________________________________________________
@@ -334,29 +334,29 @@ Expanded Path 1
   0.000                        sCLK_0/Core:GLA
                +     0.000          Clock source
   0.000                        sCLK_0/Core:GLA (r)
-               +     0.458          net: GLA
-  0.458                        CONNECTOR_0/d1/u2/serialOut[26]/U1:CLK (r)
-               +     0.358          cell: ADLIB:DFN1C0
-  0.816                        CONNECTOR_0/d1/u2/serialOut[26]/U1:Q (r)
-               +     0.553          net: eepromMOSI_c
-  1.369                        eepromMOSI_pad/U0/U1:D (r)
-               +     0.468          cell: ADLIB:IOTRI_OB_EB
-  1.837                        eepromMOSI_pad/U0/U1:DOUT (r)
-               +     0.000          net: eepromMOSI_pad/U0/NET1
-  1.837                        eepromMOSI_pad/U0/U0:D (r)
+               +     0.448          net: GLA
+  0.448                        CONNECTOR_0/d2/adif/sclk/U1:CLK (r)
+               +     0.358          cell: ADLIB:DFN1P0
+  0.806                        CONNECTOR_0/d2/adif/sclk/U1:Q (r)
+               +     0.619          net: ADCsclk_c
+  1.425                        ADCsclk_pad/U0/U1:D (r)
+               +     0.505          cell: ADLIB:IOTRI_OB_EB
+  1.930                        ADCsclk_pad/U0/U1:DOUT (r)
+               +     0.000          net: ADCsclk_pad/U0/NET1
+  1.930                        ADCsclk_pad/U0/U0:D (r)
                +     0.617          cell: ADLIB:IOPAD_TRI
-  2.454                        eepromMOSI_pad/U0/U0:PAD (r)
-               +     0.000          net: eepromMOSI
-  2.454                        eepromMOSI (r)
+  2.547                        ADCsclk_pad/U0/U0:PAD (r)
+               +     0.000          net: ADCsclk
+  2.547                        ADCsclk (r)
                                     
-  2.454                        data arrival time
+  2.547                        data arrival time
   ________________________________________________________
   Data required time calculation
   N/C                          sCLK_0/Core:GLA
                +     0.000          Clock source
   N/C                          sCLK_0/Core:GLA (r)
                                     
-  N/C                          eepromMOSI (r)
+  N/C                          ADCsclk (r)
 
 
 END SET Clock to Output
@@ -375,59 +375,59 @@ SET External Removal
 
 Path 1
   From:                        rst
-  To:                          CONNECTOR_0/d1/u2/serialOut[20]/U1:CLR
-  Delay (ns):                  0.943
+  To:                          CONNECTOR_0/d1/u2/serialOut[13]/U1:CLR
+  Delay (ns):                  1.403
   Slack (ns):
-  Arrival (ns):                0.943
+  Arrival (ns):                1.403
   Required (ns):
   Removal (ns):                0.000
-  External Removal (ns):       -0.356
+  External Removal (ns):       -0.811
 
 Path 2
   From:                        rst
-  To:                          CONNECTOR_0/d1/u2/serialOut[10]/U1:CLR
-  Delay (ns):                  1.166
+  To:                          CONNECTOR_0/d1/u2/dout[3]/U1:CLR
+  Delay (ns):                  1.954
   Slack (ns):
-  Arrival (ns):                1.166
+  Arrival (ns):                1.954
   Required (ns):
   Removal (ns):                0.000
-  External Removal (ns):       -0.571
+  External Removal (ns):       -1.338
 
 Path 3
   From:                        rst
-  To:                          CONNECTOR_0/d1/u2/serialOut[12]/U1:CLR
-  Delay (ns):                  1.434
+  To:                          CONNECTOR_0/d1/u2/dout[1]/U1:CLR
+  Delay (ns):                  1.954
   Slack (ns):
-  Arrival (ns):                1.434
+  Arrival (ns):                1.954
   Required (ns):
   Removal (ns):                0.000
-  External Removal (ns):       -0.847
+  External Removal (ns):       -1.353
 
 Path 4
   From:                        rst
-  To:                          CONNECTOR_0/d1/u2/serialOut[22]/U1:CLR
-  Delay (ns):                  1.565
+  To:                          CONNECTOR_0/d1/u2/dout[0]/U1:CLR
+  Delay (ns):                  1.954
   Slack (ns):
-  Arrival (ns):                1.565
+  Arrival (ns):                1.954
   Required (ns):
   Removal (ns):                0.000
-  External Removal (ns):       -0.989
+  External Removal (ns):       -1.353
 
 Path 5
   From:                        rst
-  To:                          CONNECTOR_0/d1/uartTx_cl:CLR
-  Delay (ns):                  1.636
+  To:                          CONNECTOR_0/d1/u2/serialIn[9]/U1:CLR
+  Delay (ns):                  1.974
   Slack (ns):
-  Arrival (ns):                1.636
+  Arrival (ns):                1.974
   Required (ns):
   Removal (ns):                0.000
-  External Removal (ns):       -1.042
+  External Removal (ns):       -1.358
 
 
 Expanded Path 1
   From: rst
-  To: CONNECTOR_0/d1/u2/serialOut[20]/U1:CLR
-  data arrival time                              0.943
+  To: CONNECTOR_0/d1/u2/serialOut[13]/U1:CLR
+  data arrival time                              1.403
   data required time                         -   N/C
   slack                                          N/C
   ________________________________________________________
@@ -441,23 +441,23 @@ Expanded Path 1
   0.314                        rst_pad/U0/U1:YIN (r)
                +     0.086          cell: ADLIB:IOIN_IB
   0.400                        rst_pad/U0/U1:Y (r)
-               +     0.118          net: rst_c
-  0.518                        rst_pad_RNIDGQ2_20:A (r)
-               +     0.321          cell: ADLIB:BUFF
-  0.839                        rst_pad_RNIDGQ2_20:Y (r)
-               +     0.104          net: rst_c_2
-  0.943                        CONNECTOR_0/d1/u2/serialOut[20]/U1:CLR (r)
+               +     0.500          net: rst_c
+  0.900                        rst_pad_RNIDGQ2_12:A (r)
+               +     0.399          cell: ADLIB:BUFF
+  1.299                        rst_pad_RNIDGQ2_12:Y (r)
+               +     0.104          net: rst_c_3
+  1.403                        CONNECTOR_0/d1/u2/serialOut[13]/U1:CLR (r)
                                     
-  0.943                        data arrival time
+  1.403                        data arrival time
   ________________________________________________________
   Data required time calculation
   N/C                          sCLK_0/Core:GLA
                +     0.000          Clock source
   N/C                          sCLK_0/Core:GLA (r)
-               +     0.587          net: GLA
-  N/C                          CONNECTOR_0/d1/u2/serialOut[20]/U1:CLK (r)
+               +     0.592          net: GLA
+  N/C                          CONNECTOR_0/d1/u2/serialOut[13]/U1:CLK (r)
                +     0.000          Library removal time: ADLIB:DFN1C0
-  N/C                          CONNECTOR_0/d1/u2/serialOut[20]/U1:CLR
+  N/C                          CONNECTOR_0/d1/u2/serialOut[13]/U1:CLR
 
 
 END SET External Removal
@@ -479,16 +479,16 @@ SET Input to Output
 Path 1
   From:                        watchdogenSwitch
   To:                          watchdogEnLED
-  Delay (ns):                  2.519
+  Delay (ns):                  2.512
   Slack (ns):
-  Arrival (ns):                2.519
+  Arrival (ns):                2.512
   Required (ns):
 
 
 Expanded Path 1
   From: watchdogenSwitch
   To: watchdogEnLED
-  data arrival time                              2.519
+  data arrival time                              2.512
   data required time                         -   N/C
   slack                                          N/C
   ________________________________________________________
@@ -502,18 +502,18 @@ Expanded Path 1
   0.314                        watchdogenSwitch_pad/U0/U1:YIN (r)
                +     0.086          cell: ADLIB:IOIN_IB
   0.400                        watchdogenSwitch_pad/U0/U1:Y (r)
-               +     0.997          net: watchdogEnLED_c_c
-  1.397                        watchdogEnLED_pad/U0/U1:D (r)
+               +     0.990          net: watchdogEnLED_c_c
+  1.390                        watchdogEnLED_pad/U0/U1:D (r)
                +     0.505          cell: ADLIB:IOTRI_OB_EB
-  1.902                        watchdogEnLED_pad/U0/U1:DOUT (r)
+  1.895                        watchdogEnLED_pad/U0/U1:DOUT (r)
                +     0.000          net: watchdogEnLED_pad/U0/NET1
-  1.902                        watchdogEnLED_pad/U0/U0:D (r)
+  1.895                        watchdogEnLED_pad/U0/U0:D (r)
                +     0.617          cell: ADLIB:IOPAD_TRI
-  2.519                        watchdogEnLED_pad/U0/U0:PAD (r)
+  2.512                        watchdogEnLED_pad/U0/U0:PAD (r)
                +     0.000          net: watchdogEnLED
-  2.519                        watchdogEnLED (r)
+  2.512                        watchdogEnLED (r)
                                     
-  2.519                        data arrival time
+  2.512                        data arrival time
   ________________________________________________________
   Data required time calculation
   N/C                          watchdogenSwitch (r)
