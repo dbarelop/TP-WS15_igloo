@@ -43,7 +43,7 @@ ARCHITECTURE behaviour OF ADT7301CTRL_tb IS
 	END COMPONENT;
 
 	CONSTANT ADT_DEVICEID: std_logic_vector(3 DOWNTO 0) := "0011";
-	CONSTANT CMD_READTEMP: std_logic_vector(3 DOWNTO 0) := "0001";
+	CONSTANT CMD_READTEMP: std_logic_vector(3 DOWNTO 0) := "0000";
 
 	SIGNAL rst:	std_logic := RSTDEF;
 	SIGNAL clk:	std_logic := '0';

@@ -60,7 +60,7 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 	SIGNAL cs: std_logic;
 	SIGNAL result: std_logic_vector(13 DOWNTO 0);
 
-	CONSTANT CMD_READTEMP: std_logic_vector(3 DOWNTO 0) := "0001";
+	CONSTANT CMD_READTEMP: std_logic_vector(3 DOWNTO 0) := "0000";
 
 	TYPE tstate IS (IDLE, READSENDOK, WAITSENDOK, DELAY, EXECMD, ENDCOM);
 

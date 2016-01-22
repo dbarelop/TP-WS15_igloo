@@ -84,6 +84,7 @@ Device ID: 0b0001
 
 ### write
 * must be handled with care: only 1 000 000 cycles endurance (should only be called by user, not automatically)
+* writeprotection is disabled automatically triggered by reset
 
 #### TX
 |              |            |            |          |
@@ -99,6 +100,7 @@ Device ID: 0b0001
 
 ### write 16bit
 * must be handled with care: only 1 000 000 cycles endurance (should only be called by user, not automatically)
+* writeprotection is disabled automatically triggered by reset
 
 #### TX
 |              |            |            |          |
@@ -115,6 +117,7 @@ Device ID: 0b0001
 ### erase all
 * erases complete memory (all bits set to 1)
 * must be handled with care: only 1 000 000 cycles endurance (should only be called by user, not automatically)
+* eraseprotection is disabled automatically triggered by reset
 
 #### TX
 |              |
@@ -222,3 +225,20 @@ AIN = (v*((dec_input/a)-1))/GAIN;
 |---------|
 | 0xAA    |
 | OK-byte |
+
+## ADT Temperature sensor
+Device ID: 0b0011
+
+* temperature is updated on sensor every 1.5 sec
+
+#### TX
+|   |
+|---|
+|0x30|
+| read temperature command |
+
+#### RX
+|              |            |            |
+|--------------|------------|------------|
+| 0xAA   | 0b00TTTTTT | 0btttttttt |
+| OK-byte | T-temperature data (signed, MSB)  | t-temperature data (LSB)  |
