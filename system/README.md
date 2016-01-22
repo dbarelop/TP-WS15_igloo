@@ -16,7 +16,7 @@ Config:
 |  LED No. |  Indication  |
 |----------|--------------|
 | LED1     | Master busy  |
-| LED2     | (Not implemented yet) reserved for ADT  |
+| LED2     | ADT7301 busy  |
 | LED3     | EEPROM busy  |
 | LED4     | AD7782 busy  |
 | LED5     | Watchdog enabled  |
