@@ -43,6 +43,8 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 	-- Component signals
 	SIGNAL strb: std_logic;
 	SIGNAL dout: std_logic_vector(13 DOWNTO 0);
+	SIGNAL cs: std_logic;
+	SIGNAL result: std_logic_vector(13 DOWNTO 0);
 
 	CONSTANT CMD_READTEMP: std_logic_vector(3 DOWNTO 0) := "0001";
 
@@ -54,7 +56,7 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 	TYPE tuartstate IS (S0, S1, S2, FINISHED);
 	SIGNAL uartstate: tuartstate;
 
-	TYPE treadstate IS (S0, S1, S2, S3, FINISHED);
+	TYPE treadstate IS (S0, S1, DELAY, S2, S3, FINISHED);
 	SIGNAL readstate: treadstate;
 
 	TYPE tcmd IS (READTEMP);
@@ -68,7 +70,7 @@ BEGIN
 			 strb	=> strb,
 			 dout	=> dout,
 			 sclk	=> ADTsclk,
-			 cs		=> ADTcs,
+			 cs		=> cs,
 			 mosi	=> ADTmosi,
 			 miso	=> ADTmiso);
 
@@ -101,18 +103,22 @@ BEGIN
 					strb <= '1';
 					readstate <= S1;
 				WHEN S1 =>
-					strb <= '0';
-					readstate <= S2;
+					readstate <= DELAY;
 					uartstate <= S0;
+				WHEN DELAY =>
+					IF cs = '1' THEN
+						readstate <= S2;
+						result <= dout(result'RANGE);
+					END IF;
 				WHEN S2 =>	-- send the first byte
 					strb <= '0';
-					sendUART("00" & dout(13 DOWNTO 8));
+					sendUART("00" & result(13 DOWNTO 8));
 					IF uartstate = FINISHED THEN
 						uartstate <= S0;
 						readstate <= S3;
 					END IF;
 				WHEN S3 =>	-- send the second byte
-					sendUART(dout(7 DOWNTO 0));
+					sendUART(result(7 DOWNTO 0));
 					IF uartstate <= FINISHED THEN
 						readstate <= FINISHED;
 					END IF;
@@ -162,7 +168,6 @@ BEGIN
 				CASE cmd IS
 					WHEN READTEMP =>
 					-- Read ADT temperature value and output to UART
-						--readstate <= S0;
 						readADT;
 						IF readstate = FINISHED THEN
 							state <= ENDCOM;
@@ -179,5 +184,7 @@ BEGIN
 			END IF;
 		END IF;
 	END PROCESS;
+
+	ADTcs <= cs;
 
 END behaviour;

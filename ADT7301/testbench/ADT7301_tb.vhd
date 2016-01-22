@@ -40,7 +40,7 @@ BEGIN
             dout => miso);
 
    p1: PROCESS
-      CONSTANT NUM_CHECKS: integer := 6079;
+      CONSTANT NUM_CHECKS: integer := 10;
 
       PROCEDURE read_temp IS
       BEGIN

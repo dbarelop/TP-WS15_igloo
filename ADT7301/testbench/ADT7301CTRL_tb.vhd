@@ -45,8 +45,6 @@ ARCHITECTURE behaviour OF ADT7301CTRL_tb IS
 	CONSTANT ADT_DEVICEID: std_logic_vector(3 DOWNTO 0) := "0011";
 	CONSTANT CMD_READTEMP: std_logic_vector(3 DOWNTO 0) := "0001";
 
-	SIGNAL strb: std_logic;
-
 	SIGNAL rst:	std_logic := RSTDEF;
 	SIGNAL clk:	std_logic := '0';
 	SIGNAL ADTdout:	std_logic_vector(13 DOWNTO 0) := (OTHERS => '0');
@@ -93,8 +91,6 @@ BEGIN
 			 ADTmiso		=> ADTmiso);
 
 	p1: PROCESS
-		CONSTANT NUM_CHECKS: integer := 10;
-
 		-- Returns TRUE only when the given value belongs to the range [0x0000,0x12C0]U[0x3B00,0x3FFF]
 		FUNCTION valid_temp_value(val: std_logic_vector)
 			RETURN boolean IS
@@ -133,6 +129,7 @@ BEGIN
 
 		END PROCEDURE;
 
+		CONSTANT NUM_CHECKS: integer := 5000;
 	BEGIN
 		WAIT FOR 1 us;
 		rst <= NOT RSTDEF;

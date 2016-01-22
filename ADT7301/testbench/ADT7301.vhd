@@ -27,8 +27,6 @@ ARCHITECTURE verhalten OF ADT7301 IS
       RETURN conv_std_logic_vector(tmp2, size);
    END FUNCTION;
 
-   SIGNAL clk:  std_logic;
-   SIGNAL dint: std_logic;
    SIGNAL sor:  std_logic_vector(15 DOWNTO 0); -- serial output register
    SIGNAL rsr:  std_logic_vector(15 DOWNTO 0);
    SIGNAL tvr:  std_logic_vector(13 DOWNTO 0); -- temperature value register
