@@ -311,7 +311,7 @@ BEGIN
 
 	d3: ADT7301CTRL
 	GENERIC MAP(RSTDEF 		=> RSTDEF,
-			DEVICEID	=> "0011");
+			DEVICEID	=> "0011")
 	PORT MAP(	rst 		=> rst,
 			swrst 		=> swrst,
 			clk 		=> clk,
