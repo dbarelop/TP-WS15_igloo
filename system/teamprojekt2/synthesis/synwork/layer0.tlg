@@ -1,0 +1,11 @@
+@N: CG364 :"C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\proasic\igloo.v":2447:7:2447:9|Synthesizing module PLL
+
+@N: CG364 :"C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\proasic\igloo.v":1163:7:1163:9|Synthesizing module GND
+
+@N: CG364 :"C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\proasic\igloo.v":1864:7:1864:9|Synthesizing module VCC
+
+@N: CG364 :"C:\Users\matze\Documents\igloo\system\teamprojekt2\smartgen\sCLK\sCLK.v":5:7:5:10|Synthesizing module sCLK
+
+@N: CG364 :"C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v":9:7:9:9|Synthesizing module top
+
+@N: CG794 :"C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v":161:10:161:20|Using module CONNECTOR from library work

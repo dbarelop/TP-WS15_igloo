@@ -1,0 +1,5 @@
+@N: MF249 |Running in 32-bit mode.
+@N: MF667 |Clock conversion disabled 
+@N: BN362 :"c:\users\matze\documents\igloo\uart\receiver.vhd":50:6:50:7|Removing sequential instance ovre of view:PrimLib.dffre(prim) in hierarchy view:work.receiver(behaviour) because there are no references to its outputs 
+@N: BN362 :"c:\users\matze\documents\igloo\uart\receiver.vhd":50:6:50:7|Removing sequential instance frme of view:PrimLib.dffre(prim) in hierarchy view:work.receiver(behaviour) because there are no references to its outputs 
+@N: BN225 |Writing default property annotation file C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\CONNECTOR.sap.

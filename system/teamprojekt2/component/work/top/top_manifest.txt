@@ -1,0 +1,11 @@
+Microsemi Corporation - Microsemi Libero Software Release v11.6 (Version 11.6.0.34)
+
+Date      :  Fri Jan 22 11:29:20 2016
+Project   :  C:\Users\matze\Documents\igloo\system\teamprojekt2
+Component :  top
+Family    :  IGLOO
+
+
+HDL source files for all Synthesis and Simulation tools:
+    C:/Users/matze/Documents/igloo/system/teamprojekt2/component/work/top/top.v
+

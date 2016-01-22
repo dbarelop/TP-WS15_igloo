@@ -1,0 +1,24 @@
+C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\bin\c_hdl.exe  -osyn  C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synwork\top_comp.srs  -top  top  -hdllog  C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synlog\top_compiler.srr  -encrypt  -mp  1  -vhdl  -prodtype  synplify_pro  -nram -fixsmult -divnmod  -encrypt  -pro  -dmgen  C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\dm  -lite -ui -fid2 -ram -sharing on -ll 2000 -autosm  -ignore_undefined_lib  -lib work C:\Users\matze\Documents\igloo\common\AliveCOUNTER.vhd -lib work C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd -lib work C:\Users\matze\Documents\igloo\common\COUNTER.vhd -lib work C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd -lib work C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd -lib work C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd -lib work C:\Users\matze\Documents\igloo\uart\baudgen.vhd -lib work C:\Users\matze\Documents\igloo\uart\glitchfilter.vhd -lib work C:\Users\matze\Documents\igloo\uart\receiver.vhd -lib work C:\Users\matze\Documents\igloo\uart\sync_flipflop.vhd -lib work C:\Users\matze\Documents\igloo\uart\transmitter.vhd -lib work C:\Users\matze\Documents\igloo\uart\uart.vhd -lib work C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd -lib work C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd -lib work C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd  -verilog  -prodtype  synplify_pro  -nram -fixsmult -divnmod   -I C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\  -I C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib   -v2001  -devicelib  C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\proasic\igloo.v  -encrypt  -pro  -dmgen  C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\dm  -ui -fid2 -ram -sharing on -ll 2000 -autosm  -lib work C:\Users\matze\Documents\igloo\system\teamprojekt2\smartgen\sCLK\sCLK.v -lib work C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v 
+rc:0 success:1
+C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synwork\top_comp.srs|o|1453458574|59576
+C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synlog\top_compiler.srr|o|1453458574|18031
+C:\Users\matze\Documents\igloo\common\AliveCOUNTER.vhd|i|1453234382|920
+C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd|i|1453234382|1295
+C:\Users\matze\Documents\igloo\common\COUNTER.vhd|i|1453234382|1249
+C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd|i|1453234382|3673
+C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd|i|1453115403|4833
+C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd|i|1453234382|10817
+C:\Users\matze\Documents\igloo\uart\baudgen.vhd|i|1450529630|1792
+C:\Users\matze\Documents\igloo\uart\glitchfilter.vhd|i|1450529630|1450
+C:\Users\matze\Documents\igloo\uart\receiver.vhd|i|1450529630|3713
+C:\Users\matze\Documents\igloo\uart\sync_flipflop.vhd|i|1450529630|700
+C:\Users\matze\Documents\igloo\uart\transmitter.vhd|i|1450529630|3587
+C:\Users\matze\Documents\igloo\uart\uart.vhd|i|1453115403|5664
+C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd|i|1452442702|4006
+C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd|i|1453458546|8058
+C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd|i|1453364618|8856
+C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\proasic\igloo.v|i|1431615982|50704
+C:\Users\matze\Documents\igloo\system\teamprojekt2\smartgen\sCLK\sCLK.v|i|1453332190|2679
+C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v|i|1453458559|6423
+C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\bin64\c_hdl.exe|i|1431625156|1903104
+C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\bin\c_hdl.exe|i|1431624966|1299456

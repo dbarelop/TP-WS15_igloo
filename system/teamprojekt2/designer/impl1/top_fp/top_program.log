@@ -1,0 +1,34 @@
+FlashPro
+Version: 11.6.0.34
+Release: v11.6
+
+Software Version: 11.6.0.34
+PDB file 'C:\Users\matze\Documents\igloo\system\teamprojekt2\designer\impl1\top.pdb' has been
+loaded successfully.
+DESIGN : top;  CHECKSUM : 3FE8;  PDB_VERSION : 1.9
+Driver : 3.0.0 build 1
+programmer '77707' : FlashPro3
+Opened 'C:/Users/matze/Documents/igloo/system/teamprojekt2/designer/impl1/top_fp/top.pro'
+The 'open_project' command succeeded.
+The 'set_programming_action' command succeeded.
+programmer '77707' : Scan Chain...
+Warning: programmer '77707' : Vpump has been selected on programmer AND an externally provided
+         Vpump has also been detected. Using externally provided Vpump voltage source.
+programmer '77707' : Scan Chain PASSED.
+programmer '77707' : Executing action PROGRAM
+programmer '77707' : EXPORT FSN[48] = 010f6550c835
+programmer '77707' : Erase ...
+programmer '77707' : Completed erase
+programmer '77707' : EXPORT CHECKSUM: [16] = 3fe8
+programmer '77707' : Programming FPGA Array
+programmer '77707' : Verifying FPGA Array
+programmer '77707' :         Verifying FPGA Array -- pass
+programmer '77707' : Finished: Fri Jan 22 11:34:39 2016 (Elapsed time 00:00:36)
+programmer '77707' : Executing action PROGRAM PASSED.
+
+                        o - o - o - o - o - o
+
+The 'run_selected_actions' command succeeded.
+Project saved.
+The 'save_project' command succeeded.
+Project closed.

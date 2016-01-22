@@ -1,0 +1,22 @@
+Microsemi Libero Software
+Version: 11.6.0.34
+Release: v11.6
+
+'IDE_DESIGNERVIEW_ROOTDIR' set to 'C:\Users\matze\Documents\igloo\system\teamprojekt2\designer'
+Info: The design top.adb was last modified by software version 11.6.0.34.
+Opened an existing Libero design top.adb.
+
+The Execute Script command succeeded ( 00:00:27 )
+Design saved to file C:\Users\matze\Documents\igloo\system\teamprojekt2\designer\impl1\top.adb.
+Wrote pin report to file:
+C:\Users\matze\Documents\igloo\system\teamprojekt2\designer\impl1\top_report_pin_byname.txt
+
+The Report command succeeded ( 00:00:01 )
+Wrote pin report to file:
+C:\Users\matze\Documents\igloo\system\teamprojekt2\designer\impl1\top_report_pin_bynumber.txt
+
+The Report command succeeded ( 00:00:01 )
+
+The Execute Script command succeeded ( 00:00:02 )
+Design closed.
+

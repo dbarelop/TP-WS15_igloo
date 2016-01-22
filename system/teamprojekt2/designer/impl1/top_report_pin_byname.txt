@@ -1,0 +1,41 @@
+*****************************************************************
+Pin Report - Date: Fri Jan 22 11:32:51 2016 Pinchecksum: NOT-AVAILABLE
+Product: Designer
+Release: v11.6
+Version: 11.6.0.34
+Design Name: top
+Family: IGLOO
+Die: AGLN250V2
+Package: 100 VQFP
+*****************************************************************
+
+-----------------------------------------------------------------
+Flash*Freeze information
+        Pin name  : 27
+        Pin usage : Available as a regular pin
+-----------------------------------------------------------------
+
+Port             |Pin |Fixed |Function      |I/O Std  |Output Drive (mA) |Slew |Resistor Pull |Output Load (pF) |Use I/O Reg |Hot Swappable |Schmitt Trigger |Hold previous I/O state in Flash*Freeze mode |
+-----------------|----|------|--------------|---------|------------------|-----|--------------|-----------------|------------|--------------|----------------|---------------------------------------------|
+ADCcs             84   Yes    IO11RSB0       LVCMOS33  8                  High  None           5                 No           No             ---              No
+ADCdin            85   Yes    IO10RSB0       LVCMOS33  ---                ---   None           ---               No           No             No               No
+ADCmode           86   Yes    IO09RSB0       LVCMOS33  8                  High  None           5                 No           No             ---              No
+ADCrng            83   Yes    IO12RSB0       LVCMOS33  8                  High  None           5                 No           No             ---              No
+ADCsclk           82   Yes    IO13RSB0       LVCMOS33  8                  High  None           5                 No           No             ---              No
+ADCsel            81   Yes    GBC0/IO14RSB0  LVCMOS33  8                  High  None           5                 No           No             ---              No
+aliveLED          45   Yes    GDA2/IO34RSB2  LVCMOS33  8                  High  None           5                 No           No             ---              No
+busyLEDAD7782     41   Yes    IO38RSB2       LVCMOS33  8                  High  None           5                 No           No             ---              No
+busyLEDADT7301    36   Yes    IO40RSB2       LVCMOS33  8                  High  None           5                 No           No             ---              No
+busyLEDEEPROM     40   Yes    IO39RSB2       LVCMOS33  8                  High  None           5                 No           No             ---              No
+busyLEDMstr       35   Yes    IO41RSB2       LVCMOS33  8                  High  None           5                 No           No             ---              No
+CLKA              15   Yes    GFA1/IO58RSB3  LVCMOS33  ---                ---   None           ---               No           No             No               No
+eepromCS          91   Yes    IO07RSB0       LVCMOS33  8                  High  None           5                 No           No             ---              No
+eepromMISO        94   Yes    GAC0/IO04RSB0  LVCMOS33  ---                ---   None           ---               No           No             No               No
+eepromMOSI        93   Yes    GAC1/IO05RSB0  LVCMOS33  8                  High  None           5                 No           No             ---              No
+eepromORG         90   Yes    IO08RSB0       LVCMOS33  8                  High  None           5                 No           No             ---              No
+eepromSCLK        92   Yes    IO06RSB0       LVCMOS33  8                  High  None           5                 No           No             ---              No
+rst               10   Yes    GFB1/IO60RSB3  LVCMOS33  ---                ---   None           ---               No           No             No               No
+rxd               16   Yes    GFA2/IO56RSB3  LVCMOS33  ---                ---   None           ---               No           No             No               No
+txd               19   Yes    GFC2/IO55RSB3  LVCMOS33  8                  High  None           5                 No           No             ---              No
+watchdogEnLED     42   Yes    IO37RSB2       LVCMOS33  8                  High  None           5                 No           No             ---              No
+watchdogenSwitch  26   Yes    GEA2/IO50RSB2  LVCMOS33  ---                ---   None           ---               No           No             No               No

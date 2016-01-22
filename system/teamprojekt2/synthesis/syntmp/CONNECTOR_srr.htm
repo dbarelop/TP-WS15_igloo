@@ -1,0 +1,1134 @@
+<html><body><samp><pre>
+<!@TC:1453363506>
+#Build: Synplify Pro J-2015.03M-3, Build 048R, May 14 2015
+#install: C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3
+#OS: Windows 7 6.1
+#Hostname: MATZE-PC
+
+#Implementation: synthesis
+
+<a name=compilerReport1>Synopsys HDL Compiler, version comp201503p1, Build 094R, built May 14 2015</a>
+@N: : <!@TM:1453363511> | Running in 32-bit mode 
+Copyright (C) 1994-2015 Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use, reproduction, or distribution of this software is strictly prohibited.
+
+<a name=compilerReport2>Synopsys VHDL Compiler, version comp201503p1, Build 094R, built May 14 2015</a>
+@N: : <!@TM:1453363511> | Running in 32-bit mode 
+Copyright (C) 1994-2015 Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use, reproduction, or distribution of this software is strictly prohibited.
+
+@N:<a href="@N:CD720:@XP_HELP">CD720</a> : <a href="C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\vhd\std.vhd:123:18:123:22:@N:CD720:@XP_MSG">std.vhd(123)</a><!@TM:1453363511> | Setting time resolution to ns
+@N: : <a href="C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd:5:7:5:16:@N::@XP_MSG">CONNECTOR.vhd(5)</a><!@TM:1453363511> | Top entity is set to CONNECTOR.
+File C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\vhd\signed.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\uart\baudgen.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\uart\glitchfilter.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\uart\receiver.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\uart\sync_flipflop.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\uart\transmitter.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\uart\uart.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd changed - recompiling
+VHDL syntax check successful!
+
+Compiler output is up to date.  No re-compile necessary
+
+@N:<a href="@N:CD630:@XP_HELP">CD630</a> : <a href="C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd:5:7:5:16:@N:CD630:@XP_MSG">CONNECTOR.vhd(5)</a><!@TM:1453363511> | Synthesizing work.connector.behaviour 
+<font color=#A52A2A>@W:<a href="@W:CD638:@XP_HELP">CD638</a> : <a href="C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd:58:11:58:22:@W:CD638:@XP_MSG">CONNECTOR.vhd(58)</a><!@TM:1453363511> | Signal busyadt7301 is undriven </font>
+@N:<a href="@N:CD630:@XP_HELP">CD630</a> : <a href="C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd:5:7:5:17:@N:CD630:@XP_MSG">AD7782CTRL.vhd(5)</a><!@TM:1453363511> | Synthesizing work.ad7782ctrl.behaviour 
+@N:<a href="@N:CD231:@XP_HELP">CD231</a> : <a href="C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd:50:13:50:15:@N:CD231:@XP_MSG">AD7782CTRL.vhd(50)</a><!@TM:1453363511> | Using onehot encoding for type tstate (idle="1000000")
+@N:<a href="@N:CD231:@XP_HELP">CD231</a> : <a href="C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd:51:15:51:17:@N:CD231:@XP_MSG">AD7782CTRL.vhd(51)</a><!@TM:1453363511> | Using onehot encoding for type adcstate (s0="100000")
+@N:<a href="@N:CD233:@XP_HELP">CD233</a> : <a href="C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd:52:16:52:18:@N:CD233:@XP_MSG">AD7782CTRL.vhd(52)</a><!@TM:1453363511> | Using sequential encoding for type uartstate
+@N:<a href="@N:CD231:@XP_HELP">CD231</a> : <a href="C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd:53:15:53:17:@N:CD231:@XP_MSG">AD7782CTRL.vhd(53)</a><!@TM:1453363511> | Using onehot encoding for type cmdstate (idle="100000")
+@N:<a href="@N:CD630:@XP_HELP">CD630</a> : <a href="C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd:5:7:5:18:@N:CD630:@XP_MSG">BusyCOUNTER.vhd(5)</a><!@TM:1453363511> | Synthesizing work.busycounter.behaviour 
+@N:<a href="@N:CD233:@XP_HELP">CD233</a> : <a href="C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd:18:16:18:18:@N:CD233:@XP_MSG">BusyCOUNTER.vhd(18)</a><!@TM:1453363511> | Using sequential encoding for type tstate
+Post processing for work.busycounter.behaviour
+@N:<a href="@N:CD630:@XP_HELP">CD630</a> : <a href="C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd:20:7:20:15:@N:CD630:@XP_MSG">AD7782IF.vhd(20)</a><!@TM:1453363511> | Synthesizing work.ad7782if.behaviour 
+@N:<a href="@N:CD231:@XP_HELP">CD231</a> : <a href="C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd:45:15:45:17:@N:CD231:@XP_MSG">AD7782IF.vhd(45)</a><!@TM:1453363511> | Using onehot encoding for type tstate (s0="10000")
+Post processing for work.ad7782if.behaviour
+@A:<a href="@A:CL282:@XP_HELP">CL282</a> : <a href="C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd:73:6:73:8:@A:CL282:@XP_MSG">AD7782IF.vhd(73)</a><!@TM:1453363511> | Feedback mux created for signal cnt[4:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+Post processing for work.ad7782ctrl.behaviour
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd:208:2:208:4:@W:CL169:@XP_MSG">AD7782CTRL.vhd(208)</a><!@TM:1453363511> | Pruning register cnt_5(2 downto 0)  </font>
+<font color=#A52A2A>@W:<a href="@W:CL271:@XP_HELP">CL271</a> : <a href="C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd:208:2:208:4:@W:CL271:@XP_MSG">AD7782CTRL.vhd(208)</a><!@TM:1453363511> | Pruning bits 7 to 4 of dataIN_4(7 downto 0) -- not in use ... </font>
+@A:<a href="@A:CL282:@XP_HELP">CL282</a> : <a href="C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd:208:2:208:4:@A:CL282:@XP_MSG">AD7782CTRL.vhd(208)</a><!@TM:1453363511> | Feedback mux created for signal uarts[1:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@A:<a href="@A:CL282:@XP_HELP">CL282</a> : <a href="C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd:208:2:208:4:@A:CL282:@XP_MSG">AD7782CTRL.vhd(208)</a><!@TM:1453363511> | Feedback mux created for signal adcs[0:5] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@A:<a href="@A:CL282:@XP_HELP">CL282</a> : <a href="C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd:208:2:208:4:@A:CL282:@XP_MSG">AD7782CTRL.vhd(208)</a><!@TM:1453363511> | Feedback mux created for signal dataIN[3:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@N:<a href="@N:CD630:@XP_HELP">CD630</a> : <a href="C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd:5:7:5:17:@N:CD630:@XP_MSG">EEPROM93LC66CTRL.vhd(5)</a><!@TM:1453363511> | Synthesizing work.eepromctrl.behaviour 
+@N:<a href="@N:CD231:@XP_HELP">CD231</a> : <a href="C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd:72:13:72:15:@N:CD231:@XP_MSG">EEPROM93LC66CTRL.vhd(72)</a><!@TM:1453363511> | Using onehot encoding for type tstate (idle="1000000")
+@N:<a href="@N:CD231:@XP_HELP">CD231</a> : <a href="C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd:73:15:73:17:@N:CD231:@XP_MSG">EEPROM93LC66CTRL.vhd(73)</a><!@TM:1453363511> | Using onehot encoding for type tmaincmd (read="100000")
+@N:<a href="@N:CD231:@XP_HELP">CD231</a> : <a href="C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd:80:11:80:13:@N:CD231:@XP_MSG">EEPROM93LC66CTRL.vhd(80)</a><!@TM:1453363511> | Using onehot encoding for type tcmd (sendcmd="100000000000")
+@N:<a href="@N:CD630:@XP_HELP">CD630</a> : <a href="C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd:6:7:6:21:@N:CD630:@XP_MSG">EEPROM93LC66IF.vhd(6)</a><!@TM:1453363511> | Synthesizing work.eeprom93lc66if.behaviour 
+@N:<a href="@N:CD233:@XP_HELP">CD233</a> : <a href="C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd:36:13:36:15:@N:CD233:@XP_MSG">EEPROM93LC66IF.vhd(36)</a><!@TM:1453363511> | Using sequential encoding for type tstate
+Post processing for work.eeprom93lc66if.behaviour
+Post processing for work.eepromctrl.behaviour
+<font color=#A52A2A>@W:<a href="@W:CL271:@XP_HELP">CL271</a> : <a href="C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd:367:2:367:4:@W:CL271:@XP_MSG">EEPROM93LC66CTRL.vhd(367)</a><!@TM:1453363511> | Pruning bits 7 to 4 of dataIN_4(7 downto 0) -- not in use ... </font>
+@A:<a href="@A:CL282:@XP_HELP">CL282</a> : <a href="C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd:367:2:367:4:@A:CL282:@XP_MSG">EEPROM93LC66CTRL.vhd(367)</a><!@TM:1453363511> | Feedback mux created for signal dataIN[3:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@N:<a href="@N:CD630:@XP_HELP">CD630</a> : <a href="C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd:5:7:5:16:@N:CD630:@XP_MSG">COMPCTRL.vhd(5)</a><!@TM:1453363511> | Synthesizing work.compxctrl.behaviour 
+@N:<a href="@N:CD231:@XP_HELP">CD231</a> : <a href="C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd:52:13:52:15:@N:CD231:@XP_MSG">COMPCTRL.vhd(52)</a><!@TM:1453363511> | Using onehot encoding for type tstate (idle="100000")
+<font color=#A52A2A>@W:<a href="@W:CD638:@XP_HELP">CD638</a> : <a href="C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd:58:11:58:19:@W:CD638:@XP_MSG">COMPCTRL.vhd(58)</a><!@TM:1453363511> | Signal overflow is undriven </font>
+@N:<a href="@N:CD630:@XP_HELP">CD630</a> : <a href="C:\Users\matze\Documents\igloo\common\COUNTER.vhd:5:7:5:14:@N:CD630:@XP_MSG">COUNTER.vhd(5)</a><!@TM:1453363511> | Synthesizing work.counter.behaviour 
+Post processing for work.counter.behaviour
+Post processing for work.compxctrl.behaviour
+<font color=#A52A2A>@W:<a href="@W:CL271:@XP_HELP">CL271</a> : <a href="C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd:81:2:81:4:@W:CL271:@XP_MSG">COMPCTRL.vhd(81)</a><!@TM:1453363511> | Pruning bits 7 to 4 of dataIN_4(7 downto 0) -- not in use ... </font>
+@A:<a href="@A:CL282:@XP_HELP">CL282</a> : <a href="C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd:81:2:81:4:@A:CL282:@XP_MSG">COMPCTRL.vhd(81)</a><!@TM:1453363511> | Feedback mux created for signal dataIN[3:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+<font color=#A52A2A>@W:<a href="@W:CL190:@XP_HELP">CL190</a> : <a href="C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd:81:2:81:4:@W:CL190:@XP_MSG">COMPCTRL.vhd(81)</a><!@TM:1453363511> | Optimizing register bit uartout(6) to a constant 0</font>
+<font color=#A52A2A>@W:<a href="@W:CL190:@XP_HELP">CL190</a> : <a href="C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd:81:2:81:4:@W:CL190:@XP_MSG">COMPCTRL.vhd(81)</a><!@TM:1453363511> | Optimizing register bit uartout(4) to a constant 0</font>
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd:81:2:81:4:@W:CL169:@XP_MSG">COMPCTRL.vhd(81)</a><!@TM:1453363511> | Pruning register uartout(4)  </font>
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd:81:2:81:4:@W:CL169:@XP_MSG">COMPCTRL.vhd(81)</a><!@TM:1453363511> | Pruning register uartout(6)  </font>
+@N:<a href="@N:CD630:@XP_HELP">CD630</a> : <a href="C:\Users\matze\Documents\igloo\common\AliveCOUNTER.vhd:5:7:5:19:@N:CD630:@XP_MSG">AliveCOUNTER.vhd(5)</a><!@TM:1453363511> | Synthesizing work.alivecounter.behaviour 
+Post processing for work.alivecounter.behaviour
+@N:<a href="@N:CD630:@XP_HELP">CD630</a> : <a href="C:\Users\matze\Documents\igloo\uart\uart.vhd:4:7:4:11:@N:CD630:@XP_MSG">uart.vhd(4)</a><!@TM:1453363511> | Synthesizing work.uart.structure 
+@N:<a href="@N:CD630:@XP_HELP">CD630</a> : <a href="C:\Users\matze\Documents\igloo\uart\transmitter.vhd:5:7:5:18:@N:CD630:@XP_MSG">transmitter.vhd(5)</a><!@TM:1453363511> | Synthesizing work.transmitter.verhalten 
+Post processing for work.transmitter.verhalten
+@N:<a href="@N:CD630:@XP_HELP">CD630</a> : <a href="C:\Users\matze\Documents\igloo\uart\receiver.vhd:5:7:5:15:@N:CD630:@XP_MSG">receiver.vhd(5)</a><!@TM:1453363511> | Synthesizing work.receiver.behaviour 
+@N:<a href="@N:CD232:@XP_HELP">CD232</a> : <a href="C:\Users\matze\Documents\igloo\uart\receiver.vhd:24:17:24:19:@N:CD232:@XP_MSG">receiver.vhd(24)</a><!@TM:1453363511> | Using gray code encoding for type tstate
+Post processing for work.receiver.behaviour
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\Users\matze\Documents\igloo\uart\receiver.vhd:50:6:50:8:@W:CL169:@XP_MSG">receiver.vhd(50)</a><!@TM:1453363511> | Pruning register tmp_5  </font>
+@N:<a href="@N:CD630:@XP_HELP">CD630</a> : <a href="C:\Users\matze\Documents\igloo\uart\baudgen.vhd:6:7:6:14:@N:CD630:@XP_MSG">baudgen.vhd(6)</a><!@TM:1453363511> | Synthesizing work.baudgen.behaviour 
+Post processing for work.baudgen.behaviour
+@N:<a href="@N:CD630:@XP_HELP">CD630</a> : <a href="C:\Users\matze\Documents\igloo\uart\glitchfilter.vhd:4:7:4:19:@N:CD630:@XP_MSG">glitchfilter.vhd(4)</a><!@TM:1453363511> | Synthesizing work.glitchfilter.behaviour 
+Post processing for work.glitchfilter.behaviour
+@N:<a href="@N:CD630:@XP_HELP">CD630</a> : <a href="C:\Users\matze\Documents\igloo\uart\sync_flipflop.vhd:5:7:5:20:@N:CD630:@XP_MSG">sync_flipflop.vhd(5)</a><!@TM:1453363511> | Synthesizing work.sync_flipflop.structure 
+Post processing for work.sync_flipflop.structure
+Post processing for work.uart.structure
+Post processing for work.connector.behaviour
+@N:<a href="@N:CL201:@XP_HELP">CL201</a> : <a href="C:\Users\matze\Documents\igloo\uart\receiver.vhd:50:6:50:8:@N:CL201:@XP_MSG">receiver.vhd(50)</a><!@TM:1453363511> | Trying to extract state machine for register state
+Extracted state machine for register state
+State machine has 25 reachable states with original encodings of:
+   00000
+   00001
+   00010
+   00011
+   00100
+   00101
+   00110
+   00111
+   01000
+   01001
+   01010
+   01011
+   01100
+   01101
+   01110
+   01111
+   10100
+   11000
+   11001
+   11010
+   11011
+   11100
+   11101
+   11110
+   11111
+@N:<a href="@N:CL201:@XP_HELP">CL201</a> : <a href="C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd:81:2:81:4:@N:CL201:@XP_MSG">COMPCTRL.vhd(81)</a><!@TM:1453363511> | Trying to extract state machine for register state
+Extracted state machine for register state
+State machine has 6 reachable states with original encodings of:
+   000001
+   000010
+   000100
+   001000
+   010000
+   100000
+@N:<a href="@N:CL201:@XP_HELP">CL201</a> : <a href="C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd:52:2:52:4:@N:CL201:@XP_MSG">EEPROM93LC66IF.vhd(52)</a><!@TM:1453363511> | Trying to extract state machine for register state
+Extracted state machine for register state
+State machine has 3 reachable states with original encodings of:
+   00
+   01
+   10
+@N:<a href="@N:CL201:@XP_HELP">CL201</a> : <a href="C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd:367:2:367:4:@N:CL201:@XP_MSG">EEPROM93LC66CTRL.vhd(367)</a><!@TM:1453363511> | Trying to extract state machine for register state
+Extracted state machine for register state
+State machine has 7 reachable states with original encodings of:
+   0000001
+   0000010
+   0000100
+   0001000
+   0010000
+   0100000
+   1000000
+@N:<a href="@N:CL201:@XP_HELP">CL201</a> : <a href="C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd:367:2:367:4:@N:CL201:@XP_MSG">EEPROM93LC66CTRL.vhd(367)</a><!@TM:1453363511> | Trying to extract state machine for register readcmd
+Extracted state machine for register readcmd
+State machine has 12 reachable states with original encodings of:
+   000000000001
+   000000000010
+   000000000100
+   000000001000
+   000000010000
+   000000100000
+   000001000000
+   000010000000
+   000100000000
+   001000000000
+   010000000000
+   100000000000
+@N:<a href="@N:CL201:@XP_HELP">CL201</a> : <a href="C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd:73:6:73:8:@N:CL201:@XP_MSG">AD7782IF.vhd(73)</a><!@TM:1453363511> | Trying to extract state machine for register state
+Extracted state machine for register state
+State machine has 5 reachable states with original encodings of:
+   00001
+   00010
+   00100
+   01000
+   10000
+@N:<a href="@N:CL201:@XP_HELP">CL201</a> : <a href="C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd:208:2:208:4:@N:CL201:@XP_MSG">AD7782CTRL.vhd(208)</a><!@TM:1453363511> | Trying to extract state machine for register uarts
+@N:<a href="@N:CL201:@XP_HELP">CL201</a> : <a href="C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd:208:2:208:4:@N:CL201:@XP_MSG">AD7782CTRL.vhd(208)</a><!@TM:1453363511> | Trying to extract state machine for register adcs
+Extracted state machine for register adcs
+State machine has 6 reachable states with original encodings of:
+   000001
+   000010
+   000100
+   001000
+   010000
+   100000
+@N:<a href="@N:CL201:@XP_HELP">CL201</a> : <a href="C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd:208:2:208:4:@N:CL201:@XP_MSG">AD7782CTRL.vhd(208)</a><!@TM:1453363511> | Trying to extract state machine for register state
+Extracted state machine for register state
+State machine has 7 reachable states with original encodings of:
+   0000001
+   0000010
+   0000100
+   0001000
+   0010000
+   0100000
+   1000000
+@N:<a href="@N:CL201:@XP_HELP">CL201</a> : <a href="C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd:208:2:208:4:@N:CL201:@XP_MSG">AD7782CTRL.vhd(208)</a><!@TM:1453363511> | Trying to extract state machine for register cmds
+Extracted state machine for register cmds
+State machine has 6 reachable states with original encodings of:
+   000001
+   000010
+   000100
+   001000
+   010000
+   100000
+
+At c_vhdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 37MB peak: 38MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Thu Jan 21 09:05:10 2016
+
+###########################################################]
+<a name=compilerReport3>Synopsys Netlist Linker, version comp201503p1, Build 094R, built May 14 2015</a>
+@N: : <!@TM:1453363511> | Running in 32-bit mode 
+
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 36MB peak: 37MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Thu Jan 21 09:05:11 2016
+
+###########################################################]
+@END
+
+At c_hdl Exit (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:01s; Memory used current: 2MB peak: 3MB)
+
+Process took 0h:00m:05s realtime, 0h:00m:01s cputime
+# Thu Jan 21 09:05:11 2016
+
+###########################################################]
+<a name=compilerReport4>Synopsys Netlist Linker, version comp201503p1, Build 094R, built May 14 2015</a>
+@N: : <!@TM:1453363513> | Running in 32-bit mode 
+File C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synwork\CONNECTOR_comp.srs changed - recompiling
+
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 36MB peak: 37MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Thu Jan 21 09:05:13 2016
+
+###########################################################]
+Pre-mapping Report
+
+<a name=mapperReport5>Synopsys Microsemi Technology Pre-mapping, Version mapact, Build 1522R, Built Jun  4 2015 11:36:22</a>
+Copyright (C) 1994-2015, Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use, reproduction, or distribution of this software is strictly prohibited.
+Product Version J-2015.03M-3
+
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 56MB peak: 56MB)
+
+Linked File: <a href="C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\CONNECTOR_scck.rpt:@XP_FILE">CONNECTOR_scck.rpt</a>
+Printing clock  summary report in "C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\CONNECTOR_scck.rpt" file 
+@N:<a href="@N:MF249:@XP_HELP">MF249</a> : <!@TM:1453363518> | Running in 32-bit mode. 
+@N:<a href="@N:MF667:@XP_HELP">MF667</a> : <!@TM:1453363518> | Clock conversion disabled  
+
+Design Input Complete (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 58MB peak: 60MB)
+
+
+Mapper Initialization Complete (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 58MB peak: 60MB)
+
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\uart\receiver.vhd:50:6:50:8:@N:BN362:@XP_MSG">receiver.vhd(50)</a><!@TM:1453363518> | Removing sequential instance ovre of view:PrimLib.dffre(prim) in hierarchy view:work.receiver(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\uart\receiver.vhd:50:6:50:8:@N:BN362:@XP_MSG">receiver.vhd(50)</a><!@TM:1453363518> | Removing sequential instance frme of view:PrimLib.dffre(prim) in hierarchy view:work.receiver(behaviour) because there are no references to its outputs 
+
+Finished netlist restructuring (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 64MB peak: 65MB)
+
+
+
+<a name=mapperReport6>@S |Clock Summary</a>
+*****************
+
+Start             Requested     Requested     Clock        Clock              
+Clock             Frequency     Period        Type         Group              
+------------------------------------------------------------------------------
+CONNECTOR|clk     100.0 MHz     10.000        inferred     Inferred_clkgroup_0
+==============================================================================
+
+<font color=#A52A2A>@W:<a href="@W:MT530:@XP_HELP">MT530</a> : <a href="c:\users\matze\documents\igloo\uart\sync_flipflop.vhd:20:6:20:8:@W:MT530:@XP_MSG">sync_flipflop.vhd(20)</a><!@TM:1453363518> | Found inferred clock CONNECTOR|clk which controls 519 sequential elements including u1.sff.tmp. This clock has no specified timing constraint which may adversely impact design performance. </font>
+
+Finished Pre Mapping Phase.
+@N:<a href="@N:BN225:@XP_HELP">BN225</a> : <!@TM:1453363518> | Writing default property annotation file C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\CONNECTOR.sap. 
+Pre-mapping successful!
+
+At Mapper Exit (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:01s; Memory used current: 32MB peak: 65MB)
+
+Process took 0h:00m:03s realtime, 0h:00m:01s cputime
+# Thu Jan 21 09:05:18 2016
+
+###########################################################]
+Map & Optimize Report
+
+<a name=mapperReport7>Synopsys Microsemi Technology Mapper, Version mapact, Build 1522R, Built Jun  4 2015 11:36:22</a>
+Copyright (C) 1994-2015, Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use, reproduction, or distribution of this software is strictly prohibited.
+Product Version J-2015.03M-3
+
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 56MB peak: 56MB)
+
+@N:<a href="@N:MF249:@XP_HELP">MF249</a> : <!@TM:1453363530> | Running in 32-bit mode. 
+@N:<a href="@N:MF667:@XP_HELP">MF667</a> : <!@TM:1453363530> | Clock conversion disabled  
+
+Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 56MB peak: 57MB)
+
+
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 56MB peak: 57MB)
+
+
+
+Starting Optimization and Mapping (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 63MB peak: 65MB)
+
+
+Available hyper_sources - for debug and ip models
+	None Found
+
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\users\matze\documents\igloo\common\busycounter.vhd:32:8:32:10:@W:BN132:@XP_MSG">busycounter.vhd(32)</a><!@TM:1453363530> | Removing sequential instance m1.bsyCnt.state[0],  because it is equivalent to instance m1.bsyCnt.delayOut</font>
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:BN132:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Removing sequential instance m1.uartout_1[2],  because it is equivalent to instance m1.uartout_1[0]</font>
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:BN132:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Removing sequential instance m1.uartout_1[7],  because it is equivalent to instance m1.uartout_1[5]</font>
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:BN132:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Removing sequential instance m1.uartout_1[5],  because it is equivalent to instance m1.uartout_1[1]</font>
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:BN132:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Removing sequential instance m1.uartout_cl_7[7],  because it is equivalent to instance m1.uartout_cl_6[7]</font>
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:BN132:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Removing sequential instance m1.uartout_cl_6[7],  because it is equivalent to instance m1.uartout_cl_4[7]</font>
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:BN132:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Removing sequential instance m1.uartout_cl_5[7],  because it is equivalent to instance m1.uartout_cl_3[7]</font>
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:BN132:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Removing sequential instance m1.uartout_cl_4[7],  because it is equivalent to instance m1.uartout_cl_2[7]</font>
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:BN132:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Removing sequential instance m1.uartout_cl_3[7],  because it is equivalent to instance m1.uartout_cl_1[7]</font>
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:BN132:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Removing sequential instance m1.uartout_cl_2[7],  because it is equivalent to instance m1.uartout_cl[7]</font>
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@N:BN362:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Removing sequential instance uartout_cl_1[7] of view:PrimLib.dffr(prim) in hierarchy view:work.COMPXCTRL(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@N:BN362:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Removing sequential instance uartout_1[3] of view:PrimLib.dffre(prim) in hierarchy view:work.COMPXCTRL(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@N:BN362:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Removing sequential instance uartout_cl_2[7] of view:PrimLib.dffr(prim) in hierarchy view:work.EEPROMCTRL(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@N:BN362:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Removing sequential instance uartout_cl_3[7] of view:PrimLib.dffr(prim) in hierarchy view:work.EEPROMCTRL(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@N:BN362:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Removing sequential instance uartout_cl_4[7] of view:PrimLib.dffr(prim) in hierarchy view:work.EEPROMCTRL(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@N:BN362:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Removing sequential instance uartout_cl_7[7] of view:PrimLib.dffr(prim) in hierarchy view:work.EEPROMCTRL(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance uartout_cl[7] of view:PrimLib.dffr(prim) in hierarchy view:work.AD7782CTRL(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance uartout_cl_1[7] of view:PrimLib.dffr(prim) in hierarchy view:work.AD7782CTRL(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance uartout_cl_2[7] of view:PrimLib.dffr(prim) in hierarchy view:work.AD7782CTRL(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance uartout_cl_3[7] of view:PrimLib.dffr(prim) in hierarchy view:work.AD7782CTRL(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance uartout_cl_5[7] of view:PrimLib.dffr(prim) in hierarchy view:work.AD7782CTRL(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance uartout_cl_7[7] of view:PrimLib.dffr(prim) in hierarchy view:work.AD7782CTRL(behaviour) because there are no references to its outputs 
+
+Finished RTL optimizations (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 64MB peak: 65MB)
+
+@N: : <a href="c:\users\matze\documents\igloo\uart\receiver.vhd:50:6:50:8:@N::@XP_MSG">receiver.vhd(50)</a><!@TM:1453363530> | Found counter in view:work.receiver(behaviour) inst len[3:0]
+Encoding state machine state[0:24] (view:work.receiver(behaviour))
+original code -> new code
+   00000 -> 00000
+   00001 -> 00001
+   00010 -> 00011
+   00011 -> 00010
+   00100 -> 00110
+   00101 -> 00111
+   00110 -> 00101
+   00111 -> 00100
+   01000 -> 01100
+   01001 -> 01101
+   01010 -> 01111
+   01011 -> 01110
+   01100 -> 01010
+   01101 -> 01011
+   01110 -> 01001
+   01111 -> 01000
+   10100 -> 11000
+   11000 -> 11001
+   11001 -> 11011
+   11010 -> 11010
+   11011 -> 11110
+   11100 -> 11111
+   11101 -> 11101
+   11110 -> 11100
+   11111 -> 10100
+@N: : <a href="c:\users\matze\documents\igloo\uart\transmitter.vhd:54:6:54:8:@N::@XP_MSG">transmitter.vhd(54)</a><!@TM:1453363530> | Found counter in view:work.transmitter(verhalten) inst cnt10[3:0]
+@N: : <a href="c:\users\matze\documents\igloo\uart\transmitter.vhd:54:6:54:8:@N::@XP_MSG">transmitter.vhd(54)</a><!@TM:1453363530> | Found counter in view:work.transmitter(verhalten) inst cnt16[3:0]
+@N: : <a href="c:\users\matze\documents\igloo\common\alivecounter.vhd:23:8:23:10:@N::@XP_MSG">alivecounter.vhd(23)</a><!@TM:1453363530> | Found counter in view:work.ALIVECOUNTER(behaviour) inst counter[17:0]
+Encoding state machine state[0:5] (view:work.COMPXCTRL(behaviour))
+original code -> new code
+   000001 -> 000001
+   000010 -> 000010
+   000100 -> 000100
+   001000 -> 001000
+   010000 -> 010000
+   100000 -> 100000
+@N: : <a href="c:\users\matze\documents\igloo\common\busycounter.vhd:32:8:32:10:@N::@XP_MSG">busycounter.vhd(32)</a><!@TM:1453363530> | Found counter in view:work.BUSYCOUNTER(behaviour) inst counter[17:0]
+@N:<a href="@N:MF238:@XP_HELP">MF238</a> : <a href="c:\users\matze\documents\igloo\common\counter.vhd:32:31:32:42:@N:MF238:@XP_MSG">counter.vhd(32)</a><!@TM:1453363530> | Found 19-bit incrementor, 'un4_counter[18:0]'
+Encoding state machine readcmd[0:11] (view:work.EEPROMCTRL(behaviour))
+original code -> new code
+   000000000001 -> 000000000001
+   000000000010 -> 000000000010
+   000000000100 -> 000000000100
+   000000001000 -> 000000001000
+   000000010000 -> 000000010000
+   000000100000 -> 000000100000
+   000001000000 -> 000001000000
+   000010000000 -> 000010000000
+   000100000000 -> 000100000000
+   001000000000 -> 001000000000
+   010000000000 -> 010000000000
+   100000000000 -> 100000000000
+Encoding state machine state[0:6] (view:work.EEPROMCTRL(behaviour))
+original code -> new code
+   0000001 -> 0000001
+   0000010 -> 0000010
+   0000100 -> 0000100
+   0001000 -> 0001000
+   0010000 -> 0010000
+   0100000 -> 0100000
+   1000000 -> 1000000
+Encoding state machine state[0:2] (view:work.EEPROM93LC66IF(behaviour))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+Encoding state machine state[0:6] (view:work.AD7782CTRL(behaviour))
+original code -> new code
+   0000001 -> 0000001
+   0000010 -> 0000010
+   0000100 -> 0000100
+   0001000 -> 0001000
+   0010000 -> 0010000
+   0100000 -> 0100000
+   1000000 -> 1000000
+Encoding state machine cmds[0:5] (view:work.AD7782CTRL(behaviour))
+original code -> new code
+   000001 -> 000001
+   000010 -> 000010
+   000100 -> 000100
+   001000 -> 001000
+   010000 -> 010000
+   100000 -> 100000
+Encoding state machine adcs[0:5] (view:work.AD7782CTRL(behaviour))
+original code -> new code
+   000001 -> 000000
+   000010 -> 000011
+   000100 -> 000101
+   001000 -> 001001
+   010000 -> 010001
+   100000 -> 100001
+Encoding state machine state[0:4] (view:work.AD7782IF(behaviour))
+original code -> new code
+   00001 -> 00001
+   00010 -> 00010
+   00100 -> 00100
+   01000 -> 01000
+   10000 -> 10000
+
+Finished factoring (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:06s; Memory used current: 72MB peak: 72MB)
+
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\common\counter.vhd:23:8:23:10:@W:MO160:@XP_MSG">counter.vhd(23)</a><!@TM:1453363530> | Register bit m1.timoutCounter.overflow is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO197:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | FSM register m1.state[4] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO197:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | FSM register m1.state[1] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.state[3] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO197:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | FSM register d2.state[3] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO160:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Register bit d2.strb is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\uart\receiver.vhd:50:6:50:8:@W:MO160:@XP_MSG">receiver.vhd(50)</a><!@TM:1453363530> | Register bit u1.re.dout[7] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\uart\receiver.vhd:50:6:50:8:@W:MO160:@XP_MSG">receiver.vhd(50)</a><!@TM:1453363530> | Register bit u1.re.dout[6] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\uart\receiver.vhd:50:6:50:8:@W:MO160:@XP_MSG">receiver.vhd(50)</a><!@TM:1453363530> | Register bit u1.re.dout[5] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\uart\receiver.vhd:50:6:50:8:@W:MO160:@XP_MSG">receiver.vhd(50)</a><!@TM:1453363530> | Register bit u1.re.dout[4] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\uart\receiver.vhd:50:6:50:8:@W:MO160:@XP_MSG">receiver.vhd(50)</a><!@TM:1453363530> | Register bit u1.re.dout[3] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\uart\receiver.vhd:50:6:50:8:@W:MO160:@XP_MSG">receiver.vhd(50)</a><!@TM:1453363530> | Register bit u1.re.dout[2] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\uart\receiver.vhd:50:6:50:8:@W:MO160:@XP_MSG">receiver.vhd(50)</a><!@TM:1453363530> | Register bit u1.re.dout[1] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\uart\receiver.vhd:50:6:50:8:@W:MO160:@XP_MSG">receiver.vhd(50)</a><!@TM:1453363530> | Register bit u1.re.dout[0] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.readcmd[1] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.state[0] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.state[5] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.readcmd[10] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO197:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | FSM register d2.state[0] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO160:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Register bit d2.dataIN[3] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO160:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Register bit d2.dataIN[2] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO160:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Register bit d2.dataIN[1] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO160:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Register bit d2.dataIN[0] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO160:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Register bit d1.dataIN[3] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO160:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Register bit d1.dataIN[2] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO160:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Register bit d1.dataIN[1] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO160:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Register bit d1.dataIN[0] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO160:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Register bit m1.dataIN[3] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO160:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Register bit m1.dataIN[2] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO160:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Register bit m1.dataIN[1] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO160:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Register bit m1.dataIN[0] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO197:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | FSM register m1.state[3] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO197:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | FSM register m1.state[0] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO197:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | FSM register m1.state[2] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.state[4] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.state[2] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.state[6] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO197:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | FSM register d2.state[5] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO197:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | FSM register d2.state[1] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO197:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | FSM register d2.state[2] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO197:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | FSM register d2.state[4] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.state[1] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO197:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | FSM register m1.state[5] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO197:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | FSM register d2.state[6] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO197:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | FSM register d2.cmds[5] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO160:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Register bit d2.uartRd_1 is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@W:MO160:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Register bit d2.adif.state[3] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO160:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Register bit m1.uartRd_1 is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.readcmd[3] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.readcmd[0] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.readcmd[2] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO112:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Tristate driver d2.uartRd_4 on net rden deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO112:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Tristate driver m1.uartRd_4 on net rden deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.readcmd[11] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@W:MO160:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Register bit d1.u2.org is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO112:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Tristate driver d1.uartout_13[7] on net din[7] deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO112:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Tristate driver d1.uartout_13[6] on net din[6] deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO112:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Tristate driver d1.uartout_13[5] on net din[5] deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO112:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Tristate driver d1.uartout_13[4] on net din[4] deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO112:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Tristate driver d1.uartout_13[3] on net din[3] deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO112:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Tristate driver d1.uartout_13[2] on net din[2] deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO112:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Tristate driver d1.uartout_13[1] on net din[1] deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO112:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Tristate driver d1.uartout_13[0] on net din[0] deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.readcmd[9] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO112:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Tristate driver m1.uartout_7[6] on net din[6] deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO112:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Tristate driver m1.uartout_7[4] on net din[4] deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO112:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Tristate driver m1.uartout_7[7] on net din[7] deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO112:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Tristate driver m1.uartout_7[5] on net din[5] deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO112:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Tristate driver m1.uartout_7[3] on net din[3] deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO112:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Tristate driver m1.uartout_7[2] on net din[2] deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO112:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Tristate driver m1.uartout_7[1] on net din[1] deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO112:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Tristate driver m1.uartout_7[0] on net din[0] deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO112:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Tristate driver m1.uartTx_4 on net wren deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@W:MO112:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Tristate driver m1.busy_6 on net busy deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO112:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Tristate driver d1.uartTx_9 on net wren deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO111:@XP_HELP">MO111</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO111:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Tristate driver d2.uartout_13[7] on net din[7] has its enable tied to GND (module CONNECTOR) </font>
+<font color=#A52A2A>@W:<a href="@W:MO111:@XP_HELP">MO111</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO111:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Tristate driver d2.uartout_13[6] on net din[6] has its enable tied to GND (module CONNECTOR) </font>
+<font color=#A52A2A>@W:<a href="@W:MO111:@XP_HELP">MO111</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO111:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Tristate driver d2.uartout_13[5] on net din[5] has its enable tied to GND (module CONNECTOR) </font>
+<font color=#A52A2A>@W:<a href="@W:MO111:@XP_HELP">MO111</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO111:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Tristate driver d2.uartout_13[4] on net din[4] has its enable tied to GND (module CONNECTOR) </font>
+<font color=#A52A2A>@W:<a href="@W:MO111:@XP_HELP">MO111</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO111:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Tristate driver d2.uartout_13[3] on net din[3] has its enable tied to GND (module CONNECTOR) </font>
+<font color=#A52A2A>@W:<a href="@W:MO111:@XP_HELP">MO111</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO111:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Tristate driver d2.uartout_13[2] on net din[2] has its enable tied to GND (module CONNECTOR) </font>
+<font color=#A52A2A>@W:<a href="@W:MO111:@XP_HELP">MO111</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO111:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Tristate driver d2.uartout_13[1] on net din[1] has its enable tied to GND (module CONNECTOR) </font>
+<font color=#A52A2A>@W:<a href="@W:MO111:@XP_HELP">MO111</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO111:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Tristate driver d2.uartout_13[0] on net din[0] has its enable tied to GND (module CONNECTOR) </font>
+<font color=#A52A2A>@W:<a href="@W:MO112:@XP_HELP">MO112</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO112:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Tristate driver d2.busy_5 on net busy deleted because its enable is always false </font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\uart\receiver.vhd:50:6:50:8:@W:MO197:@XP_MSG">receiver.vhd(50)</a><!@TM:1453363530> | FSM register u1.re.state[1] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO197:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | FSM register d2.cmds[4] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO197:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | FSM register d2.cmds[0] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO197:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | FSM register d2.cmds[2] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO197:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | FSM register d2.cmds[1] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO197:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | FSM register d2.cmds[3] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO160:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Register bit d1.uartout_1[2] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO160:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Register bit d1.uartout_1[6] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@W:MO160:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Register bit d1.u2.serialOut[0] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO111:@XP_HELP">MO111</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO111:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Tristate driver d1.busy_6 on net busy has its enable tied to GND (module CONNECTOR) </font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.readcmd[8] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.readcmd[7] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.readcmd[6] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\uart\receiver.vhd:50:6:50:8:@W:MO197:@XP_MSG">receiver.vhd(50)</a><!@TM:1453363530> | FSM register u1.re.state[0] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\uart\receiver.vhd:50:6:50:8:@W:MO197:@XP_MSG">receiver.vhd(50)</a><!@TM:1453363530> | FSM register u1.re.state[2] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.readcmd[5] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO197:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | FSM register d1.readcmd[4] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO111:@XP_HELP">MO111</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@W:MO111:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Tristate driver d1.uartRd_9 on net rden has its enable tied to GND (module CONNECTOR) </font>
+<font color=#A52A2A>@W:<a href="@W:MO111:@XP_HELP">MO111</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO111:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Tristate driver d2.uartTx_9 on net wren has its enable tied to GND (module CONNECTOR) </font>
+<font color=#A52A2A>@W:<a href="@W:MO161:@XP_HELP">MO161</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO161:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Register bit d2.adcs[4] is always 1, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@W:MO160:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Register bit d1.u2.busyS is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@W:MO160:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Register bit d1.u2.MemAccess is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO161:@XP_HELP">MO161</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@W:MO161:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Register bit d2.adcs[3] is always 1, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@W:MO160:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Register bit d1.u2.serialOut[1] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@W:MO160:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Register bit d1.u2.serialOut[2] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@W:MO160:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Register bit d1.u2.serialOut[3] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@W:MO160:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Register bit d1.u2.serialOut[4] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@W:MO160:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Register bit d1.u2.serialOut[5] is always 0, optimizing ...</font>
+<font color=#A52A2A>@W:<a href="@W:MO160:@XP_HELP">MO160</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@W:MO160:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Register bit d1.u2.serialOut[6] is always 0, optimizing ...</font>
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[0] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[2] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[4] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[6] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[8] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[10] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[12] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[14] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[16] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[18] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[20] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[22] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.dout[2] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.dout[6] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.dout[10] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.dout[14] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@N:BN362:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Removing sequential instance m1.uartTx_1 of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\uart\sync_flipflop.vhd:20:6:20:8:@N:BN362:@XP_MSG">sync_flipflop.vhd(20)</a><!@TM:1453363530> | Removing sequential instance u1.sff.dout of view:PrimLib.dffs(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[23] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[7] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[15] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[21] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[5] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[13] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[19] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[3] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[11] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[17] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[1] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch1[9] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.done of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.dout[7] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.dout[15] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.dout[5] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.dout[13] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.dout[4] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.dout[12] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.dout[3] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.dout[11] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.dout[1] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.dout[9] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.dout[0] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.dout[8] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\uart\sync_flipflop.vhd:20:6:20:8:@N:BN362:@XP_MSG">sync_flipflop.vhd(20)</a><!@TM:1453363530> | Removing sequential instance u1.sff.tmp of view:PrimLib.dffs(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[23] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.serialIn[15] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[22] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.state[4] of view:PrimLib.dffs(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.serialIn[14] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[21] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.serialIn[13] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[20] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.serialIn[12] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[19] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.serialIn[11] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[18] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.serialIn[10] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[17] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.serialIn[9] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[16] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.serialIn[8] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[15] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.serialIn[7] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[14] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.serialIn[6] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[13] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.serialIn[5] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[12] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.serialIn[4] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[11] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.serialIn[3] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[10] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.serialIn[2] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[9] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.serialIn[1] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[8] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66if.vhd:52:2:52:4:@N:BN362:@XP_MSG">eeprom93lc66if.vhd(52)</a><!@TM:1453363530> | Removing sequential instance d1.u2.serialIn[0] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[7] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[6] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[5] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[4] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[3] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[2] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[1] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.reg[0] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+<font color=#A52A2A>@W:<a href="@W:MO197:@XP_HELP">MO197</a> : <a href="c:\users\matze\documents\igloo\uart\receiver.vhd:50:6:50:8:@W:MO197:@XP_MSG">receiver.vhd(50)</a><!@TM:1453363530> | FSM register u1.re.state[3] removed due to constant propagation</font>
+<font color=#A52A2A>@W:<a href="@W:MO161:@XP_HELP">MO161</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@W:MO161:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Register bit d2.adif.cs is always 1, optimizing ...</font>
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.state[0] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+
+Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:06s; Memory used current: 70MB peak: 72MB)
+
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance d2.uarts[1] of view:PrimLib.dff(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance d2.uarts[0] of view:PrimLib.dff(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance d2.adcs[0] of view:PrimLib.dff(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance d2.adcs[1] of view:PrimLib.dff(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance d2.adcs[2] of view:PrimLib.dff(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance d2.adcs_i[5] of view:PrimLib.dff(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance d2.busy_1 of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance d2.uartout_1[0] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance d2.uartout_1[1] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance d2.uartout_1[2] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance d2.uartout_1[3] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance d2.uartout_1[4] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance d2.uartout_1[5] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance d2.uartout_1[6] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance d2.uartout_1[7] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd:208:2:208:4:@N:BN362:@XP_MSG">ad7782ctrl.vhd(208)</a><!@TM:1453363530> | Removing sequential instance d2.uartTx_1 of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[23] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[22] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[21] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[20] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[19] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[18] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[17] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[16] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[15] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[14] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[13] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[12] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[11] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[10] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[9] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[8] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[7] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[6] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[5] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[4] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[3] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[2] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[1] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:73:6:73:8:@N:BN362:@XP_MSG">ad7782if.vhd(73)</a><!@TM:1453363530> | Removing sequential instance d2.adif.ch2[0] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@N:BN362:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Removing sequential instance d1.busy_1 of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@N:BN362:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Removing sequential instance d1.uartTx_1 of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@N:BN362:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Removing sequential instance d1.uartout_1[0] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@N:BN362:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Removing sequential instance d1.uartout_1[1] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@N:BN362:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Removing sequential instance d1.uartout_1[3] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@N:BN362:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Removing sequential instance d1.uartout_1[4] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@N:BN362:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Removing sequential instance d1.uartout_1[5] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd:367:2:367:4:@N:BN362:@XP_MSG">eeprom93lc66ctrl.vhd(367)</a><!@TM:1453363530> | Removing sequential instance d1.uartout_1[7] of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\common\compctrl.vhd:81:2:81:4:@N:BN362:@XP_MSG">compctrl.vhd(81)</a><!@TM:1453363530> | Removing sequential instance m1.busy_1 of view:PrimLib.dffr(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:60:6:60:8:@N:BN362:@XP_MSG">ad7782if.vhd(60)</a><!@TM:1453363530> | Removing sequential instance d2.adif.dff2 of view:PrimLib.dffs(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\users\matze\documents\igloo\ad7782if\ad7782if.vhd:60:6:60:8:@N:BN362:@XP_MSG">ad7782if.vhd(60)</a><!@TM:1453363530> | Removing sequential instance d2.adif.dff1 of view:PrimLib.dffs(prim) in hierarchy view:work.CONNECTOR(behaviour) because there are no references to its outputs 
+
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:06s; Memory used current: 70MB peak: 72MB)
+
+
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:06s; Memory used current: 71MB peak: 72MB)
+
+
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:07s; Memory used current: 71MB peak: 72MB)
+
+
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:07s; Memory used current: 70MB peak: 72MB)
+
+
+Finished preparing to map (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:07s; Memory used current: 70MB peak: 72MB)
+
+
+Finished technology mapping (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:07s; Memory used current: 70MB peak: 72MB)
+
+
+High Fanout Net Report
+**********************
+
+Driver Instance / Pin Name     Fanout, notes                 
+-------------------------------------------------------------
+rst_pad / Y                    37 : 32 asynchronous set/reset
+=============================================================
+
+@N:<a href="@N:FP130:@XP_HELP">FP130</a> : <!@TM:1453363530> | Promoting Net clk_c on CLKBUF  clk_pad  
+
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:07s; Memory used current: 70MB peak: 72MB)
+
+Buffering rst_c, fanout 37 segments 2
+
+Added 1 Buffers
+Added 0 Cells via replication
+	Added 0 Sequential Cells via replication
+	Added 0 Combinational Cells via replication
+
+Finished restoring hierarchy (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:07s; Memory used current: 70MB peak: 72MB)
+
+
+
+<a name=clockReport8>#### START OF CLOCK OPTIMIZATION REPORT #####[</a>
+
+Clock optimization not enabled
+1 non-gated/non-generated clock tree(s) driving 37 clock pin(s) of sequential element(s)
+0 gated/generated clock tree(s) driving 0 clock pin(s) of sequential element(s)
+0 instances converted, 0 sequential instances remain driven by gated/generated clocks
+
+=========================== Non-Gated/Non-Generated Clocks ============================
+Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance
+---------------------------------------------------------------------------------------
+<a href="@|S:clk@|E:d2.adif.cnt[4]@|F:@syn_sample_clock_path==CKID0001@|M:ClockId0001  @XP_NAMES_BY_PROP">ClockId0001 </a>       clk                 port                   37         d2.adif.cnt[4] 
+=======================================================================================
+
+
+##### END OF CLOCK OPTIMIZATION REPORT ######]
+
+
+Start Writing Netlists (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:07s; Memory used current: 68MB peak: 72MB)
+
+Writing Analyst data base C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synwork\CONNECTOR_m.srm
+
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:07s; Memory used current: 69MB peak: 72MB)
+
+Writing EDIF Netlist and constraint files
+J-2015.03M-3
+
+Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:07s; Memory used current: 69MB peak: 72MB)
+
+
+Start final timing analysis (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:07s; Memory used current: 69MB peak: 72MB)
+
+<font color=#A52A2A>@W:<a href="@W:MT420:@XP_HELP">MT420</a> : <!@TM:1453363530> | Found inferred clock CONNECTOR|clk with period 10.00ns. Please declare a user-defined clock on object "p:clk"</font> 
+
+
+
+<a name=timingReport9>@S |##### START OF TIMING REPORT #####[</a>
+# Timing Report written on Thu Jan 21 09:05:30 2016
+#
+
+
+Top view:               CONNECTOR
+Library name:           IGLOO_V2
+Operating conditions:   COMWCSTD ( T = 70.0, V = 1.14, P = 3.70, tree_type = balanced_tree )
+Requested Frequency:    100.0 MHz
+Wire load mode:         top
+Wire load model:        igloo
+Paths requested:        5
+Constraint File(s):    
+@N:<a href="@N:MT320:@XP_HELP">MT320</a> : <!@TM:1453363530> | Timing report estimates place and route data. Please look at the place and route timing report for final timing. 
+
+@N:<a href="@N:MT322:@XP_HELP">MT322</a> : <!@TM:1453363530> | Clock constraints cover only FF-to-FF paths associated with the clock. 
+
+
+
+<a name=performanceSummary10>Performance Summary </a>
+*******************
+
+
+Worst slack in design: -6.822
+
+                   Requested     Estimated     Requested     Estimated                Clock        Clock              
+Starting Clock     Frequency     Frequency     Period        Period        Slack      Type         Group              
+----------------------------------------------------------------------------------------------------------------------
+CONNECTOR|clk      100.0 MHz     59.4 MHz      10.000        16.822        -6.822     inferred     Inferred_clkgroup_0
+======================================================================================================================
+
+
+
+
+
+<a name=clockRelationships11>Clock Relationships</a>
+*******************
+
+Clocks                        |    rise  to  rise    |    fall  to  fall   |    rise  to  fall   |    fall  to  rise 
+---------------------------------------------------------------------------------------------------------------------
+Starting       Ending         |  constraint  slack   |  constraint  slack  |  constraint  slack  |  constraint  slack
+---------------------------------------------------------------------------------------------------------------------
+CONNECTOR|clk  CONNECTOR|clk  |  10.000      -6.822  |  No paths    -      |  No paths    -      |  No paths    -    
+=====================================================================================================================
+ Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
+       'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
+
+
+
+<a name=interfaceInfo12>Interface Information </a>
+*********************
+
+No IO constraint found
+
+
+
+====================================
+<a name=clockReport13>Detailed Report for Clock: CONNECTOR|clk</a>
+====================================
+
+
+
+<a name=startingSlack14>Starting Points with Worst Slack</a>
+********************************
+
+                     Starting                                              Arrival           
+Instance             Reference         Type       Pin     Net              Time        Slack 
+                     Clock                                                                   
+---------------------------------------------------------------------------------------------
+d1.u2.serClk         CONNECTOR|clk     DFN1C0     Q       eepromSCLK_c     1.771       -6.822
+d1.u2.state[1]       CONNECTOR|clk     DFN1C0     Q       state[1]         1.771       -6.768
+d1.u2.state[0]       CONNECTOR|clk     DFN1C0     Q       state[0]         1.771       -6.509
+d1.u2.outCnt[1]      CONNECTOR|clk     DFN1C0     Q       outCnt[1]        1.771       -5.657
+d1.u2.outCnt[2]      CONNECTOR|clk     DFN1C0     Q       outCnt[2]        1.771       -5.569
+d1.u2.outCnt[0]      CONNECTOR|clk     DFN1C0     Q       outCnt[0]        1.771       -5.026
+d2.adif.state[1]     CONNECTOR|clk     DFN1C0     Q       state[1]         1.771       -4.972
+d2.adif.cnt[2]       CONNECTOR|clk     DFN1       Q       cnt[2]           1.771       -4.437
+d2.adif.cnt[1]       CONNECTOR|clk     DFN1       Q       cnt[1]           1.771       -4.166
+d2.adif.cnt[0]       CONNECTOR|clk     DFN1       Q       cnt[0]           1.771       -4.028
+=============================================================================================
+
+
+<a name=endingSlack15>Ending Points with Worst Slack</a>
+******************************
+
+                        Starting                                                Required           
+Instance                Reference         Type         Pin     Net              Time         Slack 
+                        Clock                                                                      
+---------------------------------------------------------------------------------------------------
+d1.u2.outCnt[3]         CONNECTOR|clk     DFN1C0       D       N_24             8.622        -6.822
+d1.u2.outCnt[1]         CONNECTOR|clk     DFN1C0       D       outCnt_16[1]     8.622        -6.764
+d1.u2.outCnt[2]         CONNECTOR|clk     DFN1C0       D       N_22             8.622        -6.413
+d1.u2.outCnt[0]         CONNECTOR|clk     DFN1C0       D       N_19_0           8.705        -6.388
+d1.u2.outCnt[4]         CONNECTOR|clk     DFN1C0       D       N_28             8.622        -5.870
+d2.adif.cnt[3]          CONNECTOR|clk     DFN1         D       cnt_RNO[3]       8.622        -4.972
+d1.u2.serialOut[7]      CONNECTOR|clk     DFN1E0C0     E       un1_state        8.538        -4.797
+d1.u2.serialOut[8]      CONNECTOR|clk     DFN1E0C0     E       un1_state        8.538        -4.797
+d1.u2.serialOut[9]      CONNECTOR|clk     DFN1E0C0     E       un1_state        8.538        -4.797
+d1.u2.serialOut[10]     CONNECTOR|clk     DFN1E0C0     E       un1_state        8.538        -4.797
+===================================================================================================
+
+
+
+<a name=worstPaths16>Worst Path Information</a>
+<a href="C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\CONNECTOR.srr:srsfC:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\CONNECTOR.srs:fp:87159:88227:@XP_NAMES_GATE">View Worst Path in Analyst</a>
+***********************
+
+
+Path information for path number 1: 
+      Requested Period:                      10.000
+    - Setup time:                            1.378
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         8.622
+
+    - Propagation time:                      15.444
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (critical) :                     -6.822
+
+    Number of logic level(s):                3
+    Starting point:                          d1.u2.serClk / Q
+    Ending point:                            d1.u2.outCnt[3] / D
+    The start point is clocked by            CONNECTOR|clk [rising] on pin CLK
+    The end   point is clocked by            CONNECTOR|clk [rising] on pin CLK
+
+Instance / Net                        Pin      Pin               Arrival     No. of    
+Name                       Type       Name     Dir     Delay     Time        Fan Out(s)
+---------------------------------------------------------------------------------------
+d1.u2.serClk               DFN1C0     Q        Out     1.771     1.771       -         
+eepromSCLK_c               Net        -        -       3.938     -           8         
+d1.u2.serClk_RNIVTLO_0     MX2B       B        In      -         5.709       -         
+d1.u2.serClk_RNIVTLO_0     MX2B       Y        Out     1.466     7.175       -         
+N_13                       Net        -        -       3.074     -           5         
+d1.u2.outCnt_RNO_1[3]      OR3A       A        In      -         10.249      -         
+d1.u2.outCnt_RNO_1[3]      OR3A       Y        Out     1.261     11.510      -         
+N_17                       Net        -        -       0.773     -           1         
+d1.u2.outCnt_RNO[3]        AXOI3      B        In      -         12.283      -         
+d1.u2.outCnt_RNO[3]        AXOI3      Y        Out     2.389     14.671      -         
+N_24                       Net        -        -       0.773     -           1         
+d1.u2.outCnt[3]            DFN1C0     D        In      -         15.444      -         
+=======================================================================================
+Total path delay (propagation time + setup) of 16.822 is 8.265(49.1%) logic and 8.557(50.9%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+Path information for path number 2: 
+      Requested Period:                      10.000
+    - Setup time:                            1.378
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         8.622
+
+    - Propagation time:                      15.390
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (non-critical) :                 -6.768
+
+    Number of logic level(s):                3
+    Starting point:                          d1.u2.state[1] / Q
+    Ending point:                            d1.u2.outCnt[3] / D
+    The start point is clocked by            CONNECTOR|clk [rising] on pin CLK
+    The end   point is clocked by            CONNECTOR|clk [rising] on pin CLK
+
+Instance / Net                        Pin      Pin               Arrival     No. of    
+Name                       Type       Name     Dir     Delay     Time        Fan Out(s)
+---------------------------------------------------------------------------------------
+d1.u2.state[1]             DFN1C0     Q        Out     1.771     1.771       -         
+state[1]                   Net        -        -       4.105     -           10        
+d1.u2.serClk_RNIVTLO_0     MX2B       A        In      -         5.876       -         
+d1.u2.serClk_RNIVTLO_0     MX2B       Y        Out     1.391     7.267       -         
+N_13                       Net        -        -       3.074     -           5         
+d1.u2.outCnt_RNO_1[3]      OR3A       A        In      -         10.341      -         
+d1.u2.outCnt_RNO_1[3]      OR3A       Y        Out     1.115     11.456      -         
+N_17                       Net        -        -       0.773     -           1         
+d1.u2.outCnt_RNO[3]        AXOI3      B        In      -         12.228      -         
+d1.u2.outCnt_RNO[3]        AXOI3      Y        Out     2.389     14.617      -         
+N_24                       Net        -        -       0.773     -           1         
+d1.u2.outCnt[3]            DFN1C0     D        In      -         15.390      -         
+=======================================================================================
+Total path delay (propagation time + setup) of 16.768 is 8.043(48.0%) logic and 8.724(52.0%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+Path information for path number 3: 
+      Requested Period:                      10.000
+    - Setup time:                            1.378
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         8.622
+
+    - Propagation time:                      15.386
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (non-critical) :                 -6.764
+
+    Number of logic level(s):                3
+    Starting point:                          d1.u2.state[1] / Q
+    Ending point:                            d1.u2.outCnt[1] / D
+    The start point is clocked by            CONNECTOR|clk [rising] on pin CLK
+    The end   point is clocked by            CONNECTOR|clk [rising] on pin CLK
+
+Instance / Net                        Pin      Pin               Arrival     No. of    
+Name                       Type       Name     Dir     Delay     Time        Fan Out(s)
+---------------------------------------------------------------------------------------
+d1.u2.state[1]             DFN1C0     Q        Out     1.771     1.771       -         
+state[1]                   Net        -        -       4.105     -           10        
+d1.u2.serClk_RNIVTLO_0     MX2B       A        In      -         5.876       -         
+d1.u2.serClk_RNIVTLO_0     MX2B       Y        Out     1.391     7.267       -         
+N_13                       Net        -        -       3.074     -           5         
+d1.u2.outCnt_RNO_2[1]      AX1A       B        In      -         10.341      -         
+d1.u2.outCnt_RNO_2[1]      AX1A       Y        Out     2.330     12.671      -         
+N_23_i                     Net        -        -       0.773     -           1         
+d1.u2.outCnt_RNO[1]        AOI1       C        In      -         13.444      -         
+d1.u2.outCnt_RNO[1]        AOI1       Y        Out     1.169     14.613      -         
+outCnt_16[1]               Net        -        -       0.773     -           1         
+d1.u2.outCnt[1]            DFN1C0     D        In      -         15.386      -         
+=======================================================================================
+Total path delay (propagation time + setup) of 16.764 is 8.039(48.0%) logic and 8.724(52.0%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+Path information for path number 4: 
+      Requested Period:                      10.000
+    - Setup time:                            1.378
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         8.622
+
+    - Propagation time:                      15.294
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (non-critical) :                 -6.672
+
+    Number of logic level(s):                3
+    Starting point:                          d1.u2.serClk / Q
+    Ending point:                            d1.u2.outCnt[1] / D
+    The start point is clocked by            CONNECTOR|clk [rising] on pin CLK
+    The end   point is clocked by            CONNECTOR|clk [rising] on pin CLK
+
+Instance / Net                        Pin      Pin               Arrival     No. of    
+Name                       Type       Name     Dir     Delay     Time        Fan Out(s)
+---------------------------------------------------------------------------------------
+d1.u2.serClk               DFN1C0     Q        Out     1.771     1.771       -         
+eepromSCLK_c               Net        -        -       3.938     -           8         
+d1.u2.serClk_RNIVTLO_0     MX2B       B        In      -         5.709       -         
+d1.u2.serClk_RNIVTLO_0     MX2B       Y        Out     1.466     7.175       -         
+N_13                       Net        -        -       3.074     -           5         
+d1.u2.outCnt_RNO_2[1]      AX1A       B        In      -         10.249      -         
+d1.u2.outCnt_RNO_2[1]      AX1A       Y        Out     2.330     12.579      -         
+N_23_i                     Net        -        -       0.773     -           1         
+d1.u2.outCnt_RNO[1]        AOI1       C        In      -         13.352      -         
+d1.u2.outCnt_RNO[1]        AOI1       Y        Out     1.169     14.521      -         
+outCnt_16[1]               Net        -        -       0.773     -           1         
+d1.u2.outCnt[1]            DFN1C0     D        In      -         15.294      -         
+=======================================================================================
+Total path delay (propagation time + setup) of 16.672 is 8.114(48.7%) logic and 8.557(51.3%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+Path information for path number 5: 
+      Requested Period:                      10.000
+    - Setup time:                            1.378
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         8.622
+
+    - Propagation time:                      15.131
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (non-critical) :                 -6.509
+
+    Number of logic level(s):                3
+    Starting point:                          d1.u2.state[0] / Q
+    Ending point:                            d1.u2.outCnt[3] / D
+    The start point is clocked by            CONNECTOR|clk [rising] on pin CLK
+    The end   point is clocked by            CONNECTOR|clk [rising] on pin CLK
+
+Instance / Net                        Pin      Pin               Arrival     No. of    
+Name                       Type       Name     Dir     Delay     Time        Fan Out(s)
+---------------------------------------------------------------------------------------
+d1.u2.state[0]             DFN1C0     Q        Out     1.771     1.771       -         
+state[0]                   Net        -        -       3.938     -           8         
+d1.u2.serClk_RNIVTLO_0     MX2B       S        In      -         5.709       -         
+d1.u2.serClk_RNIVTLO_0     MX2B       Y        Out     1.153     6.862       -         
+N_13                       Net        -        -       3.074     -           5         
+d1.u2.outCnt_RNO_1[3]      OR3A       A        In      -         9.935       -         
+d1.u2.outCnt_RNO_1[3]      OR3A       Y        Out     1.261     11.197      -         
+N_17                       Net        -        -       0.773     -           1         
+d1.u2.outCnt_RNO[3]        AXOI3      B        In      -         11.969      -         
+d1.u2.outCnt_RNO[3]        AXOI3      Y        Out     2.389     14.358      -         
+N_24                       Net        -        -       0.773     -           1         
+d1.u2.outCnt[3]            DFN1C0     D        In      -         15.131      -         
+=======================================================================================
+Total path delay (propagation time + setup) of 16.509 is 7.951(48.2%) logic and 8.557(51.8%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+
+##### END OF TIMING REPORT #####]
+
+
+Finished final timing analysis (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:07s; Memory used current: 69MB peak: 72MB)
+
+
+Finished timing report (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:07s; Memory used current: 69MB peak: 72MB)
+
+--------------------------------------------------------------------------------
+Target Part: AGLN250V2_VQFP100_STD
+<a name=cellReport17>Report for cell CONNECTOR.behaviour</a>
+  Core Cell usage:
+              cell count     area count*area
+               AO1     1      1.0        1.0
+              AO1B     1      1.0        1.0
+              AOI1     1      1.0        1.0
+             AOI1B     1      1.0        1.0
+              AX1A     1      1.0        1.0
+              AX1B     1      1.0        1.0
+              AX1E     1      1.0        1.0
+             AXOI3     2      1.0        2.0
+              BUFF     1      1.0        1.0
+               GND     5      0.0        0.0
+               INV     1      1.0        1.0
+              MX2B     1      1.0        1.0
+             NOR2A     5      1.0        5.0
+             NOR2B     2      1.0        2.0
+              NOR3     2      1.0        2.0
+             NOR3A     4      1.0        4.0
+             NOR3B     5      1.0        5.0
+              OA1A     1      1.0        1.0
+              OA1B     1      1.0        1.0
+              OA1C     3      1.0        3.0
+               OR2     4      1.0        4.0
+              OR2A     2      1.0        2.0
+              OR2B     3      1.0        3.0
+               OR3     1      1.0        1.0
+              OR3A     3      1.0        3.0
+              OR3B     4      1.0        4.0
+              OR3C     2      1.0        2.0
+               VCC     5      0.0        0.0
+              XA1C     1      1.0        1.0
+              XO1A     2      1.0        2.0
+              XOR2     2      1.0        2.0
+
+
+              DFN1     5      1.0        5.0
+            DFN1C0    10      1.0       10.0
+          DFN1E0C0    20      1.0       20.0
+          DFN1E1C0     1      1.0        1.0
+          DFN1E1P0     1      1.0        1.0
+                   -----          ----------
+             TOTAL   106                96.0
+
+
+  IO Cell usage:
+              cell count
+            CLKBUF     1
+             INBUF     3
+            OUTBUF    16
+                   -----
+             TOTAL    20
+
+
+Core Cells         : 96 of 6144 (2%)
+IO Cells           : 20
+
+  RAM/ROM Usage Summary
+Block Rams : 0 of 8 (0%)
+
+Mapper successful!
+
+At Mapper Exit (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:08s; Memory used current: 33MB peak: 72MB)
+
+Process took 0h:00m:11s realtime, 0h:00m:08s cputime
+# Thu Jan 21 09:05:30 2016
+
+###########################################################]
+
+</pre></samp></body></html>

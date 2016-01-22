@@ -1,0 +1,15 @@
+C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\bin\m_proasic.exe  -prodtype  synplify_pro   -encrypt  -pro  -rundir  C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis   -part AGLN250V2  -package VQFP100  -grade STD    -globalthreshold 5000 -maxfan 24 -opcond COMWC -report_path 4000 -RWCheckOnRam 0 -summaryfile C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synlog\report\top_fpga_mapper.xml  -top_level_module  top  -licensetype  synplifypro_actel  -flow mapping  -mp  1  -prjfile  C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\scratchproject.prs  -implementation  synthesis  -multisrs  -oedif  C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.edn   -freq 100.000   C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synwork\top_prem.srd  -sap  C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.sap  -otap  C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.tap  -omap  C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.map  -devicelib  C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\proasic\igloo.v  -sap  C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.sap  -ologparam  C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\syntmp\top.plg  -osyn  C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.srm  -prjdir  C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\  -prjname  top_syn  -log  C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synlog\top_fpga_mapper.srr 
+rc:1 success:1
+C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\scratchproject.prs|o|1453458568|2972
+C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.edn|o|1453458592|854131
+C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synwork\top_prem.srd|i|1453458577|74725
+C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.sap|o|1453458578|35240
+C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.tap|o|0|0
+C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.map|o|1453458593|28
+C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\proasic\igloo.v|i|1431615982|50704
+C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.sap|o|1453458578|35240
+C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\syntmp\top.plg|o|1453458593|1237
+C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.srm|o|1453458591|70441
+C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synlog\top_fpga_mapper.srr|o|1453458593|46122
+C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\bin64\m_proasic.exe|i|1433441158|11753984
+C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\bin\m_proasic.exe|i|1433439386|9280512

@@ -1,0 +1,318 @@
+(DELAYFILE
+(SDFVERSION "OVI 2.1")
+(DESIGN "CONNECTOR")
+(DATE "123")
+(VENDOR "ProASIC3")
+(PROGRAM "Synplify")
+(VERSION "mapact, Build 1522R")
+(DIVIDER /)
+(VOLTAGE 2.500000:2.500000:2.500000)
+(PROCESS "TYPICAL")
+(TEMPERATURE 70.000000:70.000000:70.000000)
+(TIMESCALE 1ns)
+(CELL
+  (CELLTYPE "CONNECTOR")
+  (INSTANCE)
+  (TIMINGCHECK
+
+    (PATHCONSTRAINT d1/u2/serClk/CLK  d1/u2/serClk/Q  d1/u2/serClk_RNIVTLO_0/B  d1/u2/serClk_RNIVTLO_0/Y  d1/u2/outCnt_RNO_1\[3\]/A  d1/u2/outCnt_RNO_1\[3\]/Y  d1/u2/outCnt_RNO\[3\]/B  d1/u2/outCnt_RNO\[3\]/Y  d1/u2/outCnt\[3\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO_0/A  d1/u2/serClk_RNIVTLO_0/Y  d1/u2/outCnt_RNO_1\[3\]/A  d1/u2/outCnt_RNO_1\[3\]/Y  d1/u2/outCnt_RNO\[3\]/B  d1/u2/outCnt_RNO\[3\]/Y  d1/u2/outCnt\[3\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO_0/A  d1/u2/serClk_RNIVTLO_0/Y  d1/u2/outCnt_RNO_2\[1\]/B  d1/u2/outCnt_RNO_2\[1\]/Y  d1/u2/outCnt_RNO\[1\]/C  d1/u2/outCnt_RNO\[1\]/Y  d1/u2/outCnt\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[0\]/CLK  d1/u2/state\[0\]/Q  d1/u2/serClk_RNIVTLO_0/S  d1/u2/serClk_RNIVTLO_0/Y  d1/u2/outCnt_RNO_1\[3\]/A  d1/u2/outCnt_RNO_1\[3\]/Y  d1/u2/outCnt_RNO\[3\]/B  d1/u2/outCnt_RNO\[3\]/Y  d1/u2/outCnt\[3\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO_0/A  d1/u2/serClk_RNIVTLO_0/Y  d1/u2/outCnt_RNO_0\[2\]/A  d1/u2/outCnt_RNO_0\[2\]/Y  d1/u2/outCnt_RNO\[2\]/A  d1/u2/outCnt_RNO\[2\]/Y  d1/u2/outCnt\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO_0/A  d1/u2/serClk_RNIVTLO_0/Y  d1/u2/outCnt_RNO_0\[0\]/B  d1/u2/outCnt_RNO_0\[0\]/Y  d1/u2/outCnt_RNO\[0\]/C  d1/u2/outCnt_RNO\[0\]/Y  d1/u2/outCnt\[0\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO_0/A  d1/u2/serClk_RNIVTLO_0/Y  d1/u2/outCnt_RNO_0\[4\]/A  d1/u2/outCnt_RNO_0\[4\]/Y  d1/u2/outCnt_RNO\[4\]/B  d1/u2/outCnt_RNO\[4\]/Y  d1/u2/outCnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[1\]/CLK  d1/u2/outCnt\[1\]/Q  d1/u2/outCnt_RNIQ0C5\[0\]/C  d1/u2/outCnt_RNIQ0C5\[0\]/Y  d1/u2/outCnt_RNO_1\[4\]/C  d1/u2/outCnt_RNO_1\[4\]/Y  d1/u2/outCnt_RNO\[4\]/C  d1/u2/outCnt_RNO\[4\]/Y  d1/u2/outCnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[2\]/CLK  d1/u2/outCnt\[2\]/Q  d1/u2/outCnt_RNIQ0C5\[0\]/B  d1/u2/outCnt_RNIQ0C5\[0\]/Y  d1/u2/outCnt_RNO_1\[4\]/C  d1/u2/outCnt_RNO_1\[4\]/Y  d1/u2/outCnt_RNO\[4\]/C  d1/u2/outCnt_RNO\[4\]/Y  d1/u2/outCnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[0\]/CLK  d1/u2/outCnt\[0\]/Q  d1/u2/outCnt_RNIQ0C5\[0\]/A  d1/u2/outCnt_RNIQ0C5\[0\]/Y  d1/u2/outCnt_RNO_1\[4\]/C  d1/u2/outCnt_RNO_1\[4\]/Y  d1/u2/outCnt_RNO\[4\]/C  d1/u2/outCnt_RNO\[4\]/Y  d1/u2/outCnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/state\[1\]/CLK  d2/adif/state\[1\]/Q  d2/adif/cnt_RNO_1\[3\]/C  d2/adif/cnt_RNO_1\[3\]/Y  d2/adif/cnt_RNO_0\[3\]/C  d2/adif/cnt_RNO_0\[3\]/Y  d2/adif/cnt_RNO\[3\]/B  d2/adif/cnt_RNO\[3\]/Y  d2/adif/cnt\[3\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[26\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[25\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[24\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[23\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[22\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[21\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[20\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[19\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[18\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[17\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[16\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[15\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[14\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[13\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[12\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[11\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[10\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[9\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[8\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/serClk_RNIVTLO/C  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[7\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[0\]/CLK  d1/u2/outCnt\[0\]/Q  d1/u2/outCnt_RNO_2\[3\]/B  d1/u2/outCnt_RNO_2\[3\]/Y  d1/u2/outCnt_RNO_1\[3\]/B  d1/u2/outCnt_RNO_1\[3\]/Y  d1/u2/outCnt_RNO\[3\]/B  d1/u2/outCnt_RNO\[3\]/Y  d1/u2/outCnt\[3\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/outCnt_RNO_4\[4\]/C  d1/u2/outCnt_RNO_4\[4\]/Y  d1/u2/outCnt_RNO_1\[4\]/A  d1/u2/outCnt_RNO_1\[4\]/Y  d1/u2/outCnt_RNO\[4\]/C  d1/u2/outCnt_RNO\[4\]/Y  d1/u2/outCnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[2\]/CLK  d2/adif/cnt\[2\]/Q  d2/adif/un1_cnt_N_8_i_i_o2_1/B  d2/adif/un1_cnt_N_8_i_i_o2_1/Y  d2/adif/un1_cnt_N_8_i_i_o2_3/C  d2/adif/un1_cnt_N_8_i_i_o2_3/Y  d2/adif/un1_cnt_N_8_i_i_x2/B  d2/adif/un1_cnt_N_8_i_i_x2/Y  d2/adif/cnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serClk/CLK  d1/u2/serClk/Q  d1/u2/serClk_RNIVTLO/B  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[26\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/serClk/CLK  d1/u2/serClk/Q  d1/u2/outCnt_RNO_4\[4\]/B  d1/u2/outCnt_RNO_4\[4\]/Y  d1/u2/outCnt_RNO_1\[4\]/A  d1/u2/outCnt_RNO_1\[4\]/Y  d1/u2/outCnt_RNO\[4\]/C  d1/u2/outCnt_RNO\[4\]/Y  d1/u2/outCnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[2\]/CLK  d1/u2/outCnt\[2\]/Q  d1/u2/outCnt_RNO_2\[3\]/A  d1/u2/outCnt_RNO_2\[3\]/Y  d1/u2/outCnt_RNO_1\[3\]/B  d1/u2/outCnt_RNO_1\[3\]/Y  d1/u2/outCnt_RNO\[3\]/B  d1/u2/outCnt_RNO\[3\]/Y  d1/u2/outCnt\[3\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[1\]/CLK  d2/adif/cnt\[1\]/Q  d2/adif/un1_cnt_N_8_i_i_o2_1/A  d2/adif/un1_cnt_N_8_i_i_o2_1/Y  d2/adif/un1_cnt_N_8_i_i_o2_3/C  d2/adif/un1_cnt_N_8_i_i_o2_3/Y  d2/adif/un1_cnt_N_8_i_i_x2/B  d2/adif/un1_cnt_N_8_i_i_x2/Y  d2/adif/cnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[0\]/CLK  d1/u2/state\[0\]/Q  d1/u2/serClk_RNIVTLO/A  d1/u2/serClk_RNIVTLO/Y  d1/u2/serialOut\[26\]/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[0\]/CLK  d2/adif/cnt\[0\]/Q  d2/adif/cnt_RNO_1\[3\]/A  d2/adif/cnt_RNO_1\[3\]/Y  d2/adif/cnt_RNO_0\[3\]/C  d2/adif/cnt_RNO_0\[3\]/Y  d2/adif/cnt_RNO\[3\]/B  d2/adif/cnt_RNO\[3\]/Y  d2/adif/cnt\[3\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[0\]/CLK  d1/u2/state\[0\]/Q  d1/u2/cs_RNO_2/A  d1/u2/cs_RNO_2/Y  d1/u2/cs_RNO_1/B  d1/u2/cs_RNO_1/Y  d1/u2/cs_RNO_0/A  d1/u2/cs_RNO_0/Y  d1/u2/cs/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[3\]/CLK  d1/u2/outCnt\[3\]/Q  d1/u2/outCnt_RNO_3\[4\]/A  d1/u2/outCnt_RNO_3\[4\]/Y  d1/u2/outCnt_RNO_0\[4\]/C  d1/u2/outCnt_RNO_0\[4\]/Y  d1/u2/outCnt_RNO\[4\]/B  d1/u2/outCnt_RNO\[4\]/Y  d1/u2/outCnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[0\]/CLK  d1/u2/state\[0\]/Q  d1/u2/outCnt_RNO_5\[4\]/A  d1/u2/outCnt_RNO_5\[4\]/Y  d1/u2/outCnt_RNO_1\[4\]/B  d1/u2/outCnt_RNO_1\[4\]/Y  d1/u2/outCnt_RNO\[4\]/C  d1/u2/outCnt_RNO\[4\]/Y  d1/u2/outCnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[1\]/CLK  d1/u2/outCnt\[1\]/Q  d1/u2/outCnt_RNIQ0C5\[0\]/C  d1/u2/outCnt_RNIQ0C5\[0\]/Y  d1/u2/outCnt_RNO\[0\]/B  d1/u2/outCnt_RNO\[0\]/Y  d1/u2/outCnt\[0\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[1\]/CLK  d1/u2/outCnt\[1\]/Q  d1/u2/outCnt_RNIQ0C5\[0\]/C  d1/u2/outCnt_RNIQ0C5\[0\]/Y  d1/u2/state_RNO\[1\]/B  d1/u2/state_RNO\[1\]/Y  d1/u2/state\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[1\]/CLK  d1/u2/outCnt\[1\]/Q  d1/u2/outCnt_RNIQ0C5\[0\]/C  d1/u2/outCnt_RNIQ0C5\[0\]/Y  d1/u2/state_RNO\[0\]/B  d1/u2/state_RNO\[0\]/Y  d1/u2/state\[0\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[3\]/CLK  d1/u2/outCnt\[3\]/Q  d1/u2/cs_RNO_2/B  d1/u2/cs_RNO_2/Y  d1/u2/cs_RNO_1/B  d1/u2/cs_RNO_1/Y  d1/u2/cs_RNO_0/A  d1/u2/cs_RNO_0/Y  d1/u2/cs/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[4\]/CLK  d1/u2/outCnt\[4\]/Q  d1/u2/outCnt_RNO_4\[4\]/A  d1/u2/outCnt_RNO_4\[4\]/Y  d1/u2/outCnt_RNO_1\[4\]/A  d1/u2/outCnt_RNO_1\[4\]/Y  d1/u2/outCnt_RNO\[4\]/C  d1/u2/outCnt_RNO\[4\]/Y  d1/u2/outCnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/outCnt_RNO_2\[2\]/A  d1/u2/outCnt_RNO_2\[2\]/Y  d1/u2/outCnt_RNO_1\[2\]/A  d1/u2/outCnt_RNO_1\[2\]/Y  d1/u2/outCnt_RNO\[2\]/C  d1/u2/outCnt_RNO\[2\]/Y  d1/u2/outCnt\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[2\]/CLK  d1/u2/outCnt\[2\]/Q  d1/u2/outCnt_RNO_3\[4\]/B  d1/u2/outCnt_RNO_3\[4\]/Y  d1/u2/outCnt_RNO_0\[4\]/C  d1/u2/outCnt_RNO_0\[4\]/Y  d1/u2/outCnt_RNO\[4\]/B  d1/u2/outCnt_RNO\[4\]/Y  d1/u2/outCnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[1\]/CLK  d1/u2/outCnt\[1\]/Q  d1/u2/outCnt_RNO_2\[4\]/B  d1/u2/outCnt_RNO_2\[4\]/Y  d1/u2/outCnt_RNO_0\[4\]/B  d1/u2/outCnt_RNO_0\[4\]/Y  d1/u2/outCnt_RNO\[4\]/B  d1/u2/outCnt_RNO\[4\]/Y  d1/u2/outCnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[0\]/CLK  d2/adif/cnt\[0\]/Q  d2/adif/cnt_RNO_2\[2\]/B  d2/adif/cnt_RNO_2\[2\]/Y  d2/adif/cnt_RNO_0\[2\]/C  d2/adif/cnt_RNO_0\[2\]/Y  d2/adif/cnt_RNO\[2\]/A  d2/adif/cnt_RNO\[2\]/Y  d2/adif/cnt\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[3\]/CLK  d1/u2/outCnt\[3\]/Q  d1/u2/outCnt_RNO_5\[4\]/B  d1/u2/outCnt_RNO_5\[4\]/Y  d1/u2/outCnt_RNO_1\[4\]/B  d1/u2/outCnt_RNO_1\[4\]/Y  d1/u2/outCnt_RNO\[4\]/C  d1/u2/outCnt_RNO\[4\]/Y  d1/u2/outCnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[0\]/CLK  d1/u2/outCnt\[0\]/Q  d1/u2/outCnt_RNO_2\[4\]/A  d1/u2/outCnt_RNO_2\[4\]/Y  d1/u2/outCnt_RNO_0\[4\]/B  d1/u2/outCnt_RNO_0\[4\]/Y  d1/u2/outCnt_RNO\[4\]/B  d1/u2/outCnt_RNO\[4\]/Y  d1/u2/outCnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[1\]/CLK  d1/u2/outCnt\[1\]/Q  d1/u2/outCnt_RNIQ0C5\[0\]/C  d1/u2/outCnt_RNIQ0C5\[0\]/Y  d1/u2/cs_RNO_0/C  d1/u2/cs_RNO_0/Y  d1/u2/cs/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[2\]/CLK  d2/adif/cnt\[2\]/Q  d2/adif/cnt_RNO_2\[1\]/B  d2/adif/cnt_RNO_2\[1\]/Y  d2/adif/cnt_RNO_1\[1\]/B  d2/adif/cnt_RNO_1\[1\]/Y  d2/adif/cnt_RNO\[1\]/C  d2/adif/cnt_RNO\[1\]/Y  d2/adif/cnt\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[1\]/CLK  d2/adif/cnt\[1\]/Q  d2/adif/cnt_RNO_2\[1\]/A  d2/adif/cnt_RNO_2\[1\]/Y  d2/adif/cnt_RNO_1\[1\]/B  d2/adif/cnt_RNO_1\[1\]/Y  d2/adif/cnt_RNO\[1\]/C  d2/adif/cnt_RNO\[1\]/Y  d2/adif/cnt\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/outCnt_RNI36UB\[3\]/A  d1/u2/outCnt_RNI36UB\[3\]/Y  d1/u2/outCnt_RNO\[0\]/A  d1/u2/outCnt_RNO\[0\]/Y  d1/u2/outCnt\[0\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[3\]/CLK  d1/u2/outCnt\[3\]/Q  d1/u2/outCnt_RNI36UB\[3\]/C  d1/u2/outCnt_RNI36UB\[3\]/Y  d1/u2/outCnt_RNO\[0\]/A  d1/u2/outCnt_RNO\[0\]/Y  d1/u2/outCnt\[0\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[3\]/CLK  d1/u2/outCnt\[3\]/Q  d1/u2/outCnt_RNI36UB\[3\]/C  d1/u2/outCnt_RNI36UB\[3\]/Y  d1/u2/cs_RNO_0/B  d1/u2/cs_RNO_0/Y  d1/u2/cs/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d2/adif/state\[1\]/CLK  d2/adif/state\[1\]/Q  d2/adif/cnt_RNO_0\[0\]/A  d2/adif/cnt_RNO_0\[0\]/Y  d2/adif/cnt_RNO\[0\]/C  d2/adif/cnt_RNO\[0\]/Y  d2/adif/cnt\[0\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/state\[1\]/CLK  d2/adif/state\[1\]/Q  d2/adif/un1_cnt_N_8_i_i_o2_2/B  d2/adif/un1_cnt_N_8_i_i_o2_2/Y  d2/adif/un1_cnt_N_8_i_i_x2/A  d2/adif/un1_cnt_N_8_i_i_x2/Y  d2/adif/cnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/outCnt_RNO_1\[1\]/A  d1/u2/outCnt_RNO_1\[1\]/Y  d1/u2/outCnt_RNO\[1\]/B  d1/u2/outCnt_RNO\[1\]/Y  d1/u2/outCnt\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[3\]/CLK  d1/u2/outCnt\[3\]/Q  d1/u2/outCnt_RNO_0\[1\]/C  d1/u2/outCnt_RNO_0\[1\]/Y  d1/u2/outCnt_RNO\[1\]/A  d1/u2/outCnt_RNO\[1\]/Y  d1/u2/outCnt\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[3\]/CLK  d1/u2/outCnt\[3\]/Q  d1/u2/state_RNO_0\[1\]/C  d1/u2/state_RNO_0\[1\]/Y  d1/u2/state_RNO\[1\]/A  d1/u2/state_RNO\[1\]/Y  d1/u2/state\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[3\]/CLK  d1/u2/outCnt\[3\]/Q  d1/u2/state_RNO_0\[0\]/C  d1/u2/state_RNO_0\[0\]/Y  d1/u2/state_RNO\[0\]/A  d1/u2/state_RNO\[0\]/Y  d1/u2/state\[0\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serClk/CLK  d1/u2/serClk/Q  d1/u2/state_RNO_0\[0\]/A  d1/u2/state_RNO_0\[0\]/Y  d1/u2/state_RNO\[0\]/A  d1/u2/state_RNO\[0\]/Y  d1/u2/state\[0\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[1\]/CLK  d1/u2/outCnt\[1\]/Q  d1/u2/outCnt_RNO_1\[3\]/C  d1/u2/outCnt_RNO_1\[3\]/Y  d1/u2/outCnt_RNO\[3\]/B  d1/u2/outCnt_RNO\[3\]/Y  d1/u2/outCnt\[3\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[2\]/CLK  d1/u2/outCnt\[2\]/Q  d1/u2/outCnt_RNO_2\[2\]/B  d1/u2/outCnt_RNO_2\[2\]/Y  d1/u2/outCnt_RNO_1\[2\]/A  d1/u2/outCnt_RNO_1\[2\]/Y  d1/u2/outCnt_RNO\[2\]/C  d1/u2/outCnt_RNO\[2\]/Y  d1/u2/outCnt\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/outCnt_RNO_0\[3\]/A  d1/u2/outCnt_RNO_0\[3\]/Y  d1/u2/outCnt_RNO\[3\]/A  d1/u2/outCnt_RNO\[3\]/Y  d1/u2/outCnt\[3\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[4\]/CLK  d1/u2/outCnt\[4\]/Q  d1/u2/outCnt_RNI36UB\[3\]/B  d1/u2/outCnt_RNI36UB\[3\]/Y  d1/u2/outCnt_RNO\[0\]/A  d1/u2/outCnt_RNO\[0\]/Y  d1/u2/outCnt\[0\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[1\]/CLK  d2/adif/cnt\[1\]/Q  d2/adif/cnt_RNITTTT\[3\]/A  d2/adif/cnt_RNITTTT\[3\]/Y  d2/adif/state_RNO\[2\]/A  d2/adif/state_RNO\[2\]/Y  d2/adif/state\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[1\]/CLK  d2/adif/cnt\[1\]/Q  d2/adif/cnt_RNO_0\[3\]/B  d2/adif/cnt_RNO_0\[3\]/Y  d2/adif/cnt_RNO\[3\]/B  d2/adif/cnt_RNO\[3\]/Y  d2/adif/cnt\[3\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[0\]/CLK  d1/u2/outCnt\[0\]/Q  d1/u2/outCnt_RNO_0\[2\]/C  d1/u2/outCnt_RNO_0\[2\]/Y  d1/u2/outCnt_RNO\[2\]/A  d1/u2/outCnt_RNO\[2\]/Y  d1/u2/outCnt\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[0\]/CLK  d2/adif/cnt\[0\]/Q  d2/adif/cnt_RNITTTT\[3\]/B  d2/adif/cnt_RNITTTT\[3\]/Y  d2/adif/state_RNO\[2\]/A  d2/adif/state_RNO\[2\]/Y  d2/adif/state\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[4\]/CLK  d1/u2/outCnt\[4\]/Q  d1/u2/outCnt_RNO_0\[3\]/B  d1/u2/outCnt_RNO_0\[3\]/Y  d1/u2/outCnt_RNO\[3\]/A  d1/u2/outCnt_RNO\[3\]/Y  d1/u2/outCnt\[3\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serClk/CLK  d1/u2/serClk/Q  d1/u2/cs_RNO_1/A  d1/u2/cs_RNO_1/Y  d1/u2/cs_RNO_0/A  d1/u2/cs_RNO_0/Y  d1/u2/cs/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[1\]/CLK  d1/u2/outCnt\[1\]/Q  d1/u2/outCnt_RNO_0\[2\]/B  d1/u2/outCnt_RNO_0\[2\]/Y  d1/u2/outCnt_RNO\[2\]/A  d1/u2/outCnt_RNO\[2\]/Y  d1/u2/outCnt\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[4\]/CLK  d1/u2/outCnt\[4\]/Q  d1/u2/outCnt_RNO_1\[1\]/B  d1/u2/outCnt_RNO_1\[1\]/Y  d1/u2/outCnt_RNO\[1\]/B  d1/u2/outCnt_RNO\[1\]/Y  d1/u2/outCnt\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[2\]/CLK  d1/u2/outCnt\[2\]/Q  d1/u2/outCnt_RNO_0\[1\]/B  d1/u2/outCnt_RNO_0\[1\]/Y  d1/u2/outCnt_RNO\[1\]/A  d1/u2/outCnt_RNO\[1\]/Y  d1/u2/outCnt\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[4\]/CLK  d1/u2/outCnt\[4\]/Q  d1/u2/cs_RNO_1/C  d1/u2/cs_RNO_1/Y  d1/u2/cs_RNO_0/A  d1/u2/cs_RNO_0/Y  d1/u2/cs/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[0\]/CLK  d1/u2/outCnt\[0\]/Q  d1/u2/outCnt_RNO_2\[1\]/A  d1/u2/outCnt_RNO_2\[1\]/Y  d1/u2/outCnt_RNO\[1\]/C  d1/u2/outCnt_RNO\[1\]/Y  d1/u2/outCnt\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/state\[1\]/CLK  d2/adif/state\[1\]/Q  d2/adif/cnt_RNO_0\[1\]/C  d2/adif/cnt_RNO_0\[1\]/Y  d2/adif/cnt_RNO\[1\]/A  d2/adif/cnt_RNO\[1\]/Y  d2/adif/cnt\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[0\]/CLK  d2/adif/cnt\[0\]/Q  d2/adif/un1_cnt_N_8_i_i_o2_3/A  d2/adif/un1_cnt_N_8_i_i_o2_3/Y  d2/adif/un1_cnt_N_8_i_i_x2/B  d2/adif/un1_cnt_N_8_i_i_x2/Y  d2/adif/cnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[2\]/CLK  d2/adif/cnt\[2\]/Q  d2/adif/cnt_RNO_0\[3\]/A  d2/adif/cnt_RNO_0\[3\]/Y  d2/adif/cnt_RNO\[3\]/B  d2/adif/cnt_RNO\[3\]/Y  d2/adif/cnt\[3\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[2\]/CLK  d2/adif/cnt\[2\]/Q  d2/adif/cnt_RNICNUJ\[4\]/A  d2/adif/cnt_RNICNUJ\[4\]/Y  d2/adif/state_RNO\[2\]/B  d2/adif/state_RNO\[2\]/Y  d2/adif/state\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[4\]/CLK  d2/adif/cnt\[4\]/Q  d2/adif/cnt_RNICNUJ\[4\]/B  d2/adif/cnt_RNICNUJ\[4\]/Y  d2/adif/state_RNO\[2\]/B  d2/adif/state_RNO\[2\]/Y  d2/adif/state\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/state_RNO_1\[0\]/B  d1/u2/state_RNO_1\[0\]/Y  d1/u2/state_RNO\[0\]/C  d1/u2/state_RNO\[0\]/Y  d1/u2/state\[0\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[4\]/CLK  d1/u2/outCnt\[4\]/Q  d1/u2/state_RNO_0\[1\]/B  d1/u2/state_RNO_0\[1\]/Y  d1/u2/state_RNO\[1\]/A  d1/u2/state_RNO\[1\]/Y  d1/u2/state\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[4\]/CLK  d1/u2/outCnt\[4\]/Q  d1/u2/state_RNO_0\[0\]/B  d1/u2/state_RNO_0\[0\]/Y  d1/u2/state_RNO\[0\]/A  d1/u2/state_RNO\[0\]/Y  d1/u2/state\[0\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[3\]/CLK  d2/adif/cnt\[3\]/Q  d2/adif/un1_cnt_N_8_i_i_o2_2/A  d2/adif/un1_cnt_N_8_i_i_o2_2/Y  d2/adif/un1_cnt_N_8_i_i_x2/A  d2/adif/un1_cnt_N_8_i_i_x2/Y  d2/adif/cnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[0\]/CLK  d1/u2/state\[0\]/Q  d1/u2/state_RNO_1\[1\]/B  d1/u2/state_RNO_1\[1\]/Y  d1/u2/state_RNO\[1\]/C  d1/u2/state_RNO\[1\]/Y  d1/u2/state\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[4\]/CLK  d1/u2/outCnt\[4\]/Q  d1/u2/outCnt_RNO_1\[2\]/C  d1/u2/outCnt_RNO_1\[2\]/Y  d1/u2/outCnt_RNO\[2\]/C  d1/u2/outCnt_RNO\[2\]/Y  d1/u2/outCnt\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/state\[1\]/CLK  d2/adif/state\[1\]/Q  d2/adif/cnt_RNO_0\[2\]/A  d2/adif/cnt_RNO_0\[2\]/Y  d2/adif/cnt_RNO\[2\]/A  d2/adif/cnt_RNO\[2\]/Y  d2/adif/cnt\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/state_RNO_1\[1\]/A  d1/u2/state_RNO_1\[1\]/Y  d1/u2/state_RNO\[1\]/C  d1/u2/state_RNO\[1\]/Y  d1/u2/state\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[1\]/CLK  d2/adif/cnt\[1\]/Q  d2/adif/cnt_RNITTTT\[3\]/A  d2/adif/cnt_RNITTTT\[3\]/Y  d2/adif/cnt_RNO\[0\]/A  d2/adif/cnt_RNO\[0\]/Y  d2/adif/cnt\[0\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[1\]/CLK  d2/adif/cnt\[1\]/Q  d2/adif/cnt_RNO_0\[2\]/B  d2/adif/cnt_RNO_0\[2\]/Y  d2/adif/cnt_RNO\[2\]/A  d2/adif/cnt_RNO\[2\]/Y  d2/adif/cnt\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[2\]/CLK  d2/adif/cnt\[2\]/Q  d2/adif/cnt_RNICNUJ\[4\]/A  d2/adif/cnt_RNICNUJ\[4\]/Y  d2/adif/cnt_RNO\[0\]/B  d2/adif/cnt_RNO\[0\]/Y  d2/adif/cnt\[0\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[0\]/CLK  d1/u2/state\[0\]/Q  d1/u2/state_RNO_1\[0\]/A  d1/u2/state_RNO_1\[0\]/Y  d1/u2/state_RNO\[0\]/C  d1/u2/state_RNO\[0\]/Y  d1/u2/state\[0\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[0\]/CLK  d2/adif/cnt\[0\]/Q  d2/adif/cnt_RNO_0\[0\]/C  d2/adif/cnt_RNO_0\[0\]/Y  d2/adif/cnt_RNO\[0\]/C  d2/adif/cnt_RNO\[0\]/Y  d2/adif/cnt\[0\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[2\]/CLK  d2/adif/cnt\[2\]/Q  d2/adif/cnt_RNO_1\[2\]/B  d2/adif/cnt_RNO_1\[2\]/Y  d2/adif/cnt_RNO\[2\]/C  d2/adif/cnt_RNO\[2\]/Y  d2/adif/cnt\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[1\]/CLK  d1/u2/outCnt\[1\]/Q  d1/u2/outCnt_RNO_0\[1\]/A  d1/u2/outCnt_RNO_0\[1\]/Y  d1/u2/outCnt_RNO\[1\]/A  d1/u2/outCnt_RNO\[1\]/Y  d1/u2/outCnt\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[0\]/CLK  d2/adif/cnt\[0\]/Q  d2/adif/cnt_RNO_0\[1\]/A  d2/adif/cnt_RNO_0\[1\]/Y  d2/adif/cnt_RNO\[1\]/A  d2/adif/cnt_RNO\[1\]/Y  d2/adif/cnt\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[3\]/CLK  d1/u2/outCnt\[3\]/Q  d1/u2/outCnt_RNO_1\[2\]/B  d1/u2/outCnt_RNO_1\[2\]/Y  d1/u2/outCnt_RNO\[2\]/C  d1/u2/outCnt_RNO\[2\]/Y  d1/u2/outCnt\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[3\]/CLK  d2/adif/cnt\[3\]/Q  d2/adif/cnt_RNITTTT\[3\]/C  d2/adif/cnt_RNITTTT\[3\]/Y  d2/adif/state_RNO\[2\]/A  d2/adif/state_RNO\[2\]/Y  d2/adif/state\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[4\]/CLK  d2/adif/cnt\[4\]/Q  d2/adif/cnt_RNO_1\[2\]/A  d2/adif/cnt_RNO_1\[2\]/Y  d2/adif/cnt_RNO\[2\]/C  d2/adif/cnt_RNO\[2\]/Y  d2/adif/cnt\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[4\]/CLK  d2/adif/cnt\[4\]/Q  d2/adif/cnt_RNO_1\[1\]/A  d2/adif/cnt_RNO_1\[1\]/Y  d2/adif/cnt_RNO\[1\]/C  d2/adif/cnt_RNO\[1\]/Y  d2/adif/cnt\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[1\]/CLK  d1/u2/outCnt\[1\]/Q  d1/u2/outCnt_RNO_2\[1\]/C  d1/u2/outCnt_RNO_2\[1\]/Y  d1/u2/outCnt_RNO\[1\]/C  d1/u2/outCnt_RNO\[1\]/Y  d1/u2/outCnt\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[0\]/CLK  d1/u2/outCnt\[0\]/Q  d1/u2/outCnt_RNO_0\[0\]/A  d1/u2/outCnt_RNO_0\[0\]/Y  d1/u2/outCnt_RNO\[0\]/C  d1/u2/outCnt_RNO\[0\]/Y  d1/u2/outCnt\[0\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[1\]/CLK  d1/u2/state\[1\]/Q  d1/u2/cs_RNO/B  d1/u2/cs_RNO/Y  d1/u2/cs/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[0\]/CLK  d1/u2/state\[0\]/Q  d1/u2/serClk_RNO/B  d1/u2/serClk_RNO/Y  d1/u2/serClk/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/state\[0\]/CLK  d1/u2/state\[0\]/Q  d1/u2/cs_RNO/A  d1/u2/cs_RNO/Y  d1/u2/cs/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[3\]/CLK  d2/adif/cnt\[3\]/Q  d2/adif/cnt_RNO_1\[2\]/C  d2/adif/cnt_RNO_1\[2\]/Y  d2/adif/cnt_RNO\[2\]/C  d2/adif/cnt_RNO\[2\]/Y  d2/adif/cnt\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[3\]/CLK  d2/adif/cnt\[3\]/Q  d2/adif/cnt_RNO_1\[1\]/C  d2/adif/cnt_RNO_1\[1\]/Y  d2/adif/cnt_RNO\[1\]/C  d2/adif/cnt_RNO\[1\]/Y  d2/adif/cnt\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/state\[1\]/CLK  d2/adif/state\[1\]/Q  d2/adif/sclk_RNO/B  d2/adif/sclk_RNO/Y  d2/adif/sclk/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[2\]/CLK  d2/adif/cnt\[2\]/Q  d2/adif/cnt_RNO\[2\]/B  d2/adif/cnt_RNO\[2\]/Y  d2/adif/cnt\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[1\]/CLK  d2/adif/cnt\[1\]/Q  d2/adif/cnt_RNO\[1\]/B  d2/adif/cnt_RNO\[1\]/Y  d2/adif/cnt\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[3\]/CLK  d1/u2/outCnt\[3\]/Q  d1/u2/outCnt_RNO\[3\]/C  d1/u2/outCnt_RNO\[3\]/Y  d1/u2/outCnt\[3\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[4\]/CLK  d2/adif/cnt\[4\]/Q  d2/adif/cnt_RNO\[3\]/A  d2/adif/cnt_RNO\[3\]/Y  d2/adif/cnt\[3\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[4\]/CLK  d1/u2/outCnt\[4\]/Q  d1/u2/outCnt_RNO\[4\]/A  d1/u2/outCnt_RNO\[4\]/Y  d1/u2/outCnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serClk/CLK  d1/u2/serClk/Q  d1/u2/serialOut_RNO\[7\]/A  d1/u2/serialOut_RNO\[7\]/Y  d1/u2/serialOut\[7\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serClk/CLK  d1/u2/serClk/Q  d1/u2/serClk_RNO/A  d1/u2/serClk_RNO/Y  d1/u2/serClk/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/outCnt\[2\]/CLK  d1/u2/outCnt\[2\]/Q  d1/u2/outCnt_RNO\[2\]/B  d1/u2/outCnt_RNO\[2\]/Y  d1/u2/outCnt\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/state\[1\]/CLK  d2/adif/state\[1\]/Q  d2/adif/state_RNO\[2\]/C  d2/adif/state_RNO\[2\]/Y  d2/adif/state\[2\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[3\]/CLK  d2/adif/cnt\[3\]/Q  d2/adif/cnt_RNO\[3\]/C  d2/adif/cnt_RNO\[3\]/Y  d2/adif/cnt\[3\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/cnt\[4\]/CLK  d2/adif/cnt\[4\]/Q  d2/adif/un1_cnt_N_8_i_i_x2/C  d2/adif/un1_cnt_N_8_i_i_x2/Y  d2/adif/cnt\[4\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d2/adif/state\[1\]/CLK  d2/adif/state\[1\]/Q  d2/adif/sclk/D  	(8.9:8.9:8.9) )
+
+    (PATHCONSTRAINT d2/adif/state\[2\]/CLK  d2/adif/state\[2\]/Q  d2/adif/sclk_RNO/A  d2/adif/sclk_RNO/Y  d2/adif/sclk/E  	(9.0:9.0:9.0) )
+
+    (PATHCONSTRAINT d2/adif/state\[2\]/CLK  d2/adif/state\[2\]/Q  d2/adif/state\[1\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[7\]/CLK  d1/u2/serialOut\[7\]/Q  d1/u2/serialOut\[8\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[8\]/CLK  d1/u2/serialOut\[8\]/Q  d1/u2/serialOut\[9\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[9\]/CLK  d1/u2/serialOut\[9\]/Q  d1/u2/serialOut\[10\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[10\]/CLK  d1/u2/serialOut\[10\]/Q  d1/u2/serialOut\[11\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[11\]/CLK  d1/u2/serialOut\[11\]/Q  d1/u2/serialOut\[12\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[12\]/CLK  d1/u2/serialOut\[12\]/Q  d1/u2/serialOut\[13\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[13\]/CLK  d1/u2/serialOut\[13\]/Q  d1/u2/serialOut\[14\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[14\]/CLK  d1/u2/serialOut\[14\]/Q  d1/u2/serialOut\[15\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[15\]/CLK  d1/u2/serialOut\[15\]/Q  d1/u2/serialOut\[16\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[16\]/CLK  d1/u2/serialOut\[16\]/Q  d1/u2/serialOut\[17\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[17\]/CLK  d1/u2/serialOut\[17\]/Q  d1/u2/serialOut\[18\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[18\]/CLK  d1/u2/serialOut\[18\]/Q  d1/u2/serialOut\[19\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[19\]/CLK  d1/u2/serialOut\[19\]/Q  d1/u2/serialOut\[20\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[20\]/CLK  d1/u2/serialOut\[20\]/Q  d1/u2/serialOut\[21\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[21\]/CLK  d1/u2/serialOut\[21\]/Q  d1/u2/serialOut\[22\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[22\]/CLK  d1/u2/serialOut\[22\]/Q  d1/u2/serialOut\[23\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[23\]/CLK  d1/u2/serialOut\[23\]/Q  d1/u2/serialOut\[24\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[24\]/CLK  d1/u2/serialOut\[24\]/Q  d1/u2/serialOut\[25\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serialOut\[25\]/CLK  d1/u2/serialOut\[25\]/Q  d1/u2/serialOut\[26\]/D  	(8.7:8.7:8.7) )
+
+    (PATHCONSTRAINT d1/u2/serClk/CLK  d1/u2/serClk/Q  eepromSCLK_pad/D  eepromSCLK_pad/PAD  	(10.0:10.0:10.0) )
+
+  )
+)
+)

@@ -1,0 +1,10 @@
+Synopsys Netlist Linker, version comp201503p1, Build 094R, built May 14 2015
+@N|Running in 32-bit mode
+File C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synwork\CONNECTOR_comp.srs changed - recompiling
+
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 36MB peak: 37MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Thu Jan 21 09:05:13 2016
+
+###########################################################]
