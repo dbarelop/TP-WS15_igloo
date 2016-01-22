@@ -43,6 +43,7 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 	-- Component signals
 	SIGNAL strb: std_logic;
 	SIGNAL dout: std_logic_vector(13 DOWNTO 0);
+	SIGNAL reg: std_logic_vector(15 DOWNTO 0);
 
 	CONSTANT CMD_READTEMP: std_logic_vector(3 DOWNTO 0) := "0001";
 
@@ -54,7 +55,7 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 	TYPE tuartstate IS (S0, S1, S2, FINISHED);
 	SIGNAL uartstate: tuartstate;
 
-	TYPE treadstate IS (S0, S1, S2, S3, S4, S5, S6, FINISHED);
+	TYPE treadstate IS (S0, S0_2, S1, S2, S3, S4, S5, S6, FINISHED);
 	SIGNAL readstate: treadstate;
 
 	TYPE tcmd IS (READTEMP);
@@ -96,23 +97,26 @@ BEGIN
 		END PROCEDURE;
 
 		PROCEDURE readADT IS
+			CONSTANT MAXCNT: natural := reg'LENGTH;
+			VARIABLE cnt: integer RANGE 0 TO MAXCNT-1;
 		BEGIN
 			CASE readstate IS
 				WHEN S0 =>
 					ADTcs <= '1';
 					ADTmosi <= '1';
-					WAIT FOR 100 ms;
+					readstate <= S0_2;
+				WHEN S0_2 =>
 					ADTcs <= '0';
-					readstate => S1;
+					readstate <= S1;
 				WHEN S1 =>
-					ADT mosi <= '0';
-					readstate => S2;
+					ADTmosi <= '0';
+					readstate <= S2;
 				WHEN S2 =>
 					ADTsclk <= '0';
 					readstate <= S3;
 				WHEN S3 =>
 					reg <= reg(reg'LEFT-1 DOWNTO reg'RIGHT) & ADTmiso;
-					sclk <= '1';
+					ADTsclk <= '1';
 					IF cnt = MAXCNT-1 THEN
 						readstate <= S4;
 					ELSE
