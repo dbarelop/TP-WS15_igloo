@@ -43,7 +43,6 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 	-- Component signals
 	SIGNAL strb: std_logic;
 	SIGNAL dout: std_logic_vector(13 DOWNTO 0);
-	SIGNAL reg: std_logic_vector(15 DOWNTO 0);
 
 	CONSTANT CMD_READTEMP: std_logic_vector(3 DOWNTO 0) := "0001";
 
@@ -55,14 +54,11 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 	TYPE tuartstate IS (S0, S1, S2, FINISHED);
 	SIGNAL uartstate: tuartstate;
 
-	TYPE treadstate IS (S0, S1, S2, S3, S4, S5, S6, FINISHED);
+	TYPE treadstate IS (S0, S1, S2, S3, FINISHED);
 	SIGNAL readstate: treadstate;
 
 	TYPE tcmd IS (READTEMP);
 	SIGNAL cmd: tcmd;
-
-	CONSTANT MAXCNT: natural := reg'LENGTH;
-	SIGNAL cnt: integer RANGE 0 TO MAXCNT-1;
 BEGIN
 
 	adtif: ADT7301IF
@@ -102,40 +98,20 @@ BEGIN
 		BEGIN
 			CASE readstate IS
 				WHEN S0 =>
-					ADTcs <= '0';
-					ADTmosi <= '1';
+					strb <= '1';
 					readstate <= S1;
 				WHEN S1 =>
-					ADTmosi <= '0';
-					cnt <= 0;
-					readstate <= S2;
-				WHEN S2 =>
-					ADTsclk <= '0';
-					readstate <= S3;
-				WHEN S3 =>
-					reg <= reg(reg'LEFT-1 DOWNTO reg'RIGHT) & ADTmiso;
-					ADTsclk <= '1';
-					IF cnt = MAXCNT-1 THEN
-						readstate <= S4;
-					ELSE
-						readstate <= S2;
-						cnt <= cnt + 1;
-					END IF;
-				WHEN S4 =>
-					ADTcs <= '1';
-					dout <= reg(dout'RANGE);
-					readstate <= S5;
-					uartstate <= S0;
-				WHEN S5 =>	-- send the first byte
 					strb <= '0';
-					--uartstate <= S0;
+					readstate <= S2;
+					uartstate <= S0;
+				WHEN S2 =>	-- send the first byte
+					strb <= '0';
 					sendUART("00" & dout(13 DOWNTO 8));
 					IF uartstate = FINISHED THEN
 						uartstate <= S0;
-						readstate <= S6;
+						readstate <= S3;
 					END IF;
-				WHEN S6 =>	-- send the second byte
-					--uartstate <= S0;
+				WHEN S3 =>	-- send the second byte
 					sendUART(dout(7 DOWNTO 0));
 					IF uartstate <= FINISHED THEN
 						readstate <= FINISHED;
