@@ -54,7 +54,7 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 	TYPE tuartstate IS (S0, S1, S2, FINISHED);
 	SIGNAL uartstate: tuartstate;
 
-	TYPE treadstate IS (S0, S1, S2, FINISHED);
+	TYPE treadstate IS (S0, S1, S2, S3, S4, S5, S6, FINISHED);
 	SIGNAL readstate: treadstate;
 
 	TYPE tcmd IS (READTEMP);
@@ -99,18 +99,40 @@ BEGIN
 		BEGIN
 			CASE readstate IS
 				WHEN S0 =>
-					strb <= '1';
-					readstate <= S1;
+					ADTcs <= '1';
+					ADTmosi <= '1';
+					WAIT FOR 100 ms;
+					ADTcs <= '0';
+					readstate => S1;
+				WHEN S1 =>
+					ADT mosi <= '0';
+					readstate => S2;
+				WHEN S2 =>
+					ADTsclk <= '0';
+					readstate <= S3;
+				WHEN S3 =>
+					reg <= reg(reg'LEFT-1 DOWNTO reg'RIGHT) & ADTmiso;
+					sclk <= '1';
+					IF cnt = MAXCNT-1 THEN
+						readstate <= S4;
+					ELSE
+						readstate <= S2;
+						cnt := cnt + 1;
+					END IF;
+				WHEN S4 =>
+					ADTcs <= '1';
+					dout <= reg(dout'RANGE);
+					readstate <= S5;
 					uartstate <= S0;
-				WHEN S1 =>	-- send the first byte
+				WHEN S5 =>	-- send the first byte
 					strb <= '0';
 					--uartstate <= S0;
 					sendUART("00" & dout(13 DOWNTO 8));
 					IF uartstate = FINISHED THEN
 						uartstate <= S0;
-						readstate <= S2;
+						readstate <= S6;
 					END IF;
-				WHEN S2 =>	-- send the second byte
+				WHEN S6 =>	-- send the second byte
 					--uartstate <= S0;
 					sendUART(dout(7 DOWNTO 0));
 					IF uartstate <= FINISHED THEN

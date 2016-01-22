@@ -35,17 +35,12 @@ ARCHITECTURE behaviour OF ADT7301CTRL_tb IS
 	);
 	END COMPONENT;
 
-	COMPONENT ADT7301IF IS
-	GENERIC(RSTDEF: std_logic);
-	PORT(rst:	IN std_logic;
-		 clk:	IN std_logic;
-		 strb:	IN std_logic;
-		 dout:	OUT std_logic_vector(13 DOWNTO 0);
-		 sclk:	OUT std_logic;
-		 cs:	OUT std_logic;
-		 mosi:	OUT std_logic;
-		 miso:	IN std_logic);
-	END COMPONENT;
+   COMPONENT ADT7301
+      PORT(sclk: IN  std_logic;  -- serial clock input
+           cs:   IN  std_logic;  -- chip select, low active
+           din:  IN  std_logic;  -- serial data input
+           dout: OUT std_logic); -- serial data output
+   END COMPONENT;
 
 	CONSTANT ADT_DEVICEID: std_logic_vector(3 DOWNTO 0) := "0011";
 	CONSTANT CMD_READTEMP: std_logic_vector(3 DOWNTO 0) := "0001";
@@ -74,16 +69,11 @@ BEGIN
 
 	clk <= NOT clk AFTER tcyc/2;
 
-	adtif: ADT7301IF
-	GENERIC MAP(RSTDEF => RSTDEF)
-	PORT MAP(rst	=> rst,
-			 clk	=> clk,
-			 strb	=> strb,
-			 dout	=> ADTdout,
-			 sclk	=> ADTsclk,
-			 cs		=> ADTcs,
-			 mosi	=> ADTmosi,
-			 miso	=> ADTmiso);
+   adt: ADT7301
+   PORT MAP(sclk => ADTsclk,
+            cs   => ADTcs,
+            din  => ADTmosi,
+            dout => ADTmiso);
 
 	adtctrl: ADT7301CTRL
 	GENERIC MAP(RSTDEF => RSTDEF,
@@ -114,7 +104,7 @@ BEGIN
 
 		PROCEDURE uartSendN (dataIn: std_logic_vector(7 DOWNTO 0)) IS
 		BEGIN
-			-- Send
+			-- Send command
 			uartin <= dataIn(7 DOWNTO 0);
 			uartRx <= '1';
 			WAIT UNTIL uartRd = '1';
@@ -128,14 +118,14 @@ BEGIN
 				WAIT UNTIL uartTx = '0';
 			END IF;
 
-			-- Receive the result
+			-- Receive result
 			WAIT UNTIL uartTx = '1';
-			result <= x"00" & uartout;
+			result <= x"00" & uartout;				-- first byte
 			uartTxReady <= '0';
 			WAIT FOR 1 us;
 			uartTxReady <= '1';
 			WAIT UNTIL uartTx = '1';
-			result <= result(7 DOWNTO 0) & uartout;
+			result <= result(7 DOWNTO 0) & uartout;	-- second byte
 			assert valid_temp_value(result) report "wrong result";
 			uartTxReady <= '0';
 			WAIT FOR 1 us;
