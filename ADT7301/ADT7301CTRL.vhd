@@ -53,7 +53,7 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 	);
 	END COMPONENT;
 
-	SIGNAL startLED std_logic;
+	SIGNAL startLED: std_logic;
 	-- Component signals
 	SIGNAL strb: std_logic;
 	SIGNAL dout: std_logic_vector(13 DOWNTO 0);
