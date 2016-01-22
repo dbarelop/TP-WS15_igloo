@@ -61,6 +61,8 @@ ARCHITECTURE behaviour OF ADT7301CTRL IS
 	TYPE tcmd IS (READTEMP);
 	SIGNAL cmd: tcmd;
 
+	CONSTANT MAXCNT: natural := reg'LENGTH;
+	SIGNAL cnt: integer RANGE 0 TO MAXCNT-1;
 BEGIN
 
 	adtif: ADT7301IF
@@ -97,8 +99,6 @@ BEGIN
 		END PROCEDURE;
 
 		PROCEDURE readADT IS
-			CONSTANT MAXCNT: natural := reg'LENGTH;
-			VARIABLE cnt: integer RANGE 0 TO MAXCNT-1;
 		BEGIN
 			CASE readstate IS
 				WHEN S0 =>
@@ -110,6 +110,7 @@ BEGIN
 					readstate <= S1;
 				WHEN S1 =>
 					ADTmosi <= '0';
+					cnt <= 0;
 					readstate <= S2;
 				WHEN S2 =>
 					ADTsclk <= '0';
@@ -121,7 +122,7 @@ BEGIN
 						readstate <= S4;
 					ELSE
 						readstate <= S2;
-						cnt := cnt + 1;
+						cnt <= cnt + 1;
 					END IF;
 				WHEN S4 =>
 					ADTcs <= '1';
