@@ -30,7 +30,7 @@ IGLOO nano Starter Kit
 | 93      | MOSI        |
 | 94      | MISO        |
 
-## AD
+## ADC
 
 | Pin No. | Net name   |
 |---------|------------|
@@ -40,3 +40,12 @@ IGLOO nano Starter Kit
 | 84      | CS        |
 | 85      | MISO      |
 | 86      | MODE       |
+
+## ADT
+
+| Pin No. | Net name   |
+|---------|------------|
+| 95      | MOSI       |
+| 96      | SCLK        |
+| 97      | CS        |
+| 98      | MISO      |
