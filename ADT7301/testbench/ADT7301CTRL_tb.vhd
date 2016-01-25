@@ -16,6 +16,7 @@ ARCHITECTURE behaviour OF ADT7301CTRL_tb IS
 	GENERIC(RSTDEF: std_logic;
 			DEVICEID: std_logic_vector);
 	PORT(	rst:		IN	std_logic;
+			swrst:		IN  std_logic;
 			clk:		IN	std_logic;
 
 			uartin:		IN 	std_logic_vector(7 DOWNTO 0);
@@ -26,6 +27,7 @@ ARCHITECTURE behaviour OF ADT7301CTRL_tb IS
 			uartTx:		INOUT std_logic;						-- starts transmission of new byte
 
 			busy:		INOUT	std_logic;					-- busy bit indicates working component
+			busyLED:	OUT 	std_logic;
 
 			-- Component pins
 			ADTsclk:	OUT std_logic;
@@ -77,6 +79,7 @@ BEGIN
 	GENERIC MAP(RSTDEF => RSTDEF,
 				DEVICEID => "0011")
 	PORT MAP(rst			=> rst,
+			 swrst			=> NOT RSTDEF,
 			 clk			=> clk,
 			 uartin			=> uartin,
 			 uartRx			=> uartRx,
@@ -85,6 +88,7 @@ BEGIN
 			 uartTxReady	=> uartTxReady,
 			 uartTx			=> uartTx,
 			 busy			=> busy,
+			 busyLED		=> OPEN,
 			 ADTsclk		=> ADTsclk,
 			 ADTcs			=> ADTcs,
 			 ADTmosi		=> ADTmosi,
