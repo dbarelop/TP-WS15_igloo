@@ -2,53 +2,55 @@ Target Part: AGLN250V2_VQFP100_STD
 Report for cell top.verilog
   Core Cell usage:
               cell count     area count*area
-              AND2    15      1.0       15.0
+              AND2    14      1.0       14.0
               AND3    22      1.0       22.0
-               AO1    72      1.0       72.0
+               AO1    98      1.0       98.0
               AO12     1      1.0        1.0
-              AO1A    36      1.0       36.0
-              AO1B     3      1.0        3.0
-              AO1C     8      1.0        8.0
+              AO1A    62      1.0       62.0
+              AO1B     2      1.0        2.0
+              AO1C    10      1.0       10.0
               AO1D     6      1.0        6.0
-              AOI1    12      1.0       12.0
-             AOI1B     4      1.0        4.0
-               AX1     3      1.0        3.0
-              AX1A     4      1.0        4.0
+              AOI1    13      1.0       13.0
+             AOI1B     2      1.0        2.0
+               AX1     2      1.0        2.0
+              AX1A     5      1.0        5.0
               AX1B     1      1.0        1.0
               AX1C     9      1.0        9.0
+              AX1E     3      1.0        3.0
+             AXOI4     1      1.0        1.0
              AXOI5     1      1.0        1.0
-              BUFF    23      1.0       23.0
-               GND    19      0.0        0.0
+              BUFF    28      1.0       28.0
+               GND    22      0.0        0.0
                INV     6      1.0        6.0
               MAJ3     1      1.0        1.0
-               MX2   109      1.0      109.0
+               MX2   113      1.0      113.0
               MX2A    25      1.0       25.0
-              MX2B     8      1.0        8.0
-              MX2C    16      1.0       16.0
-              NOR2    71      1.0       71.0
-             NOR2A   159      1.0      159.0
+              MX2B    11      1.0       11.0
+              MX2C    14      1.0       14.0
+              NOR2    80      1.0       80.0
+             NOR2A   157      1.0      157.0
              NOR2B   186      1.0      186.0
-              NOR3    34      1.0       34.0
-             NOR3A    42      1.0       42.0
-             NOR3B    66      1.0       66.0
-             NOR3C    36      1.0       36.0
-               OA1    28      1.0       28.0
-              OA1A    14      1.0       14.0
-              OA1B    25      1.0       25.0
-              OA1C    31      1.0       31.0
-              OAI1     5      1.0        5.0
-               OR2    60      1.0       60.0
-              OR2A    28      1.0       28.0
-              OR2B    12      1.0       12.0
-               OR3    47      1.0       47.0
-              OR3A    11      1.0       11.0
-              OR3B     4      1.0        4.0
-              OR3C     1      1.0        1.0
+              NOR3    53      1.0       53.0
+             NOR3A    54      1.0       54.0
+             NOR3B    85      1.0       85.0
+             NOR3C    55      1.0       55.0
+               OA1    33      1.0       33.0
+              OA1A    15      1.0       15.0
+              OA1B    34      1.0       34.0
+              OA1C    34      1.0       34.0
+              OAI1     3      1.0        3.0
+               OR2    74      1.0       74.0
+              OR2A    33      1.0       33.0
+              OR2B    19      1.0       19.0
+               OR3    40      1.0       40.0
+              OR3A    22      1.0       22.0
+              OR3B     5      1.0        5.0
+              OR3C     2      1.0        2.0
                PLL     1      0.0        0.0
-               VCC    19      0.0        0.0
-               XA1     3      1.0        3.0
-              XA1A     1      1.0        1.0
-              XA1B    64      1.0       64.0
+               VCC    22      0.0        0.0
+               XA1     1      1.0        1.0
+              XA1A     2      1.0        2.0
+              XA1B    84      1.0       84.0
               XA1C     2      1.0        2.0
              XNOR2     4      1.0        4.0
               XOR2    38      1.0       38.0
@@ -56,27 +58,28 @@ Report for cell top.verilog
 
 
               DFN1    13      1.0       13.0
-            DFN1C0   146      1.0      146.0
-          DFN1E0C0    90      1.0       90.0
-          DFN1E0P0    14      1.0       14.0
-            DFN1E1    12      1.0       12.0
-          DFN1E1C0   185      1.0      185.0
-          DFN1E1P0     3      1.0        3.0
-            DFN1P0    18      1.0       18.0
+            DFN1C0   165      1.0      165.0
+            DFN1E0    15      1.0       15.0
+          DFN1E0C0   131      1.0      131.0
+          DFN1E0P0    15      1.0       15.0
+            DFN1E1    16      1.0       16.0
+          DFN1E1C0   208      1.0      208.0
+          DFN1E1P0     4      1.0        4.0
+            DFN1P0    24      1.0       24.0
                    -----          ----------
-             TOTAL  1878              1839.0
+             TOTAL  2202              2157.0
 
 
   IO Cell usage:
               cell count
-             INBUF     6
-            OUTBUF    16
+             INBUF     7
+            OUTBUF    19
                    -----
-             TOTAL    22
+             TOTAL    26
 
 
-Core Cells         : 1839 of 6144 (30%)
-IO Cells           : 22
+Core Cells         : 2157 of 6144 (35%)
+IO Cells           : 26
 
   RAM/ROM Usage Summary
 Block Rams : 0 of 8 (0%)

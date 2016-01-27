@@ -16,7 +16,7 @@ Opened an existing Libero design top.adb.
 Imported the file:
    C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.edn
 
-The Import command succeeded ( 00:00:10 )
+The Import command succeeded ( 00:00:11 )
 =====================================================================
 Parameters used to run compile:
 ===============================
@@ -65,11 +65,11 @@ Optimized macros:
   - Buffers:                0
   - Inverters:              0
   - Tieoff:                 0
-  - Logic combining:        31
+  - Logic combining:        29
 
-    Total macros optimized  31
+    Total macros optimized  29
 
-Warning: CMP503: Remapped 359 enable flip-flop(s) to a 2-tile implementation because the CLR/PRE
+Warning: CMP503: Remapped 358 enable flip-flop(s) to a 2-tile implementation because the CLR/PRE
          pin on the enable flip-flop is not being driven by a global net.
 
 There were 0 error(s) and 6 warning(s) in this design.
@@ -84,7 +84,7 @@ There were 0 error(s) and 0 warning(s).
 Compile report:
 ===============
 
-    CORE                       Used:   2494  Total:   6144   (40.59%)
+    CORE                       Used:   2486  Total:   6144   (40.46%)
     IO (W/ clocks)             Used:     26  Total:     68   (38.24%)
     GLOBAL (Chip+Quadrant)     Used:      1  Total:     18   (5.56%)
     PLL                        Used:      1  Total:      1   (100.00%)
@@ -108,8 +108,8 @@ Core Information:
 
     Type    | Instances    | Core tiles
     --------|--------------|-----------
-    COMB    | 1902         | 1902
-    SEQ     | 592          | 592
+    COMB    | 1895         | 1895
+    SEQ     | 591          | 591
 
 I/O Function:
 
@@ -156,7 +156,7 @@ The following nets drive enable flip-flops that have been remapped to a 2-tile i
     24      SET/RESET_NET Net   : rst_c_6
                           Driver: rst_pad_RNIDGQ2_3
     24      SET/RESET_NET Net   : rst_c_7
-                          Driver: rst_pad_RNIDGQ2_7
+                          Driver: rst_pad_RNIDGQ2_5
     24      SET/RESET_NET Net   : rst_c_8
                           Driver: rst_pad_RNIDGQ2_2
     24      SET/RESET_NET Net   : rst_c_9
@@ -165,7 +165,7 @@ The following nets drive enable flip-flops that have been remapped to a 2-tile i
 The following nets have been assigned to a chip global resource:
     Fanout  Type          Name
     --------------------------
-    592     CLK_NET       Net   : GLA
+    591     CLK_NET       Net   : GLA
                           Driver: sCLK_0/Core
                           Source: ESSENTIAL
 
@@ -187,7 +187,7 @@ High fanout nets in the post compile netlist:
     24      SET/RESET_NET Net   : rst_c_6
                           Driver: rst_pad_RNIDGQ2_3
     24      SET/RESET_NET Net   : rst_c_7
-                          Driver: rst_pad_RNIDGQ2_7
+                          Driver: rst_pad_RNIDGQ2_5
     24      SET/RESET_NET Net   : rst_c_8
                           Driver: rst_pad_RNIDGQ2_2
     24      SET/RESET_NET Net   : rst_c_9
@@ -196,26 +196,26 @@ High fanout nets in the post compile netlist:
 Nets that are candidates for clock assignment and the resulting fanout:
     Fanout  Type          Name
     --------------------------
-    559     SET/RESET_NET Net   : rst_c
+    557     SET/RESET_NET Net   : rst_c
                           Driver: rst_pad
     24      INT_NET       Net   : CONNECTOR_0/rhrf_0
                           Driver: CONNECTOR_0/u1/re/done_0
     24      INT_NET       Net   : CONNECTOR_0/rhrf
                           Driver: CONNECTOR_0/u1/re/done
-    24      INT_NET       Net   : CONNECTOR_0/d2/adif/ch1_1_sqmuxa
-                          Driver: CONNECTOR_0/d2/adif/state_RNIALGJ[0]
+    24      INT_NET       Net   : CONNECTOR_0/uartTxReady
+                          Driver: CONNECTOR_0/u1/tr/hre_RNI916I
     24      INT_NET       Net   : CONNECTOR_0/d2/adif/ch1_0_sqmuxa
                           Driver: CONNECTOR_0/d2/adif/state_RNIALGJ_0[0]
+    24      INT_NET       Net   : CONNECTOR_0/d2/adif/ch1_1_sqmuxa
+                          Driver: CONNECTOR_0/d2/adif/state_RNIALGJ[0]
     24      INT_NET       Net   : CONNECTOR_0/d3/adtif/state[1]
                           Driver: CONNECTOR_0/d3/adtif/state[1]
-    24      INT_NET       Net   : CONNECTOR_0/d1/maincmd[4]
-                          Driver: CONNECTOR_0/d1/maincmd[4]/U1
-    23      INT_NET       Net   : CONNECTOR_0/swrst_2
-                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_2
+    23      INT_NET       Net   : CONNECTOR_0/swrst_3
+                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_3
+    23      INT_NET       Net   : CONNECTOR_0/swrst_8
+                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_8
     23      INT_NET       Net   : CONNECTOR_0/swrst_7
                           Driver: CONNECTOR_0/m1/timoutCounter/overflow_7
-    23      INT_NET       Net   : CONNECTOR_0/swrst_6
-                          Driver: CONNECTOR_0/m1/timoutCounter/overflow_6
 ====================
 Flash*Freeze report:
 ====================
@@ -233,9 +233,9 @@ Wrote pin report to file: top_report_pin_byname.txt
 The Report command succeeded ( 00:00:01 )
 Wrote pin report to file: top_report_pin_bynumber.txt
 
-The Report command succeeded ( 00:00:00 )
+The Report command succeeded ( 00:00:01 )
 Design saved to file C:\Users\matze\Documents\igloo\system\teamprojekt2\designer\impl1\top.adb.
 
-The Execute Script command succeeded ( 00:00:23 )
+The Execute Script command succeeded ( 00:00:24 )
 Design closed.
 

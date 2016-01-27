@@ -9,15 +9,15 @@ Printing clock  summary report in "C:\Users\matze\Documents\igloo\system\teampro
 @N: MF249 |Running in 32-bit mode.
 @N: MF667 |Clock conversion disabled 
 
-Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 58MB peak: 59MB)
+Design Input Complete (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 58MB peak: 60MB)
 
 
-Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 58MB peak: 59MB)
+Mapper Initialization Complete (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 58MB peak: 60MB)
 
 @N: BN362 :"c:\users\matze\documents\igloo\uart\receiver.vhd":50:6:50:7|Removing sequential instance ovre of view:PrimLib.dffre(prim) in hierarchy view:work.receiver_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
 @N: BN362 :"c:\users\matze\documents\igloo\uart\receiver.vhd":50:6:50:7|Removing sequential instance frme of view:PrimLib.dffre(prim) in hierarchy view:work.receiver_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
 
-Finished netlist restructuring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 64MB peak: 65MB)
+Finished netlist restructuring (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 64MB peak: 65MB)
 
 
 
@@ -30,15 +30,15 @@ Clock                       Frequency     Period        Type         Group
 sCLK|GLA_inferred_clock     100.0 MHz     10.000        inferred     Inferred_clkgroup_0
 ========================================================================================
 
-@W: MT530 :"c:\users\matze\documents\igloo\uart\sync_flipflop.vhd":20:6:20:7|Found inferred clock sCLK|GLA_inferred_clock which controls 519 sequential elements including CONNECTOR_0.u1.sff.tmp. This clock has no specified timing constraint which may adversely impact design performance. 
+@W: MT530 :"c:\users\matze\documents\igloo\uart\sync_flipflop.vhd":20:6:20:7|Found inferred clock sCLK|GLA_inferred_clock which controls 636 sequential elements including CONNECTOR_0.u1.sff.tmp. This clock has no specified timing constraint which may adversely impact design performance. 
 
 Finished Pre Mapping Phase.
 @N: BN225 |Writing default property annotation file C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.sap.
 Pre-mapping successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 31MB peak: 65MB)
+At Mapper Exit (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:01s; Memory used current: 32MB peak: 65MB)
 
-Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Fri Jan 22 11:29:38 2016
+Process took 0h:00m:03s realtime, 0h:00m:01s cputime
+# Wed Jan 27 12:03:46 2016
 
 ###########################################################]

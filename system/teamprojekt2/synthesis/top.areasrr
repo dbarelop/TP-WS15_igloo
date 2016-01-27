@@ -2,43 +2,130 @@
 Report for cell top.verilog
                                           Cell usage:
                                cell       count     area    count*area
-                               BUFF        23       1.0       23.0
-                          CONNECTOR         1    1816.0     1816.0
+                               BUFF        28       1.0       28.0
+                          CONNECTOR         1    2129.0     2129.0
                                 GND         1       0.0        0.0
-                              INBUF         6       0.0        0.0
-                             OUTBUF        16       0.0        0.0
+                              INBUF         7       0.0        0.0
+                             OUTBUF        19       0.0        0.0
                                 VCC         1       0.0        0.0
                                sCLK         1       0.0        0.0
                             
-                         TOTAL             49               1839.0
+                         TOTAL             58               2157.0
 ----------------------------------------------------------------------
 Report for cell CONNECTOR.netlist
      Instance path:  CONNECTOR_0
                                           Cell usage:
                                cell       count     area    count*area
-          AD7782CTRL_work_connector_behaviour_0layer1         1     447.0      447.0
+          AD7782CTRL_work_connector_behaviour_0layer1         1     435.0      435.0
+          ADT7301CTRL_work_connector_behaviour_0layer1         1     321.0      321.0
           ALIVECOUNTER_work_connector_behaviour_0layer1         1      53.0       53.0
-          COMPXCTRL_work_connector_behaviour_0layer1         1     254.0      254.0
-          EEPROMCTRL_work_connector_behaviour_0layer1         1     797.0      797.0
+          COMPXCTRL_work_connector_behaviour_0layer1         1     265.0      265.0
+          EEPROMCTRL_work_connector_behaviour_0layer1         1     792.0      792.0
                                 GND         1       0.0        0.0
                                 VCC         1       0.0        0.0
-          uart_work_connector_behaviour_0layer1         1     265.0      265.0
+          uart_work_connector_behaviour_0layer1         1     263.0      263.0
                             
-                         TOTAL              7               1816.0
+                         TOTAL              8               2129.0
+----------------------------------------------------------------------
+Report for cell ADT7301CTRL_work_connector_behaviour_0layer1.netlist
+     Instance path:  CONNECTOR_0.d3
+                                          Cell usage:
+                               cell       count     area    count*area
+          ADT7301IF_work_connector_behaviour_0layer1         1      73.0       73.0
+                                AO1         7       1.0        7.0
+                               AO1A         5       1.0        5.0
+                               AO1B         1       1.0        1.0
+          BUSYCOUNTER_work_connector_behaviour_0layer1_3_2         1      62.0       62.0
+                             DFN1C0        14       1.0       14.0
+                             DFN1E0        15       1.0       15.0
+                           DFN1E0C0         8       1.0        8.0
+                             DFN1E1         4       1.0        4.0
+                           DFN1E1C0         3       1.0        3.0
+                             DFN1P0         6       1.0        6.0
+                                GND         1       0.0        0.0
+                                MX2         1       1.0        1.0
+                               MX2C         1       1.0        1.0
+                               NOR2        10       1.0       10.0
+                              NOR2A        18       1.0       18.0
+                              NOR2B        18       1.0       18.0
+                               NOR3        14       1.0       14.0
+                              NOR3A        12       1.0       12.0
+                              NOR3B         5       1.0        5.0
+                              NOR3C         4       1.0        4.0
+                                OA1         1       1.0        1.0
+                               OA1A         3       1.0        3.0
+                               OA1B         1       1.0        1.0
+                               OA1C         3       1.0        3.0
+                                OR2         9       1.0        9.0
+                               OR2A         4       1.0        4.0
+                               OR2B         5       1.0        5.0
+                                OR3         7       1.0        7.0
+                               OR3A         6       1.0        6.0
+                               OR3B         1       1.0        1.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL            190                321.0
+----------------------------------------------------------------------
+Report for cell BUSYCOUNTER_work_connector_behaviour_0layer1_3_2.netlist
+  Original Cell name BUSYCOUNTER_work_connector_behaviour_0layer1_3
+     Instance path:  CONNECTOR_0.d3.bsyCnt
+                                          Cell usage:
+                               cell       count     area    count*area
+                           DFN1E0C0         1       1.0        1.0
+                           DFN1E1C0        18       1.0       18.0
+                                GND         1       0.0        0.0
+                                INV         2       1.0        2.0
+                               MX2C         1       1.0        1.0
+                               NOR2         1       1.0        1.0
+                              NOR2A         1       1.0        1.0
+                              NOR2B        15       1.0       15.0
+                              NOR3B         1       1.0        1.0
+                              NOR3C         4       1.0        4.0
+                                OR2         2       1.0        2.0
+                                VCC         1       0.0        0.0
+                               XA1B        16       1.0       16.0
+                            
+                         TOTAL             64                 62.0
+----------------------------------------------------------------------
+Report for cell ADT7301IF_work_connector_behaviour_0layer1.netlist
+     Instance path:  CONNECTOR_0.d3.adtif
+                                          Cell usage:
+                               cell       count     area    count*area
+                               AO1A         3       1.0        3.0
+                               AO1D         4       1.0        4.0
+                               AX1E         1       1.0        1.0
+                             DFN1C0         2       1.0        2.0
+                           DFN1E0C0        14       1.0       14.0
+                           DFN1E0P0         1       1.0        1.0
+                           DFN1E1C0        20       1.0       20.0
+                           DFN1E1P0         1       1.0        1.0
+                                GND         1       0.0        0.0
+                              NOR2A         1       1.0        1.0
+                              NOR2B        12       1.0       12.0
+                              NOR3A         1       1.0        1.0
+                              NOR3B         1       1.0        1.0
+                                OA1         4       1.0        4.0
+                               OA1B         1       1.0        1.0
+                               OR2A         1       1.0        1.0
+                               OR2B         1       1.0        1.0
+                               OR3B         1       1.0        1.0
+                               OR3C         1       1.0        1.0
+                                VCC         1       0.0        0.0
+                               XOR2         3       1.0        3.0
+                            
+                         TOTAL             75                 73.0
 ----------------------------------------------------------------------
 Report for cell AD7782CTRL_work_connector_behaviour_0layer1.netlist
      Instance path:  CONNECTOR_0.d2
                                           Cell usage:
                                cell       count     area    count*area
           AD7782IF_work_connector_behaviour_0layer1         1     122.0      122.0
-                               AND2         1       1.0        1.0
-                                AO1        10       1.0       10.0
-                               AO1A        10       1.0       10.0
-                               AO1B         1       1.0        1.0
-                               AO1D         4       1.0        4.0
-                               AOI1         2       1.0        2.0
-                              AOI1B         1       1.0        1.0
-          BUSYCOUNTER_work_connector_behaviour_0layer1_2_1         1      63.0       63.0
+                                AO1         9       1.0        9.0
+                               AO1A        14       1.0       14.0
+                               AO1D         1       1.0        1.0
+                               AOI1         3       1.0        3.0
+                               AX1E         1       1.0        1.0
+          BUSYCOUNTER_work_connector_behaviour_0layer1_3_1         1      61.0       61.0
                                DFN1         8       1.0        8.0
                              DFN1C0        24       1.0       24.0
                            DFN1E0C0         1       1.0        1.0
@@ -47,60 +134,60 @@ Report for cell AD7782CTRL_work_connector_behaviour_0layer1.netlist
                            DFN1E1P0         1       1.0        1.0
                              DFN1P0         2       1.0        2.0
                                 GND         1       0.0        0.0
-                                MX2        21       1.0       21.0
+                                MX2        26       1.0       26.0
                                MX2A         1       1.0        1.0
-                               MX2C         5       1.0        5.0
-                               NOR2        17       1.0       17.0
-                              NOR2A        23       1.0       23.0
-                              NOR2B        34       1.0       34.0
-                               NOR3         7       1.0        7.0
+                               NOR2        14       1.0       14.0
+                              NOR2A        14       1.0       14.0
+                              NOR2B         9       1.0        9.0
+                               NOR3        11       1.0       11.0
                               NOR3A         6       1.0        6.0
-                              NOR3B         8       1.0        8.0
-                              NOR3C         5       1.0        5.0
-                                OA1         6       1.0        6.0
-                               OA1A         2       1.0        2.0
-                               OA1B         2       1.0        2.0
-                               OA1C         8       1.0        8.0
-                               OAI1         1       1.0        1.0
-                                OR2        12       1.0       12.0
-                               OR2A         8       1.0        8.0
-                               OR2B         4       1.0        4.0
-                                OR3        12       1.0       12.0
+                              NOR3B        17       1.0       17.0
+                              NOR3C        11       1.0       11.0
+                                OA1         8       1.0        8.0
+                               OA1A         3       1.0        3.0
+                               OA1B         5       1.0        5.0
+                               OA1C        10       1.0       10.0
+                                OR2        16       1.0       16.0
+                               OR2A         9       1.0        9.0
+                               OR2B         3       1.0        3.0
+                                OR3        10       1.0       10.0
                                OR3A         3       1.0        3.0
                                OR3B         2       1.0        2.0
                                 VCC         1       0.0        0.0
                                XA1A         1       1.0        1.0
                             
-                         TOTAL            266                447.0
+                         TOTAL            256                435.0
 ----------------------------------------------------------------------
-Report for cell BUSYCOUNTER_work_connector_behaviour_0layer1_2_1.netlist
-  Original Cell name BUSYCOUNTER_work_connector_behaviour_0layer1_2
+Report for cell BUSYCOUNTER_work_connector_behaviour_0layer1_3_1.netlist
+  Original Cell name BUSYCOUNTER_work_connector_behaviour_0layer1_3
      Instance path:  CONNECTOR_0.d2.bsyCnt
                                           Cell usage:
                                cell       count     area    count*area
-                           DFN1E0C0         1       1.0        1.0
-                           DFN1E1C0        18       1.0       18.0
+                           DFN1E0C0        19       1.0       19.0
                                 GND         1       0.0        0.0
-                                INV         2       1.0        2.0
+                                INV         1       1.0        1.0
                                MX2C         1       1.0        1.0
-                               NOR2         1       1.0        1.0
+                               NOR2         2       1.0        2.0
                               NOR2A         1       1.0        1.0
-                              NOR2B        17       1.0       17.0
+                              NOR2B        15       1.0       15.0
                               NOR3B         1       1.0        1.0
-                              NOR3C         3       1.0        3.0
-                                OR2         2       1.0        2.0
+                              NOR3C         4       1.0        4.0
+                                OR2         1       1.0        1.0
                                 VCC         1       0.0        0.0
                                XA1B        16       1.0       16.0
                             
-                         TOTAL             65                 63.0
+                         TOTAL             63                 61.0
 ----------------------------------------------------------------------
 Report for cell AD7782IF_work_connector_behaviour_0layer1.netlist
      Instance path:  CONNECTOR_0.d2.adif
                                           Cell usage:
                                cell       count     area    count*area
-                               AND2         2       1.0        2.0
-                                AO1         1       1.0        1.0
+                               AND2         1       1.0        1.0
+                                AO1         2       1.0        2.0
+                               AO1A         1       1.0        1.0
                                AO1C         1       1.0        1.0
+                               AX1A         1       1.0        1.0
+                               AX1E         1       1.0        1.0
                                DFN1         5       1.0        5.0
                              DFN1C0         5       1.0        5.0
                            DFN1E0C0         1       1.0        1.0
@@ -108,18 +195,20 @@ Report for cell AD7782IF_work_connector_behaviour_0layer1.netlist
                            DFN1E1P0         2       1.0        2.0
                              DFN1P0         3       1.0        3.0
                                 GND         1       0.0        0.0
-                                MX2         4       1.0        4.0
+                                MX2         2       1.0        2.0
+                               MX2B         2       1.0        2.0
                                NOR2         1       1.0        1.0
                               NOR2A         3       1.0        3.0
-                              NOR2B         8       1.0        8.0
+                              NOR2B         7       1.0        7.0
                                NOR3         1       1.0        1.0
                               NOR3C         1       1.0        1.0
-                               OA1A         1       1.0        1.0
                                OA1C         2       1.0        2.0
-                                OR2         3       1.0        3.0
+                                OR2         2       1.0        2.0
                                OR2A         1       1.0        1.0
+                               OR2B         2       1.0        2.0
                                 VCC         1       0.0        0.0
-                               XOR2         5       1.0        5.0
+                               XA1A         1       1.0        1.0
+                               XOR2         2       1.0        2.0
                             
                          TOTAL            124                122.0
 ----------------------------------------------------------------------
@@ -127,166 +216,51 @@ Report for cell EEPROMCTRL_work_connector_behaviour_0layer1.netlist
      Instance path:  CONNECTOR_0.d1
                                           Cell usage:
                                cell       count     area    count*area
-                                AO1        42       1.0       42.0
-                               AO1A        23       1.0       23.0
-                               AO1B         1       1.0        1.0
-                               AO1C         1       1.0        1.0
-                               AO1D         1       1.0        1.0
-                               AOI1         2       1.0        2.0
-                              AOI1B         3       1.0        3.0
-          BUSYCOUNTER_work_connector_behaviour_0layer1_2_0         1      63.0       63.0
+                               AND2         3       1.0        3.0
+                                AO1        50       1.0       50.0
+                               AO1A        32       1.0       32.0
+                               AO1C         2       1.0        2.0
+                               AOI1         3       1.0        3.0
+                              AOI1B         2       1.0        2.0
+          BUSYCOUNTER_work_connector_behaviour_0layer1_3_0         1      62.0       62.0
                              DFN1C0        30       1.0       30.0
                            DFN1E0C0         7       1.0        7.0
                            DFN1E0P0         1       1.0        1.0
                              DFN1E1         4       1.0        4.0
                            DFN1E1C0        31       1.0       31.0
                              DFN1P0         2       1.0        2.0
-          EEPROM93LC66IF_work_connector_behaviour_0layer1         1     269.0      269.0
+          EEPROM93LC66IF_work_connector_behaviour_0layer1         1     264.0      264.0
                                 GND         1       0.0        0.0
                                 MX2        43       1.0       43.0
                                MX2A         1       1.0        1.0
-                               MX2B         1       1.0        1.0
-                               NOR2        18       1.0       18.0
-                              NOR2A        34       1.0       34.0
-                              NOR2B        46       1.0       46.0
-                               NOR3         8       1.0        8.0
-                              NOR3A        18       1.0       18.0
-                              NOR3B        39       1.0       39.0
+                               MX2B         2       1.0        2.0
+                               NOR2        17       1.0       17.0
+                              NOR2A        35       1.0       35.0
+                              NOR2B        52       1.0       52.0
+                               NOR3         7       1.0        7.0
+                              NOR3A         9       1.0        9.0
+                              NOR3B        26       1.0       26.0
                               NOR3C         9       1.0        9.0
-                                OA1        20       1.0       20.0
-                               OA1A         7       1.0        7.0
-                               OA1B         9       1.0        9.0
-                               OA1C         8       1.0        8.0
-                               OAI1         3       1.0        3.0
-                                OR2        13       1.0       13.0
-                               OR2A         8       1.0        8.0
+                                OA1        17       1.0       17.0
+                               OA1A         5       1.0        5.0
+                               OA1B        12       1.0       12.0
+                               OA1C         7       1.0        7.0
+                               OAI1         2       1.0        2.0
+                                OR2        19       1.0       19.0
+                               OR2A        11       1.0       11.0
                                OR2B         6       1.0        6.0
-                                OR3        21       1.0       21.0
-                               OR3A         4       1.0        4.0
-                               OR3B         1       1.0        1.0
+                                OR3        13       1.0       13.0
+                               OR3A         5       1.0        5.0
                                 VCC         1       0.0        0.0
+                                XA1         1       1.0        1.0
                             
-                         TOTAL            469                797.0
+                         TOTAL            470                792.0
 ----------------------------------------------------------------------
-Report for cell BUSYCOUNTER_work_connector_behaviour_0layer1_2_0.netlist
-  Original Cell name BUSYCOUNTER_work_connector_behaviour_0layer1_2
+Report for cell BUSYCOUNTER_work_connector_behaviour_0layer1_3_0.netlist
+  Original Cell name BUSYCOUNTER_work_connector_behaviour_0layer1_3
      Instance path:  CONNECTOR_0.d1.bsyCnt
                                           Cell usage:
                                cell       count     area    count*area
-                           DFN1E0C0         1       1.0        1.0
-                           DFN1E1C0        18       1.0       18.0
-                                GND         1       0.0        0.0
-                                INV         2       1.0        2.0
-                               MX2C         1       1.0        1.0
-                               NOR2         1       1.0        1.0
-                              NOR2A         1       1.0        1.0
-                              NOR2B        17       1.0       17.0
-                              NOR3B         1       1.0        1.0
-                              NOR3C         3       1.0        3.0
-                                OR2         2       1.0        2.0
-                                VCC         1       0.0        0.0
-                               XA1B        16       1.0       16.0
-                            
-                         TOTAL             65                 63.0
-----------------------------------------------------------------------
-Report for cell EEPROM93LC66IF_work_connector_behaviour_0layer1.netlist
-     Instance path:  CONNECTOR_0.d1.u2
-                                          Cell usage:
-                               cell       count     area    count*area
-                               AND2         7       1.0        7.0
-                                AO1         8       1.0        8.0
-                               AO1A         1       1.0        1.0
-                               AO1B         1       1.0        1.0
-                               AO1C         1       1.0        1.0
-                               AOI1         1       1.0        1.0
-                             DFN1C0         9       1.0        9.0
-                           DFN1E0C0        28       1.0       28.0
-                           DFN1E1C0        35       1.0       35.0
-                                GND         1       0.0        0.0
-                                INV         1       1.0        1.0
-                                MX2         3       1.0        3.0
-                               MX2A        13       1.0       13.0
-                               MX2B         5       1.0        5.0
-                               MX2C         4       1.0        4.0
-                               NOR2        13       1.0       13.0
-                              NOR2A        50       1.0       50.0
-                              NOR2B         4       1.0        4.0
-                               NOR3        13       1.0       13.0
-                              NOR3A        12       1.0       12.0
-                              NOR3B         7       1.0        7.0
-                              NOR3C         1       1.0        1.0
-                                OA1         1       1.0        1.0
-                               OA1A         4       1.0        4.0
-                               OA1B         2       1.0        2.0
-                               OA1C         3       1.0        3.0
-                                OR2        11       1.0       11.0
-                               OR2A         7       1.0        7.0
-                                OR3         8       1.0        8.0
-                               OR3A         3       1.0        3.0
-                                VCC         1       0.0        0.0
-                               XOR2        13       1.0       13.0
-                            
-                         TOTAL            271                269.0
-----------------------------------------------------------------------
-Report for cell COMPXCTRL_work_connector_behaviour_0layer1.netlist
-     Instance path:  CONNECTOR_0.m1
-                                          Cell usage:
-                               cell       count     area    count*area
-                                AO1         8       1.0        8.0
-                               AO1C         1       1.0        1.0
-                               AO1D         1       1.0        1.0
-                               AOI1         2       1.0        2.0
-          BUSYCOUNTER_work_connector_behaviour_0layer1_2         1      62.0       62.0
-          COUNTER_work_connector_behaviour_0layer1         1     116.0      116.0
-                             DFN1C0         9       1.0        9.0
-                           DFN1E0C0         3       1.0        3.0
-                             DFN1E1         4       1.0        4.0
-                           DFN1E1C0         2       1.0        2.0
-                             DFN1P0         2       1.0        2.0
-                                GND         1       0.0        0.0
-                               NOR2         6       1.0        6.0
-                              NOR2A         5       1.0        5.0
-                              NOR2B         5       1.0        5.0
-                               NOR3         4       1.0        4.0
-                              NOR3A         3       1.0        3.0
-                              NOR3B         2       1.0        2.0
-                               OA1B         2       1.0        2.0
-                               OA1C         4       1.0        4.0
-                                OR2         3       1.0        3.0
-                               OR2A         3       1.0        3.0
-                               OR2B         2       1.0        2.0
-                                OR3         3       1.0        3.0
-                               OR3A         1       1.0        1.0
-                               OR3B         1       1.0        1.0
-                                VCC         1       0.0        0.0
-                            
-                         TOTAL             80                254.0
-----------------------------------------------------------------------
-Report for cell COUNTER_work_connector_behaviour_0layer1.netlist
-     Instance path:  CONNECTOR_0.m1.timoutCounter
-                                          Cell usage:
-                               cell       count     area    count*area
-                               AND2         5       1.0        5.0
-                               AND3        22       1.0       22.0
-                             DFN1C0        27       1.0       27.0
-                                GND         1       0.0        0.0
-                                MX2        17       1.0       17.0
-                               NOR2         1       1.0        1.0
-                              NOR2A         1       1.0        1.0
-                              NOR2B        22       1.0       22.0
-                              NOR3B         2       1.0        2.0
-                                VCC         1       0.0        0.0
-                              XNOR2         1       1.0        1.0
-                               XOR2        18       1.0       18.0
-                            
-                         TOTAL            118                116.0
-----------------------------------------------------------------------
-Report for cell BUSYCOUNTER_work_connector_behaviour_0layer1_2.netlist
-  Original Cell name BUSYCOUNTER_work_connector_behaviour_0layer1
-     Instance path:  CONNECTOR_0.m1.bsyCnt
-                                          Cell usage:
-                               cell       count     area    count*area
-                                AO1         1       1.0        1.0
                            DFN1E0C0        19       1.0       19.0
                                 GND         1       0.0        0.0
                                 INV         1       1.0        1.0
@@ -296,6 +270,120 @@ Report for cell BUSYCOUNTER_work_connector_behaviour_0layer1_2.netlist
                               NOR2B        17       1.0       17.0
                               NOR3B         1       1.0        1.0
                               NOR3C         3       1.0        3.0
+                                OR2         1       1.0        1.0
+                                VCC         1       0.0        0.0
+                               XA1B        16       1.0       16.0
+                            
+                         TOTAL             64                 62.0
+----------------------------------------------------------------------
+Report for cell EEPROM93LC66IF_work_connector_behaviour_0layer1.netlist
+     Instance path:  CONNECTOR_0.d1.u2
+                                          Cell usage:
+                               cell       count     area    count*area
+                               AND2         5       1.0        5.0
+                                AO1        10       1.0       10.0
+                               AO1A         2       1.0        2.0
+                               AO1B         1       1.0        1.0
+                               AO1C         2       1.0        2.0
+                              AXOI4         1       1.0        1.0
+                             DFN1C0         9       1.0        9.0
+                           DFN1E0C0        28       1.0       28.0
+                           DFN1E1C0        35       1.0       35.0
+                                GND         1       0.0        0.0
+                                MX2         3       1.0        3.0
+                               MX2A        13       1.0       13.0
+                               MX2B         5       1.0        5.0
+                               MX2C         5       1.0        5.0
+                               NOR2        10       1.0       10.0
+                              NOR2A        42       1.0       42.0
+                              NOR2B         4       1.0        4.0
+                               NOR3        15       1.0       15.0
+                              NOR3A        20       1.0       20.0
+                              NOR3B         6       1.0        6.0
+                              NOR3C         2       1.0        2.0
+                                OA1         1       1.0        1.0
+                               OA1A         4       1.0        4.0
+                               OA1B         3       1.0        3.0
+                               OA1C         3       1.0        3.0
+                                OR2         6       1.0        6.0
+                               OR2A         3       1.0        3.0
+                                OR3         7       1.0        7.0
+                               OR3A         6       1.0        6.0
+                                VCC         1       0.0        0.0
+                               XOR2        13       1.0       13.0
+                            
+                         TOTAL            266                264.0
+----------------------------------------------------------------------
+Report for cell COMPXCTRL_work_connector_behaviour_0layer1.netlist
+     Instance path:  CONNECTOR_0.m1
+                                          Cell usage:
+                               cell       count     area    count*area
+                                AO1        19       1.0       19.0
+                               AO1A         1       1.0        1.0
+                               AO1C         1       1.0        1.0
+                               AO1D         1       1.0        1.0
+                               AOI1         2       1.0        2.0
+          BUSYCOUNTER_work_connector_behaviour_0layer1_3         1      62.0       62.0
+          COUNTER_work_connector_behaviour_0layer1         1     119.0      119.0
+                             DFN1C0         9       1.0        9.0
+                           DFN1E0C0         3       1.0        3.0
+                             DFN1E1         4       1.0        4.0
+                           DFN1E1C0         2       1.0        2.0
+                             DFN1P0         2       1.0        2.0
+                                GND         1       0.0        0.0
+                               NOR2         7       1.0        7.0
+                              NOR2A         5       1.0        5.0
+                              NOR2B         3       1.0        3.0
+                               NOR3         4       1.0        4.0
+                              NOR3A         3       1.0        3.0
+                              NOR3B         2       1.0        2.0
+                               OA1B         2       1.0        2.0
+                               OA1C         3       1.0        3.0
+                                OR2         3       1.0        3.0
+                               OR2A         3       1.0        3.0
+                               OR2B         2       1.0        2.0
+                                OR3         1       1.0        1.0
+                               OR3A         1       1.0        1.0
+                               OR3B         1       1.0        1.0
+                                VCC         1       0.0        0.0
+                            
+                         TOTAL             88                265.0
+----------------------------------------------------------------------
+Report for cell COUNTER_work_connector_behaviour_0layer1.netlist
+     Instance path:  CONNECTOR_0.m1.timoutCounter
+                                          Cell usage:
+                               cell       count     area    count*area
+                               AND2         5       1.0        5.0
+                               AND3        22       1.0       22.0
+                             DFN1C0        30       1.0       30.0
+                                GND         1       0.0        0.0
+                                MX2        17       1.0       17.0
+                               NOR2         1       1.0        1.0
+                              NOR2A         1       1.0        1.0
+                              NOR2B         4       1.0        4.0
+                              NOR3B        20       1.0       20.0
+                                VCC         1       0.0        0.0
+                              XNOR2         1       1.0        1.0
+                               XOR2        18       1.0       18.0
+                            
+                         TOTAL            121                119.0
+----------------------------------------------------------------------
+Report for cell BUSYCOUNTER_work_connector_behaviour_0layer1_3.netlist
+  Original Cell name BUSYCOUNTER_work_connector_behaviour_0layer1
+     Instance path:  CONNECTOR_0.m1.bsyCnt
+                                          Cell usage:
+                               cell       count     area    count*area
+                           DFN1E0C0         1       1.0        1.0
+                           DFN1E1C0        18       1.0       18.0
+                                GND         1       0.0        0.0
+                                INV         2       1.0        2.0
+                               MX2C         1       1.0        1.0
+                               NOR2         1       1.0        1.0
+                              NOR2A         1       1.0        1.0
+                              NOR2B        15       1.0       15.0
+                              NOR3B         1       1.0        1.0
+                              NOR3C         4       1.0        4.0
+                                OR2         2       1.0        2.0
                                 VCC         1       0.0        0.0
                                XA1B        16       1.0       16.0
                             
@@ -327,38 +415,36 @@ Report for cell uart_work_connector_behaviour_0layer1.netlist
           glitchfilter_work_connector_behaviour_0layer1         1      18.0       18.0
           receiver_work_connector_behaviour_0layer1         1     114.0      114.0
           sync_flipflop_work_connector_behaviour_0layer1         1       2.0        2.0
-          transmitter_work_connector_behaviour_0layer1         1      83.0       83.0
+          transmitter_work_connector_behaviour_0layer1         1      81.0       81.0
                             
-                         TOTAL              7                265.0
+                         TOTAL              7                263.0
 ----------------------------------------------------------------------
 Report for cell transmitter_work_connector_behaviour_0layer1.netlist
      Instance path:  CONNECTOR_0.u1.tr
                                           Cell usage:
                                cell       count     area    count*area
-                                AO1         1       1.0        1.0
-                               AOI1         1       1.0        1.0
-                                AX1         1       1.0        1.0
+                               AO1A         2       1.0        2.0
                            DFN1E0C0        12       1.0       12.0
                            DFN1E0P0        11       1.0       11.0
                            DFN1E1C0         4       1.0        4.0
                                 GND         1       0.0        0.0
                                 MX2         7       1.0        7.0
                                MX2A         2       1.0        2.0
-                               NOR2         1       1.0        1.0
-                              NOR2A         7       1.0        7.0
-                              NOR2B         7       1.0        7.0
+                               NOR2         4       1.0        4.0
+                              NOR2A         2       1.0        2.0
+                              NOR2B         6       1.0        6.0
                               NOR3B         1       1.0        1.0
-                              NOR3C         2       1.0        2.0
+                              NOR3C         3       1.0        3.0
+                                OA1         1       1.0        1.0
                                OA1B         8       1.0        8.0
                                OA1C         2       1.0        2.0
-                                OR2         9       1.0        9.0
+                                OR2         8       1.0        8.0
                                OR2A         1       1.0        1.0
-                                OR3         1       1.0        1.0
+                               OR3A         1       1.0        1.0
                                 VCC         1       0.0        0.0
-                                XA1         3       1.0        3.0
-                               XA1B         2       1.0        2.0
+                               XA1B         6       1.0        6.0
                             
-                         TOTAL             85                 83.0
+                         TOTAL             83                 81.0
 ----------------------------------------------------------------------
 Report for cell receiver_work_connector_behaviour_0layer1.netlist
      Instance path:  CONNECTOR_0.u1.re
@@ -367,7 +453,7 @@ Report for cell receiver_work_connector_behaviour_0layer1.netlist
                                AO12         1       1.0        1.0
                                AO1A         2       1.0        2.0
                                AO1C         1       1.0        1.0
-                               AOI1         4       1.0        4.0
+                               AOI1         5       1.0        5.0
                                AX1B         1       1.0        1.0
                               AXOI5         1       1.0        1.0
                              DFN1C0         7       1.0        7.0
@@ -380,12 +466,12 @@ Report for cell receiver_work_connector_behaviour_0layer1.netlist
                                MX2B         2       1.0        2.0
                                MX2C         4       1.0        4.0
                                NOR2         6       1.0        6.0
-                              NOR2A        17       1.0       17.0
+                              NOR2A        16       1.0       16.0
                               NOR2B         7       1.0        7.0
                                NOR3         1       1.0        1.0
                               NOR3A         2       1.0        2.0
-                              NOR3B         3       1.0        3.0
-                              NOR3C         1       1.0        1.0
+                              NOR3B         2       1.0        2.0
+                              NOR3C         2       1.0        2.0
                                OA1B         2       1.0        2.0
                                OA1C         3       1.0        3.0
                                OAI1         1       1.0        1.0

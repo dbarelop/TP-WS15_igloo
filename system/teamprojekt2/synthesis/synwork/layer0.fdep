@@ -1,13 +1,13 @@
 #OPTIONS:"|-mixedhdl|-modhint|C:\\Users\\matze\\Documents\\igloo\\system\\teamprojekt2\\synthesis\\synwork\\_verilog_hintfile|-top|top|-layerid|0|-orig_srs|C:\\Users\\matze\\Documents\\igloo\\system\\teamprojekt2\\synthesis\\synwork\\top_comp.srs|-prodtype|synplify_pro|-nram|-fixsmult|-divnmod|-I|C:\\Users\\matze\\Documents\\igloo\\system\\teamprojekt2\\synthesis\\|-I|C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib|-v2001|-devicelib|C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\proasic\\igloo.v|-encrypt|-pro|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-lib|work|-lib|work"
 #CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\bin\\c_ver.exe":1431624990
-#CUR:"C:\\Users\\matze\\Documents\\igloo\\system\\teamprojekt2\\synthesis\\synwork\\_verilog_hintfile":1453458569
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\system\\teamprojekt2\\synthesis\\synwork\\_verilog_hintfile":1453892616
 #CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\proasic\\igloo.v":1431615982
 #CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\vlog\\hypermods.v":1431624842
 #CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\vlog\\umr_capim.v":1431624842
 #CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\vlog\\scemi_objects.v":1431624842
 #CUR:"C:\\Microsemi\\Libero_v11.6\\Synopsys\\fpga_J-2015.03M-3\\lib\\vlog\\scemi_pipes.svh":1431624842
-#CUR:"C:\\Users\\matze\\Documents\\igloo\\system\\teamprojekt2\\smartgen\\sCLK\\sCLK.v":1453332190
-#CUR:"C:\\Users\\matze\\Documents\\igloo\\system\\teamprojekt2\\component\\work\\top\\top.v":1453458559
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\system\\teamprojekt2\\smartgen\\sCLK\\sCLK.v":1453464944
+#CUR:"C:\\Users\\matze\\Documents\\igloo\\system\\teamprojekt2\\component\\work\\top\\top.v":1453892591
 #numinternalfiles:5
 #defaultlanguage:verilog
 0			"C:\Users\matze\Documents\igloo\system\teamprojekt2\smartgen\sCLK\sCLK.v" verilog

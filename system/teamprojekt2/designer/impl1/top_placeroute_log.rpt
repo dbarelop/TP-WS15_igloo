@@ -32,16 +32,16 @@ Global net placement completed successfully.
 
                         o - o - o - o - o - o
 
-Timing-driven Placer Started: Fri Jan 22 22:27:42 2016
+Timing-driven Placer Started: Wed Jan 27 12:04:49 2016
 
-Placer Finished: Fri Jan 22 22:29:08 2016
+Placer Finished: Wed Jan 27 12:06:15 2016
 Total Placer CPU Time:     00:01:26
 
                         o - o - o - o - o - o
 
 
 Timing-driven Router 
-Design: top                             Started: Fri Jan 22 22:29:18 2016
+Design: top                             Started: Wed Jan 27 12:06:24 2016
 
  
 Iterative improvement...
@@ -49,15 +49,15 @@ Iterative improvement...
 Timing-driven Router completed successfully.
 
 Design: top                             
-Finished: Fri Jan 22 22:30:32 2016
-Total CPU Time:     00:01:12            Total Elapsed Time: 00:01:14
-Total Memory Usage: 185.2 Mbytes
+Finished: Wed Jan 27 12:07:38 2016
+Total CPU Time:     00:01:10            Total Elapsed Time: 00:01:14
+Total Memory Usage: 184.9 Mbytes
                         o - o - o - o - o - o
 
 Loading the Timing data for the design.
 Finished loading the Timing data.
 
-The Layout command succeeded ( 00:03:07 )
+The Layout command succeeded ( 00:03:05 )
 Wrote status report to file: top_place_and_route_report.txt
 
 The Report command succeeded ( 00:00:00 )
@@ -72,12 +72,12 @@ Wrote iobank report to file: top_iobank_report.txt
 The Report command succeeded ( 00:00:01 )
 Wrote pin report to file: top_report_pin_byname.txt
 
-The Report command succeeded ( 00:00:01 )
+The Report command succeeded ( 00:00:02 )
 Wrote pin report to file: top_report_pin_bynumber.txt
 
-The Report command succeeded ( 00:00:01 )
+The Report command succeeded ( 00:00:00 )
 Design saved to file C:\Users\matze\Documents\igloo\system\teamprojekt2\designer\impl1\top.adb.
 
-The Execute Script command succeeded ( 00:03:16 )
+The Execute Script command succeeded ( 00:03:14 )
 Design closed.
 

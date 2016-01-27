@@ -16,25 +16,24 @@ Copyright (C) 1994-2015 Synopsys, Inc. This software and the associated document
 @N: CD720 :"C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
 @N:"C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd":5:7:5:15|Top entity is set to CONNECTOR.
 VHDL syntax check successful!
-File C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd changed - recompiling
-File C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\vhd\signed.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd changed - recompiling
 File C:\Users\matze\Documents\igloo\common\AliveCOUNTER.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\common\COUNTER.vhd changed - recompiling
 File C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd changed - recompiling
 File C:\Users\matze\Documents\igloo\uart\baudgen.vhd changed - recompiling
 File C:\Users\matze\Documents\igloo\uart\glitchfilter.vhd changed - recompiling
 File C:\Users\matze\Documents\igloo\uart\receiver.vhd changed - recompiling
 File C:\Users\matze\Documents\igloo\uart\sync_flipflop.vhd changed - recompiling
 File C:\Users\matze\Documents\igloo\uart\transmitter.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\ADT7301\ADT7301IF.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\common\COUNTER.vhd changed - recompiling
 File C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd changed - recompiling
 File C:\Users\matze\Documents\igloo\uart\uart.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd changed - recompiling
 
 At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 37MB peak: 38MB)
 
-# Fri Jan 22 11:29:29 2016
+# Wed Jan 27 12:03:36 2016
 
 ###########################################################]
 Synopsys Verilog Compiler, version comp201503p1, Build 094R, built May 14 2015
@@ -52,7 +51,7 @@ Verilog syntax check successful!
 
 At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 37MB peak: 38MB)
 
-# Fri Jan 22 11:29:30 2016
+# Wed Jan 27 12:03:36 2016
 
 ###########################################################]
 @I::"C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\proasic\igloo.v"
@@ -64,6 +63,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 @I::"C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v"
 Verilog syntax check successful!
 File C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synwork\_verilog_hintfile changed - recompiling
+File C:\Users\matze\Documents\igloo\system\teamprojekt2\smartgen\sCLK\sCLK.v changed - recompiling
 File C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v changed - recompiling
 @N: CG364 :"C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\proasic\igloo.v":2447:7:2447:9|Synthesizing module PLL
 
@@ -75,37 +75,40 @@ File C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v
 
 @N: CG364 :"C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v":9:7:9:9|Synthesizing module top
 
-@N: CG794 :"C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v":161:10:161:20|Using module CONNECTOR from library work
+@N: CG794 :"C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v":182:10:182:20|Using module CONNECTOR from library work
 
 At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 38MB peak: 39MB)
 
-# Fri Jan 22 11:29:31 2016
+# Wed Jan 27 12:03:37 2016
 
 ###########################################################]
 @N: CD720 :"C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
 @N:"C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd":5:7:5:15|Top entity is set to CONNECTOR.
-File C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd changed - recompiling
-File C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\vhd\signed.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\common\AliveCOUNTER.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\common\COUNTER.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\uart\uart.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd changed - recompiling
+Options changed - recompiling
 VHDL syntax check successful!
 @N: CD630 :"C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd":5:7:5:15|Synthesizing work.connector.behaviour 
-@W: CD638 :"C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd":58:11:58:21|Signal busyadt7301 is undriven 
+@N: CD630 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":5:7:5:17|Synthesizing work.adt7301ctrl.behaviour 
+@N: CD231 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":65:13:65:14|Using onehot encoding for type tstate (idle="100000")
+@N: CD233 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":70:17:70:18|Using sequential encoding for type tuartstate
+@N: CD231 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":73:17:73:18|Using onehot encoding for type treadstate (s0="100000")
+@N: CD233 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":76:11:76:12|Using sequential encoding for type tcmd
+@N: CD630 :"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd":5:7:5:17|Synthesizing work.busycounter.behaviour 
+@N: CD233 :"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd":18:16:18:17|Using sequential encoding for type tstate
+Post processing for work.busycounter.behaviour
+@N: CD630 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301IF.vhd":7:7:7:15|Synthesizing work.adt7301if.behaviour 
+@N: CD233 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301IF.vhd":24:15:24:16|Using sequential encoding for type tstate
+Post processing for work.adt7301if.behaviour
+Post processing for work.adt7301ctrl.behaviour
+@W: CL169 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Pruning register cmd_4(readtemp)  
+@W: CL271 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Pruning bits 7 to 4 of dataIN_4(7 downto 0) -- not in use ... 
+@A: CL282 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Feedback mux created for signal result[13:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@A: CL282 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Feedback mux created for signal strb -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@A: CL282 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Feedback mux created for signal dataIN[3:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
 @N: CD630 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":5:7:5:16|Synthesizing work.ad7782ctrl.behaviour 
 @N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":50:13:50:14|Using onehot encoding for type tstate (idle="1000000")
 @N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":51:15:51:16|Using onehot encoding for type adcstate (s0="100000")
 @N: CD233 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":52:16:52:17|Using sequential encoding for type uartstate
 @N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":53:15:53:16|Using onehot encoding for type cmdstate (idle="100000")
-@N: CD630 :"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd":5:7:5:17|Synthesizing work.busycounter.behaviour 
-@N: CD233 :"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd":18:16:18:17|Using sequential encoding for type tstate
-Post processing for work.busycounter.behaviour
 @N: CD630 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd":20:7:20:14|Synthesizing work.ad7782if.behaviour 
 @N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd":45:15:45:16|Using onehot encoding for type tstate (s0="10000")
 Post processing for work.ad7782if.behaviour
@@ -135,8 +138,10 @@ Post processing for work.compxctrl.behaviour
 @W: CL271 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Pruning bits 7 to 4 of dataIN_4(7 downto 0) -- not in use ... 
 @A: CL282 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Feedback mux created for signal dataIN[3:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
 @W: CL190 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Optimizing register bit uartout(6) to a constant 0
-@W: CL190 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Optimizing register bit uartout(4) to a constant 0
-@W: CL169 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Pruning register uartout(4)  
+@W: CL190 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Optimizing register bit uartout(2) to a constant 0
+@W: CL190 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Optimizing register bit uartout(0) to a constant 0
+@W: CL169 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Pruning register uartout(0)  
+@W: CL169 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Pruning register uartout(2)  
 @W: CL169 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Pruning register uartout(6)  
 @N: CD630 :"C:\Users\matze\Documents\igloo\common\AliveCOUNTER.vhd":5:7:5:18|Synthesizing work.alivecounter.behaviour 
 Post processing for work.alivecounter.behaviour
@@ -260,10 +265,42 @@ State machine has 6 reachable states with original encodings of:
    001000
    010000
    100000
+@N: CL201 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301IF.vhd":35:6:35:7|Trying to extract state machine for register state
+Extracted state machine for register state
+State machine has 4 reachable states with original encodings of:
+   00
+   01
+   10
+   11
+@N: CL201 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Trying to extract state machine for register uartstate
+Extracted state machine for register uartstate
+State machine has 4 reachable states with original encodings of:
+   00
+   01
+   10
+   11
+@N: CL201 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Trying to extract state machine for register state
+Extracted state machine for register state
+State machine has 6 reachable states with original encodings of:
+   000001
+   000010
+   000100
+   001000
+   010000
+   100000
+@N: CL201 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Trying to extract state machine for register readstate
+Extracted state machine for register readstate
+State machine has 6 reachable states with original encodings of:
+   000001
+   000010
+   000100
+   001000
+   010000
+   100000
 
 At c_vhdl Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 41MB peak: 43MB)
 
-# Fri Jan 22 11:29:33 2016
+# Wed Jan 27 12:03:39 2016
 
 ###########################################################]
 Synopsys Netlist Linker, version comp201503p1, Build 094R, built May 14 2015
@@ -278,15 +315,15 @@ For a summary of linker messages for components that did not bind, please see lo
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 36MB peak: 37MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Fri Jan 22 11:29:34 2016
+# Wed Jan 27 12:03:40 2016
 
 ###########################################################]
 @END
 
-At c_hdl Exit (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:03s; Memory used current: 3MB peak: 4MB)
+At c_hdl Exit (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:03s; Memory used current: 3MB peak: 4MB)
 
-Process took 0h:00m:05s realtime, 0h:00m:03s cputime
-# Fri Jan 22 11:29:34 2016
+Process took 0h:00m:06s realtime, 0h:00m:03s cputime
+# Wed Jan 27 12:03:40 2016
 
 ###########################################################]
 Synopsys Netlist Linker, version comp201503p1, Build 094R, built May 14 2015
@@ -296,7 +333,7 @@ File C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synwork\top_co
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 37MB peak: 38MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Fri Jan 22 11:29:36 2016
+# Wed Jan 27 12:03:42 2016
 
 ###########################################################]
 Pre-mapping Report
@@ -312,15 +349,15 @@ Printing clock  summary report in "C:\Users\matze\Documents\igloo\system\teampro
 @N: MF249 |Running in 32-bit mode.
 @N: MF667 |Clock conversion disabled 
 
-Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 58MB peak: 59MB)
+Design Input Complete (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 58MB peak: 60MB)
 
 
-Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 58MB peak: 59MB)
+Mapper Initialization Complete (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 58MB peak: 60MB)
 
 @N: BN362 :"c:\users\matze\documents\igloo\uart\receiver.vhd":50:6:50:7|Removing sequential instance ovre of view:PrimLib.dffre(prim) in hierarchy view:work.receiver_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
 @N: BN362 :"c:\users\matze\documents\igloo\uart\receiver.vhd":50:6:50:7|Removing sequential instance frme of view:PrimLib.dffre(prim) in hierarchy view:work.receiver_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
 
-Finished netlist restructuring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 64MB peak: 65MB)
+Finished netlist restructuring (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 64MB peak: 65MB)
 
 
 
@@ -333,16 +370,16 @@ Clock                       Frequency     Period        Type         Group
 sCLK|GLA_inferred_clock     100.0 MHz     10.000        inferred     Inferred_clkgroup_0
 ========================================================================================
 
-@W: MT530 :"c:\users\matze\documents\igloo\uart\sync_flipflop.vhd":20:6:20:7|Found inferred clock sCLK|GLA_inferred_clock which controls 519 sequential elements including CONNECTOR_0.u1.sff.tmp. This clock has no specified timing constraint which may adversely impact design performance. 
+@W: MT530 :"c:\users\matze\documents\igloo\uart\sync_flipflop.vhd":20:6:20:7|Found inferred clock sCLK|GLA_inferred_clock which controls 636 sequential elements including CONNECTOR_0.u1.sff.tmp. This clock has no specified timing constraint which may adversely impact design performance. 
 
 Finished Pre Mapping Phase.
 @N: BN225 |Writing default property annotation file C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.sap.
 Pre-mapping successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 31MB peak: 65MB)
+At Mapper Exit (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:01s; Memory used current: 32MB peak: 65MB)
 
-Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Fri Jan 22 11:29:38 2016
+Process took 0h:00m:03s realtime, 0h:00m:01s cputime
+# Wed Jan 27 12:03:46 2016
 
 ###########################################################]
 Map & Optimize Report
@@ -363,7 +400,7 @@ Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0
 
 
 
-Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:01s; Memory used current: 63MB peak: 65MB)
+Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 63MB peak: 65MB)
 
 
 Available hyper_sources - for debug and ip models
@@ -372,13 +409,14 @@ Available hyper_sources - for debug and ip models
 @W: BN132 :"c:\users\matze\documents\igloo\common\busycounter.vhd":32:8:32:9|Removing sequential instance CONNECTOR_0.m1.bsyCnt.state[0],  because it is equivalent to instance CONNECTOR_0.m1.bsyCnt.delayOut
 @W: BN132 :"c:\users\matze\documents\igloo\common\compctrl.vhd":81:2:81:3|Removing sequential instance CONNECTOR_0.m1.uartout_1[7],  because it is equivalent to instance CONNECTOR_0.m1.uartout_1[5]
 @W: BN132 :"c:\users\matze\documents\igloo\common\compctrl.vhd":81:2:81:3|Removing sequential instance CONNECTOR_0.m1.uartout_1[5],  because it is equivalent to instance CONNECTOR_0.m1.uartout_1[1]
-@W: BN132 :"c:\users\matze\documents\igloo\common\compctrl.vhd":81:2:81:3|Removing sequential instance CONNECTOR_0.m1.uartout_cl_7[7],  because it is equivalent to instance CONNECTOR_0.m1.uartout_cl_6[7]
-@W: BN132 :"c:\users\matze\documents\igloo\common\compctrl.vhd":81:2:81:3|Removing sequential instance CONNECTOR_0.m1.uartout_cl_5[7],  because it is equivalent to instance CONNECTOR_0.m1.uartout_cl_3[7]
+@W: BN132 :"c:\users\matze\documents\igloo\common\compctrl.vhd":81:2:81:3|Removing sequential instance CONNECTOR_0.m1.uartout_cl_7[7],  because it is equivalent to instance CONNECTOR_0.m1.uartout_cl_3[7]
+@W: BN132 :"c:\users\matze\documents\igloo\common\compctrl.vhd":81:2:81:3|Removing sequential instance CONNECTOR_0.m1.uartout_cl_6[7],  because it is equivalent to instance CONNECTOR_0.m1.uartout_cl_5[7]
+@W: BN132 :"c:\users\matze\documents\igloo\common\compctrl.vhd":81:2:81:3|Removing sequential instance CONNECTOR_0.m1.uartout_cl_5[7],  because it is equivalent to instance CONNECTOR_0.m1.uartout_cl_2[7]
 @W: BN132 :"c:\users\matze\documents\igloo\common\compctrl.vhd":81:2:81:3|Removing sequential instance CONNECTOR_0.m1.uartout_cl_4[7],  because it is equivalent to instance CONNECTOR_0.m1.uartout_cl_2[7]
 @W: BN132 :"c:\users\matze\documents\igloo\common\compctrl.vhd":81:2:81:3|Removing sequential instance CONNECTOR_0.m1.uartout_cl_3[7],  because it is equivalent to instance CONNECTOR_0.m1.uartout_cl_1[7]
 @W: BN132 :"c:\users\matze\documents\igloo\common\compctrl.vhd":81:2:81:3|Removing sequential instance CONNECTOR_0.m1.uartout_cl_2[7],  because it is equivalent to instance CONNECTOR_0.m1.uartout_cl[7]
-@W: BN132 :"c:\users\matze\documents\igloo\common\compctrl.vhd":81:2:81:3|Removing sequential instance CONNECTOR_0.m1.uartout_1[2],  because it is equivalent to instance CONNECTOR_0.m1.uartout_1[0]
-@W: BN132 :"c:\users\matze\documents\igloo\common\compctrl.vhd":81:2:81:3|Removing sequential instance CONNECTOR_0.m1.uartout_cl_6[7],  because it is equivalent to instance CONNECTOR_0.m1.uartout_cl_1[7]
+@W: BN132 :"c:\users\matze\documents\igloo\common\compctrl.vhd":81:2:81:3|Removing sequential instance CONNECTOR_0.m1.uartout_1[3],  because it is equivalent to instance CONNECTOR_0.m1.uartout_1[1]
+@N: BN362 :"c:\users\matze\documents\igloo\common\compctrl.vhd":81:2:81:3|Removing sequential instance uartout_cl_1[7] of view:PrimLib.dffr(prim) in hierarchy view:work.COMPXCTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
 @N: BN362 :"c:\users\matze\documents\igloo\eeprom93lc66\eeprom93lc66ctrl.vhd":367:2:367:3|Removing sequential instance uartout_cl_1[7] of view:PrimLib.dffr(prim) in hierarchy view:work.EEPROMCTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
 @N: BN362 :"c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd":208:2:208:3|Removing sequential instance uartout_cl_2[7] of view:PrimLib.dffr(prim) in hierarchy view:work.AD7782CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
 @N: BN362 :"c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd":208:2:208:3|Removing sequential instance uartout_cl_3[7] of view:PrimLib.dffr(prim) in hierarchy view:work.AD7782CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
@@ -387,6 +425,13 @@ Available hyper_sources - for debug and ip models
 @N: BN362 :"c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd":208:2:208:3|Removing sequential instance uartout_cl_6[7] of view:PrimLib.dffr(prim) in hierarchy view:work.AD7782CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
 @N: BN362 :"c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd":208:2:208:3|Removing sequential instance uartout_cl_7[7] of view:PrimLib.dffr(prim) in hierarchy view:work.AD7782CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
 @N: BN362 :"c:\users\matze\documents\igloo\ad7782if\ad7782ctrl.vhd":208:2:208:3|Removing sequential instance uartout_cl_1[7] of view:PrimLib.dffr(prim) in hierarchy view:work.AD7782CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
+@N: BN362 :"c:\users\matze\documents\igloo\adt7301\adt7301ctrl.vhd":167:2:167:3|Removing sequential instance uartout_cl_1[7] of view:PrimLib.dffr(prim) in hierarchy view:work.ADT7301CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
+@N: BN362 :"c:\users\matze\documents\igloo\adt7301\adt7301ctrl.vhd":167:2:167:3|Removing sequential instance uartout_cl_2[7] of view:PrimLib.dffr(prim) in hierarchy view:work.ADT7301CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
+@N: BN362 :"c:\users\matze\documents\igloo\adt7301\adt7301ctrl.vhd":167:2:167:3|Removing sequential instance uartout_cl_3[7] of view:PrimLib.dffr(prim) in hierarchy view:work.ADT7301CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
+@N: BN362 :"c:\users\matze\documents\igloo\adt7301\adt7301ctrl.vhd":167:2:167:3|Removing sequential instance uartout_cl_4[7] of view:PrimLib.dffr(prim) in hierarchy view:work.ADT7301CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
+@N: BN362 :"c:\users\matze\documents\igloo\adt7301\adt7301ctrl.vhd":167:2:167:3|Removing sequential instance uartout_cl_5[7] of view:PrimLib.dffr(prim) in hierarchy view:work.ADT7301CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
+@N: BN362 :"c:\users\matze\documents\igloo\adt7301\adt7301ctrl.vhd":167:2:167:3|Removing sequential instance uartout_cl_6[7] of view:PrimLib.dffr(prim) in hierarchy view:work.ADT7301CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
+@N: BN362 :"c:\users\matze\documents\igloo\adt7301\adt7301ctrl.vhd":167:2:167:3|Removing sequential instance uartout_cl_7[7] of view:PrimLib.dffr(prim) in hierarchy view:work.ADT7301CTRL_work_connector_behaviour_0layer1(behaviour) because there are no references to its outputs 
 
 Finished RTL optimizations (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 64MB peak: 65MB)
 
@@ -491,29 +536,60 @@ original code -> new code
    00100 -> 00100
    01000 -> 01000
    10000 -> 10000
+Encoding state machine readstate[0:5] (view:work.ADT7301CTRL_work_connector_behaviour_0layer1(behaviour))
+original code -> new code
+   000001 -> 000001
+   000010 -> 000010
+   000100 -> 000100
+   001000 -> 001000
+   010000 -> 010000
+   100000 -> 100000
+Encoding state machine state[0:5] (view:work.ADT7301CTRL_work_connector_behaviour_0layer1(behaviour))
+original code -> new code
+   000001 -> 000001
+   000010 -> 000010
+   000100 -> 000100
+   001000 -> 001000
+   010000 -> 010000
+   100000 -> 100000
+Encoding state machine uartstate[0:3] (view:work.ADT7301CTRL_work_connector_behaviour_0layer1(behaviour))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+   11 -> 11
+@N: MO225 :"c:\users\matze\documents\igloo\adt7301\adt7301ctrl.vhd":167:2:167:3|No possible illegal states for state machine uartstate[0:3],safe FSM implementation is disabled
+@N:"c:\users\matze\documents\igloo\adt7301\adt7301if.vhd":35:6:35:7|Found counter in view:work.ADT7301IF_work_connector_behaviour_0layer1(behaviour) inst cnt[3:0]
+Encoding state machine state[0:3] (view:work.ADT7301IF_work_connector_behaviour_0layer1(behaviour))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+   11 -> 11
+@N: MO225 :"c:\users\matze\documents\igloo\adt7301\adt7301if.vhd":35:6:35:7|No possible illegal states for state machine state[0:3],safe FSM implementation is disabled
 
-Finished factoring (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 72MB peak: 72MB)
+Finished factoring (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:05s; Memory used current: 72MB peak: 73MB)
 
 
-Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 70MB peak: 73MB)
+Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 71MB peak: 73MB)
 
 
-Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 69MB peak: 73MB)
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:07s; Memory used current: 70MB peak: 73MB)
 
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 70MB peak: 73MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 70MB peak: 73MB)
 
 
-Finished Early Timing Optimization (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 70MB peak: 73MB)
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:11s; Memory used current: 71MB peak: 73MB)
 
 
-Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 69MB peak: 73MB)
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:11s; Memory used current: 70MB peak: 73MB)
 
 
-Finished preparing to map (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:09s; Memory used current: 70MB peak: 73MB)
+Finished preparing to map (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:12s; Memory used current: 71MB peak: 73MB)
 
 
-Finished technology mapping (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:10s; Memory used current: 75MB peak: 77MB)
+Finished technology mapping (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:13s; Memory used current: 76MB peak: 78MB)
 
 
 High Fanout Net Report
@@ -521,36 +597,39 @@ High Fanout Net Report
 
 Driver Instance / Pin Name                    Fanout, notes                   
 ------------------------------------------------------------------------------
-CONNECTOR_0.m1.timoutCounter.overflow / Q     188                             
-CONNECTOR_0.u1.re.done / Q                    46                              
+CONNECTOR_0.m1.timoutCounter.overflow / Q     244                             
+CONNECTOR_0.u1.re.done / Q                    48                              
+CONNECTOR_0.d3.state[1] / Q                   26                              
 CONNECTOR_0.d2.adif.state[1] / Q              32                              
-CONNECTOR_0.d1.u2.state[0] / Q                41                              
-rst_pad / Y                                   450 : 445 asynchronous set/reset
+CONNECTOR_0.d1.u2.state[0] / Q                42                              
+rst_pad / Y                                   542 : 532 asynchronous set/reset
 CONNECTOR_0.d2.csel / Q                       27                              
 CONNECTOR_0.d1.u2.un1_state_0_0 / Y           27                              
 ==============================================================================
 
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:12s; Memory used current: 75MB peak: 77MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:15s; CPU Time elapsed 0h:00m:15s; Memory used current: 77MB peak: 78MB)
 
 Replicating Combinational Instance CONNECTOR_0.d1.u2.un1_state_0_0, fanout 27 segments 2
 Replicating Sequential Instance CONNECTOR_0.d2.csel, fanout 27 segments 2
-Buffering rst_c, fanout 451 segments 19
-Replicating Sequential Instance CONNECTOR_0.d1.u2.state[0], fanout 41 segments 2
+Buffering rst_c, fanout 543 segments 23
+Replicating Sequential Instance CONNECTOR_0.d1.u2.state[0], fanout 42 segments 2
 Replicating Sequential Instance CONNECTOR_0.d2.adif.state[1], fanout 32 segments 2
-Replicating Sequential Instance CONNECTOR_0.u1.re.done, fanout 46 segments 2
-Replicating Sequential Instance CONNECTOR_0.m1.timoutCounter.overflow, fanout 188 segments 8
-Replicating Combinational Instance rst_pad_17, fanout 25 segments 2
-Replicating Combinational Instance rst_pad_15, fanout 31 segments 2
-Replicating Combinational Instance rst_pad_13, fanout 25 segments 2
-Replicating Combinational Instance rst_pad_12, fanout 25 segments 2
+Replicating Sequential Instance CONNECTOR_0.d3.state[1], fanout 26 segments 2
+Replicating Sequential Instance CONNECTOR_0.u1.re.done, fanout 48 segments 2
+Replicating Sequential Instance CONNECTOR_0.m1.timoutCounter.overflow, fanout 244 segments 11
+Replicating Combinational Instance rst_pad_20, fanout 26 segments 2
+Replicating Combinational Instance rst_pad_19, fanout 34 segments 2
+Replicating Combinational Instance rst_pad_16, fanout 25 segments 2
+Replicating Combinational Instance rst_pad_15, fanout 25 segments 2
+Buffering rst_c, fanout 27 segments 2
 
-Added 19 Buffers
-Added 16 Cells via replication
-	Added 11 Sequential Cells via replication
+Added 24 Buffers
+Added 20 Cells via replication
+	Added 15 Sequential Cells via replication
 	Added 5 Combinational Cells via replication
 
-Finished restoring hierarchy (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:12s; Memory used current: 76MB peak: 77MB)
+Finished restoring hierarchy (Real Time elapsed 0h:00m:16s; CPU Time elapsed 0h:00m:15s; Memory used current: 78MB peak: 78MB)
 
 
 
@@ -558,39 +637,39 @@ Finished restoring hierarchy (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:
 
 Clock optimization not enabled
 0 non-gated/non-generated clock tree(s) driving 0 clock pin(s) of sequential element(s)
-1 gated/generated clock tree(s) driving 481 clock pin(s) of sequential element(s)
-0 instances converted, 481 sequential instances remain driven by gated/generated clocks
+1 gated/generated clock tree(s) driving 591 clock pin(s) of sequential element(s)
+0 instances converted, 591 sequential instances remain driven by gated/generated clocks
 
-===================================================================================================== Gated/Generated Clocks ======================================================================================================
-Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance              Explanation                                                                                                                   
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-@K:CKID0001       sCLK_0.Core         PLL                    481        CONNECTOR_0.d2.dataIN[3]     Gating structure creates improper gating logic. See the Gated Clocks description in the user guide for conversion requirements
-===================================================================================================================================================================================================================================
+====================================================================================================== Gated/Generated Clocks ======================================================================================================
+Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance               Explanation                                                                                                                   
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+@K:CKID0001       sCLK_0.Core         PLL                    591        CONNECTOR_0.d3.result[13]     Gating structure creates improper gating logic. See the Gated Clocks description in the user guide for conversion requirements
+====================================================================================================================================================================================================================================
 
 
 ##### END OF CLOCK OPTIMIZATION REPORT ######]
 
 
-Start Writing Netlists (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:12s; Memory used current: 75MB peak: 77MB)
+Start Writing Netlists (Real Time elapsed 0h:00m:16s; CPU Time elapsed 0h:00m:15s; Memory used current: 76MB peak: 79MB)
 
 Writing Analyst data base C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synwork\top_m.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:13s; Memory used current: 75MB peak: 77MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:16s; Memory used current: 77MB peak: 79MB)
 
 Writing EDIF Netlist and constraint files
 J-2015.03M-3
 
-Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:13s; Memory used current: 76MB peak: 77MB)
+Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:17s; Memory used current: 77MB peak: 79MB)
 
 
-Start final timing analysis (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:14s; Memory used current: 75MB peak: 77MB)
+Start final timing analysis (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:17s; Memory used current: 77MB peak: 79MB)
 
 @W: MT420 |Found inferred clock sCLK|GLA_inferred_clock with period 10.00ns. Please declare a user-defined clock on object "n:sCLK_0.GLA"
 
 
 
 @S |##### START OF TIMING REPORT #####[
-# Timing Report written on Fri Jan 22 11:29:52 2016
+# Timing Report written on Wed Jan 27 12:04:04 2016
 #
 
 
@@ -612,12 +691,12 @@ Performance Summary
 *******************
 
 
-Worst slack in design: -26.100
+Worst slack in design: -27.649
 
                             Requested     Estimated     Requested     Estimated                 Clock        Clock              
 Starting Clock              Frequency     Frequency     Period        Period        Slack       Type         Group              
 --------------------------------------------------------------------------------------------------------------------------------
-sCLK|GLA_inferred_clock     100.0 MHz     27.7 MHz      10.000        36.100        -26.100     inferred     Inferred_clkgroup_0
+sCLK|GLA_inferred_clock     100.0 MHz     26.6 MHz      10.000        37.649        -27.649     inferred     Inferred_clkgroup_0
 ================================================================================================================================
 
 
@@ -631,7 +710,7 @@ Clocks                                            |    rise  to  rise     |    f
 ------------------------------------------------------------------------------------------------------------------------------------------
 Starting                 Ending                   |  constraint  slack    |  constraint  slack  |  constraint  slack  |  constraint  slack
 ------------------------------------------------------------------------------------------------------------------------------------------
-sCLK|GLA_inferred_clock  sCLK|GLA_inferred_clock  |  10.000      -26.100  |  No paths    -      |  No paths    -      |  No paths    -    
+sCLK|GLA_inferred_clock  sCLK|GLA_inferred_clock  |  10.000      -27.649  |  No paths    -      |  No paths    -      |  No paths    -    
 ==========================================================================================================================================
  Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
        'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
@@ -654,41 +733,41 @@ Detailed Report for Clock: sCLK|GLA_inferred_clock
 Starting Points with Worst Slack
 ********************************
 
-                                Starting                                                       Arrival            
-Instance                        Reference                   Type         Pin     Net           Time        Slack  
-                                Clock                                                                             
-------------------------------------------------------------------------------------------------------------------
-CONNECTOR_0.d2.state[1]         sCLK|GLA_inferred_clock     DFN1C0       Q       state[1]      1.771       -26.100
-CONNECTOR_0.d1.cmd[1]           sCLK|GLA_inferred_clock     DFN1E1C0     Q       cmd[1]        1.771       -25.795
-CONNECTOR_0.d1.u2.outCnt[3]     sCLK|GLA_inferred_clock     DFN1C0       Q       outCnt[3]     1.771       -25.327
-CONNECTOR_0.d1.cmd[2]           sCLK|GLA_inferred_clock     DFN1E1C0     Q       cmd[2]        1.771       -25.273
-CONNECTOR_0.d1.u2.state[0]      sCLK|GLA_inferred_clock     DFN1C0       Q       state[0]      1.771       -25.139
-CONNECTOR_0.d1.u2.outCnt[0]     sCLK|GLA_inferred_clock     DFN1C0       Q       outCnt[0]     1.771       -25.089
-CONNECTOR_0.d1.u2.outCnt[1]     sCLK|GLA_inferred_clock     DFN1C0       Q       outCnt[1]     1.771       -24.993
-CONNECTOR_0.d1.cmd[0]           sCLK|GLA_inferred_clock     DFN1E1C0     Q       cmd[0]        1.771       -24.918
-CONNECTOR_0.d2.cmds[4]          sCLK|GLA_inferred_clock     DFN1C0       Q       cmds[4]       1.771       -24.797
-CONNECTOR_0.d1.u2.outCnt[2]     sCLK|GLA_inferred_clock     DFN1C0       Q       outCnt[2]     1.771       -24.688
-==================================================================================================================
+                                Starting                                                          Arrival            
+Instance                        Reference                   Type         Pin     Net              Time        Slack  
+                                Clock                                                                                
+---------------------------------------------------------------------------------------------------------------------
+CONNECTOR_0.d1.u2.outCnt[1]     sCLK|GLA_inferred_clock     DFN1C0       Q       outCnt[1]        1.771       -27.649
+CONNECTOR_0.d1.u2.state[0]      sCLK|GLA_inferred_clock     DFN1C0       Q       state[0]         1.771       -27.586
+CONNECTOR_0.d1.cmd[2]           sCLK|GLA_inferred_clock     DFN1E1C0     Q       cmd[2]           1.771       -27.323
+CONNECTOR_0.d1.u2.outCnt[2]     sCLK|GLA_inferred_clock     DFN1C0       Q       outCnt[2]        1.771       -27.315
+CONNECTOR_0.d1.cmd[1]           sCLK|GLA_inferred_clock     DFN1E1C0     Q       cmd[1]           1.771       -26.772
+CONNECTOR_0.d1.u2.outCnt[0]     sCLK|GLA_inferred_clock     DFN1C0       Q       outCnt[0]        1.395       -25.782
+CONNECTOR_0.d1.u2.outCnt[3]     sCLK|GLA_inferred_clock     DFN1C0       Q       outCnt[3]        1.771       -25.314
+CONNECTOR_0.d1.u2.state[1]      sCLK|GLA_inferred_clock     DFN1C0       Q       state[1]         1.771       -24.792
+CONNECTOR_0.d1.u2.outCnt[4]     sCLK|GLA_inferred_clock     DFN1C0       Q       outCnt[4]        1.395       -24.776
+CONNECTOR_0.d1.u2.serClk        sCLK|GLA_inferred_clock     DFN1C0       Q       eepromSCLK_c     1.771       -24.667
+=====================================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                                     Starting                                                              Required            
-Instance                             Reference                   Type       Pin     Net                    Time         Slack  
-                                     Clock                                                                                     
--------------------------------------------------------------------------------------------------------------------------------
-CONNECTOR_0.d2.uartout_1[1]          sCLK|GLA_inferred_clock     DFN1C0     D       uartout_13_1_iv[1]     8.622        -26.100
-CONNECTOR_0.d2.uartout_1[3]          sCLK|GLA_inferred_clock     DFN1C0     D       uartout_13_1_iv[3]     8.622        -26.100
-CONNECTOR_0.d2.uartout_1[5]          sCLK|GLA_inferred_clock     DFN1C0     D       uartout_13_1_iv[5]     8.622        -26.100
-CONNECTOR_0.d2.uartout_1[7]          sCLK|GLA_inferred_clock     DFN1C0     D       uartout_13_1_iv[7]     8.622        -26.100
-CONNECTOR_0.d2.uartout_1[4]          sCLK|GLA_inferred_clock     DFN1C0     D       uartout_1_RNO[4]       8.705        -26.016
-CONNECTOR_0.d2.uartout_1[6]          sCLK|GLA_inferred_clock     DFN1C0     D       uartout_1_RNO_0[6]     8.705        -26.016
-CONNECTOR_0.d1.u2.outCnt[4]          sCLK|GLA_inferred_clock     DFN1C0     D       N_28                   8.705        -25.795
-CONNECTOR_0.d1.u2.outCnt[3]          sCLK|GLA_inferred_clock     DFN1C0     D       N_24                   8.705        -24.212
-CONNECTOR_0.aliveCnt.counter[17]     sCLK|GLA_inferred_clock     DFN1C0     D       counter_n17            8.705        -23.870
-CONNECTOR_0.d2.uartout_1[2]          sCLK|GLA_inferred_clock     DFN1C0     D       uartout_1_RNO_0[2]     8.705        -23.724
-===============================================================================================================================
+                                Starting                                                              Required            
+Instance                        Reference                   Type       Pin     Net                    Time         Slack  
+                                Clock                                                                                     
+--------------------------------------------------------------------------------------------------------------------------
+CONNECTOR_0.d1.u2.outCnt[3]     sCLK|GLA_inferred_clock     DFN1C0     D       N_24                   8.705        -27.649
+CONNECTOR_0.d1.u2.outCnt[4]     sCLK|GLA_inferred_clock     DFN1C0     D       N_28                   8.705        -27.649
+CONNECTOR_0.d1.u2.outCnt[2]     sCLK|GLA_inferred_clock     DFN1C0     D       N_22                   8.705        -25.515
+CONNECTOR_0.d2.uartout_1[0]     sCLK|GLA_inferred_clock     DFN1C0     D       uartout_1_RNO[0]       8.622        -24.538
+CONNECTOR_0.d2.uartout_1[2]     sCLK|GLA_inferred_clock     DFN1C0     D       uartout_1_RNO_0[2]     8.622        -24.538
+CONNECTOR_0.d2.uartout_1[4]     sCLK|GLA_inferred_clock     DFN1C0     D       uartout_1_RNO[4]       8.622        -24.538
+CONNECTOR_0.d2.uartout_1[6]     sCLK|GLA_inferred_clock     DFN1C0     D       uartout_1_RNO_0[6]     8.622        -24.538
+CONNECTOR_0.d2.uartout_1[1]     sCLK|GLA_inferred_clock     DFN1C0     D       uartout_13_1_iv[1]     8.705        -24.454
+CONNECTOR_0.d2.uartout_1[3]     sCLK|GLA_inferred_clock     DFN1C0     D       uartout_13_1_iv[3]     8.705        -24.454
+CONNECTOR_0.d2.uartout_1[5]     sCLK|GLA_inferred_clock     DFN1C0     D       uartout_13_1_iv[5]     8.705        -24.454
+==========================================================================================================================
 
 
 
@@ -698,205 +777,229 @@ Worst Path Information
 
 Path information for path number 1: 
       Requested Period:                      10.000
-    - Setup time:                            1.378
+    - Setup time:                            1.295
     + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         8.622
+    = Required time:                         8.705
 
-    - Propagation time:                      34.722
+    - Propagation time:                      36.354
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (critical) :                     -26.100
+    = Slack (critical) :                     -27.649
 
-    Number of logic level(s):                8
-    Starting point:                          CONNECTOR_0.d2.state[1] / Q
-    Ending point:                            CONNECTOR_0.d2.uartout_1[1] / D
+    Number of logic level(s):                10
+    Starting point:                          CONNECTOR_0.d1.u2.outCnt[1] / Q
+    Ending point:                            CONNECTOR_0.d1.u2.outCnt[3] / D
     The start point is clocked by            sCLK|GLA_inferred_clock [rising] on pin CLK
     The end   point is clocked by            sCLK|GLA_inferred_clock [rising] on pin CLK
 
-Instance / Net                                   Pin      Pin               Arrival     No. of    
-Name                                  Type       Name     Dir     Delay     Time        Fan Out(s)
---------------------------------------------------------------------------------------------------
-CONNECTOR_0.d2.state[1]               DFN1C0     Q        Out     1.771     1.771       -         
-state[1]                              Net        -        -       4.105     -           10        
-CONNECTOR_0.d2.cmds_RNILHKA[4]        OR2B       B        In      -         5.876       -         
-CONNECTOR_0.d2.cmds_RNILHKA[4]        OR2B       Y        Out     1.508     7.384       -         
-N_39                                  Net        -        -       3.074     -           5         
-CONNECTOR_0.d2.state_RNIA2LF[0]       NOR2       B        In      -         10.458      -         
-CONNECTOR_0.d2.state_RNIA2LF[0]       NOR2       Y        Out     1.236     11.694      -         
-N_90                                  Net        -        -       3.420     -           6         
-CONNECTOR_0.d2.adcs_RNIP09R[0]        NOR2B      A        In      -         15.114      -         
-CONNECTOR_0.d2.adcs_RNIP09R[0]        NOR2B      Y        Out     1.236     16.350      -         
-un2_state_12_2                        Net        -        -       1.938     -           3         
-CONNECTOR_0.d2.adcs_RNIBIPI1[0]       NOR2B      A        In      -         18.288      -         
-CONNECTOR_0.d2.adcs_RNIBIPI1[0]       NOR2B      Y        Out     1.236     19.524      -         
-un2_state_12                          Net        -        -       3.938     -           8         
-CONNECTOR_0.d2.adcs_RNIO6J53[2]       NOR2       A        In      -         23.463      -         
-CONNECTOR_0.d2.adcs_RNIO6J53[2]       NOR2       Y        Out     1.219     24.682      -         
-uartout_13_1_iv_0_a2_1[7]             Net        -        -       0.773     -           1         
-CONNECTOR_0.d2.state_RNIB8P85[5]      NOR2B      A        In      -         25.455      -         
-CONNECTOR_0.d2.state_RNIB8P85[5]      NOR2B      Y        Out     1.174     26.628      -         
-N_234                                 Net        -        -       3.667     -           7         
-CONNECTOR_0.d2.uartout_1_RNO_2[1]     NOR2A      A        In      -         30.295      -         
-CONNECTOR_0.d2.uartout_1_RNO_2[1]     NOR2A      Y        Out     1.240     31.535      -         
-N_161                                 Net        -        -       0.773     -           1         
-CONNECTOR_0.d2.uartout_1_RNO[1]       NOR3       C        In      -         32.308      -         
-CONNECTOR_0.d2.uartout_1_RNO[1]       NOR3       Y        Out     1.641     33.949      -         
-uartout_13_1_iv[1]                    Net        -        -       0.773     -           1         
-CONNECTOR_0.d2.uartout_1[1]           DFN1C0     D        In      -         34.722      -         
-==================================================================================================
-Total path delay (propagation time + setup) of 36.100 is 13.640(37.8%) logic and 22.460(62.2%) route.
+Instance / Net                                     Pin      Pin               Arrival     No. of    
+Name                                    Type       Name     Dir     Delay     Time        Fan Out(s)
+----------------------------------------------------------------------------------------------------
+CONNECTOR_0.d1.u2.outCnt[1]             DFN1C0     Q        Out     1.771     1.771       -         
+outCnt[1]                               Net        -        -       2.844     -           4         
+CONNECTOR_0.d1.u2.outCnt_RNIDPP8[1]     OR2        B        In      -         4.615       -         
+CONNECTOR_0.d1.u2.outCnt_RNIDPP8[1]     OR2        Y        Out     1.554     6.168       -         
+un1_cs_1_sqmuxa_0_0_o2_1                Net        -        -       3.074     -           5         
+CONNECTOR_0.d1.u2.serClk_RNIG75U        OA1A       B        In      -         9.242       -         
+CONNECTOR_0.d1.u2.serClk_RNIG75U        OA1A       Y        Out     1.566     10.808      -         
+un1_N_14                                Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.state_RNIRQAO1[0]     AO1A       C        In      -         11.581      -         
+CONNECTOR_0.d1.u2.state_RNIRQAO1[0]     AO1A       Y        Out     1.520     13.101      -         
+un1_m8_i_1                              Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.state_RNI16JV2[0]     NOR3       C        In      -         13.874      -         
+CONNECTOR_0.d1.u2.state_RNI16JV2[0]     NOR3       Y        Out     1.804     15.678      -         
+un1_N_4                                 Net        -        -       4.790     -           12        
+CONNECTOR_0.d1.u2.un1_outCnt.I_9        XOR2       B        In      -         20.468      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_9        XOR2       Y        Out     2.251     22.719      -         
+DWACT_ADD_CI_0_pog_array_0[0]           Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.un1_outCnt.I_23       AO1        A        In      -         23.492      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_23       AO1        Y        Out     1.249     24.740      -         
+DWACT_ADD_CI_0_g_array_1[0]             Net        -        -       1.938     -           3         
+CONNECTOR_0.d1.u2.un1_outCnt.I_24       AO1        B        In      -         26.678      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_24       AO1        Y        Out     1.361     28.040      -         
+DWACT_ADD_CI_0_g_array_12[0]            Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.un1_outCnt.I_21       XOR2       B        In      -         28.812      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_21       XOR2       Y        Out     2.251     31.063      -         
+un1_outCnt[1]                           Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.outCnt_RNO_1[3]       OA1B       C        In      -         31.836      -         
+CONNECTOR_0.d1.u2.outCnt_RNO_1[3]       OA1B       Y        Out     1.169     33.005      -         
+N_250                                   Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.outCnt_RNO[3]         NOR3       C        In      -         33.778      -         
+CONNECTOR_0.d1.u2.outCnt_RNO[3]         NOR3       Y        Out     1.804     35.582      -         
+N_24                                    Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.outCnt[3]             DFN1C0     D        In      -         36.354      -         
+====================================================================================================
+Total path delay (propagation time + setup) of 37.649 is 19.595(52.0%) logic and 18.054(48.0%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
 Path information for path number 2: 
       Requested Period:                      10.000
-    - Setup time:                            1.378
+    - Setup time:                            1.295
     + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         8.622
+    = Required time:                         8.705
 
-    - Propagation time:                      34.722
+    - Propagation time:                      36.354
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (critical) :                     -26.100
+    = Slack (critical) :                     -27.649
 
-    Number of logic level(s):                8
-    Starting point:                          CONNECTOR_0.d2.state[1] / Q
-    Ending point:                            CONNECTOR_0.d2.uartout_1[5] / D
+    Number of logic level(s):                10
+    Starting point:                          CONNECTOR_0.d1.u2.outCnt[1] / Q
+    Ending point:                            CONNECTOR_0.d1.u2.outCnt[4] / D
     The start point is clocked by            sCLK|GLA_inferred_clock [rising] on pin CLK
     The end   point is clocked by            sCLK|GLA_inferred_clock [rising] on pin CLK
 
-Instance / Net                                   Pin      Pin               Arrival     No. of    
-Name                                  Type       Name     Dir     Delay     Time        Fan Out(s)
---------------------------------------------------------------------------------------------------
-CONNECTOR_0.d2.state[1]               DFN1C0     Q        Out     1.771     1.771       -         
-state[1]                              Net        -        -       4.105     -           10        
-CONNECTOR_0.d2.cmds_RNILHKA[4]        OR2B       B        In      -         5.876       -         
-CONNECTOR_0.d2.cmds_RNILHKA[4]        OR2B       Y        Out     1.508     7.384       -         
-N_39                                  Net        -        -       3.074     -           5         
-CONNECTOR_0.d2.state_RNIA2LF[0]       NOR2       B        In      -         10.458      -         
-CONNECTOR_0.d2.state_RNIA2LF[0]       NOR2       Y        Out     1.236     11.694      -         
-N_90                                  Net        -        -       3.420     -           6         
-CONNECTOR_0.d2.adcs_RNIP09R[0]        NOR2B      A        In      -         15.114      -         
-CONNECTOR_0.d2.adcs_RNIP09R[0]        NOR2B      Y        Out     1.236     16.350      -         
-un2_state_12_2                        Net        -        -       1.938     -           3         
-CONNECTOR_0.d2.adcs_RNIBIPI1[0]       NOR2B      A        In      -         18.288      -         
-CONNECTOR_0.d2.adcs_RNIBIPI1[0]       NOR2B      Y        Out     1.236     19.524      -         
-un2_state_12                          Net        -        -       3.938     -           8         
-CONNECTOR_0.d2.adcs_RNIO6J53[2]       NOR2       A        In      -         23.463      -         
-CONNECTOR_0.d2.adcs_RNIO6J53[2]       NOR2       Y        Out     1.219     24.682      -         
-uartout_13_1_iv_0_a2_1[7]             Net        -        -       0.773     -           1         
-CONNECTOR_0.d2.state_RNIB8P85[5]      NOR2B      A        In      -         25.455      -         
-CONNECTOR_0.d2.state_RNIB8P85[5]      NOR2B      Y        Out     1.174     26.628      -         
-N_234                                 Net        -        -       3.667     -           7         
-CONNECTOR_0.d2.uartout_1_RNO_2[5]     NOR2A      A        In      -         30.295      -         
-CONNECTOR_0.d2.uartout_1_RNO_2[5]     NOR2A      Y        Out     1.240     31.535      -         
-N_145                                 Net        -        -       0.773     -           1         
-CONNECTOR_0.d2.uartout_1_RNO[5]       NOR3       C        In      -         32.308      -         
-CONNECTOR_0.d2.uartout_1_RNO[5]       NOR3       Y        Out     1.641     33.949      -         
-uartout_13_1_iv[5]                    Net        -        -       0.773     -           1         
-CONNECTOR_0.d2.uartout_1[5]           DFN1C0     D        In      -         34.722      -         
-==================================================================================================
-Total path delay (propagation time + setup) of 36.100 is 13.640(37.8%) logic and 22.460(62.2%) route.
+Instance / Net                                     Pin      Pin               Arrival     No. of    
+Name                                    Type       Name     Dir     Delay     Time        Fan Out(s)
+----------------------------------------------------------------------------------------------------
+CONNECTOR_0.d1.u2.outCnt[1]             DFN1C0     Q        Out     1.771     1.771       -         
+outCnt[1]                               Net        -        -       2.844     -           4         
+CONNECTOR_0.d1.u2.outCnt_RNIDPP8[1]     OR2        B        In      -         4.615       -         
+CONNECTOR_0.d1.u2.outCnt_RNIDPP8[1]     OR2        Y        Out     1.554     6.168       -         
+un1_cs_1_sqmuxa_0_0_o2_1                Net        -        -       3.074     -           5         
+CONNECTOR_0.d1.u2.serClk_RNIG75U        OA1A       B        In      -         9.242       -         
+CONNECTOR_0.d1.u2.serClk_RNIG75U        OA1A       Y        Out     1.566     10.808      -         
+un1_N_14                                Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.state_RNIRQAO1[0]     AO1A       C        In      -         11.581      -         
+CONNECTOR_0.d1.u2.state_RNIRQAO1[0]     AO1A       Y        Out     1.520     13.101      -         
+un1_m8_i_1                              Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.state_RNI16JV2[0]     NOR3       C        In      -         13.874      -         
+CONNECTOR_0.d1.u2.state_RNI16JV2[0]     NOR3       Y        Out     1.804     15.678      -         
+un1_N_4                                 Net        -        -       4.790     -           12        
+CONNECTOR_0.d1.u2.un1_outCnt.I_9        XOR2       B        In      -         20.468      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_9        XOR2       Y        Out     2.251     22.719      -         
+DWACT_ADD_CI_0_pog_array_0[0]           Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.un1_outCnt.I_23       AO1        A        In      -         23.492      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_23       AO1        Y        Out     1.249     24.740      -         
+DWACT_ADD_CI_0_g_array_1[0]             Net        -        -       1.938     -           3         
+CONNECTOR_0.d1.u2.un1_outCnt.I_26       AO1        B        In      -         26.678      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_26       AO1        Y        Out     1.361     28.040      -         
+DWACT_ADD_CI_0_g_array_2[0]             Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.un1_outCnt.I_20       XOR2       B        In      -         28.812      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_20       XOR2       Y        Out     2.251     31.063      -         
+un1_outCnt[0]                           Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.outCnt_RNO_1[4]       OA1B       C        In      -         31.836      -         
+CONNECTOR_0.d1.u2.outCnt_RNO_1[4]       OA1B       Y        Out     1.169     33.005      -         
+N_253                                   Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.outCnt_RNO[4]         NOR3       C        In      -         33.778      -         
+CONNECTOR_0.d1.u2.outCnt_RNO[4]         NOR3       Y        Out     1.804     35.582      -         
+N_28                                    Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.outCnt[4]             DFN1C0     D        In      -         36.354      -         
+====================================================================================================
+Total path delay (propagation time + setup) of 37.649 is 19.595(52.0%) logic and 18.054(48.0%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
 Path information for path number 3: 
       Requested Period:                      10.000
-    - Setup time:                            1.378
+    - Setup time:                            1.295
     + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         8.622
+    = Required time:                         8.705
 
-    - Propagation time:                      34.722
+    - Propagation time:                      36.291
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (critical) :                     -26.100
+    = Slack (non-critical) :                 -27.586
 
-    Number of logic level(s):                8
-    Starting point:                          CONNECTOR_0.d2.state[1] / Q
-    Ending point:                            CONNECTOR_0.d2.uartout_1[7] / D
+    Number of logic level(s):                10
+    Starting point:                          CONNECTOR_0.d1.u2.state[0] / Q
+    Ending point:                            CONNECTOR_0.d1.u2.outCnt[3] / D
     The start point is clocked by            sCLK|GLA_inferred_clock [rising] on pin CLK
     The end   point is clocked by            sCLK|GLA_inferred_clock [rising] on pin CLK
 
-Instance / Net                                   Pin      Pin               Arrival     No. of    
-Name                                  Type       Name     Dir     Delay     Time        Fan Out(s)
---------------------------------------------------------------------------------------------------
-CONNECTOR_0.d2.state[1]               DFN1C0     Q        Out     1.771     1.771       -         
-state[1]                              Net        -        -       4.105     -           10        
-CONNECTOR_0.d2.cmds_RNILHKA[4]        OR2B       B        In      -         5.876       -         
-CONNECTOR_0.d2.cmds_RNILHKA[4]        OR2B       Y        Out     1.508     7.384       -         
-N_39                                  Net        -        -       3.074     -           5         
-CONNECTOR_0.d2.state_RNIA2LF[0]       NOR2       B        In      -         10.458      -         
-CONNECTOR_0.d2.state_RNIA2LF[0]       NOR2       Y        Out     1.236     11.694      -         
-N_90                                  Net        -        -       3.420     -           6         
-CONNECTOR_0.d2.adcs_RNIP09R[0]        NOR2B      A        In      -         15.114      -         
-CONNECTOR_0.d2.adcs_RNIP09R[0]        NOR2B      Y        Out     1.236     16.350      -         
-un2_state_12_2                        Net        -        -       1.938     -           3         
-CONNECTOR_0.d2.adcs_RNIBIPI1[0]       NOR2B      A        In      -         18.288      -         
-CONNECTOR_0.d2.adcs_RNIBIPI1[0]       NOR2B      Y        Out     1.236     19.524      -         
-un2_state_12                          Net        -        -       3.938     -           8         
-CONNECTOR_0.d2.adcs_RNIO6J53[2]       NOR2       A        In      -         23.463      -         
-CONNECTOR_0.d2.adcs_RNIO6J53[2]       NOR2       Y        Out     1.219     24.682      -         
-uartout_13_1_iv_0_a2_1[7]             Net        -        -       0.773     -           1         
-CONNECTOR_0.d2.state_RNIB8P85[5]      NOR2B      A        In      -         25.455      -         
-CONNECTOR_0.d2.state_RNIB8P85[5]      NOR2B      Y        Out     1.174     26.628      -         
-N_234                                 Net        -        -       3.667     -           7         
-CONNECTOR_0.d2.uartout_1_RNO_2[7]     NOR2A      A        In      -         30.295      -         
-CONNECTOR_0.d2.uartout_1_RNO_2[7]     NOR2A      Y        Out     1.240     31.535      -         
-N_137                                 Net        -        -       0.773     -           1         
-CONNECTOR_0.d2.uartout_1_RNO[7]       NOR3       C        In      -         32.308      -         
-CONNECTOR_0.d2.uartout_1_RNO[7]       NOR3       Y        Out     1.641     33.949      -         
-uartout_13_1_iv[7]                    Net        -        -       0.773     -           1         
-CONNECTOR_0.d2.uartout_1[7]           DFN1C0     D        In      -         34.722      -         
-==================================================================================================
-Total path delay (propagation time + setup) of 36.100 is 13.640(37.8%) logic and 22.460(62.2%) route.
+Instance / Net                                     Pin      Pin               Arrival     No. of    
+Name                                    Type       Name     Dir     Delay     Time        Fan Out(s)
+----------------------------------------------------------------------------------------------------
+CONNECTOR_0.d1.u2.state[0]              DFN1C0     Q        Out     1.771     1.771       -         
+state[0]                                Net        -        -       5.722     -           21        
+CONNECTOR_0.d1.u2.serClk_RNIDL48        NOR2B      B        In      -         7.492       -         
+CONNECTOR_0.d1.u2.serClk_RNIDL48        NOR2B      Y        Out     1.508     9.000       -         
+un1_m8_i_a5_1_0                         Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.serClk_RNIG75U        OA1A       C        In      -         9.773       -         
+CONNECTOR_0.d1.u2.serClk_RNIG75U        OA1A       Y        Out     0.973     10.746      -         
+un1_N_14                                Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.state_RNIRQAO1[0]     AO1A       C        In      -         11.518      -         
+CONNECTOR_0.d1.u2.state_RNIRQAO1[0]     AO1A       Y        Out     1.520     13.038      -         
+un1_m8_i_1                              Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.state_RNI16JV2[0]     NOR3       C        In      -         13.811      -         
+CONNECTOR_0.d1.u2.state_RNI16JV2[0]     NOR3       Y        Out     1.804     15.615      -         
+un1_N_4                                 Net        -        -       4.790     -           12        
+CONNECTOR_0.d1.u2.un1_outCnt.I_9        XOR2       B        In      -         20.405      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_9        XOR2       Y        Out     2.251     22.656      -         
+DWACT_ADD_CI_0_pog_array_0[0]           Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.un1_outCnt.I_23       AO1        A        In      -         23.429      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_23       AO1        Y        Out     1.249     24.677      -         
+DWACT_ADD_CI_0_g_array_1[0]             Net        -        -       1.938     -           3         
+CONNECTOR_0.d1.u2.un1_outCnt.I_24       AO1        B        In      -         26.615      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_24       AO1        Y        Out     1.361     27.977      -         
+DWACT_ADD_CI_0_g_array_12[0]            Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.un1_outCnt.I_21       XOR2       B        In      -         28.749      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_21       XOR2       Y        Out     2.251     31.000      -         
+un1_outCnt[1]                           Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.outCnt_RNO_1[3]       OA1B       C        In      -         31.773      -         
+CONNECTOR_0.d1.u2.outCnt_RNO_1[3]       OA1B       Y        Out     1.169     32.942      -         
+N_250                                   Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.outCnt_RNO[3]         NOR3       C        In      -         33.715      -         
+CONNECTOR_0.d1.u2.outCnt_RNO[3]         NOR3       Y        Out     1.804     35.519      -         
+N_24                                    Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.outCnt[3]             DFN1C0     D        In      -         36.291      -         
+====================================================================================================
+Total path delay (propagation time + setup) of 37.586 is 18.956(50.4%) logic and 18.631(49.6%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
 Path information for path number 4: 
       Requested Period:                      10.000
-    - Setup time:                            1.378
+    - Setup time:                            1.295
     + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         8.622
+    = Required time:                         8.705
 
-    - Propagation time:                      34.722
+    - Propagation time:                      36.291
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (critical) :                     -26.100
+    = Slack (non-critical) :                 -27.586
 
-    Number of logic level(s):                8
-    Starting point:                          CONNECTOR_0.d2.state[1] / Q
-    Ending point:                            CONNECTOR_0.d2.uartout_1[3] / D
+    Number of logic level(s):                10
+    Starting point:                          CONNECTOR_0.d1.u2.state[0] / Q
+    Ending point:                            CONNECTOR_0.d1.u2.outCnt[4] / D
     The start point is clocked by            sCLK|GLA_inferred_clock [rising] on pin CLK
     The end   point is clocked by            sCLK|GLA_inferred_clock [rising] on pin CLK
 
-Instance / Net                                   Pin      Pin               Arrival     No. of    
-Name                                  Type       Name     Dir     Delay     Time        Fan Out(s)
---------------------------------------------------------------------------------------------------
-CONNECTOR_0.d2.state[1]               DFN1C0     Q        Out     1.771     1.771       -         
-state[1]                              Net        -        -       4.105     -           10        
-CONNECTOR_0.d2.cmds_RNILHKA[4]        OR2B       B        In      -         5.876       -         
-CONNECTOR_0.d2.cmds_RNILHKA[4]        OR2B       Y        Out     1.508     7.384       -         
-N_39                                  Net        -        -       3.074     -           5         
-CONNECTOR_0.d2.state_RNIA2LF[0]       NOR2       B        In      -         10.458      -         
-CONNECTOR_0.d2.state_RNIA2LF[0]       NOR2       Y        Out     1.236     11.694      -         
-N_90                                  Net        -        -       3.420     -           6         
-CONNECTOR_0.d2.adcs_RNIP09R[0]        NOR2B      A        In      -         15.114      -         
-CONNECTOR_0.d2.adcs_RNIP09R[0]        NOR2B      Y        Out     1.236     16.350      -         
-un2_state_12_2                        Net        -        -       1.938     -           3         
-CONNECTOR_0.d2.adcs_RNIBIPI1[0]       NOR2B      A        In      -         18.288      -         
-CONNECTOR_0.d2.adcs_RNIBIPI1[0]       NOR2B      Y        Out     1.236     19.524      -         
-un2_state_12                          Net        -        -       3.938     -           8         
-CONNECTOR_0.d2.adcs_RNIO6J53[2]       NOR2       A        In      -         23.463      -         
-CONNECTOR_0.d2.adcs_RNIO6J53[2]       NOR2       Y        Out     1.219     24.682      -         
-uartout_13_1_iv_0_a2_1[7]             Net        -        -       0.773     -           1         
-CONNECTOR_0.d2.state_RNIB8P85[5]      NOR2B      A        In      -         25.455      -         
-CONNECTOR_0.d2.state_RNIB8P85[5]      NOR2B      Y        Out     1.174     26.628      -         
-N_234                                 Net        -        -       3.667     -           7         
-CONNECTOR_0.d2.uartout_1_RNO_2[3]     NOR2A      A        In      -         30.295      -         
-CONNECTOR_0.d2.uartout_1_RNO_2[3]     NOR2A      Y        Out     1.240     31.535      -         
-N_153                                 Net        -        -       0.773     -           1         
-CONNECTOR_0.d2.uartout_1_RNO[3]       NOR3       C        In      -         32.308      -         
-CONNECTOR_0.d2.uartout_1_RNO[3]       NOR3       Y        Out     1.641     33.949      -         
-uartout_13_1_iv[3]                    Net        -        -       0.773     -           1         
-CONNECTOR_0.d2.uartout_1[3]           DFN1C0     D        In      -         34.722      -         
-==================================================================================================
-Total path delay (propagation time + setup) of 36.100 is 13.640(37.8%) logic and 22.460(62.2%) route.
+Instance / Net                                     Pin      Pin               Arrival     No. of    
+Name                                    Type       Name     Dir     Delay     Time        Fan Out(s)
+----------------------------------------------------------------------------------------------------
+CONNECTOR_0.d1.u2.state[0]              DFN1C0     Q        Out     1.771     1.771       -         
+state[0]                                Net        -        -       5.722     -           21        
+CONNECTOR_0.d1.u2.serClk_RNIDL48        NOR2B      B        In      -         7.492       -         
+CONNECTOR_0.d1.u2.serClk_RNIDL48        NOR2B      Y        Out     1.508     9.000       -         
+un1_m8_i_a5_1_0                         Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.serClk_RNIG75U        OA1A       C        In      -         9.773       -         
+CONNECTOR_0.d1.u2.serClk_RNIG75U        OA1A       Y        Out     0.973     10.746      -         
+un1_N_14                                Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.state_RNIRQAO1[0]     AO1A       C        In      -         11.518      -         
+CONNECTOR_0.d1.u2.state_RNIRQAO1[0]     AO1A       Y        Out     1.520     13.038      -         
+un1_m8_i_1                              Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.state_RNI16JV2[0]     NOR3       C        In      -         13.811      -         
+CONNECTOR_0.d1.u2.state_RNI16JV2[0]     NOR3       Y        Out     1.804     15.615      -         
+un1_N_4                                 Net        -        -       4.790     -           12        
+CONNECTOR_0.d1.u2.un1_outCnt.I_9        XOR2       B        In      -         20.405      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_9        XOR2       Y        Out     2.251     22.656      -         
+DWACT_ADD_CI_0_pog_array_0[0]           Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.un1_outCnt.I_23       AO1        A        In      -         23.429      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_23       AO1        Y        Out     1.249     24.677      -         
+DWACT_ADD_CI_0_g_array_1[0]             Net        -        -       1.938     -           3         
+CONNECTOR_0.d1.u2.un1_outCnt.I_26       AO1        B        In      -         26.615      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_26       AO1        Y        Out     1.361     27.977      -         
+DWACT_ADD_CI_0_g_array_2[0]             Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.un1_outCnt.I_20       XOR2       B        In      -         28.749      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_20       XOR2       Y        Out     2.251     31.000      -         
+un1_outCnt[0]                           Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.outCnt_RNO_1[4]       OA1B       C        In      -         31.773      -         
+CONNECTOR_0.d1.u2.outCnt_RNO_1[4]       OA1B       Y        Out     1.169     32.942      -         
+N_253                                   Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.outCnt_RNO[4]         NOR3       C        In      -         33.715      -         
+CONNECTOR_0.d1.u2.outCnt_RNO[4]         NOR3       Y        Out     1.804     35.519      -         
+N_28                                    Net        -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.outCnt[4]             DFN1C0     D        In      -         36.291      -         
+====================================================================================================
+Total path delay (propagation time + setup) of 37.586 is 18.956(50.4%) logic and 18.631(49.6%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -906,48 +1009,54 @@ Path information for path number 5:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         8.705
 
-    - Propagation time:                      34.722
+    - Propagation time:                      36.029
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 -26.016
+    = Slack (non-critical) :                 -27.323
 
-    Number of logic level(s):                8
-    Starting point:                          CONNECTOR_0.d2.state[1] / Q
-    Ending point:                            CONNECTOR_0.d2.uartout_1[6] / D
+    Number of logic level(s):                10
+    Starting point:                          CONNECTOR_0.d1.cmd[2] / Q
+    Ending point:                            CONNECTOR_0.d1.u2.outCnt[3] / D
     The start point is clocked by            sCLK|GLA_inferred_clock [rising] on pin CLK
     The end   point is clocked by            sCLK|GLA_inferred_clock [rising] on pin CLK
 
-Instance / Net                                   Pin      Pin               Arrival     No. of    
-Name                                  Type       Name     Dir     Delay     Time        Fan Out(s)
---------------------------------------------------------------------------------------------------
-CONNECTOR_0.d2.state[1]               DFN1C0     Q        Out     1.771     1.771       -         
-state[1]                              Net        -        -       4.105     -           10        
-CONNECTOR_0.d2.cmds_RNILHKA[4]        OR2B       B        In      -         5.876       -         
-CONNECTOR_0.d2.cmds_RNILHKA[4]        OR2B       Y        Out     1.508     7.384       -         
-N_39                                  Net        -        -       3.074     -           5         
-CONNECTOR_0.d2.state_RNIA2LF[0]       NOR2       B        In      -         10.458      -         
-CONNECTOR_0.d2.state_RNIA2LF[0]       NOR2       Y        Out     1.236     11.694      -         
-N_90                                  Net        -        -       3.420     -           6         
-CONNECTOR_0.d2.adcs_RNIP09R[0]        NOR2B      A        In      -         15.114      -         
-CONNECTOR_0.d2.adcs_RNIP09R[0]        NOR2B      Y        Out     1.236     16.350      -         
-un2_state_12_2                        Net        -        -       1.938     -           3         
-CONNECTOR_0.d2.adcs_RNIBIPI1[0]       NOR2B      A        In      -         18.288      -         
-CONNECTOR_0.d2.adcs_RNIBIPI1[0]       NOR2B      Y        Out     1.236     19.524      -         
-un2_state_12                          Net        -        -       3.938     -           8         
-CONNECTOR_0.d2.adcs_RNIO6J53[2]       NOR2       A        In      -         23.463      -         
-CONNECTOR_0.d2.adcs_RNIO6J53[2]       NOR2       Y        Out     1.219     24.682      -         
-uartout_13_1_iv_0_a2_1[7]             Net        -        -       0.773     -           1         
-CONNECTOR_0.d2.state_RNIB8P85[5]      NOR2B      A        In      -         25.455      -         
-CONNECTOR_0.d2.state_RNIB8P85[5]      NOR2B      Y        Out     1.174     26.628      -         
-N_234                                 Net        -        -       3.667     -           7         
-CONNECTOR_0.d2.uartout_1_RNO_2[6]     NOR2B      B        In      -         30.295      -         
-CONNECTOR_0.d2.uartout_1_RNO_2[6]     NOR2B      Y        Out     1.240     31.535      -         
-N_141                                 Net        -        -       0.773     -           1         
-CONNECTOR_0.d2.uartout_1_RNO[6]       OR3        C        In      -         32.308      -         
-CONNECTOR_0.d2.uartout_1_RNO[6]       OR3        Y        Out     1.641     33.949      -         
-uartout_1_RNO_0[6]                    Net        -        -       0.773     -           1         
-CONNECTOR_0.d2.uartout_1[6]           DFN1C0     D        In      -         34.722      -         
-==================================================================================================
-Total path delay (propagation time + setup) of 36.016 is 13.556(37.6%) logic and 22.460(62.4%) route.
+Instance / Net                                       Pin      Pin               Arrival     No. of    
+Name                                    Type         Name     Dir     Delay     Time        Fan Out(s)
+------------------------------------------------------------------------------------------------------
+CONNECTOR_0.d1.cmd[2]                   DFN1E1C0     Q        Out     1.771     1.771       -         
+cmd[2]                                  Net          -        -       5.112     -           15        
+CONNECTOR_0.d1.u2.un1_m2_e_1            NOR2         B        In      -         6.883       -         
+CONNECTOR_0.d1.u2.un1_m2_e_1            NOR2         Y        Out     1.554     8.436       -         
+un1_m2_e_1                              Net          -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.state_RNI20GP[1]      NOR3A        A        In      -         9.209       -         
+CONNECTOR_0.d1.u2.state_RNI20GP[1]      NOR3A        Y        Out     1.595     10.804      -         
+un1_m2_e_2                              Net          -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.state_RNIRQAO1[0]     AO1A         B        In      -         11.577      -         
+CONNECTOR_0.d1.u2.state_RNIRQAO1[0]     AO1A         Y        Out     1.361     12.938      -         
+un1_m8_i_1                              Net          -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.state_RNI16JV2[0]     NOR3         C        In      -         13.711      -         
+CONNECTOR_0.d1.u2.state_RNI16JV2[0]     NOR3         Y        Out     1.641     15.352      -         
+un1_N_4                                 Net          -        -       4.790     -           12        
+CONNECTOR_0.d1.u2.un1_outCnt.I_9        XOR2         B        In      -         20.142      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_9        XOR2         Y        Out     2.251     22.393      -         
+DWACT_ADD_CI_0_pog_array_0[0]           Net          -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.un1_outCnt.I_23       AO1          A        In      -         23.166      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_23       AO1          Y        Out     1.249     24.415      -         
+DWACT_ADD_CI_0_g_array_1[0]             Net          -        -       1.938     -           3         
+CONNECTOR_0.d1.u2.un1_outCnt.I_24       AO1          B        In      -         26.352      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_24       AO1          Y        Out     1.361     27.714      -         
+DWACT_ADD_CI_0_g_array_12[0]            Net          -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.un1_outCnt.I_21       XOR2         B        In      -         28.486      -         
+CONNECTOR_0.d1.u2.un1_outCnt.I_21       XOR2         Y        Out     2.251     30.737      -         
+un1_outCnt[1]                           Net          -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.outCnt_RNO_1[3]       OA1B         C        In      -         31.510      -         
+CONNECTOR_0.d1.u2.outCnt_RNO_1[3]       OA1B         Y        Out     1.169     32.679      -         
+N_250                                   Net          -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.outCnt_RNO[3]         NOR3         C        In      -         33.452      -         
+CONNECTOR_0.d1.u2.outCnt_RNO[3]         NOR3         Y        Out     1.804     35.256      -         
+N_24                                    Net          -        -       0.773     -           1         
+CONNECTOR_0.d1.u2.outCnt[3]             DFN1C0       D        In      -         36.029      -         
+======================================================================================================
+Total path delay (propagation time + setup) of 37.323 is 19.302(51.7%) logic and 18.021(48.3%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -955,63 +1064,65 @@ Path delay compensated for clock skew. Clock skew is added to clock-to-out value
 ##### END OF TIMING REPORT #####]
 
 
-Finished final timing analysis (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:14s; Memory used current: 75MB peak: 77MB)
+Finished final timing analysis (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:00m:17s; Memory used current: 77MB peak: 79MB)
 
 
-Finished timing report (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:14s; Memory used current: 75MB peak: 77MB)
+Finished timing report (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:00m:17s; Memory used current: 77MB peak: 79MB)
 
 --------------------------------------------------------------------------------
 Target Part: AGLN250V2_VQFP100_STD
 Report for cell top.verilog
   Core Cell usage:
               cell count     area count*area
-              AND2    15      1.0       15.0
+              AND2    14      1.0       14.0
               AND3    22      1.0       22.0
-               AO1    72      1.0       72.0
+               AO1    98      1.0       98.0
               AO12     1      1.0        1.0
-              AO1A    36      1.0       36.0
-              AO1B     3      1.0        3.0
-              AO1C     8      1.0        8.0
+              AO1A    62      1.0       62.0
+              AO1B     2      1.0        2.0
+              AO1C    10      1.0       10.0
               AO1D     6      1.0        6.0
-              AOI1    12      1.0       12.0
-             AOI1B     4      1.0        4.0
-               AX1     3      1.0        3.0
-              AX1A     4      1.0        4.0
+              AOI1    13      1.0       13.0
+             AOI1B     2      1.0        2.0
+               AX1     2      1.0        2.0
+              AX1A     5      1.0        5.0
               AX1B     1      1.0        1.0
               AX1C     9      1.0        9.0
+              AX1E     3      1.0        3.0
+             AXOI4     1      1.0        1.0
              AXOI5     1      1.0        1.0
-              BUFF    23      1.0       23.0
-               GND    19      0.0        0.0
+              BUFF    28      1.0       28.0
+               GND    22      0.0        0.0
                INV     6      1.0        6.0
               MAJ3     1      1.0        1.0
-               MX2   109      1.0      109.0
+               MX2   113      1.0      113.0
               MX2A    25      1.0       25.0
-              MX2B     8      1.0        8.0
-              MX2C    16      1.0       16.0
-              NOR2    71      1.0       71.0
-             NOR2A   159      1.0      159.0
+              MX2B    11      1.0       11.0
+              MX2C    14      1.0       14.0
+              NOR2    80      1.0       80.0
+             NOR2A   157      1.0      157.0
              NOR2B   186      1.0      186.0
-              NOR3    34      1.0       34.0
-             NOR3A    42      1.0       42.0
-             NOR3B    66      1.0       66.0
-             NOR3C    36      1.0       36.0
-               OA1    28      1.0       28.0
-              OA1A    14      1.0       14.0
-              OA1B    25      1.0       25.0
-              OA1C    31      1.0       31.0
-              OAI1     5      1.0        5.0
-               OR2    60      1.0       60.0
-              OR2A    28      1.0       28.0
-              OR2B    12      1.0       12.0
-               OR3    47      1.0       47.0
-              OR3A    11      1.0       11.0
-              OR3B     4      1.0        4.0
-              OR3C     1      1.0        1.0
+              NOR3    53      1.0       53.0
+             NOR3A    54      1.0       54.0
+             NOR3B    85      1.0       85.0
+             NOR3C    55      1.0       55.0
+               OA1    33      1.0       33.0
+              OA1A    15      1.0       15.0
+              OA1B    34      1.0       34.0
+              OA1C    34      1.0       34.0
+              OAI1     3      1.0        3.0
+               OR2    74      1.0       74.0
+              OR2A    33      1.0       33.0
+              OR2B    19      1.0       19.0
+               OR3    40      1.0       40.0
+              OR3A    22      1.0       22.0
+              OR3B     5      1.0        5.0
+              OR3C     2      1.0        2.0
                PLL     1      0.0        0.0
-               VCC    19      0.0        0.0
-               XA1     3      1.0        3.0
-              XA1A     1      1.0        1.0
-              XA1B    64      1.0       64.0
+               VCC    22      0.0        0.0
+               XA1     1      1.0        1.0
+              XA1A     2      1.0        2.0
+              XA1B    84      1.0       84.0
               XA1C     2      1.0        2.0
              XNOR2     4      1.0        4.0
               XOR2    38      1.0       38.0
@@ -1019,36 +1130,37 @@ Report for cell top.verilog
 
 
               DFN1    13      1.0       13.0
-            DFN1C0   146      1.0      146.0
-          DFN1E0C0    90      1.0       90.0
-          DFN1E0P0    14      1.0       14.0
-            DFN1E1    12      1.0       12.0
-          DFN1E1C0   185      1.0      185.0
-          DFN1E1P0     3      1.0        3.0
-            DFN1P0    18      1.0       18.0
+            DFN1C0   165      1.0      165.0
+            DFN1E0    15      1.0       15.0
+          DFN1E0C0   131      1.0      131.0
+          DFN1E0P0    15      1.0       15.0
+            DFN1E1    16      1.0       16.0
+          DFN1E1C0   208      1.0      208.0
+          DFN1E1P0     4      1.0        4.0
+            DFN1P0    24      1.0       24.0
                    -----          ----------
-             TOTAL  1878              1839.0
+             TOTAL  2202              2157.0
 
 
   IO Cell usage:
               cell count
-             INBUF     6
-            OUTBUF    16
+             INBUF     7
+            OUTBUF    19
                    -----
-             TOTAL    22
+             TOTAL    26
 
 
-Core Cells         : 1839 of 6144 (30%)
-IO Cells           : 22
+Core Cells         : 2157 of 6144 (35%)
+IO Cells           : 26
 
   RAM/ROM Usage Summary
 Block Rams : 0 of 8 (0%)
 
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:14s; Memory used current: 35MB peak: 77MB)
+At Mapper Exit (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:00m:17s; Memory used current: 36MB peak: 79MB)
 
-Process took 0h:00m:14s realtime, 0h:00m:14s cputime
-# Fri Jan 22 11:29:53 2016
+Process took 0h:00m:18s realtime, 0h:00m:17s cputime
+# Wed Jan 27 12:04:05 2016
 
 ###########################################################]

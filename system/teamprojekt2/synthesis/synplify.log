@@ -4,7 +4,7 @@ sourcing C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\message_overri
 Starting:    C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\bin\mbin\synbatch.exe
 Install:     C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3
 Hostname:    MATZE-PC
-Date:        Fri Jan 22 11:29:28 2016
+Date:        Wed Jan 27 12:03:34 2016
 Version:     J-2015.03M-3
 
 Arguments:   -product synplify_pro -licensetype synplifypro_actel -batch -log synplify.log top_syn.tcl
@@ -68,7 +68,7 @@ Copied C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\top.fse to C
 
 premap Completed with warnings
 Return Code: 1
-Run Time:0h:00m:02s
+Run Time:0h:00m:04s
 
 Complete: Compile on top_syn|synthesis
 
@@ -83,7 +83,7 @@ Copied C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synwork\top_
 
 fpga_mapper Completed with warnings
 Return Code: 1
-Run Time:0h:00m:15s
+Run Time:0h:00m:19s
 
 Complete: Map on top_syn|synthesis
 

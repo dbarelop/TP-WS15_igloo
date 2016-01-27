@@ -1,13 +1,26 @@
 @N: CD630 :"C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd":5:7:5:15|Synthesizing work.connector.behaviour 
-@W: CD638 :"C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd":58:11:58:21|Signal busyadt7301 is undriven 
+@N: CD630 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":5:7:5:17|Synthesizing work.adt7301ctrl.behaviour 
+@N: CD231 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":65:13:65:14|Using onehot encoding for type tstate (idle="100000")
+@N: CD233 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":70:17:70:18|Using sequential encoding for type tuartstate
+@N: CD231 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":73:17:73:18|Using onehot encoding for type treadstate (s0="100000")
+@N: CD233 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":76:11:76:12|Using sequential encoding for type tcmd
+@N: CD630 :"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd":5:7:5:17|Synthesizing work.busycounter.behaviour 
+@N: CD233 :"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd":18:16:18:17|Using sequential encoding for type tstate
+Post processing for work.busycounter.behaviour
+@N: CD630 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301IF.vhd":7:7:7:15|Synthesizing work.adt7301if.behaviour 
+@N: CD233 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301IF.vhd":24:15:24:16|Using sequential encoding for type tstate
+Post processing for work.adt7301if.behaviour
+Post processing for work.adt7301ctrl.behaviour
+@W: CL169 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Pruning register cmd_4(readtemp)  
+@W: CL271 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Pruning bits 7 to 4 of dataIN_4(7 downto 0) -- not in use ... 
+@A: CL282 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Feedback mux created for signal result[13:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@A: CL282 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Feedback mux created for signal strb -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@A: CL282 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Feedback mux created for signal dataIN[3:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
 @N: CD630 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":5:7:5:16|Synthesizing work.ad7782ctrl.behaviour 
 @N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":50:13:50:14|Using onehot encoding for type tstate (idle="1000000")
 @N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":51:15:51:16|Using onehot encoding for type adcstate (s0="100000")
 @N: CD233 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":52:16:52:17|Using sequential encoding for type uartstate
 @N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":53:15:53:16|Using onehot encoding for type cmdstate (idle="100000")
-@N: CD630 :"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd":5:7:5:17|Synthesizing work.busycounter.behaviour 
-@N: CD233 :"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd":18:16:18:17|Using sequential encoding for type tstate
-Post processing for work.busycounter.behaviour
 @N: CD630 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd":20:7:20:14|Synthesizing work.ad7782if.behaviour 
 @N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd":45:15:45:16|Using onehot encoding for type tstate (s0="10000")
 Post processing for work.ad7782if.behaviour
@@ -37,8 +50,10 @@ Post processing for work.compxctrl.behaviour
 @W: CL271 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Pruning bits 7 to 4 of dataIN_4(7 downto 0) -- not in use ... 
 @A: CL282 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Feedback mux created for signal dataIN[3:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
 @W: CL190 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Optimizing register bit uartout(6) to a constant 0
-@W: CL190 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Optimizing register bit uartout(4) to a constant 0
-@W: CL169 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Pruning register uartout(4)  
+@W: CL190 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Optimizing register bit uartout(2) to a constant 0
+@W: CL190 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Optimizing register bit uartout(0) to a constant 0
+@W: CL169 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Pruning register uartout(0)  
+@W: CL169 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Pruning register uartout(2)  
 @W: CL169 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Pruning register uartout(6)  
 @N: CD630 :"C:\Users\matze\Documents\igloo\common\AliveCOUNTER.vhd":5:7:5:18|Synthesizing work.alivecounter.behaviour 
 Post processing for work.alivecounter.behaviour
@@ -155,6 +170,38 @@ State machine has 7 reachable states with original encodings of:
    1000000
 @N: CL201 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":208:2:208:3|Trying to extract state machine for register cmds
 Extracted state machine for register cmds
+State machine has 6 reachable states with original encodings of:
+   000001
+   000010
+   000100
+   001000
+   010000
+   100000
+@N: CL201 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301IF.vhd":35:6:35:7|Trying to extract state machine for register state
+Extracted state machine for register state
+State machine has 4 reachable states with original encodings of:
+   00
+   01
+   10
+   11
+@N: CL201 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Trying to extract state machine for register uartstate
+Extracted state machine for register uartstate
+State machine has 4 reachable states with original encodings of:
+   00
+   01
+   10
+   11
+@N: CL201 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Trying to extract state machine for register state
+Extracted state machine for register state
+State machine has 6 reachable states with original encodings of:
+   000001
+   000010
+   000100
+   001000
+   010000
+   100000
+@N: CL201 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Trying to extract state machine for register readstate
+Extracted state machine for register readstate
 State machine has 6 reachable states with original encodings of:
    000001
    000010

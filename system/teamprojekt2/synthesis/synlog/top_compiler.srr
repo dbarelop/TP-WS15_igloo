@@ -9,25 +9,24 @@ Copyright (C) 1994-2015 Synopsys, Inc. This software and the associated document
 @N: CD720 :"C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
 @N:"C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd":5:7:5:15|Top entity is set to CONNECTOR.
 VHDL syntax check successful!
-File C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd changed - recompiling
-File C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\vhd\signed.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd changed - recompiling
 File C:\Users\matze\Documents\igloo\common\AliveCOUNTER.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\common\COUNTER.vhd changed - recompiling
 File C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd changed - recompiling
 File C:\Users\matze\Documents\igloo\uart\baudgen.vhd changed - recompiling
 File C:\Users\matze\Documents\igloo\uart\glitchfilter.vhd changed - recompiling
 File C:\Users\matze\Documents\igloo\uart\receiver.vhd changed - recompiling
 File C:\Users\matze\Documents\igloo\uart\sync_flipflop.vhd changed - recompiling
 File C:\Users\matze\Documents\igloo\uart\transmitter.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\ADT7301\ADT7301IF.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\common\COUNTER.vhd changed - recompiling
 File C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd changed - recompiling
 File C:\Users\matze\Documents\igloo\uart\uart.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd changed - recompiling
+File C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd changed - recompiling
 
 At c_vhdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 37MB peak: 38MB)
 
-# Fri Jan 22 11:29:29 2016
+# Wed Jan 27 12:03:36 2016
 
 ###########################################################]
 Synopsys Verilog Compiler, version comp201503p1, Build 094R, built May 14 2015
@@ -45,7 +44,7 @@ Verilog syntax check successful!
 
 At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 37MB peak: 38MB)
 
-# Fri Jan 22 11:29:30 2016
+# Wed Jan 27 12:03:36 2016
 
 ###########################################################]
 @I::"C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\proasic\igloo.v"
@@ -57,6 +56,7 @@ At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 @I::"C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v"
 Verilog syntax check successful!
 File C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\synwork\_verilog_hintfile changed - recompiling
+File C:\Users\matze\Documents\igloo\system\teamprojekt2\smartgen\sCLK\sCLK.v changed - recompiling
 File C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v changed - recompiling
 @N: CG364 :"C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\proasic\igloo.v":2447:7:2447:9|Synthesizing module PLL
 
@@ -68,37 +68,40 @@ File C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v
 
 @N: CG364 :"C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v":9:7:9:9|Synthesizing module top
 
-@N: CG794 :"C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v":161:10:161:20|Using module CONNECTOR from library work
+@N: CG794 :"C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v":182:10:182:20|Using module CONNECTOR from library work
 
 At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 38MB peak: 39MB)
 
-# Fri Jan 22 11:29:31 2016
+# Wed Jan 27 12:03:37 2016
 
 ###########################################################]
 @N: CD720 :"C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
 @N:"C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd":5:7:5:15|Top entity is set to CONNECTOR.
-File C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd changed - recompiling
-File C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\vhd\signed.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\common\AliveCOUNTER.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\common\COUNTER.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66IF.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\uart\uart.vhd changed - recompiling
-File C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd changed - recompiling
+Options changed - recompiling
 VHDL syntax check successful!
 @N: CD630 :"C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd":5:7:5:15|Synthesizing work.connector.behaviour 
-@W: CD638 :"C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd":58:11:58:21|Signal busyadt7301 is undriven 
+@N: CD630 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":5:7:5:17|Synthesizing work.adt7301ctrl.behaviour 
+@N: CD231 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":65:13:65:14|Using onehot encoding for type tstate (idle="100000")
+@N: CD233 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":70:17:70:18|Using sequential encoding for type tuartstate
+@N: CD231 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":73:17:73:18|Using onehot encoding for type treadstate (s0="100000")
+@N: CD233 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":76:11:76:12|Using sequential encoding for type tcmd
+@N: CD630 :"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd":5:7:5:17|Synthesizing work.busycounter.behaviour 
+@N: CD233 :"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd":18:16:18:17|Using sequential encoding for type tstate
+Post processing for work.busycounter.behaviour
+@N: CD630 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301IF.vhd":7:7:7:15|Synthesizing work.adt7301if.behaviour 
+@N: CD233 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301IF.vhd":24:15:24:16|Using sequential encoding for type tstate
+Post processing for work.adt7301if.behaviour
+Post processing for work.adt7301ctrl.behaviour
+@W: CL169 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Pruning register cmd_4(readtemp)  
+@W: CL271 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Pruning bits 7 to 4 of dataIN_4(7 downto 0) -- not in use ... 
+@A: CL282 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Feedback mux created for signal result[13:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@A: CL282 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Feedback mux created for signal strb -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
+@A: CL282 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Feedback mux created for signal dataIN[3:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
 @N: CD630 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":5:7:5:16|Synthesizing work.ad7782ctrl.behaviour 
 @N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":50:13:50:14|Using onehot encoding for type tstate (idle="1000000")
 @N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":51:15:51:16|Using onehot encoding for type adcstate (s0="100000")
 @N: CD233 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":52:16:52:17|Using sequential encoding for type uartstate
 @N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":53:15:53:16|Using onehot encoding for type cmdstate (idle="100000")
-@N: CD630 :"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd":5:7:5:17|Synthesizing work.busycounter.behaviour 
-@N: CD233 :"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd":18:16:18:17|Using sequential encoding for type tstate
-Post processing for work.busycounter.behaviour
 @N: CD630 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd":20:7:20:14|Synthesizing work.ad7782if.behaviour 
 @N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd":45:15:45:16|Using onehot encoding for type tstate (s0="10000")
 Post processing for work.ad7782if.behaviour
@@ -128,8 +131,10 @@ Post processing for work.compxctrl.behaviour
 @W: CL271 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Pruning bits 7 to 4 of dataIN_4(7 downto 0) -- not in use ... 
 @A: CL282 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Feedback mux created for signal dataIN[3:0] -- possible set/reset assignment for signal missing. Specifying a reset value will improve timing and area.
 @W: CL190 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Optimizing register bit uartout(6) to a constant 0
-@W: CL190 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Optimizing register bit uartout(4) to a constant 0
-@W: CL169 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Pruning register uartout(4)  
+@W: CL190 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Optimizing register bit uartout(2) to a constant 0
+@W: CL190 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Optimizing register bit uartout(0) to a constant 0
+@W: CL169 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Pruning register uartout(0)  
+@W: CL169 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Pruning register uartout(2)  
 @W: CL169 :"C:\Users\matze\Documents\igloo\common\COMPCTRL.vhd":81:2:81:3|Pruning register uartout(6)  
 @N: CD630 :"C:\Users\matze\Documents\igloo\common\AliveCOUNTER.vhd":5:7:5:18|Synthesizing work.alivecounter.behaviour 
 Post processing for work.alivecounter.behaviour
@@ -253,10 +258,42 @@ State machine has 6 reachable states with original encodings of:
    001000
    010000
    100000
+@N: CL201 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301IF.vhd":35:6:35:7|Trying to extract state machine for register state
+Extracted state machine for register state
+State machine has 4 reachable states with original encodings of:
+   00
+   01
+   10
+   11
+@N: CL201 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Trying to extract state machine for register uartstate
+Extracted state machine for register uartstate
+State machine has 4 reachable states with original encodings of:
+   00
+   01
+   10
+   11
+@N: CL201 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Trying to extract state machine for register state
+Extracted state machine for register state
+State machine has 6 reachable states with original encodings of:
+   000001
+   000010
+   000100
+   001000
+   010000
+   100000
+@N: CL201 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Trying to extract state machine for register readstate
+Extracted state machine for register readstate
+State machine has 6 reachable states with original encodings of:
+   000001
+   000010
+   000100
+   001000
+   010000
+   100000
 
 At c_vhdl Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 41MB peak: 43MB)
 
-# Fri Jan 22 11:29:33 2016
+# Wed Jan 27 12:03:39 2016
 
 ###########################################################]
 Synopsys Netlist Linker, version comp201503p1, Build 094R, built May 14 2015
@@ -271,14 +308,14 @@ For a summary of linker messages for components that did not bind, please see lo
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 36MB peak: 37MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Fri Jan 22 11:29:34 2016
+# Wed Jan 27 12:03:40 2016
 
 ###########################################################]
 @END
 
-At c_hdl Exit (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:03s; Memory used current: 3MB peak: 4MB)
+At c_hdl Exit (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:03s; Memory used current: 3MB peak: 4MB)
 
-Process took 0h:00m:05s realtime, 0h:00m:03s cputime
-# Fri Jan 22 11:29:34 2016
+Process took 0h:00m:06s realtime, 0h:00m:03s cputime
+# Wed Jan 27 12:03:40 2016
 
 ###########################################################]

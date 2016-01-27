@@ -1,12 +1,16 @@
 #--  Synopsys, Inc.
 #--  Version J-2015.03M-3
 #--  Project file C:\Users\matze\Documents\igloo\system\teamprojekt2\synthesis\run_options.txt
-#--  Written on Fri Jan 22 11:29:28 2016
+#--  Written on Wed Jan 27 12:03:34 2016
 
 
 #project files
-add_file -vhdl -lib work "C:/Users/matze/Documents/igloo/common/AliveCOUNTER.vhd"
+add_file -vhdl -lib work "C:/Users/matze/Documents/igloo/AD7782IF/AD7782IF.vhd"
 add_file -vhdl -lib work "C:/Users/matze/Documents/igloo/common/BusyCOUNTER.vhd"
+add_file -vhdl -lib work "C:/Users/matze/Documents/igloo/AD7782IF/AD7782CTRL.vhd"
+add_file -vhdl -lib work "C:/Users/matze/Documents/igloo/ADT7301/ADT7301IF.vhd"
+add_file -vhdl -lib work "C:/Users/matze/Documents/igloo/ADT7301/ADT7301CTRL.vhd"
+add_file -vhdl -lib work "C:/Users/matze/Documents/igloo/common/AliveCOUNTER.vhd"
 add_file -vhdl -lib work "C:/Users/matze/Documents/igloo/common/COUNTER.vhd"
 add_file -vhdl -lib work "C:/Users/matze/Documents/igloo/common/COMPCTRL.vhd"
 add_file -vhdl -lib work "C:/Users/matze/Documents/igloo/EEPROM93LC66/EEPROM93LC66IF.vhd"
@@ -17,8 +21,6 @@ add_file -vhdl -lib work "C:/Users/matze/Documents/igloo/uart/receiver.vhd"
 add_file -vhdl -lib work "C:/Users/matze/Documents/igloo/uart/sync_flipflop.vhd"
 add_file -vhdl -lib work "C:/Users/matze/Documents/igloo/uart/transmitter.vhd"
 add_file -vhdl -lib work "C:/Users/matze/Documents/igloo/uart/uart.vhd"
-add_file -vhdl -lib work "C:/Users/matze/Documents/igloo/AD7782IF/AD7782IF.vhd"
-add_file -vhdl -lib work "C:/Users/matze/Documents/igloo/AD7782IF/AD7782CTRL.vhd"
 add_file -vhdl -lib work "C:/Users/matze/Documents/igloo/common/CONNECTOR.vhd"
 add_file -verilog "C:/Users/matze/Documents/igloo/system/teamprojekt2/smartgen/sCLK/sCLK.v"
 add_file -verilog "C:/Users/matze/Documents/igloo/system/teamprojekt2/component/work/top/top.v"

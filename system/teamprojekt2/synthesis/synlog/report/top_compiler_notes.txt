@@ -8,17 +8,24 @@
 @N: CG364 :"C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\proasic\igloo.v":1864:7:1864:9|Synthesizing module VCC
 @N: CG364 :"C:\Users\matze\Documents\igloo\system\teamprojekt2\smartgen\sCLK\sCLK.v":5:7:5:10|Synthesizing module sCLK
 @N: CG364 :"C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v":9:7:9:9|Synthesizing module top
-@N: CG794 :"C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v":161:10:161:20|Using module CONNECTOR from library work
+@N: CG794 :"C:\Users\matze\Documents\igloo\system\teamprojekt2\component\work\top\top.v":182:10:182:20|Using module CONNECTOR from library work
 @N: CD720 :"C:\Microsemi\Libero_v11.6\Synopsys\fpga_J-2015.03M-3\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
 @N:"C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd":5:7:5:15|Top entity is set to CONNECTOR.
 @N: CD630 :"C:\Users\matze\Documents\igloo\common\CONNECTOR.vhd":5:7:5:15|Synthesizing work.connector.behaviour 
+@N: CD630 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":5:7:5:17|Synthesizing work.adt7301ctrl.behaviour 
+@N: CD231 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":65:13:65:14|Using onehot encoding for type tstate (idle="100000")
+@N: CD233 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":70:17:70:18|Using sequential encoding for type tuartstate
+@N: CD231 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":73:17:73:18|Using onehot encoding for type treadstate (s0="100000")
+@N: CD233 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":76:11:76:12|Using sequential encoding for type tcmd
+@N: CD630 :"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd":5:7:5:17|Synthesizing work.busycounter.behaviour 
+@N: CD233 :"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd":18:16:18:17|Using sequential encoding for type tstate
+@N: CD630 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301IF.vhd":7:7:7:15|Synthesizing work.adt7301if.behaviour 
+@N: CD233 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301IF.vhd":24:15:24:16|Using sequential encoding for type tstate
 @N: CD630 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":5:7:5:16|Synthesizing work.ad7782ctrl.behaviour 
 @N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":50:13:50:14|Using onehot encoding for type tstate (idle="1000000")
 @N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":51:15:51:16|Using onehot encoding for type adcstate (s0="100000")
 @N: CD233 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":52:16:52:17|Using sequential encoding for type uartstate
 @N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":53:15:53:16|Using onehot encoding for type cmdstate (idle="100000")
-@N: CD630 :"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd":5:7:5:17|Synthesizing work.busycounter.behaviour 
-@N: CD233 :"C:\Users\matze\Documents\igloo\common\BusyCOUNTER.vhd":18:16:18:17|Using sequential encoding for type tstate
 @N: CD630 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd":20:7:20:14|Synthesizing work.ad7782if.behaviour 
 @N: CD231 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782IF.vhd":45:15:45:16|Using onehot encoding for type tstate (s0="10000")
 @N: CD630 :"C:\Users\matze\Documents\igloo\EEPROM93LC66\EEPROM93LC66CTRL.vhd":5:7:5:16|Synthesizing work.eepromctrl.behaviour 
@@ -48,5 +55,9 @@
 @N: CL201 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":208:2:208:3|Trying to extract state machine for register adcs
 @N: CL201 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":208:2:208:3|Trying to extract state machine for register state
 @N: CL201 :"C:\Users\matze\Documents\igloo\AD7782IF\AD7782CTRL.vhd":208:2:208:3|Trying to extract state machine for register cmds
+@N: CL201 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301IF.vhd":35:6:35:7|Trying to extract state machine for register state
+@N: CL201 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Trying to extract state machine for register uartstate
+@N: CL201 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Trying to extract state machine for register state
+@N: CL201 :"C:\Users\matze\Documents\igloo\ADT7301\ADT7301CTRL.vhd":167:2:167:3|Trying to extract state machine for register readstate
 @N|Running in 32-bit mode
 
