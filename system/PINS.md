@@ -9,7 +9,7 @@ IGLOO nano Starter Kit
 | Pin No. | Net name   |
 |---------|------------|
 | 10      | RST        |
-| 15      | CLK        |
+| 15      | CLK (1MHz input)       |
 | 16      | RXD        |
 | 19      | TXD        |
 | 26      | WATCHDOGEN |

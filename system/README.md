@@ -1,7 +1,7 @@
 # Firmware working parts / protocol
 Path to flash-file:
 
-igloo/system/teamprojekt/designer/impl2/top.pdb
+igloo/system/teamprojekt2/designer/impl1/top.pdb
 
 Config:
 * 9600 Baudrate
@@ -9,6 +9,8 @@ Config:
 * 1 stop bit
 * no parity
 * no handshake
+
+The CLK Pin of the Connector (main) component has to be connected to 1MHz clocksource.
 
 ## Peripherals
 
