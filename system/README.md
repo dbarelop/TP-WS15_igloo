@@ -12,6 +12,12 @@ Config:
 
 The CLK Pin of the Connector (main) component has to be connected to 1MHz clocksource.
 
+## Knowing Bugs
+* The oscillator for the AD Converter has a oscillation bug. In this bug-state the ADC can't convert any Voltage.
+    * A quit fix of this Bug is: Disconnect all ports, connect at first the power supply and then the rest. 
+* Caused on en Overvoltage Protection it isn't possible to convert negative Voltages.
+    * If you know that you want to convert negative Voltages, you can change *GND* and *V+* on the chanel and convert the negative Voltage as a positive voltage.
+
 ## Peripherals
 
 ### LEDs
@@ -28,6 +34,8 @@ The CLK Pin of the Connector (main) component has to be connected to 1MHz clocks
 | Switch No. | Function   |
 |------------|------------|
 | 1          | En/disable watchdog for debug purposes |
+
+\pagebrake
 
 ## Watchdog
 If the watchdog is enabled and the busy-flag is active for more than
